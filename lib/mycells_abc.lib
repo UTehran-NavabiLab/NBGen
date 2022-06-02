@@ -1,0 +1,61 @@
+library(demo) {
+  cell(BUF) {
+    area: 6;
+    pin(A) { direction: input; }
+    pin(Y) { direction: output;
+              function: "A"; }
+  }
+  cell(IBUF) {
+    area: 6;
+    pin(I) { direction: input; }
+    pin(O) { direction: output;
+              function: "I"; }
+  }
+  cell(OBUF) {
+    area: 6;
+    pin(I) { direction: input; }
+    pin(O) { direction: output;
+              function: "I"; }
+  }
+  cell(NOT) {
+    area: 3;
+    pin(A) { direction: input; }
+    pin(Y) { direction: output;
+              function: "A'"; }
+  }
+  cell(NAND) {
+    area: 4;
+    pin(A) { direction: input; }
+    pin(B) { direction: input; }
+    pin(Y) { direction: output;
+             function: "(A*B)'"; }
+  }
+  cell(NOR) {
+    area: 4;
+    pin(A) { direction: input; }
+    pin(B) { direction: input; }
+    pin(Y) { direction: output;
+             function: "(A+B)'"; }
+  }
+  cell(DFF_PP0) {
+    area: 18;
+    pin(R) { direction: input; }
+    pin(D) { direction: input; }
+    pin(Q) { direction: output;
+              function: "D+R"; }
+  }
+  cell(DFF_PP1) {
+    area: 18;
+    pin(R) { direction: input; }
+    pin(D) { direction: input; }
+    pin(Q) { direction: output;
+              function: "D+R"; }
+  }
+  cell(DFF) {
+    area: 18;
+    pin(C) { direction: input; }
+    pin(D) { direction: input; }
+    pin(Q) { direction: output;
+              function: "D+C"; }
+  }
+}

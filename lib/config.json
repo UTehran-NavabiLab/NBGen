@@ -1,0 +1,14 @@
+{
+    "yosys_script_fileName": "scripts.ys",
+    "yosys_script_premap_v_outputName": "synth_premap.v",
+    "yosys_script_premap_blif_outputName": "synth_premap.blif",
+    "yosys_script_postmap_v_outputName": "synth_postmap.v",
+    "mycells_yosys_lib_fileName": "mycells_yosys.lib",
+    "mycells_abc_lib_fileName": "mycells_abc.lib",
+    "Logic_map_fileName": "Logic_map.v",
+    "DFF_map_fileName": "DFF_map.v",
+    "abc_script_fileName": "abc_script.scr",
+    "abc_v_inputName": "synth_dffport_rm.v",
+    "abc_bench_output": "abc_bench.bench"
+
+}
