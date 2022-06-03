@@ -47,19 +47,18 @@ def preparation():
    return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, bench_dir], 
             "config": config}
 
-def netlist(input_file_name, module_name, config, working_directory, synthesis_dir, lib_dir, log_dir, vhdl=False):
+def netlist(input_file_name, config, working_directory, synthesis_dir, lib_dir, log_dir):
    yosys_script_dir = os.path.join(lib_dir, "yosys_script.ys")
 
    with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
-      f.write(yosys_script_mk(input_file=input_file_name, module_name=module_name, 
-                              config=config, working_directory=working_directory, 
-                              lib_dir=lib_dir, synthesis_dir=synthesis_dir, vhdl=vhdl))
+      f.write(yosys_script_mk(input_file=input_file_name, config=config, 
+                              working_directory=working_directory, 
+                              lib_dir=lib_dir, synthesis_dir=synthesis_dir))
 
    # change dir to synthesis
    os.chdir(synthesis_dir)
    # run yosys script with input file name, throw exception if failed
-   yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
-   # yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
+   yosys_log = subprocess.run([f'yosys'], stdout=subprocess.PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
    yosys_log_dir = os.path.join(log_dir, "yosys.log")
    with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
       f.write(yosys_log.stdout)
@@ -84,8 +83,8 @@ def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, bench_dir)
 
    # change dir to synthesis
    os.chdir(bench_dir)
-   # run abc script with input file name, through exception if failed
-   abc_log = subprocess.run([config["abc_bin"]], stdout=subprocess.PIPE, text=True, input=f'source -x {abc_script_dir}', check=True)
+   # run yosys script with input file name, through exception if failed
+   abc_log = subprocess.run([f'abc'], stdout=subprocess.PIPE, text=True, input=f'source -x {abc_script_dir}', check=True)
    yosys_log_dir = os.path.join(log_dir, "abc.log")
    with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
       f.write(abc_log.stdout)

@@ -12,17 +12,13 @@ def abc_script_mk(config, lib_dir, bench_dir, synthesis_dir):
     return abc_script
     
 # def func with input file name as argument
-def yosys_script_mk(input_file, module_name, config, working_directory, lib_dir, synthesis_dir, vhdl=False):
+def yosys_script_mk(input_file, config, working_directory, lib_dir, synthesis_dir):
     # read yosys script template
     with open(os.path.join(lib_dir, config['yosys_script_fileName']), "r") as yosys_template_script:
         yosys_script = yosys_template_script.read()
 
-    if (not vhdl):
-        # create yosys_script from template
-        yosys_script = f'read_verilog {os.path.join(working_directory, input_file)} \n' + yosys_script
-    else:
-        yosys_script = f'ghdl {os.path.join(working_directory, input_file)} -e {module_name} \n' + yosys_script
-
+    # create yosys_script from template
+    yosys_script = f'read_verilog {os.path.join(working_directory, input_file)} \n' + yosys_script
 
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for dfflibmap"])
     # split_page won't start from new line so we add it add new line 

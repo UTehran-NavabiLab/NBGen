@@ -1,0 +1,3 @@
+read /Users/ebinouri/Documents/UNi/NBGen/examplecopy/lib/mycells_abc.lib 
+read -m /Users/ebinouri/Documents/UNi/NBGen/examplecopy/bench/synth_dffport_rm.v 
+write_bench /Users/ebinouri/Documents/UNi/NBGen/examplecopy/bench/abc_bench.bench 

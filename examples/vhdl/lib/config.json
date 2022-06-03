@@ -9,7 +9,7 @@
     "Logic_map_fileName": "Logic_map.v",
     "DFF_map_fileName": "DFF_map.v",
     
-    "abc_bin": "bin",
+    "abc_bin": "abc",
     "abc_script_fileName": "abc_script.scr",
     "abc_v_inputName": "synth_dffport_rm.v",
     "mycells_abc_lib_fileName": "mycells_abc.lib",
