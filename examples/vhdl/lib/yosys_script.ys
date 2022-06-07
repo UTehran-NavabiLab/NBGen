@@ -1,4 +1,4 @@
-read_verilog /Users/ebinouri/Documents/UNi/NBGen/examples/vhdl/fulladder.vhd 
+ghdl /Users/ebinouri/Documents/UNi/NBGen/examples/vhdl/fulladder.vhd -e fulladder 
 hierarchy -check -auto-top
 synth; flatten
 opt -full
