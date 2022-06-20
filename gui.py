@@ -8,9 +8,12 @@ prop = script.preparation()
 [working_directory, synthesis_dir, lib_dir, log_dir, bench_dir] = prop["directories"]
 config = prop["config"]
 
+# by default one must generate netlist before try to generate bench
 has_netlist = False
 #---------------------------- Functions ---------------------
 def gen_netlist():
+    global has_netlist
+    has_netlist = True
     input_file_name = entry_fileName.get()
     module_name = entry_moduleName.get()
     script.netlist(input_file_name, module_name, config, working_directory, 
@@ -23,8 +26,6 @@ def gen_netlist():
         log_txt = log_file.read()
     
     log_win.insert(tk.END, log_txt)
-    global has_netlist
-    has_netlist = True
 
 
 
