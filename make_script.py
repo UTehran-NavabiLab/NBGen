@@ -50,7 +50,7 @@ def yosys_script_mk(input_file, module_name, config, working_directory, lib_dir,
     yosys_script_1st += '\n'
     yosys_script_1st += f'techmap -map {os.path.join(lib_dir, config["DFF_map_fileName"])} \n'
     yosys_script_1st += f'abc -liberty {os.path.join(lib_dir, config["mycells_yosys_lib_fileName"])} \n'
-    yosys_script_1st += "opt; splitnets; opt; clean -purge"
+    yosys_script_1st += "opt; splitnets; opt; clean -purge\n"
     yosys_script_1st += f'techmap -map {os.path.join(lib_dir, config["Logic_map_fileName"])} \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
 
