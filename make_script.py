@@ -48,14 +48,18 @@ def yosys_script_mk(input_file, module_name, config, working_directory, lib_dir,
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder techmap"])
     # split_page won't start from new line so we add it add new line 
     yosys_script_1st += '\n'
-    yosys_script_1st += f'techmap -map {os.path.join(lib_dir, config["Logic_map_fileName"])} \n'
     yosys_script_1st += f'techmap -map {os.path.join(lib_dir, config["DFF_map_fileName"])} \n'
+    yosys_script_1st += f'abc -liberty {os.path.join(lib_dir, config["mycells_yosys_lib_fileName"])} \n'
+    yosys_script_1st += "opt; splitnets; opt; clean -purge"
+    yosys_script_1st += f'techmap -map {os.path.join(lib_dir, config["Logic_map_fileName"])} \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
 
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for postmap_synthesis file"])
     # split_page won't start from new line so we add it add new line 
     yosys_script_1st += '\n'
     yosys_script_1st += f'write_verilog -noattr {os.path.join(synthesis_dir, config["yosys_script_postmap_v_outputName"])} \n'
+    # write json output for future use
+    yosys_script_1st += f'write_json {os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])} \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
 
     return yosys_script

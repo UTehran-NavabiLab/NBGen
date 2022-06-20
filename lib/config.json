@@ -4,6 +4,7 @@
     "yosys_script_premap_v_outputName": "synth_premap.v",
     "yosys_script_premap_blif_outputName": "synth_premap.blif",
     "yosys_script_postmap_v_outputName": "synth_postmap.v",
+    "yosys_script_postmap_json_outputName": "synth_postmap.json",
     "mycells_yosys_lib_fileName": "mycells_yosys.lib",
     
     "Logic_map_fileName": "Logic_map.v",

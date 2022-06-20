@@ -1,6 +1,6 @@
 hierarchy -check -auto-top
-synth; flatten
-opt -full
+synth; opt -full
+flatten
 
 # placeholder for dfflibmap
 # dfflibmap -liberty mycells.lib
@@ -22,9 +22,11 @@ clean -purge
 # write_blif synth_premap.blif
 
 # placeholder techmap
-# techmap -map Logic_map.v
 # techmap -map DFF_map.v
+# techmap -map Logic_map.v
 
+opt
+clean -purge
 opt_clean
 stat
 
