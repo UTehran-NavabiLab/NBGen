@@ -47,13 +47,20 @@ def preparation():
    return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, bench_dir], 
             "config": config}
 
-def netlist(input_file_name, module_name, config, working_directory, synthesis_dir, lib_dir, log_dir, vhdl=False):
+# @def: synthesize using yosys
+#  @args: 
+#     config: dictionary of configuration obtained from json
+#     vhdl: determine the design to be vhdl
+#     create_script: if set to false bypasses script making process
+#        user must provide valid yosys script at valid location (under lib_dir)
+def netlist(input_file_name, module_name, config, working_directory, synthesis_dir, lib_dir, log_dir, vhdl=False, create_script=True):
    yosys_script_dir = os.path.join(lib_dir, "yosys_script.ys")
 
-   with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
-      f.write(yosys_script_mk(input_file=input_file_name, module_name=module_name, 
-                              config=config, working_directory=working_directory, 
-                              lib_dir=lib_dir, synthesis_dir=synthesis_dir, vhdl=vhdl))
+   if (create_script):
+      with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
+         f.write(yosys_script_mk(input_file=input_file_name, module_name=module_name, 
+                                 config=config, working_directory=working_directory, 
+                                 lib_dir=lib_dir, synthesis_dir=synthesis_dir, vhdl=vhdl))
 
    # change dir to synthesis
    os.chdir(synthesis_dir)

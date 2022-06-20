@@ -14,7 +14,8 @@ def gen_netlist():
     input_file_name = entry_fileName.get()
     module_name = entry_moduleName.get()
     script.netlist(input_file_name, module_name, config, working_directory, 
-        synthesis_dir, lib_dir, log_dir, vhdl=tk_is_vhdl.get())
+        synthesis_dir, lib_dir, log_dir,
+        vhdl=tk_is_vhdl.get(), create_script=tk_create_script.get())
 
     log_win.delete("1.0", tk.END)
     # read log file
@@ -47,6 +48,11 @@ def gen_bench():
 #   reserved for future use
 def set_vhdl():
     pass
+
+# callback function for create_script
+#   reserved for future use
+def set_create_script():
+    pass
 #----------------------------------------------------------------------- 
 
 window = tk.Tk()
@@ -55,6 +61,7 @@ window.columnconfigure(0, weight=1)
 
 logo_file = tk.PhotoImage(file="UT_png.png")
 tk_is_vhdl = tk.BooleanVar(master, False)
+tk_create_script = tk.BooleanVar(master, False)
 
 #---------------------------- Frames ---------------------
 fr_logo_title = tk.Frame(master=window)
@@ -123,6 +130,13 @@ checkbox_vhdl = tk.Checkbutton(
     variable=tk_is_vhdl,
     command=set_vhdl)
 checkbox_vhdl.pack()
+
+checkbox_create_script = tk.Checkbutton(
+    master=fr_entry, 
+    text='Use existing yosys script',
+    variable=tk_create_script,
+    command=set_create_script)
+checkbox_create_script.pack()
 
 log_win = tk.Text(
     master=fr_log_window,
