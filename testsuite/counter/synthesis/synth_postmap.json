@@ -1,0 +1,816 @@
+{
+  "creator": "Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )",
+  "modules": {
+    "counter": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:1.1-12.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "count": {
+          "direction": "output",
+          "bits": [ 5, 6, 7, 8 ]
+        }
+      },
+      "cells": {
+        "$abc$168$auto$blifparse.cc:381:parse_blif$169": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "in": [ 9 ],
+            "out": [ 10 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$170": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "in": [ 11 ],
+            "out": [ 12 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$171": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "in": [ 13 ],
+            "out": [ 14 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$172": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 15, 16 ],
+            "out": [ 17 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$173": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 15, 16 ],
+            "out": [ 18 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$174": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 18, 13 ],
+            "out": [ 19 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$175": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 19, 17 ],
+            "out": [ 20 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$176": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "in": [ 20 ],
+            "out": [ 21 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$177": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 17, 10 ],
+            "out": [ 22 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$178": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 17, 10 ],
+            "out": [ 23 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$179": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 23, 14 ],
+            "out": [ 24 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$180": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 24, 22 ],
+            "out": [ 25 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$181": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 22, 26 ],
+            "out": [ 27 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$182": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 22, 26 ],
+            "out": [ 28 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$183": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 28, 13 ],
+            "out": [ 29 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$184": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 29, 27 ],
+            "out": [ 30 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$185": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "in": [ 30 ],
+            "out": [ 31 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$186": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 27, 12 ],
+            "out": [ 32 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$187": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 27, 12 ],
+            "out": [ 33 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$188": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "in": [ 33, 14 ],
+            "out": [ 34 ]
+          }
+        },
+        "$abc$168$auto$blifparse.cc:381:parse_blif$189": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "in": [ 34, 32 ],
+            "out": [ 35 ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$92": {
+          "hide_name": 1,
+          "type": "dff",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:6.30-16.4"
+          },
+          "connections": {
+            "C": [ 36 ],
+            "CE": [ "1" ],
+            "CLR": [ "0" ],
+            "D": [ 21 ],
+            "NbarT": [ "0" ],
+            "PRE": [ "0" ],
+            "Q": [ 16 ],
+            "Si": [ 37 ],
+            "global_reset": [ "0" ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$93": {
+          "hide_name": 1,
+          "type": "dff",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:6.30-16.4"
+          },
+          "connections": {
+            "C": [ 36 ],
+            "CE": [ "1" ],
+            "CLR": [ "0" ],
+            "D": [ 25 ],
+            "NbarT": [ "0" ],
+            "PRE": [ "0" ],
+            "Q": [ 9 ],
+            "Si": [ 38 ],
+            "global_reset": [ "0" ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$94": {
+          "hide_name": 1,
+          "type": "dff",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:6.30-16.4"
+          },
+          "connections": {
+            "C": [ 36 ],
+            "CE": [ "1" ],
+            "CLR": [ "0" ],
+            "D": [ 31 ],
+            "NbarT": [ "0" ],
+            "PRE": [ "0" ],
+            "Q": [ 26 ],
+            "Si": [ 39 ],
+            "global_reset": [ "0" ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$95": {
+          "hide_name": 1,
+          "type": "dff",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:6.30-16.4"
+          },
+          "connections": {
+            "C": [ 36 ],
+            "CE": [ "1" ],
+            "CLR": [ "0" ],
+            "D": [ 35 ],
+            "NbarT": [ "0" ],
+            "PRE": [ "0" ],
+            "Q": [ 11 ],
+            "Si": [ 40 ],
+            "global_reset": [ "0" ]
+          }
+        },
+        "$iopadmap$counter.clk": {
+          "hide_name": 1,
+          "type": "pin",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:33.17-36.4"
+          },
+          "connections": {
+            "in": [ 2 ],
+            "out": [ 36 ]
+          }
+        },
+        "$iopadmap$counter.count": {
+          "hide_name": 1,
+          "type": "pout",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:43.18-46.4"
+          },
+          "connections": {
+            "in": [ 16 ],
+            "out": [ 5 ]
+          }
+        },
+        "$iopadmap$counter.count_1": {
+          "hide_name": 1,
+          "type": "pout",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:43.18-46.4"
+          },
+          "connections": {
+            "in": [ 9 ],
+            "out": [ 6 ]
+          }
+        },
+        "$iopadmap$counter.count_2": {
+          "hide_name": 1,
+          "type": "pout",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:43.18-46.4"
+          },
+          "connections": {
+            "in": [ 26 ],
+            "out": [ 7 ]
+          }
+        },
+        "$iopadmap$counter.count_3": {
+          "hide_name": 1,
+          "type": "pout",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:43.18-46.4"
+          },
+          "connections": {
+            "in": [ 11 ],
+            "out": [ 8 ]
+          }
+        },
+        "$iopadmap$counter.en": {
+          "hide_name": 1,
+          "type": "pin",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:33.17-36.4"
+          },
+          "connections": {
+            "in": [ 4 ],
+            "out": [ 15 ]
+          }
+        },
+        "$iopadmap$counter.rst": {
+          "hide_name": 1,
+          "type": "pin",
+          "parameters": {
+            "n": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/Logic_map.v:33.17-36.4"
+          },
+          "connections": {
+            "in": [ 3 ],
+            "out": [ 13 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$168$auto$rtlil.cc:2481:MuxGate$155": {
+          "hide_name": 1,
+          "bits": [ 21 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$auto$rtlil.cc:2481:MuxGate$159": {
+          "hide_name": 1,
+          "bits": [ 25 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$auto$rtlil.cc:2481:MuxGate$163": {
+          "hide_name": 1,
+          "bits": [ 31 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$auto$rtlil.cc:2481:MuxGate$167": {
+          "hide_name": 1,
+          "bits": [ 35 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n11_": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n12_": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n13_": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n14_": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n15_": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n16_": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n17_": {
+          "hide_name": 1,
+          "bits": [ 20 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n19_": {
+          "hide_name": 1,
+          "bits": [ 22 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n20_": {
+          "hide_name": 1,
+          "bits": [ 23 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n21_": {
+          "hide_name": 1,
+          "bits": [ 24 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n23_": {
+          "hide_name": 1,
+          "bits": [ 27 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n24_": {
+          "hide_name": 1,
+          "bits": [ 28 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n25_": {
+          "hide_name": 1,
+          "bits": [ 29 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n26_": {
+          "hide_name": 1,
+          "bits": [ 30 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n28_": {
+          "hide_name": 1,
+          "bits": [ 32 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n29_": {
+          "hide_name": 1,
+          "bits": [ 33 ],
+          "attributes": {
+          }
+        },
+        "$abc$168$new_n30_": {
+          "hide_name": 1,
+          "bits": [ 34 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$clk": {
+          "hide_name": 1,
+          "bits": [ 36 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$count[0]": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$count[1]": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "offset": 1,
+          "attributes": {
+          }
+        },
+        "$iopadmap$count[2]": {
+          "hide_name": 1,
+          "bits": [ 26 ],
+          "offset": 2,
+          "attributes": {
+          }
+        },
+        "$iopadmap$count[3]": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "offset": 3,
+          "attributes": {
+          }
+        },
+        "$iopadmap$en": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$rst": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$techmap199$auto$simplemap.cc:377:simplemap_ff$92.Si": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:5.19-5.21"
+          }
+        },
+        "$techmap200$auto$simplemap.cc:377:simplemap_ff$93.Si": {
+          "hide_name": 1,
+          "bits": [ 38 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:5.19-5.21"
+          }
+        },
+        "$techmap201$auto$simplemap.cc:377:simplemap_ff$94.Si": {
+          "hide_name": 1,
+          "bits": [ 39 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:5.19-5.21"
+          }
+        },
+        "$techmap202$auto$simplemap.cc:377:simplemap_ff$95.Si": {
+          "hide_name": 1,
+          "bits": [ 40 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:6.4-10.32|/Users/ebinouri/Documents/UNi/NBGen/examples/counter/lib/DFF_map.v:5.19-5.21"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:3.10-3.13"
+          }
+        },
+        "count": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:4.21-4.26"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:3.20-3.22"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/examples/counter/counter.v:3.15-3.18"
+          }
+        }
+      }
+    }
+  }
+}
