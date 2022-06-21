@@ -1,0 +1,18 @@
+* Name of circuit:  abc_bench.bench
+* Primary inputs :
+  _20_ _21_ _22_ _23_ en rst 
+  
+* Primary outputs:
+  co counter[0] counter[1] counter[2] counter[3] _00_ 
+  _25_ _01_ _02_ _03_ 
+
+* Test patterns and fault free responses:
+
+   1: 011100 0011100111
+   2: 111010 0111000001
+   3: 000001 0000001000
+   4: 111110 1111100000
+   5: 110100 0110110101
+   6: 000010 0000010000
+   7: 100010 0100000100
+   8: 110010 0110000010

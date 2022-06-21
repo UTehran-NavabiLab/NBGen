@@ -1,12 +1,23 @@
-module counter (clk, rst, en, count);
+//------------------------------------------------------------------------------
+// Title:   Homework 1: Logic design, Verilog modeling and testbenches
+// Author:  Nooshin Nosrati
+// Date:    01-03-2021
+//------------------------------------------------------------------------------
 
-   input clk, rst, en;
-   output reg [3:0] count;
-   
-   always @(posedge clk)
-      if (rst)
-         count <= 4'd0;
-      else if (en)
-         count <= count + 4'd1;
+module counter (clk, rst, en, co, counter);
+	input clk, rst, en;
+	output co;
+	output [3:0] counter;
+	
+	reg [3:0] counter;
 
+	always @(posedge clk, posedge rst ) 
+	begin
+		if(rst)
+			counter <= 4'b0000;
+		else if (en)
+			counter <= counter + 1;
+	end
+	
+	assign co = (counter == 4'b1111) ? 1'b1 : 1'b0;
 endmodule

@@ -41,17 +41,24 @@ def lut2gate(temp_page):
     page2line = temp_page.splitlines()
 
     for indx, line in enumerate(page2line):
+    
+        if (line.strip().find("DFFRSE") > -1):
+            page2line[indx] = line.replace('DFFRSE', 'DFF')
 
-        if (line.strip().find("LUT 0x1") > -1):
-            page2line[indx] = line.replace('LUT 0x1', 'NOT')
-        if (line.strip().find("LUT 0x8") > -1):
-            page2line[indx] = line.replace('LUT 0x8', 'AND')
-        if (line.strip().find("LUT 0x7") > -1):
-            page2line[indx] = line.replace('LUT 0x7', 'NAND')
-        if (line.strip().find("LUT 0x2") > -1):
-            page2line[indx] = line.replace('LUT 0x2', 'BUF')   
-        if (line.strip().find("LUT 0xe") > -1):
-            page2line[indx] = line.replace('LUT 0xe', 'DFF')   
+        if (line.strip().find(",") > -1):
+            if (line.strip().find("LUT 0x1") > -1):
+                page2line[indx] = line.replace('LUT 0x1', 'NOR')
+            if (line.strip().find("LUT 0x8") > -1):
+                page2line[indx] = line.replace('LUT 0x8', 'AND')
+            if (line.strip().find("LUT 0x7") > -1):
+                page2line[indx] = line.replace('LUT 0x7', 'NAND')
+        else:
+            if (line.strip().find("LUT 0x1") > -1):
+                page2line[indx] = line.replace('LUT 0x1', 'NOT')
+            if (line.strip().find("LUT 0x2") > -1):
+                page2line[indx] = line.replace('LUT 0x2', 'BUF')   
+            if (line.strip().find("LUT 0xe") > -1):
+                page2line[indx] = line.replace('LUT 0xe', 'DFF')   
        
     return "\n".join(page2line)
 
