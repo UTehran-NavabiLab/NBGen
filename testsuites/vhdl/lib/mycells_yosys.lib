@@ -37,7 +37,7 @@ library(demo) {
     pin(Y) { direction: output;
              function: "(A+B)'"; }
   }
-    cell(DFF) {
+  cell(DFF) {
     area: 18;
     ff(IQ, IQN) { clocked_on: C;
                   next_state: D; }
