@@ -7,11 +7,9 @@ prop = script.preparation()
 config = prop["config"]
 
 # by default one must generate netlist before try to generate bench
-has_netlist = False
 #---------------------------- Functions ---------------------
 def gen_netlist():
     global has_netlist
-    has_netlist = True
     input_file_name = entry_fileName.get()
     module_name = entry_moduleName.get()
     script.netlist(input_file_name, module_name, config, working_directory, 
@@ -28,20 +26,15 @@ def gen_netlist():
 
 
 def gen_bench():
-    if (has_netlist):
-        script.bench(config, working_directory, 
-            synthesis_dir, lib_dir, log_dir, bench_dir)
+    script.bench(config, working_directory, 
+        synthesis_dir, lib_dir, log_dir, bench_dir)
 
-        log_win.delete("1.0", tk.END)
-        # read log file
-        with open(os.path.join(log_dir, "abc.log"), "r") as log_file:
-            log_txt = log_file.read()
-        
-        log_win.insert(tk.END, log_txt)
-    else:
-        log_txt = "netlist has not been generated yet \n"
-        log_win.delete("1.0", tk.END)
-        log_win.insert(tk.END, log_txt)
+    log_win.delete("1.0", tk.END)
+    # read log file
+    with open(os.path.join(log_dir, "abc.log"), "r") as log_file:
+        log_txt = log_file.read()
+    
+    log_win.insert(tk.END, log_txt)
         
 # callback function for vhdl_checkbox
 #   reserved for future use
