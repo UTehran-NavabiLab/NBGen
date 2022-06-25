@@ -31,7 +31,7 @@ write_blif /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/synthesis
 # placeholder techmap
 techmap -map /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/DFF_map.v 
 abc -liberty /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/mycells_yosys.lib 
-opt; splitnets; opt; clean -purge
+opt; clean -purge
 techmap -map /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/Logic_map.v 
 
 # techmap -map DFF_map.v

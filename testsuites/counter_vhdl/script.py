@@ -7,7 +7,6 @@ from utilitie_funcs import *
 from utilitie_funcs import split_page
 from make_script import yosys_script_mk
 from make_script import abc_script_mk
-from replace_lut import replace_bench
 
 
 def preparation():
@@ -66,6 +65,7 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
    os.chdir(synthesis_dir)
    # run yosys script with input file name, throw exception if failed
    yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
+   # an alternative would be to use input arg
    # yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
    yosys_log_dir = os.path.join(log_dir, "yosys.log")
    with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
