@@ -61,8 +61,6 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
                                  config=config, working_directory=working_directory, 
                                  lib_dir=lib_dir, synthesis_dir=synthesis_dir, vhdl=vhdl))
 
-   # change dir to synthesis
-   os.chdir(synthesis_dir)
    # run yosys script with input file name, throw exception if failed
    yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
    # an alternative would be to use input arg
@@ -70,8 +68,6 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
    yosys_log_dir = os.path.join(log_dir, "yosys.log")
    with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
       f.write(yosys_log.stdout)
-   # change dir back to workdirectory
-   os.chdir(working_directory)
 
 def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, bench_dir):
    # writing abc script
