@@ -1,15 +1,14 @@
 import tkinter as tk
-import script
+import src
+from src.netBen import script
 import os
 
 prop = script.preparation()
 [working_directory, synthesis_dir, lib_dir, log_dir, bench_dir] = prop["directories"]
 config = prop["config"]
 
-# by default one must generate netlist before try to generate bench
 #---------------------------- Functions ---------------------
 def gen_netlist():
-    global has_netlist
     input_file_name = entry_fileName.get()
     module_name = entry_moduleName.get()
     script.netlist(input_file_name, module_name, config, working_directory, 
@@ -25,6 +24,7 @@ def gen_netlist():
 
 
 
+# by the time that bench is executed the synthesis result must be ready
 def gen_bench():
     script.bench(config, working_directory, 
         synthesis_dir, lib_dir, log_dir, bench_dir)
