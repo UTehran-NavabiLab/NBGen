@@ -4,7 +4,7 @@ from src.netBen import script
 import os
 
 prop = script.preparation()
-[working_directory, synthesis_dir, lib_dir, log_dir, bench_dir] = prop["directories"]
+[working_directory, synthesis_dir, lib_dir, log_dir, test_dir] = prop["directories"]
 config = prop["config"]
 
 #---------------------------- Functions ---------------------
@@ -27,7 +27,7 @@ def gen_netlist():
 # by the time that bench is executed the synthesis result must be ready
 def gen_bench():
     script.bench(config, working_directory, 
-        synthesis_dir, lib_dir, log_dir, bench_dir)
+        synthesis_dir, lib_dir, log_dir, test_dir)
 
     log_win.delete("1.0", tk.END)
     # read log file
