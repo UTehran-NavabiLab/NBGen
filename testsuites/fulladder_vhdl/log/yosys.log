@@ -863,6 +863,6 @@ Dumping module `\fulladder'.
 
 24. Executing JSON backend.
 
-End of script. Logfile hash: 4381cab31d, CPU: user 0.81s system 0.04s
+End of script. Logfile hash: 4381cab31d, CPU: user 0.76s system 0.02s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
-Time spent: 21% 27x opt_expr (0 sec), 15% 22x opt_clean (0 sec), ...
+Time spent: 21% 27x opt_expr (0 sec), 15% 3x abc (0 sec), ...

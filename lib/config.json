@@ -18,6 +18,7 @@
     
     "vhdl_netlist_fileName": "vhdl_netlist.vhd",
     "verilog_netlist_fileName": "verilog_netlist.v",
-    "systemC_netlist_fileName": "systemC_netlist.h"
-
+    "systemC_netlist_fileName": "systemC_netlist.h",
+    
+    "fault_list_fileName": "fault_list.flt"
 }

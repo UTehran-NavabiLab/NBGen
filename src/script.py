@@ -6,7 +6,8 @@ from . utilitie_funcs import *
 from . utilitie_funcs import split_page
 from . make_script import yosys_script_mk
 from . make_script import abc_script_mk
-from .. import conv
+from . import conv
+from . import flt
 
 
 def preparation():
@@ -122,3 +123,13 @@ def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
 
    with open(os.path.join(test_dir, "abc_bench.bench"), 'w', encoding = 'utf-8') as f:
       f.write(abc_post_replace)
+
+
+def fault(testbench_name,  instance_name, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+
+   fault_list = flt.fault_collapsing(json_input, testbench_name,  instance_name)
+   with open(os.path.join(test_dir, config["fault_list_fileName"]), 'w', encoding = 'utf-8') as f:
+      f.write(fault_list.generate_fault_list())
+
+
