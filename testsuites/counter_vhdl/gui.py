@@ -1,3 +1,4 @@
+from cmath import log
 import tkinter as tk
 import src
 from src import script
@@ -67,7 +68,10 @@ window = tk.Tk()
 window.rowconfigure([0, 1, 2], weight=1)
 window.columnconfigure(0, weight=1)
 
-logo_file = tk.PhotoImage(file="UT_png.png")
+if(os.path.exists("UT_png.png")):
+    logo_file = tk.PhotoImage(file="UT_png.png")
+else:
+    logo_file = False
 tk_is_vhdl = tk.BooleanVar(window, False)
 tk_create_script = tk.BooleanVar(window, False)
 
@@ -88,10 +92,11 @@ fr_vhdl_checkbox = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1
 fr_log_window = tk.Frame(master=window)
 #---------------------------- Frames ---------------------
 #-----------------------------------------------------------------------
-logo = tk.Label(
-    master=fr_logo,
-    image=logo_file
-).pack()
+if(logo_file):
+    logo = tk.Label(
+        master=fr_logo,
+        image=logo_file
+    ).pack()
 
 btn_genNetlist = tk.Button(
     master=fr_btn_genNetlist,
@@ -194,8 +199,11 @@ fr_log_window.grid(row=4, column=0)
 
 #---------------------------- show README ---------------------
 log_win.delete("1.0", tk.END)
-with open("README.txt", "r") as log_file:
-    log_txt = log_file.read()
+if(os.path.exists("README.txt")):
+    with open("README.txt", "r") as log_file:
+        log_txt = log_file.read()
+else:
+    log_txt = "welcome to NBgen"
 
 log_win.insert(tk.END, log_txt)
 #-----------------------------------------------------------------------
