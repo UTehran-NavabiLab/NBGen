@@ -1,13 +1,11 @@
 import os
-import sys
-import json
-from utilitie_funcs import split_page
+from . utilitie_funcs import split_page
 
 
-def abc_script_mk(config, lib_dir, bench_dir, synthesis_dir):
+def abc_script_mk(config, lib_dir, test_dir, synthesis_dir):
     abc_script = f'read {os.path.join(lib_dir, config["mycells_abc_lib_fileName"])} \n'
-    abc_script += f'read -m {os.path.join(bench_dir, config["abc_v_inputName"])} \n'
-    abc_script += f'write_bench {os.path.join(bench_dir, config["abc_bench_output"])} \n'
+    abc_script += f'read -m {os.path.join(test_dir, config["abc_v_inputName"])} \n'
+    abc_script += f'write_bench {os.path.join(test_dir, config["abc_bench_output"])} \n'
 
     return abc_script
     

@@ -32,3 +32,4 @@ stat
 
 # placeholder for postmap_synthesis file
 # write_verilog -noattr synth_premap.v
+# write_json -noattr synth_premap.v

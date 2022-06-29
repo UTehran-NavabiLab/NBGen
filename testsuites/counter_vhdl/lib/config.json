@@ -14,6 +14,14 @@
     "abc_script_fileName": "abc_script.scr",
     "abc_v_inputName": "synth_dffport_rm.v",
     "mycells_abc_lib_fileName": "mycells_abc.lib",
-    "abc_bench_output": "abc_bench.bench"
-
+    "abc_bench_output": "abc_bench.bench",
+    
+    "vhdl_netlist_fileName": "vhdl_netlist.vhd",
+    "verilog_netlist_fileName": "verilog_netlist.v",
+    "systemC_netlist_fileName": "systemC_netlist.h",
+    
+    "fault_list_fileName": "fault_list.flt",
+    
+    "atalanta_bin": "atalanta",
+    "atalanta_output_fileName": "atalanta_output.log"
 }

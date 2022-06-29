@@ -1,9 +1,8 @@
-# Benchmark "counter" written by ABC on Sat Jun 25 10:22:59 2022
+# Benchmark "counter" written by ABC on Wed Jun 29 11:26:09 2022
 INPUT(counter_reg[0])
 INPUT(counter_reg[1])
 INPUT(counter_reg[2])
 INPUT(counter_reg[3])
-INPUT(clk)
 INPUT(en)
 INPUT(rst)
 OUTPUT(co)

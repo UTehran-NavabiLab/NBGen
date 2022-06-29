@@ -47,3 +47,4 @@ write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhd
 write_json /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/synthesis/synth_postmap.json 
 
 # write_verilog -noattr synth_premap.v
+# write_json -noattr synth_premap.v
