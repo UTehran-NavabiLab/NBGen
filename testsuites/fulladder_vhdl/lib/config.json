@@ -20,5 +20,8 @@
     "verilog_netlist_fileName": "verilog_netlist.v",
     "systemC_netlist_fileName": "systemC_netlist.h",
     
-    "fault_list_fileName": "fault_list.flt"
+    "fault_list_fileName": "fault_list.flt",
+    
+    "atalanta_bin": "atalanta",
+    "atalanta_output_fileName": "atalanta_output.log"
 }

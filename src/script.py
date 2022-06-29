@@ -87,7 +87,10 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
       f.write(j2sc.generate_systemc())
 
 
-
+# @def: generate bench file using abc
+#  @args: 
+#     config: dictionary of configuration obtained from json
+#     reference to directories
 def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
    # writing abc script
    abc_script_dir = os.path.join(lib_dir, "abc_script.scr")
@@ -124,12 +127,33 @@ def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
    with open(os.path.join(test_dir, "abc_bench.bench"), 'w', encoding = 'utf-8') as f:
       f.write(abc_post_replace)
 
-
+# @def: generate fault list and corresponding test vector
+#  @args: 
+#     testbench_name: name of simulated testbench, used to address hierarchy 
+#     instance_name: name of design under test, used to address hierarchy 
+#     config: dictionary of configuration obtained from json
+#     use_existing_script: if set to false bypasses script making process
+#     reference to directories
 def fault(testbench_name,  instance_name, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
    json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
 
-   fault_list = flt.fault_collapsing(json_input, testbench_name,  instance_name)
+   fault_list = flt.fault_collapsing.fault_collapsing(json_input, testbench_name,  instance_name)
    with open(os.path.join(test_dir, config["fault_list_fileName"]), 'w', encoding = 'utf-8') as f:
       f.write(fault_list.generate_fault_list())
 
+   ###################### atalanta ######################
+   # change dir to synthesis
+   os.chdir(test_dir)
+
+   atalanta_script = f'{config["abc_bench_output"]}'
+
+   # run atalanta script with input file name, through exception if failed
+   atalanta_log = subprocess.run([config["atalanta_bin"], atalanta_script], stdout=subprocess.PIPE, text=True, check=True)
+   atalanta_log_dir = os.path.join(log_dir, "atalanta.log")
+   with open(atalanta_log_dir,'w', encoding = 'utf-8') as f:
+      f.write(atalanta_log.stdout)
+
+   # change back to working dir
+   os.chdir(working_directory)
+   
 

@@ -1,0 +1,17 @@
+* Name of circuit:  abc_bench.bench
+* Primary inputs :
+  ci i0 i1 
+  
+* Primary outputs:
+  co s 
+
+* Test patterns and fault free responses:
+
+   1: 001 01
+   2: 100 01
+   3: 110 10
+   4: 011 10
+   5: 000 00
+   6: 010 01
+   7: 111 11
+   8: 101 10

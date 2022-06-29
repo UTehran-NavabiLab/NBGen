@@ -39,7 +39,10 @@ def gen_bench():
 
 # by the time that fault is executed the synthesis result must be ready
 def gen_fault():
-    script.fault(config, working_directory, 
+    testbench_name = entry_testbench.get()
+    dut_name = entry_dut_name.get()
+
+    script.fault(testbench_name,  dut_name, config, working_directory, 
         synthesis_dir, lib_dir, log_dir, test_dir)
 
     log_win.delete("1.0", tk.END)
@@ -139,6 +142,20 @@ entry_moduleName = tk.Entry(
     width=25)
 entry_moduleName.pack()
 
+entry_testbench = tk.Entry(
+    master=fr_entry,
+    fg="black", 
+    bg="white", 
+    width=25)
+entry_testbench.pack()
+
+entry_dut_name = tk.Entry(
+    master=fr_entry,
+    fg="black", 
+    bg="white", 
+    width=25)
+entry_dut_name.pack()
+
 checkbox_vhdl = tk.Checkbutton(
     master=fr_entry, 
     text='VHDL Design',
@@ -166,7 +183,7 @@ fr_ent_label.grid(row=2, column=0, pady=40)
 fr_input_label.grid(row=0, column=0)
 fr_entry.grid(row=1, column=0)
 
-fr_btns.grid(row=3, column=0, pady=40)
+fr_btns.grid(row=3, column=0)
 fr_btn_genNetlist.grid(row=0, column=0)
 fr_btn_genBench.grid(row=1, column=0)
 fr_btn_genFault.grid(row=2, column=0)
