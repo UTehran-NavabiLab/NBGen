@@ -48,7 +48,7 @@ def gen_fault():
 
     log_win.delete("1.0", tk.END)
     # read log file
-    with open(os.path.join(log_dir, "abc.log"), "r") as log_file:
+    with open(os.path.join(log_dir, "atalanta.log"), "r") as log_file:
         log_txt = log_file.read()
     
     log_win.insert(tk.END, log_txt)
