@@ -241,31 +241,144 @@ SC_MODULE(pout){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(dff){
 
-    sc_in< sc_logic > D, C, CLR, PRE, CE, NbarT, Si, global_reset; 
-    sc_out< sc_logic > Q;
+    sc_in<sc_logic> D, C, CLR, PRE, CE, NbarT, Si, global_reset;
+    sc_out<sc_logic> Q;
 
-    SC_CTOR(dff){
+    sc_signal<sc_logic, SC_MANY_WRITERS> val;
+    // sc_signal<sc_logic> val;
 
-        SC_METHOD(eval);
-        sensitive << C.posedge_event() << PRE.posedge_event() << CLR.posedge_event() << global_reset.posedge_event();
+    // sc_time tphl; 
+    // sc_time tplh;
 
+    SC_HAS_PROCESS(dff);
+    dff(sc_module_name _name) 
+    : sc_module(_name) {
+    // DFlipFlop(sc_module_name _name, sc_time tphl, sc_time tplh) 
+    // : sc_module(_name), tphl(tphl), tplh(tplh) {
+
+        SC_THREAD(eval);
+            sensitive << val;
+        SC_METHOD(set);
+            sensitive << C;
+        SC_METHOD(reset);
+            sensitive << CLR << global_reset;
+        SC_METHOD(preset);
+            sensitive << PRE;
+        
     }
 
     void eval(void){
-        if ((CLR->read() == SC_LOGIC_1) || (global_reset->read() == SC_LOGIC_1))
-            Q->write(SC_LOGIC_0);
-        else if (PRE->read() == SC_LOGIC_1)
-            Q->write(SC_LOGIC_1);
-        else if (NbarT->read() == SC_LOGIC_1)
-            Q->write(Si->read());
-        else if (CE->read() == SC_LOGIC_1)
-            Q->write(D->read());
-        
-    };
+        while(true){
+                Q->write(val.read());
+            wait();
+        }
+    }
+    void set(void){
+        if ((C->read() == SC_LOGIC_1) && ((PRE->read() == SC_LOGIC_0) && (CLR->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0))){
+            if (NbarT->read() == SC_LOGIC_1) val.write(Si->read());
+            else if (CE->read() == SC_LOGIC_1) val.write(D->read());
+        }
+    }
+
+    void reset(void){
+        if (CLR->read() == SC_LOGIC_1 || global_reset->read() == SC_LOGIC_1) val.write(SC_LOGIC_0);
+    }
+
+    void preset(void){
+        if ((PRE->read() == SC_LOGIC_1) && (CLR->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0)) val.write(SC_LOGIC_1);
+    }
+
 };
 
+/////////////////////////////////////////////////////////////////////////////////////
+//    D Flip Flop: DFF_NP0
+/////////////////////////////////////////////////////////////////////////////////////
+SC_MODULE(DFF_NP0){
 
+    sc_in<sc_logic> D, C, R;
+    sc_out<sc_logic> Q;
 
+    sc_signal<sc_logic, SC_MANY_WRITERS> val;
+    // sc_signal<sc_logic> val;
+
+    // sc_time tphl; 
+    // sc_time tplh;
+
+    SC_HAS_PROCESS(DFF_NP0);
+    DFF_NP0(sc_module_name _name) 
+    : sc_module(_name) {
+
+        SC_THREAD(eval);
+            sensitive << val;
+        SC_METHOD(set);
+            sensitive << C;
+        SC_METHOD(reset);
+            sensitive << R;
+    }
+
+    void eval(void){
+        while(true){
+                Q->write(val.read());
+            wait();
+        }
+    }
+    void set(void){
+        if ((C->read() == SC_LOGIC_0) && (R->read() == SC_LOGIC_0)){
+            val.write(D->read());
+        }
+    }
+
+    void reset(void){
+        if (R->read() == SC_LOGIC_1) val.write(SC_LOGIC_0);
+    }
+
+};
+
+/////////////////////////////////////////////////////////////////////////////////////
+//    D Flip Flop: DFF_NP1
+/////////////////////////////////////////////////////////////////////////////////////
+SC_MODULE(DFF_NP1){
+
+    sc_in<sc_logic> D, C, R;
+    sc_out<sc_logic> Q;
+
+    sc_signal<sc_logic, SC_MANY_WRITERS> val;
+    // sc_signal<sc_logic> val;
+
+    // sc_time tphl; 
+    // sc_time tplh;
+
+    SC_HAS_PROCESS(DFF_NP1);
+    DFF_NP1(sc_module_name _name) 
+    : sc_module(_name) {
+    // DFlipFlop(sc_module_name _name, sc_time tphl, sc_time tplh) 
+    // : sc_module(_name), tphl(tphl), tplh(tplh) {
+
+        SC_THREAD(eval);
+            sensitive << val;
+        SC_METHOD(set);
+            sensitive << C;
+        SC_METHOD(reset);
+            sensitive << R;
+    }
+
+    void eval(void){
+        while(true){
+                Q->write(val.read());
+            wait();
+        }
+    }
+    void set(void){
+        if ((C->read() == SC_LOGIC_0) && (R->read() == SC_LOGIC_0)){
+            val.write(D->read());
+        }
+    }
+
+    void reset(void){
+        if (R->read() == SC_LOGIC_1) val.write(SC_LOGIC_1);
+    }
+
+};
 
 #endif
 
