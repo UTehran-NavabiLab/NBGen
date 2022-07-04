@@ -78,98 +78,98 @@ SC_MODULE( counter ) {
     pin* pin_30;
 
 SC_CTOR( counter ) {
-    notg_0 = new notg("notg_0_inst");
-        notg_0->in(new_counter_reg_0);
-        notg_0->out(S4);
+    notg_0 = new notg("notg_0");
+        notg_0->in1(new_counter_reg_0);
+        notg_0->out1(S4);
 
-    notg_1 = new notg("notg_1_inst");
-        notg_1->in(new_counter_reg_3);
-        notg_1->out(S5);
+    notg_1 = new notg("notg_1");
+        notg_1->in1(new_counter_reg_3);
+        notg_1->out1(S5);
 
-    notg_2 = new notg("notg_2_inst");
-        notg_2->in(S20);
-        notg_2->out(S6);
+    notg_2 = new notg("notg_2");
+        notg_2->in1(S20);
+        notg_2->out1(S6);
 
-    nand_n_3 = new nand_n("nand_n_3_inst");
-        nand_n_3->in[0](new_counter_reg_1);
-        nand_n_3->in[1](new_counter_reg_0);
-        nand_n_3->out(S7);
+    nand_n_3 = new nand_n("nand_n_3");
+        nand_n_3->in1[0](new_counter_reg_1);
+        nand_n_3->in1[1](new_counter_reg_0);
+        nand_n_3->out1(S7);
 
-    nand_n_4 = new nand_n("nand_n_4_inst");
-        nand_n_4->in[0](new_counter_reg_2);
-        nand_n_4->in[1](new_counter_reg_3);
-        nand_n_4->out(S8);
+    nand_n_4 = new nand_n("nand_n_4");
+        nand_n_4->in1[0](new_counter_reg_2);
+        nand_n_4->in1[1](new_counter_reg_3);
+        nand_n_4->out1(S8);
 
-    nor_n_5 = new nor_n("nor_n_5_inst");
-        nor_n_5->in[0](S8);
-        nor_n_5->in[1](S7);
-        nor_n_5->out(S19);
+    nor_n_5 = new nor_n("nor_n_5");
+        nor_n_5->in1[0](S8);
+        nor_n_5->in1[1](S7);
+        nor_n_5->out1(S19);
 
-    nor_n_6 = new nor_n("nor_n_6_inst");
-        nor_n_6->in[0](S6);
-        nor_n_6->in[1](S4);
-        nor_n_6->out(S9);
+    nor_n_6 = new nor_n("nor_n_6");
+        nor_n_6->in1[0](S6);
+        nor_n_6->in1[1](S4);
+        nor_n_6->out1(S9);
 
-    nor_n_7 = new nor_n("nor_n_7_inst");
-        nor_n_7->in[0](S20);
-        nor_n_7->in[1](new_counter_reg_0);
-        nor_n_7->out(S10);
+    nor_n_7 = new nor_n("nor_n_7");
+        nor_n_7->in1[0](S20);
+        nor_n_7->in1[1](new_counter_reg_0);
+        nor_n_7->out1(S10);
 
-    nor_n_8 = new nor_n("nor_n_8_inst");
-        nor_n_8->in[0](S10);
-        nor_n_8->in[1](S9);
-        nor_n_8->out(S0);
+    nor_n_8 = new nor_n("nor_n_8");
+        nor_n_8->in1[0](S10);
+        nor_n_8->in1[1](S9);
+        nor_n_8->out1(S0);
 
-    nor_n_9 = new nor_n("nor_n_9_inst");
-        nor_n_9->in[0](S7);
-        nor_n_9->in[1](S6);
-        nor_n_9->out(S11);
+    nor_n_9 = new nor_n("nor_n_9");
+        nor_n_9->in1[0](S7);
+        nor_n_9->in1[1](S6);
+        nor_n_9->out1(S11);
 
-    nor_n_10 = new nor_n("nor_n_10_inst");
-        nor_n_10->in[0](S9);
-        nor_n_10->in[1](new_counter_reg_1);
-        nor_n_10->out(S12);
+    nor_n_10 = new nor_n("nor_n_10");
+        nor_n_10->in1[0](S9);
+        nor_n_10->in1[1](new_counter_reg_1);
+        nor_n_10->out1(S12);
 
-    nor_n_11 = new nor_n("nor_n_11_inst");
-        nor_n_11->in[0](S12);
-        nor_n_11->in[1](S11);
-        nor_n_11->out(S1);
+    nor_n_11 = new nor_n("nor_n_11");
+        nor_n_11->in1[0](S12);
+        nor_n_11->in1[1](S11);
+        nor_n_11->out1(S1);
 
-    nand_n_12 = new nand_n("nand_n_12_inst");
-        nand_n_12->in[0](S11);
-        nand_n_12->in[1](new_counter_reg_2);
-        nand_n_12->out(S13);
+    nand_n_12 = new nand_n("nand_n_12");
+        nand_n_12->in1[0](S11);
+        nand_n_12->in1[1](new_counter_reg_2);
+        nand_n_12->out1(S13);
 
-    notg_13 = new notg("notg_13_inst");
-        notg_13->in(S13);
-        notg_13->out(S14);
+    notg_13 = new notg("notg_13");
+        notg_13->in1(S13);
+        notg_13->out1(S14);
 
-    nor_n_14 = new nor_n("nor_n_14_inst");
-        nor_n_14->in[0](S11);
-        nor_n_14->in[1](new_counter_reg_2);
-        nor_n_14->out(S15);
+    nor_n_14 = new nor_n("nor_n_14");
+        nor_n_14->in1[0](S11);
+        nor_n_14->in1[1](new_counter_reg_2);
+        nor_n_14->out1(S15);
 
-    nor_n_15 = new nor_n("nor_n_15_inst");
-        nor_n_15->in[0](S15);
-        nor_n_15->in[1](S14);
-        nor_n_15->out(S2);
+    nor_n_15 = new nor_n("nor_n_15");
+        nor_n_15->in1[0](S15);
+        nor_n_15->in1[1](S14);
+        nor_n_15->out1(S2);
 
-    nor_n_16 = new nor_n("nor_n_16_inst");
-        nor_n_16->in[0](S14);
-        nor_n_16->in[1](new_counter_reg_3);
-        nor_n_16->out(S16);
+    nor_n_16 = new nor_n("nor_n_16");
+        nor_n_16->in1[0](S14);
+        nor_n_16->in1[1](new_counter_reg_3);
+        nor_n_16->out1(S16);
 
-    nor_n_17 = new nor_n("nor_n_17_inst");
-        nor_n_17->in[0](S13);
-        nor_n_17->in[1](S5);
-        nor_n_17->out(S17);
+    nor_n_17 = new nor_n("nor_n_17");
+        nor_n_17->in1[0](S13);
+        nor_n_17->in1[1](S5);
+        nor_n_17->out1(S17);
 
-    nor_n_18 = new nor_n("nor_n_18_inst");
-        nor_n_18->in[0](S17);
-        nor_n_18->in[1](S16);
-        nor_n_18->out(S3);
+    nor_n_18 = new nor_n("nor_n_18");
+        nor_n_18->in1[0](S17);
+        nor_n_18->in1[1](S16);
+        nor_n_18->out1(S3);
 
-    dff_19 = new dff("dff_19_inst");
+    dff_19 = new dff("dff_19");
         dff_19->C(S18);
         dff_19->CE(sc_logic_1_signal);
         dff_19->CLR(S21);
@@ -180,7 +180,7 @@ SC_CTOR( counter ) {
         dff_19->Si(S22);
         dff_19->global_reset(sc_logic_0_signal);
 
-    dff_20 = new dff("dff_20_inst");
+    dff_20 = new dff("dff_20");
         dff_20->C(S18);
         dff_20->CE(sc_logic_1_signal);
         dff_20->CLR(S21);
@@ -191,7 +191,7 @@ SC_CTOR( counter ) {
         dff_20->Si(S23);
         dff_20->global_reset(sc_logic_0_signal);
 
-    dff_21 = new dff("dff_21_inst");
+    dff_21 = new dff("dff_21");
         dff_21->C(S18);
         dff_21->CE(sc_logic_1_signal);
         dff_21->CLR(S21);
@@ -202,7 +202,7 @@ SC_CTOR( counter ) {
         dff_21->Si(S24);
         dff_21->global_reset(sc_logic_0_signal);
 
-    dff_22 = new dff("dff_22_inst");
+    dff_22 = new dff("dff_22");
         dff_22->C(S18);
         dff_22->CE(sc_logic_1_signal);
         dff_22->CLR(S21);
@@ -213,37 +213,37 @@ SC_CTOR( counter ) {
         dff_22->Si(S25);
         dff_22->global_reset(sc_logic_0_signal);
 
-    pin_23 = new pin("pin_23_inst");
-        pin_23->in(clk);
-        pin_23->out(S18);
+    pin_23 = new pin("pin_23");
+        pin_23->in1(clk);
+        pin_23->out1(S18);
 
-    pout_24 = new pout("pout_24_inst");
-        pout_24->in(S19);
-        pout_24->out(co);
+    pout_24 = new pout("pout_24");
+        pout_24->in1(S19);
+        pout_24->out1(co);
 
-    pout_25 = new pout("pout_25_inst");
-        pout_25->in(new_counter_reg_0);
-        pout_25->out(counter[0]);
+    pout_25 = new pout("pout_25");
+        pout_25->in1(new_counter_reg_0);
+        pout_25->out1(counter[0]);
 
-    pout_26 = new pout("pout_26_inst");
-        pout_26->in(new_counter_reg_1);
-        pout_26->out(counter[1]);
+    pout_26 = new pout("pout_26");
+        pout_26->in1(new_counter_reg_1);
+        pout_26->out1(counter[1]);
 
-    pout_27 = new pout("pout_27_inst");
-        pout_27->in(new_counter_reg_2);
-        pout_27->out(counter[2]);
+    pout_27 = new pout("pout_27");
+        pout_27->in1(new_counter_reg_2);
+        pout_27->out1(counter[2]);
 
-    pout_28 = new pout("pout_28_inst");
-        pout_28->in(new_counter_reg_3);
-        pout_28->out(counter[3]);
+    pout_28 = new pout("pout_28");
+        pout_28->in1(new_counter_reg_3);
+        pout_28->out1(counter[3]);
 
-    pin_29 = new pin("pin_29_inst");
-        pin_29->in(en);
-        pin_29->out(S20);
+    pin_29 = new pin("pin_29");
+        pin_29->in1(en);
+        pin_29->out1(S20);
 
-    pin_30 = new pin("pin_30_inst");
-        pin_30->in(rst);
-        pin_30->out(S21);
+    pin_30 = new pin("pin_30");
+        pin_30->in1(rst);
+        pin_30->out1(S21);
 
 
     SC_METHOD(sc_logic_signal_assignment);

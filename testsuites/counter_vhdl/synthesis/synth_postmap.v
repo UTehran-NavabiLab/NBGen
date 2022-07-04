@@ -40,149 +40,149 @@ module counter(clk, rst, en, co, counter);
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _26_ (
-    .in(\counter_reg[0] ),
-    .out(_04_)
+    .in1(\counter_reg[0] ),
+    .out1(_04_)
   );
   notg #(
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _27_ (
-    .in(\counter_reg[3] ),
-    .out(_05_)
+    .in1(\counter_reg[3] ),
+    .out1(_05_)
   );
   notg #(
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _28_ (
-    .in(_20_),
-    .out(_06_)
+    .in1(_20_),
+    .out1(_06_)
   );
   nand_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _29_ (
-    .in({ \counter_reg[0] , \counter_reg[1]  }),
-    .out(_07_)
+    .in1({ \counter_reg[0] , \counter_reg[1]  }),
+    .out1(_07_)
   );
   nand_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _30_ (
-    .in({ \counter_reg[3] , \counter_reg[2]  }),
-    .out(_08_)
+    .in1({ \counter_reg[3] , \counter_reg[2]  }),
+    .out1(_08_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _31_ (
-    .in({ _07_, _08_ }),
-    .out(_19_)
+    .in1({ _07_, _08_ }),
+    .out1(_19_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _32_ (
-    .in({ _04_, _06_ }),
-    .out(_09_)
+    .in1({ _04_, _06_ }),
+    .out1(_09_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _33_ (
-    .in({ \counter_reg[0] , _20_ }),
-    .out(_10_)
+    .in1({ \counter_reg[0] , _20_ }),
+    .out1(_10_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _34_ (
-    .in({ _09_, _10_ }),
-    .out(_00_)
+    .in1({ _09_, _10_ }),
+    .out1(_00_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _35_ (
-    .in({ _06_, _07_ }),
-    .out(_11_)
+    .in1({ _06_, _07_ }),
+    .out1(_11_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _36_ (
-    .in({ \counter_reg[1] , _09_ }),
-    .out(_12_)
+    .in1({ \counter_reg[1] , _09_ }),
+    .out1(_12_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _37_ (
-    .in({ _11_, _12_ }),
-    .out(_01_)
+    .in1({ _11_, _12_ }),
+    .out1(_01_)
   );
   nand_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _38_ (
-    .in({ \counter_reg[2] , _11_ }),
-    .out(_13_)
+    .in1({ \counter_reg[2] , _11_ }),
+    .out1(_13_)
   );
   notg #(
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _39_ (
-    .in(_13_),
-    .out(_14_)
+    .in1(_13_),
+    .out1(_14_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _40_ (
-    .in({ \counter_reg[2] , _11_ }),
-    .out(_15_)
+    .in1({ \counter_reg[2] , _11_ }),
+    .out1(_15_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _41_ (
-    .in({ _14_, _15_ }),
-    .out(_02_)
+    .in1({ _14_, _15_ }),
+    .out1(_02_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _42_ (
-    .in({ \counter_reg[3] , _14_ }),
-    .out(_16_)
+    .in1({ \counter_reg[3] , _14_ }),
+    .out1(_16_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _43_ (
-    .in({ _05_, _13_ }),
-    .out(_17_)
+    .in1({ _05_, _13_ }),
+    .out1(_17_)
   );
   nor_n #(
     .n(32'sd2),
     .tphl(32'sd0),
     .tplh(32'sd0)
   ) _44_ (
-    .in({ _16_, _17_ }),
-    .out(_03_)
+    .in1({ _16_, _17_ }),
+    .out1(_03_)
   );
   dff #(
     .tphl(32'sd0),
@@ -243,49 +243,49 @@ module counter(clk, rst, en, co, counter);
   pin #(
     .n(32'sd1)
   ) _49_ (
-    .in(clk),
-    .out(_18_)
+    .in1(clk),
+    .out1(_18_)
   );
   pout #(
     .n(32'sd1)
   ) _50_ (
-    .in(_19_),
-    .out(co)
+    .in1(_19_),
+    .out1(co)
   );
   pout #(
     .n(32'sd1)
   ) _51_ (
-    .in(\counter_reg[0] ),
-    .out(counter[0])
+    .in1(\counter_reg[0] ),
+    .out1(counter[0])
   );
   pout #(
     .n(32'sd1)
   ) _52_ (
-    .in(\counter_reg[1] ),
-    .out(counter[1])
+    .in1(\counter_reg[1] ),
+    .out1(counter[1])
   );
   pout #(
     .n(32'sd1)
   ) _53_ (
-    .in(\counter_reg[2] ),
-    .out(counter[2])
+    .in1(\counter_reg[2] ),
+    .out1(counter[2])
   );
   pout #(
     .n(32'sd1)
   ) _54_ (
-    .in(\counter_reg[3] ),
-    .out(counter[3])
+    .in1(\counter_reg[3] ),
+    .out1(counter[3])
   );
   pin #(
     .n(32'sd1)
   ) _55_ (
-    .in(en),
-    .out(_20_)
+    .in1(en),
+    .out1(_20_)
   );
   pin #(
     .n(32'sd1)
   ) _56_ (
-    .in(rst),
-    .out(_21_)
+    .in1(rst),
+    .out1(_21_)
   );
 endmodule

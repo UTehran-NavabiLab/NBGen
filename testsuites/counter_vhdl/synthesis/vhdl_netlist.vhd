@@ -45,113 +45,113 @@ ARCHITECTURE arch OF counter IS
 BEGIN
 notg_0: ENTITY WORK.notg
     PORT MAP (
-        in => new_counter_reg_0,
-        out => S4
+        in1 => new_counter_reg_0,
+        out1 => S4
     );
 notg_1: ENTITY WORK.notg
     PORT MAP (
-        in => new_counter_reg_3,
-        out => S5
+        in1 => new_counter_reg_3,
+        out1 => S5
     );
 notg_2: ENTITY WORK.notg
     PORT MAP (
-        in => S20,
-        out => S6
+        in1 => S20,
+        out1 => S6
     );
 nand_n_3: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => new_counter_reg_1,
-        in(1) => new_counter_reg_0,
-        out => S7
+        in1(0) => new_counter_reg_1,
+        in1(1) => new_counter_reg_0,
+        out1 => S7
     );
 nand_n_4: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => new_counter_reg_2,
-        in(1) => new_counter_reg_3,
-        out => S8
+        in1(0) => new_counter_reg_2,
+        in1(1) => new_counter_reg_3,
+        out1 => S8
     );
 nor_n_5: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S8,
-        in(1) => S7,
-        out => S19
+        in1(0) => S8,
+        in1(1) => S7,
+        out1 => S19
     );
 nor_n_6: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S6,
-        in(1) => S4,
-        out => S9
+        in1(0) => S6,
+        in1(1) => S4,
+        out1 => S9
     );
 nor_n_7: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S20,
-        in(1) => new_counter_reg_0,
-        out => S10
+        in1(0) => S20,
+        in1(1) => new_counter_reg_0,
+        out1 => S10
     );
 nor_n_8: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S10,
-        in(1) => S9,
-        out => S0
+        in1(0) => S10,
+        in1(1) => S9,
+        out1 => S0
     );
 nor_n_9: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S7,
-        in(1) => S6,
-        out => S11
+        in1(0) => S7,
+        in1(1) => S6,
+        out1 => S11
     );
 nor_n_10: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S9,
-        in(1) => new_counter_reg_1,
-        out => S12
+        in1(0) => S9,
+        in1(1) => new_counter_reg_1,
+        out1 => S12
     );
 nor_n_11: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S12,
-        in(1) => S11,
-        out => S1
+        in1(0) => S12,
+        in1(1) => S11,
+        out1 => S1
     );
 nand_n_12: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S11,
-        in(1) => new_counter_reg_2,
-        out => S13
+        in1(0) => S11,
+        in1(1) => new_counter_reg_2,
+        out1 => S13
     );
 notg_13: ENTITY WORK.notg
     PORT MAP (
-        in => S13,
-        out => S14
+        in1 => S13,
+        out1 => S14
     );
 nor_n_14: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S11,
-        in(1) => new_counter_reg_2,
-        out => S15
+        in1(0) => S11,
+        in1(1) => new_counter_reg_2,
+        out1 => S15
     );
 nor_n_15: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S15,
-        in(1) => S14,
-        out => S2
+        in1(0) => S15,
+        in1(1) => S14,
+        out1 => S2
     );
 nor_n_16: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S14,
-        in(1) => new_counter_reg_3,
-        out => S16
+        in1(0) => S14,
+        in1(1) => new_counter_reg_3,
+        out1 => S16
     );
 nor_n_17: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S13,
-        in(1) => S5,
-        out => S17
+        in1(0) => S13,
+        in1(1) => S5,
+        out1 => S17
     );
 nor_n_18: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S17,
-        in(1) => S16,
-        out => S3
+        in1(0) => S17,
+        in1(1) => S16,
+        out1 => S3
     );
 dff_19: ENTITY WORK.dff
     PORT MAP (
@@ -203,43 +203,43 @@ dff_22: ENTITY WORK.dff
     );
 pin_23: ENTITY WORK.pin
     PORT MAP (
-        in => clk,
-        out => S18
+        in1 => clk,
+        out1 => S18
     );
 pout_24: ENTITY WORK.pout
     PORT MAP (
-        in => S19,
-        out => co
+        in1 => S19,
+        out1 => co
     );
 pout_25: ENTITY WORK.pout
     PORT MAP (
-        in => new_counter_reg_0,
-        out => counter(0)
+        in1 => new_counter_reg_0,
+        out1 => counter(0)
     );
 pout_26: ENTITY WORK.pout
     PORT MAP (
-        in => new_counter_reg_1,
-        out => counter(1)
+        in1 => new_counter_reg_1,
+        out1 => counter(1)
     );
 pout_27: ENTITY WORK.pout
     PORT MAP (
-        in => new_counter_reg_2,
-        out => counter(2)
+        in1 => new_counter_reg_2,
+        out1 => counter(2)
     );
 pout_28: ENTITY WORK.pout
     PORT MAP (
-        in => new_counter_reg_3,
-        out => counter(3)
+        in1 => new_counter_reg_3,
+        out1 => counter(3)
     );
 pin_29: ENTITY WORK.pin
     PORT MAP (
-        in => en,
-        out => S20
+        in1 => en,
+        out1 => S20
     );
 pin_30: ENTITY WORK.pin
     PORT MAP (
-        in => rst,
-        out => S21
+        in1 => rst,
+        out1 => S21
     );
 
 END ARCHITECTURE arch;
