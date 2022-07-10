@@ -1,5 +1,5 @@
-from cmath import log
 import tkinter as tk
+from tkinter import filedialog
 import src
 from src import script
 import os
@@ -62,36 +62,68 @@ def set_vhdl():
 #   reserved for future use
 def set_create_script():
     pass
+
+# callback function for open file dialog 
+def openFile():
+    file_dir = filedialog.askopenfilename(initialdir=working_directory, title="Select design")
+    file_name = file_dir[file_dir.rfind('/') + 1:]
+    entry_fileName.insert(0, file_name)
+
 #----------------------------------------------------------------------- 
 
-window = tk.Tk()
-window.rowconfigure([0, 1, 2], weight=1)
-window.columnconfigure(0, weight=1)
+#---------------------------- Main window settings ---------------------
+root = tk.Tk()
+root.title('NBGen')
 
+min_width = 800
+min_height = 600
+
+# get the screen dimension
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+# find the center point
+center_x = int(screen_width/2 - min_width / 2)
+center_y = int(screen_height/2 - min_height / 2)
+
+# set the position of the root to the center of the screen
+root.geometry(f'{screen_width}x{screen_height}+{0}+{0}')
+# window is resizable but has min/max constraint
+# root.resizable(False, False)
+# root.maxsize(min_height, max_height)
+root.minsize(min_width, min_height)
+
+root.rowconfigure([0, 1, 2], weight=1)
+root.columnconfigure(0, weight=1)
+
+
+#---------------------------- Set Variables ---------------------
 if(os.path.exists("UT_png.png")):
     logo_file = tk.PhotoImage(file="UT_png.png")
 else:
     logo_file = False
-tk_is_vhdl = tk.BooleanVar(window, False)
-tk_create_script = tk.BooleanVar(window, False)
+tk_is_vhdl = tk.BooleanVar(root, False)
+tk_create_script = tk.BooleanVar(root, False)
 
 #---------------------------- Frames ---------------------
-fr_logo_title = tk.Frame(master=window)
+fr_logo_title = tk.Frame(master=root)
 fr_logo = tk.Frame(master=fr_logo_title)
 
-fr_btns = tk.Frame(master=window)
+fr_btns = tk.Frame(master=root)
 fr_btn_genNetlist = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
 fr_btn_genBench = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
 fr_btn_genFault = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
+fr_btn_openFile = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
 
-fr_ent_label = tk.Frame(master=window, relief=tk.RAISED, borderwidth=1)
+fr_ent_label = tk.Frame(master=root, relief=tk.RAISED, borderwidth=1)
 fr_entry = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1)
 fr_input_label = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1)
 fr_vhdl_checkbox = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1)
 
-fr_log_window = tk.Frame(master=window)
-#---------------------------- Frames ---------------------
+fr_log_window = tk.Frame(master=root)
 #-----------------------------------------------------------------------
+
+#---------------------------- Create and Pack Widgets ---------------------
 if(logo_file):
     logo = tk.Label(
         master=fr_logo,
@@ -124,6 +156,15 @@ btn_genFault = tk.Button(
     command=gen_fault
 )
 btn_genFault.pack()
+
+btn_openFile = tk.Button(
+    master=fr_btn_openFile,
+    text="Open file",
+    font=("Arial", 20),
+    fg="red",
+    command=openFile
+)
+btn_openFile.pack()
 
 
 input_label = tk.Label(
@@ -192,6 +233,7 @@ fr_btns.grid(row=3, column=0)
 fr_btn_genNetlist.grid(row=0, column=0)
 fr_btn_genBench.grid(row=1, column=0)
 fr_btn_genFault.grid(row=2, column=0)
+fr_btn_openFile.grid(row=3, column=0)
 
 fr_log_window.grid(row=4, column=0)
 #-----------------------------------------------------------------------
@@ -209,4 +251,4 @@ log_win.insert(tk.END, log_txt)
 #-----------------------------------------------------------------------
 
 # start main loop
-window.mainloop()
+root.mainloop()
