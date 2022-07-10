@@ -40,6 +40,7 @@ class json2hdl:
                 net_name = "new_" + net_name
                 net_name = net_name.replace("[", "_")
                 net_name = net_name.replace("]", "")
+                net_name = net_name.replace(".", "_")
 
             # if net is multi-bits, create a list of corresponding bits
             # if (len(net_prop["bits"])):

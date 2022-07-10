@@ -32,108 +32,108 @@ ARCHITECTURE arch OF fulladder IS
 BEGIN
 nor_n_0: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S12,
-        in(1) => S15,
-        out => S11
+        in1(0) => S12,
+        in1(1) => S15,
+        out1 => S11
     );
 nand_n_1: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S10,
-        in(1) => S8,
-        out => S0
+        in1(0) => S10,
+        in1(1) => S8,
+        out1 => S0
     );
 nand_n_2: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S12,
-        in(1) => S15,
-        out => S1
+        in1(0) => S12,
+        in1(1) => S15,
+        out1 => S1
     );
 notg_3: ENTITY WORK.notg
     PORT MAP (
-        in => S1,
-        out => S2
+        in1 => S1,
+        out1 => S2
     );
 nor_n_4: ENTITY WORK.nor_n
     PORT MAP (
-        in(0) => S2,
-        in(1) => S11,
-        out => S3
+        in1(0) => S2,
+        in1(1) => S11,
+        out1 => S3
     );
 nand_n_5: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S1,
-        in(1) => S0,
-        out => S4
+        in1(0) => S1,
+        in1(1) => S0,
+        out1 => S4
     );
 nand_n_6: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S4,
-        in(1) => S14,
-        out => S5
+        in1(0) => S4,
+        in1(1) => S14,
+        out1 => S5
     );
 nand_n_7: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S3,
-        in(1) => S9,
-        out => S6
+        in1(0) => S3,
+        in1(1) => S9,
+        out1 => S6
     );
 nand_n_8: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S6,
-        in(1) => S5,
-        out => S16
+        in1(0) => S6,
+        in1(1) => S5,
+        out1 => S16
     );
 nand_n_9: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S0,
-        in(1) => S14,
-        out => S7
+        in1(0) => S0,
+        in1(1) => S14,
+        out1 => S7
     );
 nand_n_10: ENTITY WORK.nand_n
     PORT MAP (
-        in(0) => S7,
-        in(1) => S1,
-        out => S13
+        in1(0) => S7,
+        in1(1) => S1,
+        out1 => S13
     );
 notg_11: ENTITY WORK.notg
     PORT MAP (
-        in => S15,
-        out => S8
+        in1 => S15,
+        out1 => S8
     );
 notg_12: ENTITY WORK.notg
     PORT MAP (
-        in => S14,
-        out => S9
+        in1 => S14,
+        out1 => S9
     );
 notg_13: ENTITY WORK.notg
     PORT MAP (
-        in => S12,
-        out => S10
+        in1 => S12,
+        out1 => S10
     );
 pin_14: ENTITY WORK.pin
     PORT MAP (
-        in => ci,
-        out => S12
+        in1 => ci,
+        out1 => S12
     );
 pout_15: ENTITY WORK.pout
     PORT MAP (
-        in => S13,
-        out => co
+        in1 => S13,
+        out1 => co
     );
 pin_16: ENTITY WORK.pin
     PORT MAP (
-        in => i0,
-        out => S14
+        in1 => i0,
+        out1 => S14
     );
 pin_17: ENTITY WORK.pin
     PORT MAP (
-        in => i1,
-        out => S15
+        in1 => i1,
+        out1 => S15
     );
 pout_18: ENTITY WORK.pout
     PORT MAP (
-        in => S16,
-        out => s
+        in1 => S16,
+        out1 => s
     );
 
 END ARCHITECTURE arch;

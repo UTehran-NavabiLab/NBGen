@@ -41,8 +41,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:93.38-96.4"
           },
           "connections": {
-            "in": [ 7, 8 ],
-            "out": [ 9 ]
+            "in1": [ 7, 8 ],
+            "out1": [ 9 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$101": {
@@ -58,8 +58,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 10, 11 ],
-            "out": [ 12 ]
+            "in1": [ 10, 11 ],
+            "out1": [ 12 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$102": {
@@ -75,8 +75,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 7, 8 ],
-            "out": [ 13 ]
+            "in1": [ 7, 8 ],
+            "out1": [ 13 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$103": {
@@ -91,8 +91,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:53.31-56.4"
           },
           "connections": {
-            "in": [ 13 ],
-            "out": [ 14 ]
+            "in1": [ 13 ],
+            "out1": [ 14 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$104": {
@@ -108,8 +108,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:93.38-96.4"
           },
           "connections": {
-            "in": [ 14, 9 ],
-            "out": [ 15 ]
+            "in1": [ 14, 9 ],
+            "out1": [ 15 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$105": {
@@ -125,8 +125,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 13, 12 ],
-            "out": [ 16 ]
+            "in1": [ 13, 12 ],
+            "out1": [ 16 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$106": {
@@ -142,8 +142,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 16, 17 ],
-            "out": [ 18 ]
+            "in1": [ 16, 17 ],
+            "out1": [ 18 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$107": {
@@ -159,8 +159,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 15, 19 ],
-            "out": [ 20 ]
+            "in1": [ 15, 19 ],
+            "out1": [ 20 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$108": {
@@ -176,8 +176,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 20, 18 ],
-            "out": [ 21 ]
+            "in1": [ 20, 18 ],
+            "out1": [ 21 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$109": {
@@ -193,8 +193,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 12, 17 ],
-            "out": [ 22 ]
+            "in1": [ 12, 17 ],
+            "out1": [ 22 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$110": {
@@ -210,8 +210,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:73.39-76.4"
           },
           "connections": {
-            "in": [ 22, 13 ],
-            "out": [ 23 ]
+            "in1": [ 22, 13 ],
+            "out1": [ 23 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$97": {
@@ -226,8 +226,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:53.31-56.4"
           },
           "connections": {
-            "in": [ 8 ],
-            "out": [ 11 ]
+            "in1": [ 8 ],
+            "out1": [ 11 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$98": {
@@ -242,8 +242,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:53.31-56.4"
           },
           "connections": {
-            "in": [ 17 ],
-            "out": [ 19 ]
+            "in1": [ 17 ],
+            "out1": [ 19 ]
           }
         },
         "$abc$96$auto$blifparse.cc:381:parse_blif$99": {
@@ -258,8 +258,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:53.31-56.4"
           },
           "connections": {
-            "in": [ 7 ],
-            "out": [ 10 ]
+            "in1": [ 7 ],
+            "out1": [ 10 ]
           }
         },
         "$iopadmap$fulladder.ci": {
@@ -274,8 +274,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:33.17-36.4"
           },
           "connections": {
-            "in": [ 4 ],
-            "out": [ 7 ]
+            "in1": [ 4 ],
+            "out1": [ 7 ]
           }
         },
         "$iopadmap$fulladder.co": {
@@ -290,8 +290,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:43.18-46.4"
           },
           "connections": {
-            "in": [ 23 ],
-            "out": [ 6 ]
+            "in1": [ 23 ],
+            "out1": [ 6 ]
           }
         },
         "$iopadmap$fulladder.i0": {
@@ -306,8 +306,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:33.17-36.4"
           },
           "connections": {
-            "in": [ 2 ],
-            "out": [ 17 ]
+            "in1": [ 2 ],
+            "out1": [ 17 ]
           }
         },
         "$iopadmap$fulladder.i1": {
@@ -322,8 +322,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:33.17-36.4"
           },
           "connections": {
-            "in": [ 3 ],
-            "out": [ 8 ]
+            "in1": [ 3 ],
+            "out1": [ 8 ]
           }
         },
         "$iopadmap$fulladder.s": {
@@ -338,8 +338,8 @@
             "src": "/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v:43.18-46.4"
           },
           "connections": {
-            "in": [ 21 ],
-            "out": [ 5 ]
+            "in1": [ 21 ],
+            "out1": [ 5 ]
           }
         }
       },

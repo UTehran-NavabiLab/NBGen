@@ -123,7 +123,7 @@ class json2systemc(json2hdl):
         # start string
         instance_pointer = WHITE_SPACE + cell_type + "* " + instatnce_name + ";\n"
  
-        cell_instantiation = WHITE_SPACE + instatnce_name + " = new " + cell_type + '("' + instatnce_name + "_inst" + '");\n'
+        cell_instantiation = WHITE_SPACE + instatnce_name + " = new " + cell_type + '("' + instatnce_name + '");\n'
         
         # port mapping 
         # loop through each connection, get corresponding net-name

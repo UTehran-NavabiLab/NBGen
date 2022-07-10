@@ -76,14 +76,12 @@ class json2systemc(json2hdl):
 
             if port_prop["direction"] == "input":
                 if len(port_prop["bits"]) == 1:
-                    # port_declaration += port_name + " : IN STD_LOGIC" + ";\n"
                     port_declaration += f'sc_in<sc_logic> {port_name};\n'
                 else:
                     port_declaration += f'sc_in<sc_logic> {port_name}[{str(len(port_prop["bits"]))}];\n'
                 
             elif port_prop["direction"] == "output":
                 if len(port_prop["bits"]) == 1:
-                    # port_declaration += port_name + " : IN STD_LOGIC" + ";\n"
                     port_declaration += f'sc_out<sc_logic> {port_name};\n'
                 else:
                     port_declaration += f'sc_out<sc_logic> {port_name}[{str(len(port_prop["bits"]))}];\n'
@@ -106,10 +104,13 @@ class json2systemc(json2hdl):
                 signal_declartion += "sc_signal<sc_logic> " + net + ";\n"
         return signal_declartion
   
-    # @def: find actual net name using net integer value
-    #   input: net integer value
-    #   output: net name
-    #   TODO: add support for external libaray
+    # @def: retrieve cell parameters for each cell and pass it to cells_declaration()
+    #   input: 
+    #       cell: dictionaly of cell {hide_name, type, parameters, attributes, connections}
+    #       index: an index to name and address cells with (get appended at the end of cell name)
+    #   output: two separate string to append at different location
+    #       instance_pointer: create a pointer to gate type
+    #       cell_instantiation: instantiation of cells inside constructor
     def get_each_cell(self, cell, index):
         # retrieve cell type, parameters and connection as a dictionary
         cell_type = cell["type"]
@@ -164,9 +165,7 @@ class json2systemc(json2hdl):
         return instance_pointer, cell_instantiation
 
 
-    # @def: find actual net name using net integer value
-    #   input: net integer value
-    #   output: net name
+    # @def: instance all the required modules, define pointers outside constructor and port binding inside
     def cells_declaration(self):
         instance_pointer = ""
         cell_instantiation = ""
@@ -196,7 +195,7 @@ class json2systemc(json2hdl):
         # # add sc_module for port concatenation
         # constructor_declaration += self.cells_declaration()[2]
 
-        constructor_declaration += "}\n"
+        constructor_declaration += WHITE_SPACE + "}\n"
 
         return constructor_declaration
 
@@ -215,15 +214,11 @@ class json2systemc(json2hdl):
         entity_declaration += self.constructor_declaration()
         entity_declaration += "\n"
         entity_declaration += self.sc_logic_signals()[2]
-        # entity_declaration += "\n"
-        # entity_declaration += self.cells_declaration()[3]
 
         entity_declaration += "};"
         return entity_declaration
 
-    # @def: find actual net name using net integer value
-    #   input: net integer value
-    #   output: net name
+    # @def: concatinate pieces and output final systemc module
     def generate_systemc(self):
 
         self.systemc += self.includes() + "\n"
@@ -232,5 +227,4 @@ class json2systemc(json2hdl):
         self.systemc += "\n"
         self.systemc += self.module_declaration() + "\n"
 
-        # print(self.systemc)
         return self.systemc

@@ -10,7 +10,7 @@
 
 ******   SUMMARY OF TEST PATTERN GENERATION RESULTS   ******
 1. Circuit structure
-   Name of the circuit                       : Benchmark_"fulladder"_written_by_ABC_on_Wed_Jun_29_11:11:26_2022
+   Name of the circuit                       : Benchmark_"fulladder"_written_by_ABC_on_Mon_Jul__4_19:41:56_2022
    Number of primary inputs                  : 3
    Number of primary outputs                 : 2
    Number of gates                           : 19
@@ -20,7 +20,7 @@
    Test pattern generation Mode              : RPT + DTPG + TC
    Limit of random patterns (packets)        : 16
    Backtrack limit                           : 10
-   Initial random number generator seed      : 1656484887
+   Initial random number generator seed      : 1656947517
    Test pattern compaction Mode              : REVERSE + SHUFFLE 
    Limit of shuffling compaction             : 2
    Number of shuffles                        : 4
