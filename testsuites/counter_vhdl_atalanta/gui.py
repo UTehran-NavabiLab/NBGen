@@ -77,7 +77,7 @@ def open_testWin():
     btn_genFault.pack()
 
     btn_faultSim = tk.Button(
-        text="Fault Simulation on SystemC",
+        text="Generate fault list & test vector",
         master=testWin_fr_btn,
         font=("Arial", 20),
         fg="red",
@@ -118,6 +118,7 @@ def openFile():
     else:
         tk_is_vhdl.set(False)
     entry_fileName.config(state="disabled")
+    entry_moduleName.config(state="disabled")
     checkbox_vhdl.config(state="disabled")
         
 
