@@ -983,6 +983,6 @@ Dumping module `\counter'.
 
 25. Executing JSON backend.
 
-End of script. Logfile hash: a89d0865e7, CPU: user 1.11s system 0.04s
+End of script. Logfile hash: a89d0865e7, CPU: user 1.07s system 0.04s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
 Time spent: 20% 32x opt_expr (0 sec), 15% 26x opt_clean (0 sec), ...

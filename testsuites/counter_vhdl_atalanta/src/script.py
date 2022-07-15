@@ -86,6 +86,10 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
    j2sc = conv.json2systemc.json2systemc(json_input)
    with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
       f.write(j2sc.generate_systemc())
+   
+   j2sc_testbench = conv.json2sc_testbench.json2sc_testbench(json_input)
+   with open(os.path.join(synthesis_dir, config["systemC_testbench_fileName"]), "w") as f:
+      f.write(j2sc_testbench.generate_systemc())
 
 
 # @def: generate bench file using abc

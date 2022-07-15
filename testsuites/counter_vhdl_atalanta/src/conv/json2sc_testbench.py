@@ -6,7 +6,7 @@ from . json2systemc import json2systemc
 
 WHITE_SPACE = "    "
 
-class json2sc_tesbench(json2systemc):
+class json2sc_testbench(json2systemc):
     def __init__(self, json_file) -> None:
         json2systemc.__init__(self, json_file)
 
