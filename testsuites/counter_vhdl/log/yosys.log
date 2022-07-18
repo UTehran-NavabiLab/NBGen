@@ -25,19 +25,19 @@
 -- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/yosys_script.ys' --
 
 1. Executing GHDL.
-Importing module counter.
+Importing module counter_4bit.
 
 2. Executing HIERARCHY pass (managing design hierarchy).
 
 2.1. Finding top of design hierarchy..
-root of   0 design levels: counter             
-Automatically selected counter as design top module.
+root of   0 design levels: counter_4bit        
+Automatically selected counter_4bit as design top module.
 
 2.2. Analyzing design hierarchy..
-Top module:  \counter
+Top module:  \counter_4bit
 
 2.3. Analyzing design hierarchy..
-Top module:  \counter
+Top module:  \counter_4bit
 Removed 0 unused modules.
 
 3. Executing SYNTH pass.
@@ -45,10 +45,10 @@ Removed 0 unused modules.
 3.1. Executing HIERARCHY pass (managing design hierarchy).
 
 3.1.1. Analyzing design hierarchy..
-Top module:  \counter
+Top module:  \counter_4bit
 
 3.1.2. Analyzing design hierarchy..
-Top module:  \counter
+Top module:  \counter_4bit
 Removed 0 unused modules.
 
 3.2. Executing PROC pass (convert processes to netlists).
@@ -79,31 +79,31 @@ Promoted 0 assignments to connections.
 Cleaned up 0 empty switches.
 
 3.2.11. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.3. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 2 unused wires.
 <suppressed ~1 debug messages>
 
 3.5. Executing CHECK pass (checking for obvious problems).
-Checking module counter...
+Checking module counter_4bit...
 Found and reported 0 problems.
 
 3.6. Executing OPT pass (performing simple optimizations).
 
 3.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
@@ -111,20 +111,20 @@ Removed 0 multiplexer ports.
 <suppressed ~2 debug messages>
 
 3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 3.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.6.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.6.9. Finished OPT passes. (There is nothing left to do.)
 
@@ -137,7 +137,7 @@ Optimizing module counter.
 3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
 
 3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
 
@@ -150,14 +150,14 @@ Finding unused cells or wires in module \counter..
 3.8. Executing OPT pass (performing simple optimizations).
 
 3.8.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.8.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
@@ -165,28 +165,28 @@ Removed 0 multiplexer ports.
 <suppressed ~2 debug messages>
 
 3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 3.8.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding EN signal on \16 ($adff) from module counter (D = $auto$ghdl.cc:759:import_module$1 [3:0], Q = \counter_reg).
+Adding EN signal on \16 ($adff) from module counter_4bit (D = $auto$ghdl.cc:759:import_module$1 [3:0], Q = \counter_reg).
 
 3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 1 unused cells and 1 unused wires.
 <suppressed ~2 debug messages>
 
 3.8.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.8.9. Rerunning OPT passes. (Maybe there is more to do..)
 
 3.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
@@ -194,38 +194,38 @@ Removed 0 multiplexer ports.
 <suppressed ~1 debug messages>
 
 3.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 3.8.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.8.13. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.8.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.8.16. Finished OPT passes. (There is nothing left to do.)
 
 3.9. Executing WREDUCE pass (reducing word size of cells).
-Removed top 28 bits (of 32) from port A of cell counter.\7 ($add).
-Removed top 31 bits (of 32) from port B of cell counter.\7 ($add).
-Removed top 28 bits (of 32) from port Y of cell counter.\7 ($add).
-Removed top 28 bits (of 32) from wire counter.$auto$ghdl.cc:759:import_module$1.
+Removed top 28 bits (of 32) from port A of cell counter_4bit.\7 ($add).
+Removed top 31 bits (of 32) from port B of cell counter_4bit.\7 ($add).
+Removed top 28 bits (of 32) from port Y of cell counter_4bit.\7 ($add).
+Removed top 28 bits (of 32) from wire counter_4bit.$auto$ghdl.cc:759:import_module$1.
 
 3.10. Executing PEEPOPT pass (run peephole optimizers).
 
 3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
 3.12. Executing ALUMACC pass (create $alu and $macc cells).
-Extracting $alu and $macc cells in module counter:
+Extracting $alu and $macc cells in module counter_4bit:
   creating $macc model for \7 ($add).
   creating $alu model for $macc \7.
   creating $alu cell for \7: $auto$alumacc.cc:485:replace_alu$8
@@ -236,14 +236,14 @@ Extracting $alu and $macc cells in module counter:
 3.14. Executing OPT pass (performing simple optimizations).
 
 3.14.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.14.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
@@ -251,20 +251,20 @@ Removed 0 multiplexer ports.
 <suppressed ~1 debug messages>
 
 3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 3.14.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.14.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.14.9. Finished OPT passes. (There is nothing left to do.)
 
@@ -281,7 +281,7 @@ Performed a total of 0 transformations.
 3.15.4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
 
 3.15.5. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.15.6. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
 
@@ -289,27 +289,27 @@ Finding unused cells or wires in module \counter..
 Performed a total of 0 transformations.
 
 3.15.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.15.9. Executing MEMORY_COLLECT pass (generating $mem cells).
 
 3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.17. Executing OPT pass (performing simple optimizations).
 
 3.17.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 <suppressed ~1 debug messages>
 
 3.17.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
@@ -320,24 +320,24 @@ Removed 0 unused cells and 1 unused wires.
 3.19. Executing OPT pass (performing simple optimizations).
 
 3.19.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.19.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 3.19.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.19.6. Executing OPT_SHARE pass.
@@ -345,10 +345,10 @@ Removed a total of 0 cells.
 3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 3.19.9. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.19.10. Finished OPT passes. (There is nothing left to do.)
 
@@ -398,18 +398,18 @@ No more expansions possible.
 3.21. Executing OPT pass (performing simple optimizations).
 
 3.21.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 <suppressed ~25 debug messages>
 
 3.21.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 <suppressed ~15 debug messages>
 Removed a total of 5 cells.
 
 3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 2 unused cells and 36 unused wires.
 <suppressed ~3 debug messages>
 
@@ -417,7 +417,7 @@ Removed 2 unused cells and 36 unused wires.
 
 3.22. Executing ABC pass (technology mapping using ABC).
 
-3.22.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+3.22.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
 Extracted 13 gates and 17 wires to a netlist network with 4 inputs and 5 outputs.
 
 3.22.1.1. Executing ABC.
@@ -446,16 +446,16 @@ Removing temp directory.
 3.23. Executing OPT pass (performing simple optimizations).
 
 3.23.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 3.23.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 15 unused wires.
 <suppressed ~1 debug messages>
 
@@ -464,15 +464,15 @@ Removed 0 unused cells and 15 unused wires.
 3.24. Executing HIERARCHY pass (managing design hierarchy).
 
 3.24.1. Analyzing design hierarchy..
-Top module:  \counter
+Top module:  \counter_4bit
 
 3.24.2. Analyzing design hierarchy..
-Top module:  \counter
+Top module:  \counter_4bit
 Removed 0 unused modules.
 
 3.25. Printing statistics.
 
-=== counter ===
+=== counter_4bit ===
 
    Number of wires:                 11
    Number of wire bits:             23
@@ -490,30 +490,30 @@ Removed 0 unused modules.
      $_XOR_                          3
 
 3.26. Executing CHECK pass (checking for obvious problems).
-Checking module counter...
+Checking module counter_4bit...
 Found and reported 0 problems.
 
 4. Executing OPT pass (performing simple optimizations).
 
 4.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 4.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 4.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 4.6. Executing OPT_SHARE pass.
@@ -521,10 +521,10 @@ Removed a total of 0 cells.
 4.7. Executing OPT_DFF pass (perform DFF optimizations).
 
 4.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 4.9. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 4.10. Finished OPT passes. (There is nothing left to do.)
 
@@ -562,45 +562,45 @@ Optimizing module counter.
     unmapped dff cell: $_DFFSR_PPP_
 
 6.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
-Mapping DFF cells in module `\counter':
+Mapping DFF cells in module `\counter_4bit':
   mapped 4 $_DFF_PP0_ cells to \DFF_PP0 cells.
 
 7. Executing OPT pass (performing simple optimizations).
 
 7.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 7.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 7.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 7.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 7.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 7.9. Finished OPT passes. (There is nothing left to do.)
 
 8. Executing ABC pass (technology mapping using ABC).
 
-8.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+8.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
 Extracted 12 gates and 17 wires to a netlist network with 5 inputs and 5 outputs.
 
 8.1.1. Executing ABC.
@@ -650,134 +650,134 @@ Removing temp directory.
 9. Executing OPT pass (performing simple optimizations).
 
 9.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 9.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 9.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 9.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 15 unused wires.
 <suppressed ~1 debug messages>
 
 9.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 9.9. Rerunning OPT passes. (Maybe there is more to do..)
 
 9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 9.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 9.13. Executing OPT_DFF pass (perform DFF optimizations).
 
 9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 9.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 9.16. Finished OPT passes. (There is nothing left to do.)
 
 10. Executing HILOMAP pass (mapping to constant drivers).
 
 11. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
-Mapping port counter.clk using IBUF.
-Mapping port counter.co using OBUF.
-Mapping port counter.counter using OBUF.
-Mapping port counter.en using IBUF.
-Mapping port counter.rst using IBUF.
+Mapping port counter_4bit.clk using IBUF.
+Mapping port counter_4bit.co using OBUF.
+Mapping port counter_4bit.counter using OBUF.
+Mapping port counter_4bit.en using IBUF.
+Mapping port counter_4bit.rst using IBUF.
 
 12. Executing SPLITNETS pass (splitting up multi-bit signals).
 
 13. Executing OPT pass (performing simple optimizations).
 
 13.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 13.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 13.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 13.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 4 unused wires.
 <suppressed ~1 debug messages>
 
 13.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 13.9. Rerunning OPT passes. (Maybe there is more to do..)
 
 13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 13.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 13.13. Executing OPT_DFF pass (perform DFF optimizations).
 
 13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 13.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 13.16. Finished OPT passes. (There is nothing left to do.)
 
 14. Executing Verilog backend.
-Dumping module `\counter'.
+Dumping module `\counter_4bit'.
 
 15. Executing BLIF backend.
 
@@ -806,7 +806,7 @@ No more expansions possible.
 
 18. Executing ABC pass (technology mapping using ABC).
 
-18.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+18.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
 Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
 Don't call ABC as there is nothing to map.
 Removing temp directory.
@@ -814,59 +814,59 @@ Removing temp directory.
 19. Executing OPT pass (performing simple optimizations).
 
 19.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 19.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 19.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 19.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 28 unused wires.
 <suppressed ~1 debug messages>
 
 19.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 19.9. Rerunning OPT passes. (Maybe there is more to do..)
 
 19.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 19.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 19.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 19.13. Executing OPT_DFF pass (perform DFF optimizations).
 
 19.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 19.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 19.16. Finished OPT passes. (There is nothing left to do.)
 
@@ -900,68 +900,68 @@ No more expansions possible.
 21. Executing OPT pass (performing simple optimizations).
 
 21.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 21.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 21.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 21.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 69 unused wires.
 <suppressed ~1 debug messages>
 
 21.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 21.9. Rerunning OPT passes. (Maybe there is more to do..)
 
 21.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
+Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
 21.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
+  Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
 21.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
+Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
 21.13. Executing OPT_DFF pass (perform DFF optimizations).
 
 21.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 21.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
+Optimizing module counter_4bit.
 
 21.16. Finished OPT passes. (There is nothing left to do.)
 
 22. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
+Finding unused cells or wires in module \counter_4bit..
 
 23. Printing statistics.
 
-=== counter ===
+=== counter_4bit ===
 
    Number of wires:                 35
    Number of wire bits:             38
@@ -979,10 +979,10 @@ Finding unused cells or wires in module \counter..
      pout                            5
 
 24. Executing Verilog backend.
-Dumping module `\counter'.
+Dumping module `\counter_4bit'.
 
 25. Executing JSON backend.
 
-End of script. Logfile hash: 3187d4a023, CPU: user 1.08s system 0.04s
+End of script. Logfile hash: f570e27965, CPU: user 1.08s system 0.04s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
-Time spent: 19% 32x opt_expr (0 sec), 15% 26x opt_clean (0 sec), ...
+Time spent: 19% 32x opt_expr (0 sec), 16% 3x abc (0 sec), ...

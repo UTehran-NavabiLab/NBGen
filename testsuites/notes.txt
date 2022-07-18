@@ -1,25 +1,13 @@
 -------------------- TODO list --------------------
 
 sayac scan simulation on systemc
-automating fault simulation process:
-    + - choose the right "fault-injector" module (based on comb/seq) and copy that in test folder
-        check if there is any DFF
-    + - automatic testbench Gen (for combinational and seq):
-        for seq circuit it's important to know what is the name of clock and reset
-        we should order input_ports in way that special pin are always in same order
-    + - put them all in one folder and call "make" file
-    + - remove "END" line from test vector
-    + - copy testVector/fault_list to faultSim folder [and rename them]
-    + - input testbench name and faulty_instance 
-    - fix {last_dff_Q_port}
-- fix "utilies_functios" name
+
 
 fix multi-file inputs
 
 add option to use existing "fault list" and "test vector"
 
 for fault simulation process:  
-    make faulty instance name given from user
     make clock cycle variable by user
     * on [json2sc_testbench->size_Of_Ports] we excluded reset and clock for sizePI
         consider the possibility of designs having no reset
@@ -31,13 +19,27 @@ modules with a name equal to one of the signals would cause error on systemc (se
 te'daade hirarchy vaase fault_list generation mitoone tavasote user moshakhas beshe?
 
 -------------------- Done --------------------
+automating fault simulation process:
+    + - choose the right "fault-injector" module (based on comb/seq) and copy that in test folder
+        check if there is any DFF
+    + - automatic testbench Gen (for combinational and seq):
+        for seq circuit it's important to know what is the name of clock and reset
+        we should order input_ports in way that special pin are always in same order
+    + - put them all in one folder and call "make" file
+    + - remove "END" line from test vector
+    + - copy testVector/fault_list to faultSim folder [and rename them]
+    + - input testbench name and faulty_instance 
+    + - fix {last_dff_Q_port}
 ** complete [->so_assignment_method] && dff changes duo to scan insertion
 counter scan simulation on systemc
-sayac Netlist
 verify systemc vs vhdl
 fix atalanta float problem
 lenght of test data is not fix: fault injector module : fixed using templated class
 
+sayac Netlist
+
+
+- fix "utilies_functios" name
 -------------------- Notes --------------------
 on testbench for counter :
     *[we changed the order of inputs to be compatible with given test vectors]

@@ -1,16 +1,16 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY counter IS
+ENTITY counter_4bit IS
     PORT (
         clk : IN STD_LOGIC;
         rst : IN STD_LOGIC;
         en : IN STD_LOGIC;
         co : OUT STD_LOGIC;
         counter : OUT STD_LOGIC_VECTOR (3 DOWNTO 0));
-END ENTITY counter;
+END ENTITY counter_4bit;
 
-ARCHITECTURE arch OF counter IS
+ARCHITECTURE arch OF counter_4bit IS
     SIGNAL S0 : STD_LOGIC;
     SIGNAL S1 : STD_LOGIC;
     SIGNAL S2 : STD_LOGIC;

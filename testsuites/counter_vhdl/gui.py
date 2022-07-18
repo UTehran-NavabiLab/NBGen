@@ -45,10 +45,10 @@ def gen_fault():
     global testbench_name
     global dut_name
     
-    testbench_name = testbench_name.get()
-    dut_name = dut_name.get()
+    testbench_name_genFault = testbench_name.get()
+    dut_name_genFault = dut_name.get()
 
-    script.fault(testbench_name,  dut_name, config, working_directory, 
+    script.fault(testbench_name_genFault,  dut_name_genFault, config, working_directory, 
         synthesis_dir, lib_dir, log_dir, test_dir)
 
     log_win.delete("1.0", tk.END)
@@ -124,7 +124,20 @@ def openFile():
 
 
 def faultSim():
-    log_win.insert(tk.END, script.fault_simulation(fltSim_dir))
+    global testbench_name
+    global dut_name
+    
+    testbench_name_simFault = testbench_name.get()
+    dut_name_simFault = dut_name.get()
+
+    log_win.delete("1.0", tk.END)
+    script.fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench_name_simFault, dut_name_simFault)
+    # read log file
+    with open(os.path.join(fltSim_dir, "reportFile.txt"), "r") as log_file:
+        log_txt = log_file.read()
+     
+    # fault_simulation_suc
+    log_win.insert(tk.END, log_txt)
 
 
 # callback function for vhdl_checkbox
@@ -137,7 +150,7 @@ def set_vhdl():
 def set_create_script():
     pass
 
-#----------------------------------------------------------------------- 
+#---------------------------- End of Functions ---
 
 #---------------------------- Main window settings ---------------------
 root = tk.Tk()

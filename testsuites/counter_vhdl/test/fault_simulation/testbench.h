@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include "systemc.h"
-#include "js2sc.h"
+#include "systemC_faultable_netlist.h"
 #include "fault_injector_seq.h"
 
 using namespace sc_core;
@@ -16,7 +16,7 @@ SC_MODULE( testbench ) {
     sc_signal<sc_logic> counter[4];
     sc_signal<sc_logic> NbarT, Si, global_reset, So;
 
-    counter* FUT;
+    counter_4bit* fut;
     fault_injector<4, 1, 5>* flt_injector;
     faultRegistry* accessRegistry;
 
@@ -39,19 +39,19 @@ SC_MODULE( testbench ) {
             flt_injector->input_ports(counter[1]);
             flt_injector->input_ports(counter[2]);
             flt_injector->input_ports(counter[3]);
-        FUT = new counter("FUT", accessRegistry);
-            FUT->global_reset(global_reset);
-            FUT->NbarT(NbarT);
-            FUT->Si(Si);
-            FUT->So(So);
-            FUT->clk(clk);
-            FUT->rst(rst);
-            FUT->en(en);
-            FUT->co(co);
-            FUT->counter[0](counter[0]);
-            FUT->counter[1](counter[1]);
-            FUT->counter[2](counter[2]);
-            FUT->counter[3](counter[3]);
+        fut = new counter_4bit("fut", accessRegistry);
+            fut->global_reset(global_reset);
+            fut->NbarT(NbarT);
+            fut->Si(Si);
+            fut->So(So);
+            fut->clk(clk);
+            fut->rst(rst);
+            fut->en(en);
+            fut->co(co);
+            fut->counter[0](counter[0]);
+            fut->counter[1](counter[1]);
+            fut->counter[2](counter[2]);
+            fut->counter[3](counter[3]);
                                                                                                 
         SC_THREAD(clocking);
 

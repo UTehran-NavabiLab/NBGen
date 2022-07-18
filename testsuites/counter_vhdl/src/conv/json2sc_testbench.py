@@ -7,47 +7,18 @@ from . json2systemc import json2systemc
 WHITE_SPACE = "    "
 
 class json2sc_testbench(json2systemc):
-    def __init__(self, json_file) -> None:
+    def __init__(self, json_file, testbench, instance) -> None:
         json2systemc.__init__(self, json_file)
+        self.testbench_name = testbench
+        self.instance_name = instance
 
-    # @def: 
-    #   size_Of_Ports; helper function to find size of input/output ports
-    def size_Of_Ports(self):
-        port_dic = self.top_module["ports"]
-        sizePI = 0
-        sizePO = 0
-
-        for port in port_dic.values():
-            if port["direction"] == "input":
-                # considering ports can be multi-bit, add length of bits
-                sizePI = sizePI + len(port["bits"])
-            if port["direction"] == "output":
-                sizePO = sizePO + len(port["bits"])
-
-        # exclude clock and reset
-        sizePI = sizePI - 2
-        
-        return sizePI, sizePO
-    
-    # @def: 
-    #   size_Of_Ports; helper function to find number of DFFs in design
-    def number_of_DFF(self):
-        cells_dic = self.top_module["cells"]
-        numb_DFF = 0
-
-        for cell in cells_dic.values():
-            if ((cell["type"].find("DFF") > -1) or (cell["type"].find("dff") > -1)):
-                numb_DFF = numb_DFF + 1
-
-        return numb_DFF
-        
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <iostream>' + "\n"
         include_lib += '#include <fstream>' + "\n"
         include_lib += '#include <string>' + "\n"
         include_lib += '#include "systemc.h"' + "\n"
-        include_lib += '#include "js2sc.h"' + "\n"
+        include_lib += '#include "systemC_faultable_netlist.h"' + "\n"
         if(self.is_sequential):
             include_lib += '#include "fault_injector_seq.h"'
         else:
@@ -103,9 +74,9 @@ class json2sc_testbench(json2systemc):
         instance_pointer = ""
         cell_instantiation = ""
 
-        faulty_instatnce_name = "flt_dut"
-        golden_instatnce_name = "gld_dut"
-        instatnce_name = "FUT"
+        instatnce_name = self.instance_name
+        golden_instatnce_name = self.module_name + "_golden"
+        faulty_instatnce_name = self.instance_name
         
         if(self.is_sequential):
             # pointer to faulty module under test
@@ -135,12 +106,12 @@ class json2sc_testbench(json2systemc):
                 if(self.is_sequential):
                     cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.module_name}("{instatnce_name}", accessRegistry);\n'
                 else:
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{golden_instatnce_name} = new {self.module_name}("{self.module_name}_gold", accessRegistry);\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{golden_instatnce_name} = new {self.module_name}("{golden_instatnce_name}", accessRegistry);\n'
             elif(p == 2):
                 if(self.is_sequential):
                     pass
                 else:
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{faulty_instatnce_name} = new {self.module_name}("{self.module_name}_faulty", accessRegistry);\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{faulty_instatnce_name} = new {self.module_name}("{faulty_instatnce_name}", accessRegistry);\n'
             if(self.is_sequential):
                 if(p == 0):
                     cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'// output_port[0:2] is always assigned to scan pins\n'

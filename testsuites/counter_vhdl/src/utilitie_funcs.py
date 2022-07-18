@@ -244,30 +244,40 @@ def rm_float_net(json_file, bench_file):
         top_module = js["modules"][module_name]
         cells = top_module["cells"]
         ports = top_module["ports"]
-        clk_list, rst_list = find_clk_rst_netNumber(cells)
-        clk, rst = find_clk_rst_name(ports, clk_list, rst_list)
 
+    # check whether the design is sequential/combinational (check for existance of dff)
+    is_seq = False
+    for cell in cells.values():
+        if ((cell["type"].find("DFF") > -1) or (cell["type"].find("dff") > -1)):
+            is_seq = True
 
     with open(bench_file, "r") as b:
         bench = b.read()
     
-    page2line = bench.splitlines()
-    rst_nets = list()
-    for indx, line in enumerate(page2line):
-        if (line.strip().find(clk) > -1):
-            page2line[indx] = "# " + page2line[indx]
-        if (line.strip().find(rst) > -1):
-            if (line.strip().find("=") > -1):
-                rst_name_name = line[:line.strip().find("=")].strip()
-                rst_nets.append(rst_name_name)
-                page2line[indx] = "# " + page2line[indx]
-            else:
-                page2line[indx] = "# " + page2line[indx]
-            # page2line[indx] = li " +npage2line[indx]
-    
-    for indx, line in enumerate(page2line):
-        for rst_net in rst_nets:
-            if (line.strip().find(rst_net) > -1):
-                page2line[indx] = "# " + page2line[indx]
+    # if it's sequential remove clock and reset from bench file
+    if(is_seq):
+        clk_list, rst_list = find_clk_rst_netNumber(cells)
+        clk, rst = find_clk_rst_name(ports, clk_list, rst_list)
 
-    return "\n".join(page2line)
+        page2line = bench.splitlines()
+        rst_nets = list()
+        for indx, line in enumerate(page2line):
+            if (line.strip().find(clk) > -1):
+                page2line[indx] = "# " + page2line[indx]
+            if (line.strip().find(rst) > -1):
+                if (line.strip().find("=") > -1):
+                    rst_name_name = line[:line.strip().find("=")].strip()
+                    rst_nets.append(rst_name_name)
+                    page2line[indx] = "# " + page2line[indx]
+                else:
+                    page2line[indx] = "# " + page2line[indx]
+                # page2line[indx] = li " +npage2line[indx]
+        
+        for indx, line in enumerate(page2line):
+            for rst_net in rst_nets:
+                if (line.strip().find(rst_net) > -1):
+                    page2line[indx] = "# " + page2line[indx]
+
+        return "\n".join(page2line)
+    else: # if combinational return bench as is
+        return bench

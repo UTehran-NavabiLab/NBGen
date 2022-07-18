@@ -22,6 +22,7 @@
     "verilog_netlist_fileName": "verilog_netlist.v",
     "systemC_netlist_fileName": "systemC_netlist.h",
     "systemC_testbench_fileName": "testbench.h",
+    "systemC_faultable_netlist_fileName": "systemC_faultable_netlist.h",
     
     "fault_list_fileName": "fault_list.flt",
     

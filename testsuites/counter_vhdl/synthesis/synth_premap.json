@@ -1,7 +1,7 @@
 {
   "creator": "Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )",
   "modules": {
-    "counter": {
+    "counter_4bit": {
       "attributes": {
         "top": "00000000000000000000000000000001"
       },
@@ -327,7 +327,7 @@
             "R": [ 35 ]
           }
         },
-        "$iopadmap$counter.clk": {
+        "$iopadmap$counter_4bit.clk": {
           "hide_name": 1,
           "type": "IBUF",
           "parameters": {
@@ -340,7 +340,7 @@
             "O": [ 34 ]
           }
         },
-        "$iopadmap$counter.co": {
+        "$iopadmap$counter_4bit.co": {
           "hide_name": 1,
           "type": "OBUF",
           "parameters": {
@@ -353,7 +353,7 @@
             "O": [ 5 ]
           }
         },
-        "$iopadmap$counter.counter": {
+        "$iopadmap$counter_4bit.counter": {
           "hide_name": 1,
           "type": "OBUF",
           "parameters": {
@@ -366,7 +366,7 @@
             "O": [ 6 ]
           }
         },
-        "$iopadmap$counter.counter_1": {
+        "$iopadmap$counter_4bit.counter_1": {
           "hide_name": 1,
           "type": "OBUF",
           "parameters": {
@@ -379,7 +379,7 @@
             "O": [ 7 ]
           }
         },
-        "$iopadmap$counter.counter_2": {
+        "$iopadmap$counter_4bit.counter_2": {
           "hide_name": 1,
           "type": "OBUF",
           "parameters": {
@@ -392,7 +392,7 @@
             "O": [ 8 ]
           }
         },
-        "$iopadmap$counter.counter_3": {
+        "$iopadmap$counter_4bit.counter_3": {
           "hide_name": 1,
           "type": "OBUF",
           "parameters": {
@@ -405,7 +405,7 @@
             "O": [ 9 ]
           }
         },
-        "$iopadmap$counter.en": {
+        "$iopadmap$counter_4bit.en": {
           "hide_name": 1,
           "type": "IBUF",
           "parameters": {
@@ -418,7 +418,7 @@
             "O": [ 14 ]
           }
         },
-        "$iopadmap$counter.rst": {
+        "$iopadmap$counter_4bit.rst": {
           "hide_name": 1,
           "type": "IBUF",
           "parameters": {

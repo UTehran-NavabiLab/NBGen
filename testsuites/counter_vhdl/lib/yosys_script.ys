@@ -1,4 +1,4 @@
-ghdl /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/counter.vhd -e counter 
+ghdl /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/counter_4bit.vhd -e counter_4bit 
 hierarchy -check -auto-top
 synth; opt -full
 flatten

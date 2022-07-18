@@ -3,16 +3,16 @@ USE IEEE.std_logic_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 	
 
-ENTITY counter IS 
+ENTITY counter_4bit IS 
 	PORT (
 		clk, rst, en : IN STD_LOGIC;
 		co : OUT STD_LOGIC;
 		counter : OUT STD_LOGIC_VECTOR(3 downto 0)
 		);
 	
-END ENTITY counter;
+END ENTITY counter_4bit;
 
-ARCHITECTURE behavioural OF counter IS 
+ARCHITECTURE behavioural OF counter_4bit IS 
 	SIGNAL counter_reg : STD_LOGIC_VECTOR (3 DOWNTO 0);
 
 BEGIN 

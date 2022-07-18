@@ -1,4 +1,4 @@
-module counter(clk, rst, en, co, counter);
+module counter_4bit(clk, rst, en, co, counter);
 
 wire S0;
 wire S1;
