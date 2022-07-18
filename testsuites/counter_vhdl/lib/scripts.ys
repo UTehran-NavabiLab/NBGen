@@ -20,6 +20,7 @@ clean -purge
 # placeholder for premap_synthesis file
 # write_verilog -noattr synth_premap.v
 # write_blif synth_premap.blif
+# write_json synth_premap.v
 
 # placeholder techmap
 # techmap -map DFF_map.v
@@ -31,5 +32,5 @@ opt_clean
 stat
 
 # placeholder for postmap_synthesis file
-# write_verilog -noattr synth_premap.v
-# write_json -noattr synth_premap.v
+# write_verilog -noattr synth_postmap.v
+# write_json -noattr synth_postmap.v

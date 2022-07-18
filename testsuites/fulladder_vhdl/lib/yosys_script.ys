@@ -25,8 +25,11 @@ clean -purge
 # placeholder for premap_synthesis file
 write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/synthesis/synth_premap.v 
 write_blif /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/synthesis/synth_premap.json 
+
 # write_verilog -noattr synth_premap.v
 # write_blif synth_premap.blif
+# write_json synth_premap.v
 
 # placeholder techmap
 techmap -map /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/DFF_map.v 
@@ -46,5 +49,5 @@ stat
 write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/synthesis/synth_postmap.v 
 write_json /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/synthesis/synth_postmap.json 
 
-# write_verilog -noattr synth_premap.v
-# write_json -noattr synth_premap.v
+# write_verilog -noattr synth_postmap.v
+# write_json -noattr synth_postmap.v

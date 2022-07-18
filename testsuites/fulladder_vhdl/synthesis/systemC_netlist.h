@@ -142,7 +142,7 @@ SC_CTOR( fulladder ) {
 
     SC_METHOD(sc_logic_signal_assignment);
 
-}
+    }
 
     void sc_logic_signal_assignment(void){ 
         sc_logic_1_signal.write(SC_LOGIC_1);

@@ -18,6 +18,7 @@ def preparation():
    lib_dir = mkdir("lib", working_directory, False)
    log_dir = mkdir("log", working_directory)
    test_dir = mkdir("test", working_directory)
+   fltSim_dir = mkdir("fault_simulation", test_dir)
 
    # read config file
    with open(os.path.join(lib_dir, "config.json"), "r") as json_file:
@@ -45,7 +46,24 @@ def preparation():
    except:
       print("Error occurred while copying file.")
 
-   return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, test_dir], 
+   # copy all files from lib/fault_simulation files to test_dir
+   source_folder = os.path.join(lib_dir, "fault_simulation")
+   print(source_folder)
+   destination_folder = fltSim_dir
+   print(destination_folder)
+   
+   # fetch all files
+   for file_name in os.listdir(source_folder):
+      # construct full file path
+      source = os.path.join(source_folder, file_name)
+      destination = os.path.join(destination_folder, file_name)
+      # copy only files
+      if os.path.isfile(source):
+         shutil.copy(source, destination)
+      else:
+         print("file/directory does not exist: ", source)
+
+   return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir], 
             "config": config}
 
 # @def: synthesize using yosys
@@ -54,7 +72,7 @@ def preparation():
 #     vhdl: determine the design to be vhdl
 #     use_existing_script: if set to false bypasses script making process
 #        user must provide valid yosys script at valid location (under lib_dir)
-def netlist(input_file_name, module_name, config, working_directory, synthesis_dir, lib_dir, log_dir, vhdl=False, use_existing_script=False):
+def netlist(input_file_name, module_name, config, working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, vhdl=False, use_existing_script=False):
    yosys_script_dir = os.path.join(lib_dir, "yosys_script.ys")
 
    if not (use_existing_script):
@@ -87,10 +105,6 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
    with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
       f.write(j2sc.generate_systemc())
    
-   j2sc_testbench = conv.json2sc_testbench.json2sc_testbench(json_input)
-   with open(os.path.join(synthesis_dir, config["systemC_testbench_fileName"]), "w") as f:
-      f.write(j2sc_testbench.generate_systemc())
-
 
 # @def: generate bench file using abc
 #  @args: 
@@ -168,3 +182,55 @@ def fault(testbench_name,  instance_name, config, working_directory, synthesis_d
    os.chdir(working_directory)
    
 
+# @def: generate fault list and corresponding test vector
+#  @args: 
+#     testbench_name: name of simulated testbench, used to address hierarchy 
+#     instance_name: name of design under test, used to address hierarchy 
+#     config: dictionary of configuration obtained from json
+#     use_existing_script: if set to false bypasses script making process
+#     reference to directories
+def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, instance):
+   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+   # change dir to fault simulation directory
+   os.chdir(fltSim_dir)
+
+   # copy fault_list and test_list file into fault_simulation directory
+   # since name of 
+   test_list_source = os.path.join(test_dir, config["abc_bench_rm_floated_net_output"][:-5] + "vec") 
+   fault_list_source = os.path.join(test_dir, "fault_list.flt")
+   test_list_destination = os.path.join(fltSim_dir, "test_list.txt")
+   fault_list_destination = os.path.join(fltSim_dir, "fault_list.flt")
+
+   if os.path.isfile(test_list_source):
+      shutil.copy(test_list_source, test_list_destination)
+   else:
+      print("file/directory does not exist: ", test_list_source)
+
+   if os.path.isfile(fault_list_source):
+      shutil.copy(fault_list_source, fault_list_destination)
+   else:
+      print("file/directory does not exist: ", fault_list_source)
+
+   # remove "END" from last line of test vectors
+   test_list_file = ""
+   with open(os.path.join(fltSim_dir, "test_list.txt"), "r") as f:
+      test_list_file = f.read()
+      page_one, _ = split_page(test_list_file, "END")
+      # remove_last_line
+      page2line = page_one.splitlines()
+      test_list_file = "\n".join(page2line[:-1])
+   with open(os.path.join(fltSim_dir, "test_list.txt"), "w") as f:
+      f.write(test_list_file)
+
+
+   j2sc_testbench = conv.json2sc_testbench.json2sc_testbench(json_input, testbench, instance)
+   with open(os.path.join(fltSim_dir, config["systemC_testbench_fileName"]), "w") as f:
+      f.write(j2sc_testbench.generate_systemc())
+
+   j2sc_faultable_netlist = conv.json2systemc_flt.json2systemc_flt(json_input)
+   with open(os.path.join(fltSim_dir, config["systemC_faultable_netlist_fileName"]), "w") as f:
+      f.write(j2sc_faultable_netlist.generate_systemc())
+
+   # call make file and save stdout
+   # ** use stdout to debug later
+   fault_log = subprocess.run(["make"], stdout=subprocess.PIPE, text=True, check=True)

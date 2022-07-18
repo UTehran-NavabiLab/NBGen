@@ -39,7 +39,8 @@ def yosys_script_mk(input_file, module_name, config, working_directory, lib_dir,
     # split_page won't start from new line so we add it add new line 
     yosys_script_1st += '\n'
     yosys_script_1st += f'write_verilog -noattr {os.path.join(synthesis_dir, config["yosys_script_premap_v_outputName"])} \n'
-    yosys_script_1st += f'write_blif {os.path.join(synthesis_dir, config["yosys_script_premap_blif_outputName"])} '
+    yosys_script_1st += f'write_blif {os.path.join(synthesis_dir, config["yosys_script_premap_blif_outputName"])} \n'
+    yosys_script_1st += f'write_json {os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])} \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
 
 

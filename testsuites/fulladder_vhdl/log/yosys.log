@@ -691,9 +691,11 @@ Dumping module `\fulladder'.
 
 15. Executing BLIF backend.
 
-16. Executing TECHMAP pass (map to technology primitives).
+16. Executing JSON backend.
 
-16.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/DFF_map.v
+17. Executing TECHMAP pass (map to technology primitives).
+
+17.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/DFF_map.v
 Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/DFF_map.v' to AST representation.
 Generating RTLIL representation for module `\DFF'.
 Generating RTLIL representation for module `\DFF_N'.
@@ -707,53 +709,53 @@ Generating RTLIL representation for module `\DFF_NP0'.
 Generating RTLIL representation for module `\DFF_NP1'.
 Successfully finished Verilog frontend.
 
-16.2. Continuing TECHMAP pass.
+17.2. Continuing TECHMAP pass.
 No more expansions possible.
 <suppressed ~12 debug messages>
 
-17. Executing ABC pass (technology mapping using ABC).
+18. Executing ABC pass (technology mapping using ABC).
 
-17.1. Extracting gate netlist of module `\fulladder' to `<abc-temp-dir>/input.blif'..
+18.1. Extracting gate netlist of module `\fulladder' to `<abc-temp-dir>/input.blif'..
 Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
 Don't call ABC as there is nothing to map.
 Removing temp directory.
 
-18. Executing OPT pass (performing simple optimizations).
+19. Executing OPT pass (performing simple optimizations).
 
-18.1. Executing OPT_EXPR pass (perform const folding).
+19.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module fulladder.
 
-18.2. Executing OPT_MERGE pass (detect identical cells).
+19.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\fulladder'.
 Removed a total of 0 cells.
 
-18.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \fulladder..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-18.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \fulladder.
 Performed a total of 0 changes.
 
-18.5. Executing OPT_MERGE pass (detect identical cells).
+19.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\fulladder'.
 Removed a total of 0 cells.
 
-18.6. Executing OPT_DFF pass (perform DFF optimizations).
+19.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-18.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \fulladder..
 
-18.8. Executing OPT_EXPR pass (perform const folding).
+19.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module fulladder.
 
-18.9. Finished OPT passes. (There is nothing left to do.)
+19.9. Finished OPT passes. (There is nothing left to do.)
 
-19. Executing TECHMAP pass (map to technology primitives).
+20. Executing TECHMAP pass (map to technology primitives).
 
-19.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v
+20.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v
 Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/testsuites/fulladder_vhdl/lib/Logic_map.v' to AST representation.
 Generating RTLIL representation for module `\BUF'.
 Generating RTLIL representation for module `\TIELOM'.
@@ -769,7 +771,7 @@ Generating RTLIL representation for module `\XOR'.
 Generating RTLIL representation for module `\XNOR'.
 Successfully finished Verilog frontend.
 
-19.2. Continuing TECHMAP pass.
+20.2. Continuing TECHMAP pass.
 Using template IBUF for cells of type IBUF.
 Using template NOT for cells of type NOT.
 Using template NAND for cells of type NAND.
@@ -778,69 +780,69 @@ Using template NOR for cells of type NOR.
 No more expansions possible.
 <suppressed ~33 debug messages>
 
-20. Executing OPT pass (performing simple optimizations).
+21. Executing OPT pass (performing simple optimizations).
 
-20.1. Executing OPT_EXPR pass (perform const folding).
+21.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module fulladder.
 
-20.2. Executing OPT_MERGE pass (detect identical cells).
+21.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\fulladder'.
 Removed a total of 0 cells.
 
-20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \fulladder..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \fulladder.
 Performed a total of 0 changes.
 
-20.5. Executing OPT_MERGE pass (detect identical cells).
+21.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\fulladder'.
 Removed a total of 0 cells.
 
-20.6. Executing OPT_DFF pass (perform DFF optimizations).
+21.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-20.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \fulladder..
 Removed 0 unused cells and 48 unused wires.
 <suppressed ~1 debug messages>
 
-20.8. Executing OPT_EXPR pass (perform const folding).
+21.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module fulladder.
 
-20.9. Rerunning OPT passes. (Maybe there is more to do..)
+21.9. Rerunning OPT passes. (Maybe there is more to do..)
 
-20.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+21.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \fulladder..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-20.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+21.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \fulladder.
 Performed a total of 0 changes.
 
-20.12. Executing OPT_MERGE pass (detect identical cells).
+21.12. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\fulladder'.
 Removed a total of 0 cells.
 
-20.13. Executing OPT_DFF pass (perform DFF optimizations).
+21.13. Executing OPT_DFF pass (perform DFF optimizations).
 
-20.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+21.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \fulladder..
 
-20.15. Executing OPT_EXPR pass (perform const folding).
+21.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module fulladder.
 
-20.16. Finished OPT passes. (There is nothing left to do.)
+21.16. Finished OPT passes. (There is nothing left to do.)
 
-21. Executing OPT_CLEAN pass (remove unused cells and wires).
+22. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \fulladder..
 
-22. Printing statistics.
+23. Printing statistics.
 
 === fulladder ===
 
@@ -858,11 +860,11 @@ Finding unused cells or wires in module \fulladder..
      pin                             3
      pout                            2
 
-23. Executing Verilog backend.
+24. Executing Verilog backend.
 Dumping module `\fulladder'.
 
-24. Executing JSON backend.
+25. Executing JSON backend.
 
-End of script. Logfile hash: 4381cab31d, CPU: user 0.82s system 0.05s
+End of script. Logfile hash: a0fade5816, CPU: user 0.81s system 0.04s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
-Time spent: 21% 27x opt_expr (0 sec), 15% 22x opt_clean (0 sec), ...
+Time spent: 20% 27x opt_expr (0 sec), 15% 3x abc (0 sec), ...

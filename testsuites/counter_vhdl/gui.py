@@ -1,11 +1,13 @@
-from cmath import log
 import tkinter as tk
+from tkinter import Toplevel, filedialog
 import src
 from src import script
 import os
+import subprocess
+
 
 prop = script.preparation()
-[working_directory, synthesis_dir, lib_dir, log_dir, test_dir] = prop["directories"]
+[working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir] = prop["directories"]
 config = prop["config"]
 
 #---------------------------- Functions ---------------------
@@ -13,7 +15,7 @@ def gen_netlist():
     input_file_name = entry_fileName.get()
     module_name = entry_moduleName.get()
     script.netlist(input_file_name, module_name, config, working_directory, 
-        synthesis_dir, lib_dir, log_dir,
+        synthesis_dir, lib_dir, log_dir, fltSim_dir,
         vhdl=tk_is_vhdl.get(), use_existing_script=tk_create_script.get())
 
     log_win.delete("1.0", tk.END)
@@ -40,8 +42,11 @@ def gen_bench():
 
 # by the time that fault is executed the synthesis result must be ready
 def gen_fault():
-    testbench_name = entry_testbench.get()
-    dut_name = entry_dut_name.get()
+    global testbench_name
+    global dut_name
+    
+    testbench_name = testbench_name.get()
+    dut_name = dut_name.get()
 
     script.fault(testbench_name,  dut_name, config, working_directory, 
         synthesis_dir, lib_dir, log_dir, test_dir)
@@ -52,7 +57,76 @@ def gen_fault():
         log_txt = log_file.read()
     
     log_win.insert(tk.END, log_txt)
+
+
+
+def open_testWin():
+    global testbench_name
+    global dut_name
+    testWin = Toplevel()
+    testWin_fr_btn = tk.Frame(master=testWin, relief=tk.RAISED, borderwidth=1)
+    testWin_fr_entry = tk.Frame(master=testWin, relief=tk.RAISED, borderwidth=1)
+
+
+    btn_genFault = tk.Button(
+        text="Generate fault list & test vector",
+        master=testWin_fr_btn,
+        font=("Arial", 20),
+        fg="red",
+        command=gen_fault
+    )
+    btn_genFault.pack()
+
+    btn_faultSim = tk.Button(
+        text="Fault Simulation on SystemC",
+        master=testWin_fr_btn,
+        font=("Arial", 20),
+        fg="red",
+        command=faultSim
+    )
+    btn_faultSim.pack()
+
+    entry_testbench = tk.Entry(
+        master=testWin_fr_entry,
+        textvariable=testbench_name,
+        fg="black", 
+        bg="white", 
+        width=25
+        )
+    entry_testbench.pack()
+
+    entry_dut_name = tk.Entry(
+        master=testWin_fr_entry,
+        textvariable=dut_name,
+        fg="black", 
+        bg="white", 
+        width=25)
+    entry_dut_name.pack()
+
+    testWin_fr_entry.grid(row=0, column=0)
+    testWin_fr_btn.grid(row=1, column=0)
+
+# callback function for open file dialog 
+def openFile():
+    file_dir = filedialog.askopenfilename(initialdir=working_directory, title="Select design", filetypes=[("verilog", ".v"), ("vhdl", ".vhd")])
+    file_name = file_dir[file_dir.rfind('/') + 1:]
+    module_name = file_name[:file_name.rfind('.')]
+    extension = file_name[file_name.rfind('.') + 1:]
+    entry_fileName.insert(0, file_name)
+    entry_moduleName.insert(0, module_name)
+    if extension.find("vhd") > -1:
+        tk_is_vhdl.set(True)
+    else:
+        tk_is_vhdl.set(False)
+    entry_fileName.config(state="disabled")
+    checkbox_vhdl.config(state="disabled")
         
+
+
+def faultSim():
+    log_win.insert(tk.END, script.fault_simulation(fltSim_dir))
+
+
 # callback function for vhdl_checkbox
 #   reserved for future use
 def set_vhdl():
@@ -62,36 +136,64 @@ def set_vhdl():
 #   reserved for future use
 def set_create_script():
     pass
+
 #----------------------------------------------------------------------- 
 
-window = tk.Tk()
-window.rowconfigure([0, 1, 2], weight=1)
-window.columnconfigure(0, weight=1)
+#---------------------------- Main window settings ---------------------
+root = tk.Tk()
+root.title('NBGen')
 
+min_width = 800
+min_height = 600
+
+# get the screen dimension
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+# find the center point
+center_x = int(screen_width/2 - min_width / 2)
+center_y = int(screen_height/2 - min_height / 2)
+
+# set the position of the root to the center of the screen
+root.geometry(f'{screen_width}x{screen_height}+{0}+{0}')
+# window is resizable but has min/max constraint
+# root.resizable(False, False)
+# root.maxsize(min_height, max_height)
+root.minsize(min_width, min_height)
+
+root.rowconfigure([0, 1, 2], weight=1)
+root.columnconfigure(0, weight=1)
+
+
+#---------------------------- Set Variables ---------------------
 if(os.path.exists("UT_png.png")):
     logo_file = tk.PhotoImage(file="UT_png.png")
 else:
     logo_file = False
-tk_is_vhdl = tk.BooleanVar(window, False)
-tk_create_script = tk.BooleanVar(window, False)
+tk_is_vhdl = tk.BooleanVar(root, False)
+tk_create_script = tk.BooleanVar(root, False)
+testbench_name = tk.StringVar()
+dut_name = tk.StringVar()
 
 #---------------------------- Frames ---------------------
-fr_logo_title = tk.Frame(master=window)
+fr_logo_title = tk.Frame(master=root)
 fr_logo = tk.Frame(master=fr_logo_title)
 
-fr_btns = tk.Frame(master=window)
+fr_btns = tk.Frame(master=root)
 fr_btn_genNetlist = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
 fr_btn_genBench = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
-fr_btn_genFault = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
+fr_btn_openFile = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
+fr_btn_testWin = tk.Frame(master=fr_btns, relief=tk.RAISED, borderwidth=1)
 
-fr_ent_label = tk.Frame(master=window, relief=tk.RAISED, borderwidth=1)
+fr_ent_label = tk.Frame(master=root, relief=tk.RAISED, borderwidth=1)
 fr_entry = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1)
 fr_input_label = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1)
 fr_vhdl_checkbox = tk.Frame(master=fr_ent_label, relief=tk.RAISED, borderwidth=1)
 
-fr_log_window = tk.Frame(master=window)
-#---------------------------- Frames ---------------------
+fr_log_window = tk.Frame(master=root)
 #-----------------------------------------------------------------------
+
+#---------------------------- Create and Pack Widgets ---------------------
 if(logo_file):
     logo = tk.Label(
         master=fr_logo,
@@ -116,14 +218,24 @@ btn_genBench = tk.Button(
 )
 btn_genBench.pack()
 
-btn_genFault = tk.Button(
-    master=fr_btn_genFault,
-    text="Generate fault list & test vector",
+
+btn_openFile = tk.Button(
+    master=fr_btn_openFile,
+    text="Open file",
     font=("Arial", 20),
     fg="red",
-    command=gen_fault
+    command=openFile
 )
-btn_genFault.pack()
+btn_openFile.pack()
+
+btn_testWin = tk.Button(
+    master=fr_btn_testWin,
+    text="Testing",
+    font=("Arial", 20),
+    fg="red",
+    command=open_testWin
+)
+btn_testWin.pack()
 
 
 input_label = tk.Label(
@@ -146,20 +258,6 @@ entry_moduleName = tk.Entry(
     bg="white", 
     width=25)
 entry_moduleName.pack()
-
-entry_testbench = tk.Entry(
-    master=fr_entry,
-    fg="black", 
-    bg="white", 
-    width=25)
-entry_testbench.pack()
-
-entry_dut_name = tk.Entry(
-    master=fr_entry,
-    fg="black", 
-    bg="white", 
-    width=25)
-entry_dut_name.pack()
 
 checkbox_vhdl = tk.Checkbutton(
     master=fr_entry, 
@@ -189,9 +287,10 @@ fr_input_label.grid(row=0, column=0)
 fr_entry.grid(row=1, column=0)
 
 fr_btns.grid(row=3, column=0)
-fr_btn_genNetlist.grid(row=0, column=0)
-fr_btn_genBench.grid(row=1, column=0)
-fr_btn_genFault.grid(row=2, column=0)
+fr_btn_openFile.grid(row=0, column=0)
+fr_btn_genNetlist.grid(row=1, column=0)
+fr_btn_genBench.grid(row=2, column=0)
+fr_btn_testWin.grid(row=3, column=0)
 
 fr_log_window.grid(row=4, column=0)
 #-----------------------------------------------------------------------
@@ -209,4 +308,4 @@ log_win.insert(tk.END, log_txt)
 #-----------------------------------------------------------------------
 
 # start main loop
-window.mainloop()
+root.mainloop()

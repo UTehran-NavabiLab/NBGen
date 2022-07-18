@@ -781,9 +781,11 @@ Dumping module `\counter'.
 
 15. Executing BLIF backend.
 
-16. Executing TECHMAP pass (map to technology primitives).
+16. Executing JSON backend.
 
-16.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/DFF_map.v
+17. Executing TECHMAP pass (map to technology primitives).
+
+17.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/DFF_map.v
 Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/DFF_map.v' to AST representation.
 Generating RTLIL representation for module `\DFF'.
 Generating RTLIL representation for module `\DFF_N'.
@@ -797,80 +799,80 @@ Generating RTLIL representation for module `\DFF_NP0'.
 Generating RTLIL representation for module `\DFF_NP1'.
 Successfully finished Verilog frontend.
 
-16.2. Continuing TECHMAP pass.
+17.2. Continuing TECHMAP pass.
 Using template DFF_PP0 for cells of type DFF_PP0.
 No more expansions possible.
 <suppressed ~16 debug messages>
 
-17. Executing ABC pass (technology mapping using ABC).
+18. Executing ABC pass (technology mapping using ABC).
 
-17.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+18.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
 Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
 Don't call ABC as there is nothing to map.
 Removing temp directory.
 
-18. Executing OPT pass (performing simple optimizations).
+19. Executing OPT pass (performing simple optimizations).
 
-18.1. Executing OPT_EXPR pass (perform const folding).
+19.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-18.2. Executing OPT_MERGE pass (detect identical cells).
+19.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-18.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-18.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter.
 Performed a total of 0 changes.
 
-18.5. Executing OPT_MERGE pass (detect identical cells).
+19.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-18.6. Executing OPT_DFF pass (perform DFF optimizations).
+19.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-18.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
 Removed 0 unused cells and 28 unused wires.
 <suppressed ~1 debug messages>
 
-18.8. Executing OPT_EXPR pass (perform const folding).
+19.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-18.9. Rerunning OPT passes. (Maybe there is more to do..)
+19.9. Rerunning OPT passes. (Maybe there is more to do..)
 
-18.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+19.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-18.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+19.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter.
 Performed a total of 0 changes.
 
-18.12. Executing OPT_MERGE pass (detect identical cells).
+19.12. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-18.13. Executing OPT_DFF pass (perform DFF optimizations).
+19.13. Executing OPT_DFF pass (perform DFF optimizations).
 
-18.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+19.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
 
-18.15. Executing OPT_EXPR pass (perform const folding).
+19.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-18.16. Finished OPT passes. (There is nothing left to do.)
+19.16. Finished OPT passes. (There is nothing left to do.)
 
-19. Executing TECHMAP pass (map to technology primitives).
+20. Executing TECHMAP pass (map to technology primitives).
 
-19.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/Logic_map.v
+20.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/Logic_map.v
 Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/testsuites/counter_vhdl/lib/Logic_map.v' to AST representation.
 Generating RTLIL representation for module `\BUF'.
 Generating RTLIL representation for module `\TIELOM'.
@@ -886,7 +888,7 @@ Generating RTLIL representation for module `\XOR'.
 Generating RTLIL representation for module `\XNOR'.
 Successfully finished Verilog frontend.
 
-19.2. Continuing TECHMAP pass.
+20.2. Continuing TECHMAP pass.
 Using template NOT for cells of type NOT.
 Using template IBUF for cells of type IBUF.
 Using template NOR for cells of type NOR.
@@ -895,69 +897,69 @@ Using template OBUF for cells of type OBUF.
 No more expansions possible.
 <suppressed ~41 debug messages>
 
-20. Executing OPT pass (performing simple optimizations).
+21. Executing OPT pass (performing simple optimizations).
 
-20.1. Executing OPT_EXPR pass (perform const folding).
+21.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-20.2. Executing OPT_MERGE pass (detect identical cells).
+21.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter.
 Performed a total of 0 changes.
 
-20.5. Executing OPT_MERGE pass (detect identical cells).
+21.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-20.6. Executing OPT_DFF pass (perform DFF optimizations).
+21.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-20.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
 Removed 0 unused cells and 69 unused wires.
 <suppressed ~1 debug messages>
 
-20.8. Executing OPT_EXPR pass (perform const folding).
+21.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-20.9. Rerunning OPT passes. (Maybe there is more to do..)
+21.9. Rerunning OPT passes. (Maybe there is more to do..)
 
-20.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+21.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-20.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+21.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter.
 Performed a total of 0 changes.
 
-20.12. Executing OPT_MERGE pass (detect identical cells).
+21.12. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-20.13. Executing OPT_DFF pass (perform DFF optimizations).
+21.13. Executing OPT_DFF pass (perform DFF optimizations).
 
-20.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+21.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
 
-20.15. Executing OPT_EXPR pass (perform const folding).
+21.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-20.16. Finished OPT passes. (There is nothing left to do.)
+21.16. Finished OPT passes. (There is nothing left to do.)
 
-21. Executing OPT_CLEAN pass (remove unused cells and wires).
+22. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
 
-22. Printing statistics.
+23. Printing statistics.
 
 === counter ===
 
@@ -976,11 +978,11 @@ Finding unused cells or wires in module \counter..
      pin                             3
      pout                            5
 
-23. Executing Verilog backend.
+24. Executing Verilog backend.
 Dumping module `\counter'.
 
-24. Executing JSON backend.
+25. Executing JSON backend.
 
-End of script. Logfile hash: 3fd9c231d7, CPU: user 1.09s system 0.05s
+End of script. Logfile hash: 3187d4a023, CPU: user 1.08s system 0.04s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
-Time spent: 20% 32x opt_expr (0 sec), 15% 26x opt_clean (0 sec), ...
+Time spent: 19% 32x opt_expr (0 sec), 15% 26x opt_clean (0 sec), ...

@@ -1,5 +1,5 @@
 import json
-
+from ..utilitie_funcs import find_clk_rst_netNumber, find_clk_rst_name
 # assumptions: 
 #   1. It's a flattend netlist which contains only one module as a top module
 #   2. Numeric parameter and attribute values up are equ/less than 32 bits and are written as decimal
@@ -21,8 +21,24 @@ class json2hdl:
         self.top_module = self.js["modules"][self.module_name]
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
-        
-    
+        self.is_sequential = self.is_sequential_check()
+
+        clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"])
+        self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
+
+
+    # @def: 
+    #   is_sequential_check ; check whether the circuit is combinational/sequential
+    def is_sequential_check(self):
+        cells_dic = self.top_module["cells"]
+        is_seq = False
+
+        for cell in cells_dic.values():
+            if ((cell["type"].find("DFF") > -1) or (cell["type"].find("dff") > -1)):
+                is_seq = True
+
+        return is_seq
+
     # @def: find actual net name using net integer value
     #   input: -
     #   output: dictionary of nets (key) and list of their correspondence net_number (value)

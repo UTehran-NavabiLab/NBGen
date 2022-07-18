@@ -11,7 +11,39 @@ class json2systemc(json2hdl):
         json2hdl.__init__(self, json_file)
 
         self.systemc = ""
+
+
+    # @def: 
+    #   size_Of_Ports; helper function to find size of input/output ports
+    def size_Of_Ports(self):
+        port_dic = self.top_module["ports"]
+        sizePI = 0
+        sizePO = 0
+
+        for port in port_dic.values():
+            if port["direction"] == "input":
+                # considering ports can be multi-bit, add length of bits
+                sizePI = sizePI + len(port["bits"])
+            if port["direction"] == "output":
+                sizePO = sizePO + len(port["bits"])
+
+        # exclude clock and reset
+        sizePI = sizePI - 2
+        
+        return sizePI, sizePO
     
+    # @def: 
+    #   size_Of_Ports; helper function to find number of DFFs in design
+    def number_of_DFF(self):
+        cells_dic = self.top_module["cells"]
+        numb_DFF = 0
+
+        for cell in cells_dic.values():
+            if ((cell["type"].find("DFF") > -1) or (cell["type"].find("dff") > -1)):
+                numb_DFF = numb_DFF + 1
+
+        return numb_DFF
+   
     # @def: find actual net name using net integer value
     #   input: net integer value
     #   output: net name
@@ -86,7 +118,6 @@ class json2systemc(json2hdl):
                 else:
                     port_declaration += f'sc_out<sc_logic> {port_name}[{str(len(port_prop["bits"]))}];\n'
                 
-        
         return port_declaration
 
     # @def: find actual net name using net integer value
@@ -102,6 +133,7 @@ class json2systemc(json2hdl):
             if not (net in self.ports_list):
                 signal_declartion += WHITE_SPACE 
                 signal_declartion += "sc_signal<sc_logic> " + net + ";\n"
+
         return signal_declartion
   
     # @def: retrieve cell parameters for each cell and pass it to cells_declaration()
@@ -139,29 +171,7 @@ class json2systemc(json2hdl):
                     cell_instantiation += WHITE_SPACE + WHITE_SPACE
                     cell_instantiation += instatnce_name + "->" + con_name + "[" + str(i) + "]" + "(" + self.find_net(connection) + ");\n"
                     i += 1
-
-        # sc_method_declaration = ""
-        # concatenation_functions = ""
-                # declare a concatenation signal
-                # concatenated_signal = f'{instatnce_name}_{con_name}_signal'
-                # instance_pointer += WHITE_SPACE + f'sc_signal<{len(con_value)}> {concatenated_signal};\n'
-                
-                # define sc_method inside constructor
-                # sc_method_declaration += WHITE_SPACE + WHITE_SPACE + f'SC_METHOD({instatnce_name}_port_concat);'
-                
-                # bind created signal
-                # cell_instantiation += WHITE_SPACE + WHITE_SPACE + instatnce_name + "->" + con_name + "(" + concatenated_signal + ");\n"
-
-                # define concatenation process
-                # concatenation_functions += f'void {instatnce_name}_port_concat(void)' + "{\n"
-                # concatenation_functions += WHITE_SPACE + f'{concatenated_signal} = ('
-                # for connection in con_value:
-                #     concatenation_functions += self.find_net(connection) + ", "
-                # # remove ", " and add ");\n"
-                # concatenation_functions = concatenation_functions[:-2] + ");\n}"
-
-
-            #endif: multi-bit port
+                    
         return instance_pointer, cell_instantiation
 
 
@@ -169,16 +179,13 @@ class json2systemc(json2hdl):
     def cells_declaration(self):
         instance_pointer = ""
         cell_instantiation = ""
-        sc_method_declaration = ""
-        concatenation_functions = ""
         i = 0
         
         for cell_name, cell_prop in self.top_module["cells"].items():
             instance_pointer += self.get_each_cell(cell_prop, i)[0]
             cell_instantiation += self.get_each_cell(cell_prop, i)[1] + "\n"
-            # sc_method_declaration += self.get_each_cell(cell_prop, i)[2] + "\n"
-            # concatenation_functions += self.get_each_cell(cell_prop, i)[3] + "\n"
             i += 1
+
         return instance_pointer, cell_instantiation
 
     # @def: declare module signature 
@@ -191,9 +198,6 @@ class json2systemc(json2hdl):
         
         # add sc_module for sc_logic_signals
         constructor_declaration += self.sc_logic_signals()[1] + "\n"
-
-        # # add sc_module for port concatenation
-        # constructor_declaration += self.cells_declaration()[2]
 
         constructor_declaration += WHITE_SPACE + "}\n"
 

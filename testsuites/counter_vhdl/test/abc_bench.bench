@@ -1,4 +1,4 @@
-# Benchmark "counter" written by ABC on Mon Jul  4 17:30:45 2022
+# Benchmark "counter" written by ABC on Sun Jul 17 00:36:11 2022
 INPUT(counter_reg[0])
 INPUT(counter_reg[1])
 INPUT(counter_reg[2])
