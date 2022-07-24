@@ -49,7 +49,7 @@ SC_MODULE(fault_injector){
         flist = accessRegistry->readFaultList(faultFile);
         faultFile.close();
 
-        testFile.open("test_list.txt");      
+        testFile.open("test_list_seq.txt");      
         while(testFile){
             string line;
 

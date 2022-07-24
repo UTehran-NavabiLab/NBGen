@@ -48,9 +48,7 @@ def preparation():
 
    # copy all files from lib/fault_simulation files to test_dir
    source_folder = os.path.join(lib_dir, "fault_simulation")
-   print(source_folder)
    destination_folder = fltSim_dir
-   print(destination_folder)
    
    # fetch all files
    for file_name in os.listdir(source_folder):
@@ -167,13 +165,13 @@ def fault(testbench_name,  instance_name, config, working_directory, synthesis_d
    with open(os.path.join(test_dir, config["abc_bench_rm_floated_net_output"]), 'w', encoding = 'utf-8') as b:
       b.write(rm_float_net(json_premap_input, bench_input))
    
-   # change dir to synthesis
+   # change dir to test_dirctory
    os.chdir(test_dir)
 
    atalanta_script = f'{config["abc_bench_rm_floated_net_output"]}'
 
    # run atalanta script with input file name, through exception if failed
-   atalanta_log = subprocess.run([config["atalanta_bin"], atalanta_script], stdout=subprocess.PIPE, text=True, check=True)
+   atalanta_log = subprocess.run([config["atalanta_bin"], "-t", "test_list.txt", atalanta_script], stdout=subprocess.PIPE, text=True, check=True)
    atalanta_log_dir = os.path.join(log_dir, "atalanta.log")
    with open(atalanta_log_dir,'w', encoding = 'utf-8') as f:
       f.write(atalanta_log.stdout)
@@ -195,32 +193,44 @@ def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, ins
    os.chdir(fltSim_dir)
 
    # copy fault_list and test_list file into fault_simulation directory
-   # since name of 
-   test_list_source = os.path.join(test_dir, config["abc_bench_rm_floated_net_output"][:-5] + "vec") 
-   fault_list_source = os.path.join(test_dir, "fault_list.flt")
-   test_list_destination = os.path.join(fltSim_dir, "test_list.txt")
-   fault_list_destination = os.path.join(fltSim_dir, "fault_list.flt")
 
-   if os.path.isfile(test_list_source):
-      shutil.copy(test_list_source, test_list_destination)
-   else:
-      print("file/directory does not exist: ", test_list_source)
+   fault_list_source = os.path.join(test_dir, "fault_list.flt")
+   fault_list_destination = os.path.join(fltSim_dir, "fault_list.flt")
 
    if os.path.isfile(fault_list_source):
       shutil.copy(fault_list_source, fault_list_destination)
    else:
       print("file/directory does not exist: ", fault_list_source)
 
-   # remove "END" from last line of test vectors
+
+   # remove extra information from atalanta output file and retain lists of vectors
    test_list_file = ""
-   with open(os.path.join(fltSim_dir, "test_list.txt"), "r") as f:
+   test_for_comb = ""
+   test_for_seq = ""
+   with open(os.path.join(test_dir, "test_list.txt"), "r") as f:
       test_list_file = f.read()
-      page_one, _ = split_page(test_list_file, "END")
-      # remove_last_line
-      page2line = page_one.splitlines()
-      test_list_file = "\n".join(page2line[:-1])
-   with open(os.path.join(fltSim_dir, "test_list.txt"), "w") as f:
-      f.write(test_list_file)
+      # find the specifier
+      page_one, page_two = split_page(test_list_file, "* Test patterns and fault free responses:")
+      # turn string into list of lines
+      page2line = page_two.splitlines()
+      for line in page2line:
+         if(line):
+               # split line into list considering "white space"
+               split_space = line.split(' ')
+               # for combinational test list just retain input test patterns
+               test_for_comb += split_space[-2] + "\n"
+               # for sequential test list concatenate input test patterns and expected outputs (fault free responses)
+               test_for_seq += split_space[-2] + split_space[-1] + "\n"
+      
+      # remove last line break "\n"
+      test_for_comb = test_for_comb[:-1]
+      test_for_seq = test_for_seq[:-1]
+
+
+   with open(os.path.join(fltSim_dir, "test_list_comb.txt"), "w") as f:
+      f.write(test_for_comb)
+   with open(os.path.join(fltSim_dir, "test_list_seq.txt"), "w") as f:
+      f.write(test_for_seq)
 
 
    j2sc_testbench = conv.json2sc_testbench.json2sc_testbench(json_input, testbench, instance)

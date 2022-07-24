@@ -131,9 +131,13 @@ def faultSim():
     dut_name_simFault = dut_name.get()
 
     log_win.delete("1.0", tk.END)
-    fault_simulation_log = script.fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench_name_simFault, dut_name_simFault)
+    script.fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench_name_simFault, dut_name_simFault)
+    # read log file
+    with open(os.path.join(fltSim_dir, "reportFile.txt"), "r") as log_file:
+        log_txt = log_file.read()
+     
     # fault_simulation_suc
-    log_win.insert(tk.END, fault_simulation_log)
+    log_win.insert(tk.END, log_txt)
 
 
 # callback function for vhdl_checkbox

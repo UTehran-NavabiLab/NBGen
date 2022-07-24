@@ -1,3 +1,5 @@
+import enum
+from tkinter.tix import Tree
 from . json2systemc import json2systemc
 
 # see if it's multi-bit port
@@ -9,7 +11,9 @@ WHITE_SPACE = "    "
 class json2systemc_flt(json2systemc):
     def __init__(self, json_file) -> None:
         json2systemc.__init__(self, json_file)
-        self.last_dff_Q_port = ""
+        self.list_of_Q_ports = list()
+        self.cells_instance_pointer, self.cells_instantiation = self.cells_declaration()
+
 
     # @def: add standard library library  
     def includes(self):
@@ -28,10 +32,10 @@ class json2systemc_flt(json2systemc):
 
         if(self.is_sequential):
             so_assignment_method_declr += WHITE_SPACE + f'SC_METHOD(So_assignment);\n'
-            so_assignment_method_declr += WHITE_SPACE + WHITE_SPACE + f'sensitive << {self.last_dff_Q_port};\n'
+            so_assignment_method_declr += WHITE_SPACE + WHITE_SPACE + f'sensitive << {self.list_of_Q_ports[-1]};\n' # get last element of dff Q ports
             
             so_assignment_function_declr += WHITE_SPACE + "void So_assignment(void){\n"
-            so_assignment_function_declr += WHITE_SPACE + WHITE_SPACE + f'So_sig.write({self.last_dff_Q_port}.read());\n'
+            so_assignment_function_declr += WHITE_SPACE + WHITE_SPACE + f'So_sig.write({self.list_of_Q_ports[-1]}.read());\n' # get last element of dff Q ports
             so_assignment_function_declr += WHITE_SPACE + "}\n"
         
         return so_assignment_method_declr, so_assignment_function_declr
@@ -93,7 +97,7 @@ class json2systemc_flt(json2systemc):
     #   output: two separate string to append at different location
     #       instance_pointer: create a pointer to gate type
     #       cell_instantiation: instantiation of cells inside constructor
-    def get_each_cell(self, cell, index):
+    def get_each_cell(self, cell, index, dff_count):
         # retrieve cell type, parameters and connection as a dictionary
         cell_type = cell["type"]
         cell_parameter = cell["parameters"]
@@ -110,8 +114,6 @@ class json2systemc_flt(json2systemc):
         
         # port mapping 
         # loop through each connection, get corresponding net-name
-        dff_number = 0
-        previous_Q = ""
         for con_name, con_value in cell_connections.items():
             if(((cell_type.find("DFF") > -1) or (cell_type.find("dff") > -1)) and (self.is_sequential)):
                 if(con_name == "NbarT"):
@@ -122,18 +124,16 @@ class json2systemc_flt(json2systemc):
                     cell_instantiation += instatnce_name + "->" + con_name + "(" + "global_reset_sig" + ");\n"
                 elif(con_name == "Si"):
                     # if it is the first dff bind Si
-                    if(dff_number == 0):
+                    if(dff_count == 0):
                         cell_instantiation += WHITE_SPACE + WHITE_SPACE
                         cell_instantiation += instatnce_name + "->" + con_name + "(" + "Si_sig" + ");\n"
                     else: # if it's not first dff, connect Si to previous dff Q port
                         cell_instantiation += WHITE_SPACE + WHITE_SPACE
-                        cell_instantiation += instatnce_name + "->" + con_name + "(" + previous_Q + ");\n"
+                        cell_instantiation += instatnce_name + "->" + con_name + "(" + self.list_of_Q_ports[dff_count - 1] + ");\n"
                 else: # treat rest of the ports as normal
                     # is port multi-bit
                     if(con_name == "Q"): # save Q port for next dff to bind
-                        previous_Q = self.find_net(con_value[0])
-                        if(dff_number == (self.number_of_DFF() - 1)):
-                            self.last_dff_Q_port = self.find_net(con_value[0])
+                        self.list_of_Q_ports.append(self.find_net(con_value[0]))
                     if (len(con_value) == 1):
                         cell_instantiation += WHITE_SPACE + WHITE_SPACE
                         cell_instantiation += instatnce_name + "->" + con_name + "(" + self.find_net(con_value[0]) + ");\n"
@@ -142,8 +142,7 @@ class json2systemc_flt(json2systemc):
                         for connection in con_value:
                             cell_instantiation += WHITE_SPACE + WHITE_SPACE
                             cell_instantiation += instatnce_name + "->" + con_name + "[" + str(portIndex) + "]" + "(" + self.find_net(connection) + ");\n"
-                dff_number = dff_number + 1
-                i += 1
+                            portIndex += 1
 
             else: # it is not a dff
                 # is port multi-bit
@@ -151,11 +150,11 @@ class json2systemc_flt(json2systemc):
                     cell_instantiation += WHITE_SPACE + WHITE_SPACE
                     cell_instantiation += instatnce_name + "->" + con_name + "(" + self.find_net(con_value[0]) + ");\n"
                 else: # if net is multi-bit, slice the port loop through each bit
-                    i = 0
+                    portIndex = 0
                     for connection in con_value:
                         cell_instantiation += WHITE_SPACE + WHITE_SPACE
-                        cell_instantiation += instatnce_name + "->" + con_name + "[" + str(i) + "]" + "(" + self.find_net(connection) + ");\n"
-                        i += 1
+                        cell_instantiation += instatnce_name + "->" + con_name + "[" + str(portIndex) + "]" + "(" + self.find_net(connection) + ");\n"
+                        portIndex += 1
 
         return instance_pointer, cell_instantiation
 
@@ -164,27 +163,37 @@ class json2systemc_flt(json2systemc):
     def cells_declaration(self):
         instance_pointer = ""
         cell_instantiation = ""
-        sc_method_declaration = ""
-        concatenation_functions = ""
-        i = 0
-        
+
+        cell_index = 0
+        dff_count = 0
+        # set flags to identify first and last dff
         for cell_name, cell_prop in self.top_module["cells"].items():
-            instance_pointer += self.get_each_cell(cell_prop, i)[0]
-            cell_instantiation += self.get_each_cell(cell_prop, i)[1] + "\n"
-            i += 1
+            
+            instance_pointer_temp, cell_instantiation_temp = self.get_each_cell(cell_prop, cell_index, dff_count)
+            instance_pointer += instance_pointer_temp
+            cell_instantiation += cell_instantiation_temp + "\n"
+
+            # if cell is of type dff
+            if(((cell_prop["type"].find("DFF") > -1) or (cell_prop["type"].find("dff") > -1)) and (self.is_sequential)):
+                dff_count = dff_count + 1
+            
+            cell_index += 1
         
+        pin_input_list = ["So_sig", "global_reset", "NbarT", "Si"]
+        pin_output_list = ["So", "global_reset_sig", "NbarT_sig", "Si_sig"]
+
         if(self.is_sequential):
             for j in range(4):
                 if(j == 0):
-                    instance_pointer += WHITE_SPACE + f'pout_flt* pout_{i + j};'
-                    cell_instantiation += WHITE_SPACE + f'pout_{i + j} = new pout_flt("pout_{i + j}", accessRegistry);\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{i + j}->in1(So_sig);\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{i + j}->out1(So);\n'
+                    instance_pointer += WHITE_SPACE + f'pout_flt* pout_{cell_index + j};\n'
+                    cell_instantiation += WHITE_SPACE + f'pout_{cell_index + j} = new pout_flt("pout_{cell_index + j}", accessRegistry);\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{cell_index + j}->in1({pin_input_list[j]});\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{cell_index + j}->out1({pin_output_list[j]});\n'
                 else:
-                    instance_pointer += WHITE_SPACE + f'pin_flt* pin_{i + j};'
-                    cell_instantiation += WHITE_SPACE + f'pin_{i + j} = new pin_flt("pin_{i + j}", accessRegistry);\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{i + j}->in1(Si);\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{i + j}->out1(Si_sig);\n'
+                    instance_pointer += WHITE_SPACE + f'pin_flt* pin_{cell_index + j};\n'
+                    cell_instantiation += WHITE_SPACE + f'pin_{cell_index + j} = new pin_flt("pin_{cell_index + j}", accessRegistry);\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{cell_index + j}->in1({pin_input_list[j]});\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{cell_index + j}->out1({pin_output_list[j]});\n'
 
         return instance_pointer, cell_instantiation
 
@@ -195,7 +204,7 @@ class json2systemc_flt(json2systemc):
         constructor_declaration += WHITE_SPACE + f'{self.module_name}(sc_module_name _name, faultRegistry* accessRegistry)' + '{\n'
         
         # add cell instantiation and binding
-        constructor_declaration += self.cells_declaration()[1] + "\n"
+        constructor_declaration += self.cells_instantiation + "\n"
         
         # add sc_method for sc_logic_signals
         constructor_declaration += self.sc_logic_signals()[1] + "\n"
@@ -218,7 +227,7 @@ class json2systemc_flt(json2systemc):
         entity_declaration += "\n"
         entity_declaration += self.signal_declartion()
         entity_declaration += "\n"
-        entity_declaration += self.cells_declaration()[0]
+        entity_declaration += self.cells_instance_pointer
         entity_declaration += "\n"
         entity_declaration += self.constructor_declaration()
         entity_declaration += "\n"

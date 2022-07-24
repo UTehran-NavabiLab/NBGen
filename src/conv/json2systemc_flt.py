@@ -134,9 +134,6 @@ class json2systemc_flt(json2systemc):
                     # is port multi-bit
                     if(con_name == "Q"): # save Q port for next dff to bind
                         self.list_of_Q_ports.append(self.find_net(con_value[0]))
-                        print(self.list_of_Q_ports)
-                        print(dff_count)
-                        # self.previous_Q = self.find_net(con_value[0])
                     if (len(con_value) == 1):
                         cell_instantiation += WHITE_SPACE + WHITE_SPACE
                         cell_instantiation += instatnce_name + "->" + con_name + "(" + self.find_net(con_value[0]) + ");\n"
