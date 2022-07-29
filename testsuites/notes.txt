@@ -46,3 +46,18 @@ on testbench for counter :
         in the end changed it back to its normal order
 
 [utilies_functios->rm_float_net,find_clk_rst_netNumber, find_clk_rst_name]: are specific to "abc_my_cells.lib"
+
+synthesising SAYAC Netlist:
+    to synthesize netlist of SAYAC: we had to change "dff" description to fit ghdl compilation constraints
+    to synthesize SAYAC along with mem and inst_rom: we comment out codes and assign input to output
+        produce dff with asynch reset 
+            > added "async2sync" to script to convert asynch to normal dff
+    > added -fsynopsys to add synoposys library
+
+    - then we observe a bigger problem:
+        while trying to synthesis one of our dff, we realized that it produce two sets of DFF {$_DFF_PN0_, _DFFSR_PPP_} just for one of them
+            probably because our dff is a complex dff with asynch set and reset
+            only after using "async2sync" command we get two set of fully synch DFF {_DFF_P_, _SDFF_PN0_}
+    
+    - we tried to solve this issue by using "extract" command again
+    

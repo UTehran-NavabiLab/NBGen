@@ -983,6 +983,6 @@ Dumping module `\counter_4bit'.
 
 25. Executing JSON backend.
 
-End of script. Logfile hash: f570e27965, CPU: user 1.08s system 0.04s
+End of script. Logfile hash: f570e27965, CPU: user 1.12s system 0.06s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
 Time spent: 19% 32x opt_expr (0 sec), 15% 26x opt_clean (0 sec), ...

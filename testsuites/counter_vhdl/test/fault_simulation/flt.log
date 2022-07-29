@@ -1294,92 +1294,6 @@ fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 0 s
 fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 0 s
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 50 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 70 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 110 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 210 ns
-
-Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 230 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 250 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 270 ns
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 290 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
-
----+++---+++---+++---+++
 Apply Test Vector: 00100001010001
 
 
@@ -1394,19 +1308,17 @@ cur_expected_st(PPO) = 0010
 Si = 0
 
 Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 330 ns
 
 Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 350 ns
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 390 ns
+fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 90 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -1421,13 +1333,13 @@ expected_PO(PO) = 11111
 cur_expected_st(PPO) = 0000
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 410 ns
+fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 110 ns
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 430 ns
+fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 130 ns
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 450 ns
+fault on testbench.fut.nand_n_3 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 150 ns
 
 Si = 1
 
@@ -1454,7 +1366,92 @@ module    | nand_n_3
 obj       | in1(1)
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.nand_n_3
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 210 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 310 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 330 ns
+
+Si = 1
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 350 ns
+
+Si = 1
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 370 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 430 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 490 ns
 fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 510 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -1469,6 +1466,7 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 530 ns
 
 Si = 1
 
@@ -1479,10 +1477,10 @@ Si = 1
 fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 590 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -1512,95 +1510,6 @@ saved_st_and_sampledPO = (saved_st, sampledPO)
 100000000 = 1000 , 00000
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 730 ns
-
-Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 750 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 770 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 790 ns
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 810 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
-
----+++---+++---+++---+++
-Apply Test Vector: 00100001010001
-
-
-load_st(PPI) = 0001
-
-PI = 1
-
-expected_PO(PO) = 00010
-
-cur_expected_st(PPO) = 0010
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 850 ns
-
-Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 870 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 910 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
-
----+++---+++---+++---+++
-Apply Test Vector: 00001111111111
-
-
-load_st(PPI) = 1111
-
-PI = 1
-
-expected_PO(PO) = 11111
-
-cur_expected_st(PPO) = 0000
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 930 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 950 ns
-
-Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 970 ns
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-001011111 = 0010 , 11111
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-001011111 = 0010 , 11111
-
----+++---+++---+++---+++
 Apply Test Vector: 11101110001110
 
 
@@ -1613,22 +1522,21 @@ expected_PO(PO) = 11100
 cur_expected_st(PPO) = 1110
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1030 ns
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 730 ns
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1050 ns
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 750 ns
 
 Si = 1
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1070 ns
 
 Si = 0
-fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1110 ns
+fault on testbench.fut.nand_n_3 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 810 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
+000111100 = 0001 , 11100
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000011101 = 0000 , 11101
+000111101 = 0001 , 11101
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -1647,8 +1555,91 @@ module    | nand_n_4
 obj       | in1(0)
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.nand_n_4
-fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1130 ns
-fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1130 ns
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 830 ns
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 830 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 970 ns
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 990 ns
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1010 ns
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1030 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1050 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -1663,19 +1654,22 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1150 ns
 
 Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1170 ns
 
 Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1190 ns
 
 Si = 1
 fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1230 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -1706,6 +1700,34 @@ saved_st_and_sampledPO = (saved_st, sampledPO)
 100000000 = 1000 , 00000
 
 ---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1390 ns
+
+Si = 0
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1410 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
 Apply Test Vector: 10111011001011
 
 
@@ -1722,17 +1744,17 @@ Si = 1
 Si = 0
 
 Si = 1
-fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1390 ns
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1490 ns
 
 Si = 1
-fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1410 ns
-fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1430 ns
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1510 ns
+fault on testbench.fut.nand_n_4 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 1530 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
+111010110 = 1110 , 10110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000110111 = 0001 , 10111
+111010111 = 1110 , 10111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -1751,8 +1773,91 @@ module    | nand_n_4
 obj       | in1(1)
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.nand_n_4
-fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1450 ns
-fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1450 ns
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1550 ns
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1550 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1690 ns
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1710 ns
+
+Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1730 ns
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1750 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1770 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -1767,19 +1872,22 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1870 ns
 
 Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1890 ns
 
 Si = 1
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1910 ns
 
 Si = 1
-fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1550 ns
+fault on testbench.fut.nand_n_4 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 1950 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001111 = 0000 , 01111
+010001111 = 0100 , 01111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -1798,35 +1906,90 @@ module    | nor_n_5
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_5
-fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 1570 ns
-fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 1570 ns
+fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 1970 ns
+fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 1970 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2130 ns
+
+Si = 1
+fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2170 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2190 ns
 
 Si = 0
 
 Si = 1
 
 Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 1650 ns
+fault on testbench.fut.nor_n_5 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2270 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001111 = 0000 , 01111
+000000111 = 0000 , 00111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -1845,92 +2008,8 @@ module    | nor_n_5
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_5
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1690 ns
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1690 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1770 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1810 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1930 ns
-
-Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1950 ns
-
-Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1970 ns
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 1990 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2290 ns
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2290 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -1947,19 +2026,16 @@ cur_expected_st(PPO) = 0010
 Si = 0
 
 Si = 0
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2030 ns
 
 Si = 0
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2050 ns
 
 Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2070 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -1978,16 +2054,99 @@ Si = 1
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2150 ns
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2450 ns
 
 Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2190 ns
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2490 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2510 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2590 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2610 ns
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2670 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2710 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
 
 ---+++---+++---+++---+++
 Apply Test Vector: 11101110001110
@@ -2002,21 +2161,21 @@ expected_PO(PO) = 11100
 cur_expected_st(PPO) = 1110
 
 Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2210 ns
 
 Si = 1
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2830 ns
 
 Si = 1
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2250 ns
 
 Si = 0
-fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2290 ns
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2870 ns
+fault on testbench.fut.nor_n_5 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2890 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
+000111100 = 0001 , 11100
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000011101 = 0000 , 11101
+000111101 = 0001 , 11101
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2035,91 +2194,7 @@ module    | nor_n_6
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_6
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2310 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2330 ns
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2370 ns
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2430 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2530 ns
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2570 ns
-
-Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2590 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2910 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -2134,20 +2209,192 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2630 ns
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2930 ns
 
 Si = 0
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 2710 ns
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3010 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101000010 = 1010 , 00010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3030 ns
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3050 ns
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3130 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3190 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3230 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3270 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3330 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3430 ns
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3510 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3550 ns
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3570 ns
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3590 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+111010110 = 1110 , 10110
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3630 ns
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3650 ns
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3670 ns
+fault on testbench.fut.nor_n_6 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3690 ns
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2166,8 +2413,92 @@ module    | nor_n_6
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_6
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2730 ns
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2730 ns
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3710 ns
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3710 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3730 ns
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3810 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3830 ns
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3850 ns
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3930 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3990 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -2182,19 +2513,20 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4030 ns
 
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2790 ns
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4070 ns
 
 Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -2209,7 +2541,7 @@ expected_PO(PO) = 00000
 cur_expected_st(PPO) = 0001
 
 Si = 0
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2850 ns
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4130 ns
 
 Si = 0
 
@@ -2224,34 +2556,33 @@ saved_st_and_sampledPO = (saved_st, sampledPO)
 100000000 = 1000 , 00000
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10111011001011
+Apply Test Vector: 11101110001110
 
 
-load_st(PPI) = 1011
+load_st(PPI) = 1110
 
 PI = 0
 
-expected_PO(PO) = 10110
+expected_PO(PO) = 11100
 
-cur_expected_st(PPO) = 1011
+cur_expected_st(PPO) = 1110
 
 Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2950 ns
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4230 ns
+
+Si = 1
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4250 ns
+
+Si = 1
 
 Si = 0
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2970 ns
-
-Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 2990 ns
-
-Si = 1
-fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3010 ns
+fault on testbench.fut.nor_n_6 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4310 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
+000111100 = 0001 , 11100
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-001010110 = 0010 , 10110
+001011100 = 0010 , 11100
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2270,8 +2601,91 @@ module    | nor_n_7
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_7
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3050 ns
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3050 ns
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4330 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4350 ns
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4430 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4450 ns
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4470 ns
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4550 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4610 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -2286,20 +2700,20 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3070 ns
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4650 ns
 
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3110 ns
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4690 ns
 
 Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -2314,7 +2728,7 @@ expected_PO(PO) = 00000
 cur_expected_st(PPO) = 0001
 
 Si = 0
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3170 ns
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4750 ns
 
 Si = 0
 
@@ -2329,34 +2743,33 @@ saved_st_and_sampledPO = (saved_st, sampledPO)
 100000000 = 1000 , 00000
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10111011001011
+Apply Test Vector: 11101110001110
 
 
-load_st(PPI) = 1011
+load_st(PPI) = 1110
 
 PI = 0
 
-expected_PO(PO) = 10110
+expected_PO(PO) = 11100
 
-cur_expected_st(PPO) = 1011
+cur_expected_st(PPO) = 1110
 
 Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3270 ns
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4850 ns
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4870 ns
+
+Si = 1
 
 Si = 0
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3290 ns
-
-Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3310 ns
-
-Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3330 ns
+fault on testbench.fut.nor_n_7 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4930 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
+000111100 = 0001 , 11100
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000010110 = 0000 , 10110
+000011100 = 0000 , 11100
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2375,92 +2788,7 @@ module    | nor_n_7
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_7
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3370 ns
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3370 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3390 ns
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3430 ns
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3490 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3590 ns
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3630 ns
-
-Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3650 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4950 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -2475,20 +2803,192 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3690 ns
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4970 ns
 
 Si = 0
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 3770 ns
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5050 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101000010 = 1010 , 00010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5070 ns
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5090 ns
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5170 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5230 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5270 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5310 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5370 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5470 ns
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5550 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5590 ns
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5610 ns
+
+Si = 1
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5630 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+111010110 = 1110 , 10110
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5670 ns
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5690 ns
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5710 ns
+fault on testbench.fut.nor_n_7 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5730 ns
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2507,90 +3007,8 @@ module    | nor_n_8
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_8
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3790 ns
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3790 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3850 ns
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 3910 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4050 ns
-
-Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4070 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5750 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5750 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -2605,21 +3023,20 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4110 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5770 ns
 
 Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4130 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4190 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5850 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -2634,10 +3051,10 @@ expected_PO(PO) = 11111
 cur_expected_st(PPO) = 0000
 
 Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4210 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5870 ns
 
 Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4230 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5890 ns
 
 Si = 1
 
@@ -2648,36 +3065,6 @@ pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
-
----+++---+++---+++---+++
-Apply Test Vector: 11101110001110
-
-
-load_st(PPI) = 1110
-
-PI = 0
-
-expected_PO(PO) = 11100
-
-cur_expected_st(PPO) = 1110
-
-Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4310 ns
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4310 ns
-
-Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4330 ns
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4390 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000011100 = 0000 , 11100
 
 ---+++---+++---+++---+++
 Apply Test Vector: 01000011010011
@@ -2692,22 +3079,131 @@ expected_PO(PO) = 00110
 cur_expected_st(PPO) = 0100
 
 Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4410 ns
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4410 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5970 ns
 
 Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4430 ns
 
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4470 ns
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6030 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-111000110 = 1110 , 00110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-111100110 = 1111 , 00110
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6070 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6110 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6170 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6350 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6370 ns
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6410 ns
+
+Si = 1
+fault on testbench.fut.nor_n_8 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6430 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+111110110 = 1111 , 10110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2726,62 +3222,62 @@ module    | nor_n_8
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_8
-fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4510 ns
-fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4510 ns
+fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6470 ns
+fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6470 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6490 ns
+
+Si = 0
 
 Si = 0
 
 Si = 1
+fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6570 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
 
 Si = 1
-fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4570 ns
+
+Si = 1
+
+Si = 1
 
 Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.nor_n_8 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 4650 ns
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100100000 = 1001 , 00000
+001111111 = 0011 , 11111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2800,91 +3296,61 @@ module    | nor_n_9
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_9
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4730 ns
+fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6690 ns
+fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6690 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4810 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 00010000010000
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 0000
+load_st(PPI) = 1111
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 0001
+cur_expected_st(PPO) = 0000
 
-Si = 0
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4850 ns
+Si = 1
 
-Si = 0
+Si = 1
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6850 ns
 
-Si = 0
+Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4950 ns
-
-Si = 0
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4970 ns
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 4990 ns
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5030 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-010110110 = 0101 , 10110
+010011111 = 0100 , 11111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -2903,93 +3369,8 @@ module    | nor_n_9
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_9
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5050 ns
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5050 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5070 ns
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5130 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5170 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5270 ns
-
-Si = 0
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5290 ns
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5310 ns
-
-Si = 1
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5350 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6910 ns
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6910 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -3004,7 +3385,6 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5370 ns
 
 Si = 0
 
@@ -3013,10 +3393,179 @@ Si = 0
 Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-110100010 = 1101 , 00010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7070 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7130 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7210 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7230 ns
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7290 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7330 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7430 ns
+
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7450 ns
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7510 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7610 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+111010110 = 1110 , 10110
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7630 ns
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7650 ns
+fault on testbench.fut.nor_n_9 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7670 ns
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -3035,94 +3584,9 @@ module    | nor_n_10
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_10
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5470 ns
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5470 ns
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5470 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5530 ns
-
-Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5550 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5590 ns
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5590 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5710 ns
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5750 ns
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5770 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7710 ns
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7710 ns
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7710 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -3137,22 +3601,19 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5790 ns
 
 Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5810 ns
 
 Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5830 ns
 
 Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5870 ns
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7810 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -3167,13 +3628,13 @@ expected_PO(PO) = 11111
 cur_expected_st(PPO) = 0000
 
 Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5890 ns
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7830 ns
 
 Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5910 ns
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7850 ns
 
 Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 5930 ns
+fault on testbench.fut.nor_n_10 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 7870 ns
 
 Si = 1
 
@@ -3200,93 +3661,8 @@ module    | nor_n_10
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_10
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5990 ns
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 5990 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6050 ns
-
-Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6070 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6110 ns
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6110 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6230 ns
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6270 ns
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6290 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7930 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 7930 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -3301,24 +3677,195 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6310 ns
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6310 ns
 
 Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6330 ns
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6330 ns
 
 Si = 0
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6350 ns
 
 Si = 1
-fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6390 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8030 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100100010 = 1001 , 00010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8050 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8050 ns
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8070 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8070 ns
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8090 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8150 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8150 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8210 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8230 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8250 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8250 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8290 ns
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8310 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8350 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8350 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8470 ns
+
+Si = 1
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8550 ns
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8590 ns
+
+Si = 1
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8610 ns
+fault on testbench.fut.nor_n_10 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 8630 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+110010110 = 1100 , 10110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -3337,8 +3884,94 @@ module    | nor_n_11
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_11
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6410 ns
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6410 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8650 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8650 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8750 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8790 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8790 ns
+
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8810 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8870 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8870 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8930 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8950 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -3353,20 +3986,22 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8970 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8970 ns
 
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6470 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9010 ns
 
 Si = 1
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6490 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9030 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -3381,8 +4016,8 @@ expected_PO(PO) = 00000
 cur_expected_st(PPO) = 0001
 
 Si = 0
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6530 ns
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6530 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9070 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9070 ns
 
 Si = 0
 
@@ -3397,33 +4032,31 @@ saved_st_and_sampledPO = (saved_st, sampledPO)
 100000000 = 1000 , 00000
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10111011001011
+Apply Test Vector: 11101110001110
 
 
-load_st(PPI) = 1011
+load_st(PPI) = 1110
 
 PI = 0
 
-expected_PO(PO) = 10110
+expected_PO(PO) = 11100
 
-cur_expected_st(PPO) = 1011
+cur_expected_st(PPO) = 1110
 
 Si = 1
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6630 ns
+fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9170 ns
+
+Si = 1
+
+Si = 1
 
 Si = 0
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6690 ns
-fault on testbench.fut.nor_n_11 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 6710 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
+000111100 = 0001 , 11100
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-001110110 = 0011 , 10110
+001111100 = 0011 , 11100
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -3442,64 +4075,94 @@ module    | nor_n_11
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_11
-fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6730 ns
-fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6730 ns
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9270 ns
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9270 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6790 ns
-
-Si = 1
-fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6810 ns
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9370 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 00010000010000
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 0000
+load_st(PPI) = 1111
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 0001
+cur_expected_st(PPO) = 0000
 
-Si = 0
-fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6850 ns
+Si = 1
 
-Si = 0
-fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 6870 ns
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9410 ns
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9410 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9430 ns
 
-Si = 0
+Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101000000 = 1010 , 00000
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9490 ns
+
+Si = 0
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9510 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9550 ns
+fault on testbench.fut.nor_n_11 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9570 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001000110 = 0010 , 00110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -3518,91 +4181,9 @@ module    | nand_n_12
 obj       | in1(0)
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.nand_n_12
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 6950 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7030 ns
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7050 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7070 ns
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7070 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7210 ns
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7250 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9590 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9590 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9590 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -3617,22 +4198,18 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7270 ns
 
 Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7290 ns
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7290 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7330 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -3649,49 +4226,20 @@ cur_expected_st(PPO) = 0000
 Si = 1
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7390 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9730 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7410 ns
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7410 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9750 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9750 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7430 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9770 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
-
----+++---+++---+++---+++
-Apply Test Vector: 11101110001110
-
-
-load_st(PPI) = 1110
-
-PI = 0
-
-expected_PO(PO) = 11100
-
-cur_expected_st(PPO) = 1110
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7470 ns
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7470 ns
-
-Si = 1
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7530 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000011100 = 0000 , 11100
 
 ---+++---+++---+++---+++
 Apply Test Vector: 01000011010011
@@ -3706,22 +4254,138 @@ expected_PO(PO) = 00110
 cur_expected_st(PPO) = 0100
 
 Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7570 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9810 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9810 ns
 
 Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7590 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7610 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 7650 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9890 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-111000110 = 1110 , 00110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-001000110 = 0010 , 00110
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9910 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9910 ns
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9930 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9970 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 9990 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10010 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10010 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10150 ns
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10210 ns
+
+Si = 0
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10230 ns
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10250 ns
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10270 ns
+fault on testbench.fut.nand_n_12 in1[0] = 1 --- fault on in1[1] = 3 --- Time: 10290 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001010110 = 0010 , 10110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -3740,93 +4404,7 @@ module    | nand_n_12
 obj       | in1(1)
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.nand_n_12
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7670 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7670 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7670 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7750 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7770 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7790 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7790 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7930 ns
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7970 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10310 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -3841,22 +4419,18 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 7990 ns
 
 Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8010 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8010 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8050 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -3873,49 +4447,20 @@ cur_expected_st(PPO) = 0000
 Si = 1
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8110 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10450 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8130 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8130 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10470 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10470 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8150 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10490 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
-
----+++---+++---+++---+++
-Apply Test Vector: 11101110001110
-
-
-load_st(PPI) = 1110
-
-PI = 0
-
-expected_PO(PO) = 11100
-
-cur_expected_st(PPO) = 1110
-
-Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8190 ns
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8190 ns
-
-Si = 1
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8250 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000011100 = 0000 , 11100
 
 ---+++---+++---+++---+++
 Apply Test Vector: 01000011010011
@@ -3930,21 +4475,50 @@ expected_PO(PO) = 00110
 cur_expected_st(PPO) = 0100
 
 Si = 0
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10530 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10530 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8330 ns
 
 Si = 1
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8370 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10610 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-111000110 = 1110 , 00110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-111000110 = 1110 , 00110
-fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 8390 ns
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10630 ns
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10690 ns
+fault on testbench.fut.nand_n_12 in1[0] = 3 --- fault on in1[1] = 1 --- Time: 10710 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100001110 = 1000 , 01110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -3963,93 +4537,8 @@ module    | nor_n_14
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_14
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8470 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8470 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8470 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8550 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8570 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8590 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8590 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8730 ns
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8770 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10730 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10730 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -4064,22 +4553,18 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8790 ns
 
 Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8810 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8810 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8850 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -4096,49 +4581,20 @@ cur_expected_st(PPO) = 0000
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8910 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10870 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8930 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8930 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10890 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10890 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8950 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10910 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
-
----+++---+++---+++---+++
-Apply Test Vector: 11101110001110
-
-
-load_st(PPI) = 1110
-
-PI = 0
-
-expected_PO(PO) = 11100
-
-cur_expected_st(PPO) = 1110
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8990 ns
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 8990 ns
-
-Si = 1
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9050 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000011100 = 0000 , 11100
 
 ---+++---+++---+++---+++
 Apply Test Vector: 01000011010011
@@ -4153,21 +4609,50 @@ expected_PO(PO) = 00110
 cur_expected_st(PPO) = 0100
 
 Si = 0
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10950 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10950 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9130 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9170 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11030 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-111000110 = 1110 , 00110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-111000110 = 1110 , 00110
-fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9190 ns
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11050 ns
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11110 ns
+fault on testbench.fut.nor_n_14 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11130 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000001110 = 0000 , 01110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -4186,93 +4671,8 @@ module    | nor_n_14
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_14
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9270 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9270 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9270 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9350 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9370 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9390 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9390 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9530 ns
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9570 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11150 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11150 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -4287,22 +4687,18 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9590 ns
 
 Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9610 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9610 ns
 
 Si = 0
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9650 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -4319,49 +4715,20 @@ cur_expected_st(PPO) = 0000
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9710 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11290 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9730 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9730 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11310 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11310 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9750 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11330 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
-
----+++---+++---+++---+++
-Apply Test Vector: 11101110001110
-
-
-load_st(PPI) = 1110
-
-PI = 0
-
-expected_PO(PO) = 11100
-
-cur_expected_st(PPO) = 1110
-
-Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9790 ns
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9790 ns
-
-Si = 1
-
-Si = 1
-
-Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9850 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000011100 = 0000 , 11100
 
 ---+++---+++---+++---+++
 Apply Test Vector: 01000011010011
@@ -4376,22 +4743,138 @@ expected_PO(PO) = 00110
 cur_expected_st(PPO) = 0100
 
 Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9890 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11370 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11370 ns
 
 Si = 0
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9910 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9930 ns
 
 Si = 1
-fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 9970 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11450 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-111000110 = 1110 , 00110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101000110 = 1010 , 00110
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11470 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11470 ns
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11490 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11530 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11550 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11570 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11570 ns
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11710 ns
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11770 ns
+
+Si = 0
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11790 ns
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11810 ns
+
+Si = 1
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11830 ns
+fault on testbench.fut.nor_n_14 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11850 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101010110 = 1010 , 10110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -4410,95 +4893,63 @@ module    | nor_n_15
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_15
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9990 ns
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9990 ns
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 9990 ns
+fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11870 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10070 ns
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10090 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 00010000010000
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 0000
+load_st(PPI) = 1111
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 0001
+cur_expected_st(PPO) = 0000
 
-Si = 0
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10110 ns
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10110 ns
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11990 ns
 
-Si = 0
+Si = 1
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12030 ns
+fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12030 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12050 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10210 ns
-
-Si = 0
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10230 ns
-
-Si = 1
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10250 ns
-
-Si = 1
-fault on testbench.fut.nor_n_15 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10290 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-010110110 = 0101 , 10110
+011011111 = 0110 , 11111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -4517,65 +4968,94 @@ module    | nor_n_15
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_15
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10310 ns
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10310 ns
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10310 ns
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12090 ns
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12090 ns
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12090 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10390 ns
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10410 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 00010000010000
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 0000
+load_st(PPI) = 1111
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 0001
+cur_expected_st(PPO) = 0000
 
-Si = 0
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10430 ns
+Si = 1
 
-Si = 0
-fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10450 ns
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12230 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12250 ns
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12250 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12270 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-110000000 = 1100 , 00000
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12310 ns
+
+Si = 0
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12330 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_15 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12390 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010000110 = 0100 , 00110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -4594,7 +5074,93 @@ module    | nor_n_16
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_16
-fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10530 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12410 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12410 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12410 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12570 ns
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12590 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12590 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12610 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12630 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12630 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -4609,19 +5175,23 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12730 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12730 ns
 
 Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12750 ns
 
 Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12770 ns
 
 Si = 1
-fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10630 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12810 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -4636,7 +5206,7 @@ expected_PO(PO) = 00000
 cur_expected_st(PPO) = 0001
 
 Si = 0
-fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 10650 ns
+fault on testbench.fut.nor_n_16 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12830 ns
 
 Si = 0
 
@@ -4667,90 +5237,7 @@ module    | nor_n_16
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_16
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10750 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10850 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10870 ns
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10870 ns
-
-Si = 0
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 10890 ns
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11030 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12930 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -4765,23 +5252,193 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11070 ns
 
 Si = 0
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11090 ns
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11090 ns
 
 Si = 0
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11110 ns
 
 Si = 1
-fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11150 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-001100010 = 0011 , 00010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13090 ns
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13110 ns
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13110 ns
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13130 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13150 ns
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13150 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13250 ns
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13250 ns
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13270 ns
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13290 ns
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13330 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13350 ns
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13350 ns
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13370 ns
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13510 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13550 ns
+
+Si = 0
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13570 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13610 ns
+fault on testbench.fut.nor_n_16 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 13630 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+011010110 = 0110 , 10110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -4800,89 +5457,8 @@ module    | nor_n_17
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_17
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11170 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11270 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11290 ns
-
-Si = 0
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11310 ns
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11450 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13650 ns
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13650 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -4897,23 +5473,190 @@ expected_PO(PO) = 00010
 cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11490 ns
 
 Si = 0
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11510 ns
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11510 ns
 
 Si = 0
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11530 ns
 
 Si = 1
-fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11570 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-001100010 = 0011 , 00010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13810 ns
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13830 ns
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13850 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13870 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13970 ns
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13970 ns
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 13990 ns
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14010 ns
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14050 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14070 ns
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14090 ns
+
+Si = 0
+
+Si = 0
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14230 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14270 ns
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14290 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14330 ns
+fault on testbench.fut.nor_n_17 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14350 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111010110 = 1110 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+011010110 = 0110 , 10110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -4932,7 +5675,90 @@ module    | nor_n_17
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_17
-fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11590 ns
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14370 ns
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14370 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14530 ns
+
+Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14550 ns
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14570 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14590 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -4947,19 +5773,23 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14690 ns
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14690 ns
 
 Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14710 ns
 
 Si = 1
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14730 ns
 
 Si = 1
-fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11690 ns
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14770 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -4974,7 +5804,7 @@ expected_PO(PO) = 00000
 cur_expected_st(PPO) = 0001
 
 Si = 0
-fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 11710 ns
+fault on testbench.fut.nor_n_17 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 14790 ns
 
 Si = 0
 
@@ -5005,88 +5835,7 @@ module    | nor_n_18
 obj       | in1(0)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_18
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11810 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11910 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 11950 ns
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12090 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 14890 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -5103,21 +5852,16 @@ cur_expected_st(PPO) = 0010
 Si = 0
 
 Si = 0
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12150 ns
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12150 ns
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12150 ns
 
 Si = 0
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12170 ns
 
 Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12210 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -5136,12 +5880,12 @@ Si = 1
 Si = 1
 
 Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12270 ns
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 15050 ns
 
 Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12290 ns
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12290 ns
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12310 ns
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 15070 ns
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 15070 ns
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 15090 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
@@ -5150,33 +5894,32 @@ saved_st_and_sampledPO = (saved_st, sampledPO)
 001011111 = 0010 , 11111
 
 ---+++---+++---+++---+++
-Apply Test Vector: 11101110001110
+Apply Test Vector: 01000011010011
 
 
-load_st(PPI) = 1110
+load_st(PPI) = 0011
 
-PI = 0
+PI = 1
 
-expected_PO(PO) = 11100
+expected_PO(PO) = 00110
 
-cur_expected_st(PPO) = 1110
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12330 ns
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12350 ns
-
-Si = 1
+cur_expected_st(PPO) = 0100
 
 Si = 0
-fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 12410 ns
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 15110 ns
+
+Si = 0
+fault on testbench.fut.nor_n_18 in1[0] = 0 --- fault on in1[1] = 3 --- Time: 15130 ns
+
+Si = 1
+
+Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100011100 = 1000 , 11100
+100000110 = 1000 , 00110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -5195,91 +5938,67 @@ module    | nor_n_18
 obj       | in1(1)
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.nor_n_18
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12430 ns
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12430 ns
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15210 ns
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15210 ns
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15210 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12530 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 00010000010000
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 0000
+load_st(PPI) = 1111
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 0001
+cur_expected_st(PPO) = 0000
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15330 ns
 
-Si = 0
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12570 ns
+Si = 1
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15350 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15370 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15390 ns
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15390 ns
+fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 15410 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12650 ns
-
-Si = 0
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12670 ns
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.nor_n_18 in1[0] = 3 --- fault on in1[1] = 0 --- Time: 12710 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100110110 = 1001 , 10110
+101011111 = 1010 , 11111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -5300,330 +6019,6 @@ faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.dff_19
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_19 D = 1 --- Time: 12870 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.dff_19 D = 1 --- Time: 12970 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100100000 = 1001 , 00000
-Fault to be removed: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_19
-obj       | D
-faultType | 1
---------- Remove Fault:--------------------- NUMBER:31
-
---------- Inject Fault:--------------------- NUMBER:32
-Fault to be Injected: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_19
-obj       | D
-faultType | 0
-## enable faultInjected signal on module:: testbench.fut.dff_19
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_19 D = 0 --- Time: 13090 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.dff_19 D = 0 --- Time: 13190 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_19 D = 0 --- Time: 13290 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000010110 = 0000 , 10110
-Fault to be removed: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_19
-obj       | D
-faultType | 0
---------- Remove Fault:--------------------- NUMBER:32
-
---------- Inject Fault:--------------------- NUMBER:33
-Fault to be Injected: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_20
-obj       | D
-faultType | 1
-## enable faultInjected signal on module:: testbench.fut.dff_20
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_20 D = 1 --- Time: 13410 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.dff_20 D = 1 --- Time: 13510 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-101000000 = 1010 , 00000
-Fault to be removed: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_20
-obj       | D
-faultType | 1
---------- Remove Fault:--------------------- NUMBER:33
-
---------- Inject Fault:--------------------- NUMBER:34
-Fault to be Injected: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_20
-obj       | D
-faultType | 0
-## enable faultInjected signal on module:: testbench.fut.dff_20
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_20 D = 0 --- Time: 13630 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.dff_20 D = 0 --- Time: 13730 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_20 D = 0 --- Time: 13830 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
-
----+++---+++---+++---+++
 Apply Test Vector: 00100001010001
 
 
@@ -5642,211 +6037,13 @@ Si = 0
 Si = 0
 
 Si = 1
-fault on testbench.fut.dff_20 D = 0 --- Time: 13930 ns
+fault on testbench.fut.dff_19 D = 1 --- Time: 15550 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100100010 = 1001 , 00010
-Fault to be removed: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_20
-obj       | D
-faultType | 0
---------- Remove Fault:--------------------- NUMBER:34
-
---------- Inject Fault:--------------------- NUMBER:35
-Fault to be Injected: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_21
-obj       | D
-faultType | 1
-## enable faultInjected signal on module:: testbench.fut.dff_21
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_21 D = 1 --- Time: 14050 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.dff_21 D = 1 --- Time: 14150 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-110000000 = 1100 , 00000
-Fault to be removed: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_21
-obj       | D
-faultType | 1
---------- Remove Fault:--------------------- NUMBER:35
-
---------- Inject Fault:--------------------- NUMBER:36
-Fault to be Injected: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | dff_21
-obj       | D
-faultType | 0
-## enable faultInjected signal on module:: testbench.fut.dff_21
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_21 D = 0 --- Time: 14270 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-fault on testbench.fut.dff_21 D = 0 --- Time: 14370 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_21 D = 0 --- Time: 14470 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
-
----+++---+++---+++---+++
-Apply Test Vector: 00100001010001
-
-
-load_st(PPI) = 0001
-
-PI = 1
-
-expected_PO(PO) = 00010
-
-cur_expected_st(PPO) = 0010
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 1
-fault on testbench.fut.dff_21 D = 0 --- Time: 14570 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -5867,40 +6064,85 @@ Si = 1
 Si = 1
 
 Si = 1
-fault on testbench.fut.dff_21 D = 0 --- Time: 14670 ns
+fault on testbench.fut.dff_19 D = 1 --- Time: 15650 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-001011111 = 0010 , 11111
+001111111 = 0011 , 11111
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:31
+
+--------- Inject Fault:--------------------- NUMBER:32
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_19
 
 ---+++---+++---+++---+++
-Apply Test Vector: 11101110001110
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 1110
+load_st(PPI) = 0001
 
-PI = 0
+PI = 1
 
-expected_PO(PO) = 11100
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1110
-
-Si = 1
-
-Si = 1
-
-Si = 1
+cur_expected_st(PPO) = 0010
 
 Si = 0
-fault on testbench.fut.dff_21 D = 0 --- Time: 14770 ns
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_19 D = 0 --- Time: 15770 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000011100 = 0000 , 11100
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000011100 = 0000 , 11100
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 0 --- Time: 15870 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
 
 ---+++---+++---+++---+++
 Apply Test Vector: 01000011010011
@@ -5921,13 +6163,463 @@ Si = 0
 Si = 1
 
 Si = 1
-fault on testbench.fut.dff_21 D = 0 --- Time: 14870 ns
+fault on testbench.fut.dff_19 D = 0 --- Time: 15970 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-111000110 = 1110 , 00110
+000000110 = 0000 , 00110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101000110 = 1010 , 00110
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 0 --- Time: 16070 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+010001110 = 0100 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 0
+fault on testbench.fut.dff_19 D = 0 --- Time: 16170 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100000000 = 1000 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000000 = 1000 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.dff_19 D = 0 --- Time: 16270 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000011100 = 0000 , 11100
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 0
+--------- Remove Fault:--------------------- NUMBER:32
+
+--------- Inject Fault:--------------------- NUMBER:33
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 1
+## enable faultInjected signal on module:: testbench.fut.dff_20
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_20 D = 1 --- Time: 16390 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 1 --- Time: 16490 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 1 --- Time: 16590 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001000110 = 0010 , 00110
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:33
+
+--------- Inject Fault:--------------------- NUMBER:34
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_20
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_20 D = 0 --- Time: 16710 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 0 --- Time: 16810 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000011111 = 0000 , 11111
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 0
+--------- Remove Fault:--------------------- NUMBER:34
+
+--------- Inject Fault:--------------------- NUMBER:35
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 1
+## enable faultInjected signal on module:: testbench.fut.dff_21
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_21 D = 1 --- Time: 16930 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 1 --- Time: 17030 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+011011111 = 0110 , 11111
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:35
+
+--------- Inject Fault:--------------------- NUMBER:36
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_21
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 17150 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 17250 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 17350 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 17450 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+010001110 = 0100 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000001110 = 0000 , 01110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -5948,85 +6640,58 @@ faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.dff_22
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.dff_22 D = 1 --- Time: 14990 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 0001
-
-Si = 0
+cur_expected_st(PPO) = 0010
 
 Si = 0
 
 Si = 0
 
 Si = 0
-fault on testbench.fut.dff_22 D = 1 --- Time: 15090 ns
+
+Si = 1
+fault on testbench.fut.dff_22 D = 1 --- Time: 17570 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10111011001011
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 1011
+load_st(PPI) = 1111
 
-PI = 0
+PI = 1
 
-expected_PO(PO) = 10110
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
+cur_expected_st(PPO) = 0000
 
 Si = 1
 
 Si = 1
-fault on testbench.fut.dff_22 D = 1 --- Time: 15190 ns
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 1 --- Time: 17670 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100110110 = 1001 , 10110
+101011111 = 1010 , 11111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6047,6 +6712,87 @@ faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.dff_22
 
 ---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_22 D = 0 --- Time: 17790 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 0 --- Time: 17890 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 0 --- Time: 17990 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
+
+---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
 
 
@@ -6065,13 +6811,13 @@ Si = 1
 Si = 1
 
 Si = 1
-fault on testbench.fut.dff_22 D = 0 --- Time: 15310 ns
+fault on testbench.fut.dff_22 D = 0 --- Time: 18090 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -6092,7 +6838,7 @@ Si = 0
 Si = 0
 
 Si = 0
-fault on testbench.fut.dff_22 D = 0 --- Time: 15410 ns
+fault on testbench.fut.dff_22 D = 0 --- Time: 18190 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 100000000 = 1000 , 00000
@@ -6117,130 +6863,7 @@ module    | pout_24
 obj       | in1
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.pout_24
-fault on testbench.fut.pout_24 in1 = 1 --- Time: 15410 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001111 = 0000 , 01111
-Fault to be removed: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | pout_24
-obj       | in1
-faultType | 1
---------- Remove Fault:--------------------- NUMBER:39
-
---------- Inject Fault:--------------------- NUMBER:40
-Fault to be Injected: 
-----------|-------------- 
-testbench | testbench
-dut       | fut
-module    | pout_24
-obj       | in1
-faultType | 0
-## enable faultInjected signal on module:: testbench.fut.pout_24
-fault on testbench.fut.pout_24 in1 = 0 --- Time: 15530 ns
-
----+++---+++---+++---+++
-Apply Test Vector: 10000111010111
-
-
-load_st(PPI) = 0111
-
-PI = 1
-
-expected_PO(PO) = 01110
-
-cur_expected_st(PPO) = 1000
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000110110 = 0001 , 10110
+fault on testbench.fut.pout_24 in1 = 1 --- Time: 18190 ns
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00100001010001
@@ -6263,10 +6886,55 @@ Si = 0
 Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-101100010 = 1011 , 00010
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-101100010 = 1011 , 00010
+000000011 = 0000 , 00011
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | pout_24
+obj       | in1
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:39
+
+--------- Inject Fault:--------------------- NUMBER:40
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | pout_24
+obj       | in1
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.pout_24
+fault on testbench.fut.pout_24 in1 = 0 --- Time: 18310 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00001111111111
@@ -6287,7 +6955,7 @@ Si = 1
 Si = 1
 
 Si = 1
-fault on testbench.fut.pout_24 in1 = 0 --- Time: 16030 ns
+fault on testbench.fut.pout_24 in1 = 0 --- Time: 18510 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
 001011111 = 0010 , 11111
@@ -6312,7 +6980,90 @@ module    | pout_25
 obj       | in1
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.pout_25
-fault on testbench.fut.pout_25 in1 = 1 --- Time: 16050 ns
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18530 ns
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18630 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18650 ns
+
+Si = 1
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18670 ns
+
+Si = 1
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011111 = 0010 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18750 ns
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18810 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000110 = 0000 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000110 = 0000 , 00110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 10000111010111
@@ -6327,19 +7078,20 @@ expected_PO(PO) = 01110
 cur_expected_st(PPO) = 1000
 
 Si = 0
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18850 ns
 
 Si = 1
 
 Si = 1
-fault on testbench.fut.pout_25 in1 = 1 --- Time: 16110 ns
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18890 ns
 
 Si = 1
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+010001110 = 0100 , 01110
 
 ---+++---+++---+++---+++
 Apply Test Vector: 00010000010000
@@ -6354,7 +7106,7 @@ expected_PO(PO) = 00000
 cur_expected_st(PPO) = 0001
 
 Si = 0
-fault on testbench.fut.pout_25 in1 = 1 --- Time: 16170 ns
+fault on testbench.fut.pout_25 in1 = 1 --- Time: 18950 ns
 
 Si = 0
 
@@ -6385,35 +7137,35 @@ module    | pout_25
 obj       | in1
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.pout_25
-fault on testbench.fut.pout_25 in1 = 0 --- Time: 16270 ns
-fault on testbench.fut.pout_25 in1 = 0 --- Time: 16270 ns
+fault on testbench.fut.pout_25 in1 = 0 --- Time: 19050 ns
+fault on testbench.fut.pout_25 in1 = 0 --- Time: 19050 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
-
-Si = 1
-fault on testbench.fut.pout_25 in1 = 0 --- Time: 16330 ns
-
-Si = 1
+fault on testbench.fut.pout_25 in1 = 0 --- Time: 19150 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001100 = 0000 , 01100
+000000000 = 0000 , 00000
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6432,61 +7184,34 @@ module    | pout_26
 obj       | in1
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.pout_26
-fault on testbench.fut.pout_26 in1 = 1 --- Time: 16390 ns
+fault on testbench.fut.pout_26 in1 = 1 --- Time: 19170 ns
+fault on testbench.fut.pout_26 in1 = 1 --- Time: 19170 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.pout_26 in1 = 1 --- Time: 16470 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.pout_26 in1 = 1 --- Time: 16510 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100000100 = 1000 , 00100
+000000110 = 0000 , 00110
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6505,34 +7230,63 @@ module    | pout_26
 obj       | in1
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.pout_26
-fault on testbench.fut.pout_26 in1 = 0 --- Time: 16610 ns
+fault on testbench.fut.pout_26 in1 = 0 --- Time: 19290 ns
+fault on testbench.fut.pout_26 in1 = 0 --- Time: 19290 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.pout_26 in1 = 0 --- Time: 16690 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001010 = 0000 , 01010
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+fault on testbench.fut.pout_26 in1 = 0 --- Time: 19410 ns
+
+Si = 1
+fault on testbench.fut.pout_26 in1 = 0 --- Time: 19430 ns
+
+Si = 1
+fault on testbench.fut.pout_26 in1 = 0 --- Time: 19450 ns
+
+Si = 1
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001011011 = 0010 , 11011
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6551,61 +7305,33 @@ module    | pout_27
 obj       | in1
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.pout_27
-fault on testbench.fut.pout_27 in1 = 1 --- Time: 16730 ns
+fault on testbench.fut.pout_27 in1 = 1 --- Time: 19510 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.pout_27 in1 = 1 --- Time: 16830 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
-
----+++---+++---+++---+++
-Apply Test Vector: 00010000010000
-
-
-load_st(PPI) = 0000
-
-PI = 1
-
-expected_PO(PO) = 00000
-
-cur_expected_st(PPO) = 0001
-
-Si = 0
-fault on testbench.fut.pout_27 in1 = 1 --- Time: 16850 ns
-
-Si = 0
-
-Si = 0
-
-Si = 0
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-100001000 = 1000 , 01000
+000001010 = 0000 , 01010
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6624,34 +7350,62 @@ module    | pout_27
 obj       | in1
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.pout_27
-fault on testbench.fut.pout_27 in1 = 0 --- Time: 16950 ns
+fault on testbench.fut.pout_27 in1 = 0 --- Time: 19630 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-fault on testbench.fut.pout_27 in1 = 0 --- Time: 17050 ns
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000000110 = 0000 , 00110
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.pout_27 in1 = 0 --- Time: 19770 ns
+
+Si = 1
+fault on testbench.fut.pout_27 in1 = 0 --- Time: 19790 ns
+
+Si = 1
+fault on testbench.fut.pout_27 in1 = 0 --- Time: 19810 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001011111 = 0010 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001010111 = 0010 , 10111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6670,34 +7424,33 @@ module    | pout_28
 obj       | in1
 faultType | 1
 ## enable faultInjected signal on module:: testbench.fut.pout_28
-fault on testbench.fut.pout_28 in1 = 1 --- Time: 17070 ns
-fault on testbench.fut.pout_28 in1 = 1 --- Time: 17070 ns
+fault on testbench.fut.pout_28 in1 = 1 --- Time: 19850 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000011110 = 0000 , 11110
+000010010 = 0000 , 10010
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
@@ -6716,89 +7469,62 @@ module    | pout_28
 obj       | in1
 faultType | 0
 ## enable faultInjected signal on module:: testbench.fut.pout_28
-fault on testbench.fut.pout_28 in1 = 0 --- Time: 17190 ns
-fault on testbench.fut.pout_28 in1 = 0 --- Time: 17190 ns
+fault on testbench.fut.pout_28 in1 = 0 --- Time: 19970 ns
 
 ---+++---+++---+++---+++
-Apply Test Vector: 10000111010111
+Apply Test Vector: 00100001010001
 
 
-load_st(PPI) = 0111
+load_st(PPI) = 0001
 
 PI = 1
 
-expected_PO(PO) = 01110
+expected_PO(PO) = 00010
 
-cur_expected_st(PPO) = 1000
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
 
 Si = 0
 
 Si = 1
 
-Si = 1
-
-Si = 1
-
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-000001110 = 0000 , 01110
+000000010 = 0000 , 00010
 
 ---+++---+++---+++---+++
-Apply Test Vector: 00010000010000
+Apply Test Vector: 00001111111111
 
 
-load_st(PPI) = 0000
+load_st(PPI) = 1111
 
 PI = 1
 
-expected_PO(PO) = 00000
+expected_PO(PO) = 11111
 
-cur_expected_st(PPO) = 0001
+cur_expected_st(PPO) = 0000
 
-Si = 0
-fault on testbench.fut.pout_28 in1 = 0 --- Time: 17310 ns
+Si = 1
 
-Si = 0
-fault on testbench.fut.pout_28 in1 = 0 --- Time: 17330 ns
+Si = 1
 
-Si = 0
+Si = 1
+fault on testbench.fut.pout_28 in1 = 0 --- Time: 20130 ns
 
-Si = 0
+Si = 1
+fault on testbench.fut.pout_28 in1 = 0 --- Time: 20150 ns
+fault on testbench.fut.pout_28 in1 = 0 --- Time: 20170 ns
 
 pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-100000000 = 1000 , 00000
+001011111 = 0010 , 11111
 
 saved_st_and_sampledPO = (saved_st, sampledPO)
-100000000 = 1000 , 00000
-
----+++---+++---+++---+++
-Apply Test Vector: 10111011001011
-
-
-load_st(PPI) = 1011
-
-PI = 0
-
-expected_PO(PO) = 10110
-
-cur_expected_st(PPO) = 1011
-
-Si = 1
-
-Si = 0
-
-Si = 1
-
-Si = 1
-fault on testbench.fut.pout_28 in1 = 0 --- Time: 17470 ns
-
-pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
-000110110 = 0001 , 10110
-
-saved_st_and_sampledPO = (saved_st, sampledPO)
-000100110 = 0001 , 00110
+001001111 = 0010 , 01111
 Fault to be removed: 
 ----------|-------------- 
 testbench | testbench
