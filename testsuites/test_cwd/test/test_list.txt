@@ -1,0 +1,17 @@
+* Name of circuit:  abc_bench_rm_floated_net.bench
+* Primary inputs :
+  ci i0 i1 
+  
+* Primary outputs:
+  co s 
+
+* Test patterns and fault free responses:
+
+   1: 000 00
+   2: 011 10
+   3: 100 01
+   4: 111 11
+   5: 110 10
+   6: 001 01
+   7: 101 10
+   8: 010 01

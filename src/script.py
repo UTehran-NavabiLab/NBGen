@@ -13,7 +13,8 @@ from . import flt
 
 def preparation():
    # create directory (synthesis, lib, log, bench)
-   working_directory = os.getcwd()
+   working_directory = "/Users/ebinouri/Documents/UNi/NBGen/testsuites/test_cwd"
+   # working_directory = os.getcwd()
    synthesis_dir = mkdir("synthesis", working_directory, False)
    lib_dir = mkdir("lib", working_directory, False)
    log_dir = mkdir("log", working_directory)
