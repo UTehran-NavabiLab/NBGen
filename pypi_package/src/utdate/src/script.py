@@ -13,14 +13,14 @@ from utdate.src.conv.json2sc_testbench import json2sc_testbench
 from utdate.src.conv.json2systemc import json2systemc
 from utdate.src.conv.json2systemc_flt import json2systemc_flt
 from utdate.src.flt.fault_collapsing import fault_collapsing
+import utdate.lib as lib
 
 
 def preparation():
    # create directory (synthesis, lib, log, bench)
-   working_directory = "/Users/ebinouri/Documents/UNi/NBGen/testsuites/test_cwd"
-   # working_directory = os.getcwd()
+   working_directory = os.getcwd()
    synthesis_dir = mkdir("synthesis", working_directory, False)
-   lib_dir = mkdir("lib", working_directory, False)
+   lib_dir = lib.__path__[0]
    log_dir = mkdir("log", working_directory)
    test_dir = mkdir("test", working_directory)
    fltSim_dir = mkdir("fault_simulation", test_dir)

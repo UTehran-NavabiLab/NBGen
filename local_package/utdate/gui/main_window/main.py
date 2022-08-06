@@ -1,5 +1,6 @@
 from pathlib import Path
 from tkinter import (
+    Tk,
     Toplevel,
     Frame,
     Canvas,
@@ -27,10 +28,10 @@ def mainWindow(directories, config):
     MainWindow(directories, config)
 
 
-class MainWindow(Toplevel):
+class MainWindow(Tk):
 
     def __init__(self, directories, config, *args, **kwargs):
-        Toplevel.__init__(self, *args, **kwargs)
+        Tk.__init__(self, *args, **kwargs)
 
         [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir] = directories
 

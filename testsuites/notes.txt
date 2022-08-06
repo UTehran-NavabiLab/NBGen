@@ -1,10 +1,10 @@
 -------------------- TODO list --------------------
 
-finish fault sim part
+add "iverilog"/"ghdl" simulator for verilog/vhdl simulation
 add option to use existing "fault list" and "test vector"
-add bunch of checkbox
-
+seperate ATPG and FLTG: make report section for each one
 for fault simulation process:  
+    add a loading icon to show simulation is in process
     make clock cycle variable by user
     * on [json2sc_testbench->size_Of_Ports] we excluded reset and clock for sizePI
         consider the possibility of designs having no reset
@@ -16,6 +16,8 @@ modules with a name equal to one of the signals would cause error on systemc (se
 te'daade hirarchy vaase fault_list generation mitoone tavasote user moshakhas beshe?
 
 -------------------- Done --------------------
+add bunch of checkbox
+finish fault sim part
 sayac scan simulation on systemc
 automating fault simulation process:
     + - choose the right "fault-injector" module (based on comb/seq) and copy that in test folder
@@ -98,7 +100,32 @@ then I realized that there is conflict between different versions of python that
             It calls: /usr/local/lib/python3.10/site-packages/pip (which the version installed by brew)
 so if I want to install local package using pip3 I should address which one explicitly
 
+Creating local package using setuptool -----------------------------------
+    https://stackoverflow.com/questions/6323860/sibling-package-imports
+
+Creating online Pypi package -----------------------------------
+https://www.youtube.com/watch?v=v4bkJef4W94
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+Uploading the distribution archives
+To securely upload your project, you’ll need a PyPI API token. 
+Create one at https://test.pypi.org/manage/account/#api-tokens, setting the “Scope” to “Entire account”. 
 
 [testpypi]
     username = __token__
     password: pypi-AgENdGVzdC5weXBpLm9yZwIkNWM0MWE2NjYtNjFiYy00YzdkLTkxZTAtY2QzYjY5YmVkODEzAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiBalV4e0AW3J68SKZpne_6k-gz9MfwzNKVgIuxLhAmj-A
+
+to add assets(images) to package use 
+    > include_package_data = True
+    inside setup.cfg
+
+process of updating package on Pypi -------------------------
+python3 -m build
+python3 -m twine upload --repository testpypi dist/*
+pypi-AgENdGVzdC5weXBpLm9yZwIkNWM0MWE2NjYtNjFiYy00YzdkLTkxZTAtY2QzYjY5YmVkODEzAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiBalV4e0AW3J68SKZpne_6k-gz9MfwzNKVgIuxLhAmj-A
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install -i https://test.pypi.org/simple/ utdate==0.0.10
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 uninstall utdate
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 list
+
+Run module (__main__.py) gets called and starts program
+    > python3 -m udate
