@@ -26,6 +26,7 @@
     
     "fault_list_fileName": "fault_list.flt",
     
+    "gate_signal_json_file": "gate_signal_json_file.json",
     "atalanta_bin": "atalanta",
     "atalanta_output_fileName": "atalanta_output.log"
 }

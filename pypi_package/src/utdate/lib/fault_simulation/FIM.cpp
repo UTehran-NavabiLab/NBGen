@@ -49,7 +49,7 @@ vector<vector<string>> faultRegistry::readFaultList(ifstream& faultList){
 
         // create vector of string to save each token
         vector<string> fault_prop;
-        // convert strin to stringstream to use stream properties (here getline)
+        // convert strin to stringstream to use stream facilities (here getline)
         stringstream sstream(line);
         string tempString;
 

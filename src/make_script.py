@@ -1,5 +1,5 @@
 import os
-from . utilitie_funcs import split_page
+from utdate.src.utility_functions import split_page
 
 
 def abc_script_mk(config, lib_dir, test_dir, synthesis_dir):
@@ -15,11 +15,15 @@ def yosys_script_mk(input_file, module_name, config, working_directory, lib_dir,
     with open(os.path.join(lib_dir, config['yosys_script_fileName']), "r") as yosys_template_script:
         yosys_script = yosys_template_script.read()
 
+    list_of_files = ""
+    for file_name in input_file:
+        list_of_files += f'{os.path.join(working_directory, file_name)} '
+    
     if (not vhdl):
         # create yosys_script from template
-        yosys_script = f'read_verilog {os.path.join(working_directory, input_file)} \n' + yosys_script
+        yosys_script = f'read_verilog {list_of_files} \n' + yosys_script
     else:
-        yosys_script = f'ghdl {os.path.join(working_directory, input_file)} -e {module_name} \n' + yosys_script
+        yosys_script = f'ghdl {list_of_files} -e {module_name} \n' + yosys_script
 
 
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for dfflibmap"])

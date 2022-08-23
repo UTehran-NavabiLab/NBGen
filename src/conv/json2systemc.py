@@ -1,4 +1,5 @@
-from . json2hdl import json2hdl
+from utdate.src.conv.json2hdl import json2hdl
+from json import dumps
 
 # see if it's multi-bit port
 # TODO: check if module name is also used for any other property
@@ -7,11 +8,16 @@ from . json2hdl import json2hdl
 WHITE_SPACE = "    "
 
 class json2systemc(json2hdl):
-    def __init__(self, json_file) -> None:
+    def __init__(self, json_file, gate_signal_file) -> None:
         json2hdl.__init__(self, json_file)
 
         self.systemc = ""
+        self.gate_signal_dict = dict()
+        self.gate_signal_file = gate_signal_file
 
+    def dump_gate_signal_dict(self):
+        with open(self.gate_signal_file, "w") as f:
+            f.write(dumps(self.gate_signal_dict))
 
     # @def: 
     #   size_Of_Ports; helper function to find size of input/output ports
@@ -158,6 +164,8 @@ class json2systemc(json2hdl):
  
         cell_instantiation = WHITE_SPACE + instatnce_name + " = new " + cell_type + '("' + instatnce_name + '");\n'
         
+        self.gate_signal_dict.update({instatnce_name:[]})
+
         # port mapping 
         # loop through each connection, get corresponding net-name
         for con_name, con_value in cell_connections.items():
@@ -165,12 +173,24 @@ class json2systemc(json2hdl):
             if (len(con_value) == 1):
                 cell_instantiation += WHITE_SPACE + WHITE_SPACE
                 cell_instantiation += instatnce_name + "->" + con_name + "(" + self.find_net(con_value[0]) + ");\n"
+
+                if(con_name.find("out") > -1 ):
+                    self.gate_signal_dict[instatnce_name].insert(0, self.find_net(con_value[0]))
+                else:
+                    self.gate_signal_dict[instatnce_name].append(self.find_net(con_value[0]))
+                    
             else: # if net is multi-bit, slice the port loop through each bit
                 i = 0
                 for connection in con_value:
                     cell_instantiation += WHITE_SPACE + WHITE_SPACE
                     cell_instantiation += instatnce_name + "->" + con_name + "[" + str(i) + "]" + "(" + self.find_net(connection) + ");\n"
                     i += 1
+
+                    if(con_name.find("out") > -1 ):
+                        self.gate_signal_dict[instatnce_name].insert(0, self.find_net(connection))
+                    else:
+                        self.gate_signal_dict[instatnce_name].append(self.find_net(connection))
+                        
                     
         return instance_pointer, cell_instantiation
 
@@ -230,5 +250,7 @@ class json2systemc(json2hdl):
         self.systemc += self.namespace_decl() + "\n"
         self.systemc += "\n"
         self.systemc += self.module_declaration() + "\n"
+        
+        self.dump_gate_signal_dict()
 
         return self.systemc

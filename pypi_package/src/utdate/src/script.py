@@ -100,6 +100,7 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
    else:
       ###################### convert to vhdl, verilog, systemC ######################
       json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+      gate_signal_file = os.path.join(synthesis_dir, config["gate_signal_json_file"])
       
       j2vhd = json2vhdl(json_input)
       with open(os.path.join(synthesis_dir, config["vhdl_netlist_fileName"]), "w") as f:
@@ -109,7 +110,7 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
       with open(os.path.join(synthesis_dir, config["verilog_netlist_fileName"]), "w") as f:
          f.write(j2v.generate_verilog())
       
-      j2sc = json2systemc(json_input)
+      j2sc = json2systemc(json_input, gate_signal_file)
       with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
          f.write(j2sc.generate_systemc())
       yosys_log_dir = os.path.join(log_dir, "yosys.log")

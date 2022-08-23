@@ -1,6 +1,4 @@
-import enum
-from tkinter.tix import Tree
-from . json2systemc import json2systemc
+from utdate.src.conv.json2systemc import json2systemc
 
 # see if it's multi-bit port
 # TODO: check if module name is also used for any other property

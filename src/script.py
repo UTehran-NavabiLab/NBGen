@@ -1,22 +1,26 @@
 import os
 import json
 import subprocess
+from subprocess import CalledProcessError
 import shutil
-from tkinter.filedialog import test
-from . utilitie_funcs import *
-from . utilitie_funcs import split_page
-from . make_script import yosys_script_mk
-from . make_script import abc_script_mk
-from . import conv
-from . import flt
+from utdate.src.utility_functions import *
+from utdate.src.utility_functions import split_page
+from utdate.src.make_script import yosys_script_mk
+from utdate.src.make_script import abc_script_mk
+from utdate.src.conv.json2vhdl import json2vhdl
+from utdate.src.conv.json2verilog import json2verilog
+from utdate.src.conv.json2sc_testbench import json2sc_testbench
+from utdate.src.conv.json2systemc import json2systemc
+from utdate.src.conv.json2systemc_flt import json2systemc_flt
+from utdate.src.flt.fault_collapsing import fault_collapsing
+import utdate.lib as lib
 
 
 def preparation():
    # create directory (synthesis, lib, log, bench)
-   working_directory = "/Users/ebinouri/Documents/UNi/NBGen/testsuites/test_cwd"
-   # working_directory = os.getcwd()
+   working_directory = os.getcwd()
    synthesis_dir = mkdir("synthesis", working_directory, False)
-   lib_dir = mkdir("lib", working_directory, False)
+   lib_dir = lib.__path__[0]
    log_dir = mkdir("log", working_directory)
    test_dir = mkdir("test", working_directory)
    fltSim_dir = mkdir("fault_simulation", test_dir)
@@ -81,28 +85,37 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
                                  lib_dir=lib_dir, synthesis_dir=synthesis_dir, vhdl=vhdl))
    
    ###################### yosys ######################
-   # run yosys script with input file name, throw exception if failed
-   yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
-   # an alternative would be to use input arg
-   # yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
-   yosys_log_dir = os.path.join(log_dir, "yosys.log")
-   with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
-      f.write(yosys_log.stdout)
+   try:
+      # run yosys script with input file name, throw exception if failed
+      yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
+      # an alternative would be to use input arg
+      # yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
+   except CalledProcessError:
+      yosys_log = "CalledProcessError: \n" 
+      yosys_log += "    yosys returned non-zero exit status 1"
+      yosys_log_dir = os.path.join(log_dir, "yosys.log")
+      with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
+         f.write(yosys_log)
    
-   ###################### convert to vhdl, verilog, systemC ######################
-   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
-   
-   j2vhd = conv.json2vhdl.json2vhdl(json_input)
-   with open(os.path.join(synthesis_dir, config["vhdl_netlist_fileName"]), "w") as f:
-      f.write(j2vhd.generate_vhdl())
-   
-   j2v = conv.json2verilog.json2verilog(json_input)
-   with open(os.path.join(synthesis_dir, config["verilog_netlist_fileName"]), "w") as f:
-      f.write(j2v.generate_verilog())
-   
-   j2sc = conv.json2systemc.json2systemc(json_input)
-   with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
-      f.write(j2sc.generate_systemc())
+   else:
+      ###################### convert to vhdl, verilog, systemC ######################
+      json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+      gate_signal_file = os.path.join(synthesis_dir, config["gate_signal_json_file"])
+      
+      j2vhd = json2vhdl(json_input)
+      with open(os.path.join(synthesis_dir, config["vhdl_netlist_fileName"]), "w") as f:
+         f.write(j2vhd.generate_vhdl())
+      
+      j2v = json2verilog(json_input)
+      with open(os.path.join(synthesis_dir, config["verilog_netlist_fileName"]), "w") as f:
+         f.write(j2v.generate_verilog())
+      
+      j2sc = json2systemc(json_input, gate_signal_file)
+      with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
+         f.write(j2sc.generate_systemc())
+      yosys_log_dir = os.path.join(log_dir, "yosys.log")
+      with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
+         f.write(yosys_log.stdout)
    
 
 # @def: generate bench file using abc
@@ -158,7 +171,7 @@ def fault(testbench_name,  instance_name, config, working_directory, synthesis_d
    bench_input = os.path.join(test_dir, config["abc_bench_output"])
 
    ###################### fault collapsing ######################
-   fault_list = flt.fault_collapsing.fault_collapsing(json_input, testbench_name,  instance_name)
+   fault_list = fault_collapsing(json_input, testbench_name,  instance_name)
    with open(os.path.join(test_dir, config["fault_list_fileName"]), 'w', encoding = 'utf-8') as f:
       f.write(fault_list.generate_fault_list())
 
@@ -234,14 +247,62 @@ def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, ins
       f.write(test_for_seq)
 
 
-   j2sc_testbench = conv.json2sc_testbench.json2sc_testbench(json_input, testbench, instance)
+   j2sc_testbench = json2sc_testbench(json_input, testbench, instance)
    with open(os.path.join(fltSim_dir, config["systemC_testbench_fileName"]), "w") as f:
       f.write(j2sc_testbench.generate_systemc())
 
-   j2sc_faultable_netlist = conv.json2systemc_flt.json2systemc_flt(json_input)
+   j2sc_faultable_netlist = json2systemc_flt(json_input)
    with open(os.path.join(fltSim_dir, config["systemC_faultable_netlist_fileName"]), "w") as f:
       f.write(j2sc_faultable_netlist.generate_systemc())
 
    # call make file and save stdout
    # ** use stdout to debug later
    fault_log = subprocess.run(["make"], stdout=subprocess.PIPE, text=True, check=True)
+
+
+# @def: generate fault list and corresponding test vector
+#  @args: 
+#     testbench_name: name of simulated testbench, used to address hierarchy 
+#     instance_name: name of design under test, used to address hierarchy 
+#     config: dictionary of configuration obtained from json
+#     use_existing_script: if set to false bypasses script making process
+#     reference to directories
+def faultCollapsing(testbench_name,  instance_name, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+
+   ###################### fault collapsing ######################
+   fault_list = fault_collapsing(json_input, testbench_name,  instance_name)
+   with open(os.path.join(test_dir, config["fault_list_fileName"]), 'w', encoding = 'utf-8') as f:
+      f.write(fault_list.generate_fault_list())
+
+
+
+# @def: generate fault list and corresponding test vector
+#  @args: 
+#     testbench_name: name of simulated testbench, used to address hierarchy 
+#     instance_name: name of design under test, used to address hierarchy 
+#     config: dictionary of configuration obtained from json
+#     use_existing_script: if set to false bypasses script making process
+#     reference to directories
+def test_set_gen(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+   json_premap_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
+   bench_input = os.path.join(test_dir, config["abc_bench_output"])
+
+   ###################### atalanta ######################
+   with open(os.path.join(test_dir, config["abc_bench_rm_floated_net_output"]), 'w', encoding = 'utf-8') as b:
+      b.write(rm_float_net(json_premap_input, bench_input))
+   
+   # change dir to test_dirctory
+   os.chdir(test_dir)
+
+   atalanta_script = f'{config["abc_bench_rm_floated_net_output"]}'
+
+   # run atalanta script with input file name, through exception if failed
+   atalanta_log = subprocess.run([config["atalanta_bin"], "-t", "test_list.txt", atalanta_script], stdout=subprocess.PIPE, text=True, check=True)
+   atalanta_log_dir = os.path.join(log_dir, "atalanta.log")
+   with open(atalanta_log_dir,'w', encoding = 'utf-8') as f:
+      f.write(atalanta_log.stdout)
+
+   # change back to working dir
+   os.chdir(working_directory)
+   

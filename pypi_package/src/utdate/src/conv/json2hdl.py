@@ -1,4 +1,4 @@
-import json
+from json import load
 from ..utility_functions import find_clk_rst_netNumber, find_clk_rst_name
 # assumptions: 
 #   1. It's a flattend netlist which contains only one module as a top module
@@ -15,7 +15,7 @@ from ..utility_functions import find_clk_rst_netNumber, find_clk_rst_name
 class json2hdl:
     def __init__(self, json_file) -> None:
         with open(json_file, "r") as f:
-            self.js = json.load(f)
+            self.js = load(f)
         
         self.module_name = list(self.js["modules"])[0]
         self.top_module = self.js["modules"][self.module_name]

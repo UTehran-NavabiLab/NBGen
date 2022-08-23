@@ -1,4 +1,4 @@
-from . json2hdl import json2hdl 
+from utdate.src.conv.json2hdl import json2hdl 
 
 # assumptions: 
 #   1. It's a flattend netlist which contains only one module as a top module
