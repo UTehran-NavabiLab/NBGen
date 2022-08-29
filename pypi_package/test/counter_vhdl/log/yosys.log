@@ -22,7 +22,7 @@
  Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
 
 
--- Executing script file `/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/yosys_script.ys' --
+-- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/yosys_script.ys' --
 
 1. Executing GHDL.
 Importing module counter_4bit.
@@ -528,9 +528,7 @@ Optimizing module counter_4bit.
 
 4.10. Finished OPT passes. (There is nothing left to do.)
 
-5. Executing FLATTEN pass (flatten design).
-
-6. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+5. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
   cell DFF_N (noninv, pins=3, area=0.00) is a direct match for cell type $_DFF_N_.
   cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
   cell DFF_NN0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NN0_.
@@ -561,54 +559,54 @@ Optimizing module counter_4bit.
     unmapped dff cell: $_DFFSR_PPN_
     unmapped dff cell: $_DFFSR_PPP_
 
-6.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+5.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
 Mapping DFF cells in module `\counter_4bit':
   mapped 4 $_DFF_PP0_ cells to \DFF_PP0 cells.
 
-7. Executing OPT pass (performing simple optimizations).
+6. Executing OPT pass (performing simple optimizations).
 
-7.1. Executing OPT_EXPR pass (perform const folding).
+6.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter_4bit.
 
-7.2. Executing OPT_MERGE pass (detect identical cells).
+6.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
-7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
-7.5. Executing OPT_MERGE pass (detect identical cells).
+6.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
-7.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter_4bit..
 
-7.8. Executing OPT_EXPR pass (perform const folding).
+6.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter_4bit.
 
-7.9. Finished OPT passes. (There is nothing left to do.)
+6.9. Finished OPT passes. (There is nothing left to do.)
 
-8. Executing ABC pass (technology mapping using ABC).
+7. Executing ABC pass (technology mapping using ABC).
 
-8.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
+7.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
 Extracted 12 gates and 17 wires to a netlist network with 5 inputs and 5 outputs.
 
-8.1.1. Executing ABC.
+7.1.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/mycells_yosys.lib 
+ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/mycells_yosys.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
@@ -623,7 +621,7 @@ ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PN0".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PN1".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PP0".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PP1".
-ABC: Library "demo" from "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/mycells_yosys.lib" has 6 cells (10 skipped: 10 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/mycells_yosys.lib" has 6 cells (10 skipped: 10 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.01 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -638,7 +636,7 @@ ABC: + &nf
 ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
-8.1.2. Re-integrating ABC results.
+7.1.2. Re-integrating ABC results.
 ABC RESULTS:              NAND cells:        3
 ABC RESULTS:               NOR cells:       12
 ABC RESULTS:               NOT cells:        4
@@ -646,6 +644,8 @@ ABC RESULTS:        internal signals:        7
 ABC RESULTS:           input signals:        5
 ABC RESULTS:          output signals:        5
 Removing temp directory.
+
+8. Executing FLATTEN pass (flatten design).
 
 9. Executing OPT pass (performing simple optimizations).
 
@@ -708,85 +708,94 @@ Optimizing module counter_4bit.
 
 10. Executing HILOMAP pass (mapping to constant drivers).
 
-11. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
-Mapping port counter_4bit.clk using IBUF.
-Mapping port counter_4bit.co using OBUF.
-Mapping port counter_4bit.counter using OBUF.
-Mapping port counter_4bit.en using IBUF.
-Mapping port counter_4bit.rst using IBUF.
+11. Executing HILOMAP pass (mapping to constant drivers).
 
-12. Executing SPLITNETS pass (splitting up multi-bit signals).
+12. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Mapping port counter_4bit.clk using BUF.
+Don't map output port counter_4bit.co: Missing option -outpad.
+Don't map output port counter_4bit.counter: Missing option -outpad.
+Mapping port counter_4bit.en using BUF.
+Mapping port counter_4bit.rst using BUF.
 
-13. Executing OPT pass (performing simple optimizations).
+13. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port counter_4bit.clk: Missing option -inpad.
+Don't map input port counter_4bit.en: Missing option -inpad.
+Don't map input port counter_4bit.rst: Missing option -inpad.
+Mapping port counter_4bit.co using BUF.
+Mapping port counter_4bit.counter using BUF.
 
-13.1. Executing OPT_EXPR pass (perform const folding).
+14. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+15. Executing OPT pass (performing simple optimizations).
+
+15.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter_4bit.
 
-13.2. Executing OPT_MERGE pass (detect identical cells).
+15.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
-13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
-13.5. Executing OPT_MERGE pass (detect identical cells).
+15.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
-13.6. Executing OPT_DFF pass (perform DFF optimizations).
+15.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter_4bit..
 Removed 0 unused cells and 4 unused wires.
 <suppressed ~1 debug messages>
 
-13.8. Executing OPT_EXPR pass (perform const folding).
+15.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter_4bit.
 
-13.9. Rerunning OPT passes. (Maybe there is more to do..)
+15.9. Rerunning OPT passes. (Maybe there is more to do..)
 
-13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter_4bit..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter_4bit.
 Performed a total of 0 changes.
 
-13.12. Executing OPT_MERGE pass (detect identical cells).
+15.12. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter_4bit'.
 Removed a total of 0 cells.
 
-13.13. Executing OPT_DFF pass (perform DFF optimizations).
+15.13. Executing OPT_DFF pass (perform DFF optimizations).
 
-13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter_4bit..
 
-13.15. Executing OPT_EXPR pass (perform const folding).
+15.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter_4bit.
 
-13.16. Finished OPT passes. (There is nothing left to do.)
+15.16. Finished OPT passes. (There is nothing left to do.)
 
-14. Executing Verilog backend.
+16. Executing Verilog backend.
 Dumping module `\counter_4bit'.
 
-15. Executing BLIF backend.
+17. Executing BLIF backend.
 
-16. Executing JSON backend.
+18. Executing JSON backend.
 
-17. Executing TECHMAP pass (map to technology primitives).
+19. Executing TECHMAP pass (map to technology primitives).
 
-17.1. Executing Verilog-2005 frontend: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/DFF_map.v
-Parsing Verilog input from `/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/DFF_map.v' to AST representation.
+19.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/DFF_map.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/DFF_map.v' to AST representation.
 Generating RTLIL representation for module `\DFF'.
 Generating RTLIL representation for module `\DFF_N'.
 Generating RTLIL representation for module `\DFF_PP0'.
@@ -799,103 +808,17 @@ Generating RTLIL representation for module `\DFF_NP0'.
 Generating RTLIL representation for module `\DFF_NP1'.
 Successfully finished Verilog frontend.
 
-17.2. Continuing TECHMAP pass.
+19.2. Continuing TECHMAP pass.
 Using template DFF_PP0 for cells of type DFF_PP0.
 No more expansions possible.
 <suppressed ~16 debug messages>
 
-18. Executing ABC pass (technology mapping using ABC).
+20. Executing ABC pass (technology mapping using ABC).
 
-18.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
+20.1. Extracting gate netlist of module `\counter_4bit' to `<abc-temp-dir>/input.blif'..
 Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
 Don't call ABC as there is nothing to map.
 Removing temp directory.
-
-19. Executing OPT pass (performing simple optimizations).
-
-19.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter_4bit.
-
-19.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter_4bit'.
-Removed a total of 0 cells.
-
-19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter_4bit..
-  Creating internal representation of mux trees.
-  No muxes found in this module.
-Removed 0 multiplexer ports.
-
-19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter_4bit.
-Performed a total of 0 changes.
-
-19.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter_4bit'.
-Removed a total of 0 cells.
-
-19.6. Executing OPT_DFF pass (perform DFF optimizations).
-
-19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter_4bit..
-Removed 0 unused cells and 28 unused wires.
-<suppressed ~1 debug messages>
-
-19.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter_4bit.
-
-19.9. Rerunning OPT passes. (Maybe there is more to do..)
-
-19.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter_4bit..
-  Creating internal representation of mux trees.
-  No muxes found in this module.
-Removed 0 multiplexer ports.
-
-19.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter_4bit.
-Performed a total of 0 changes.
-
-19.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter_4bit'.
-Removed a total of 0 cells.
-
-19.13. Executing OPT_DFF pass (perform DFF optimizations).
-
-19.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter_4bit..
-
-19.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter_4bit.
-
-19.16. Finished OPT passes. (There is nothing left to do.)
-
-20. Executing TECHMAP pass (map to technology primitives).
-
-20.1. Executing Verilog-2005 frontend: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v
-Parsing Verilog input from `/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v' to AST representation.
-Generating RTLIL representation for module `\BUF'.
-Generating RTLIL representation for module `\TIELOM'.
-Generating RTLIL representation for module `\TIEHIM'.
-Generating RTLIL representation for module `\IBUF'.
-Generating RTLIL representation for module `\OBUF'.
-Generating RTLIL representation for module `\NOT'.
-Generating RTLIL representation for module `\AND'.
-Generating RTLIL representation for module `\NAND'.
-Generating RTLIL representation for module `\OR'.
-Generating RTLIL representation for module `\NOR'.
-Generating RTLIL representation for module `\XOR'.
-Generating RTLIL representation for module `\XNOR'.
-Successfully finished Verilog frontend.
-
-20.2. Continuing TECHMAP pass.
-Using template NOT for cells of type NOT.
-Using template IBUF for cells of type IBUF.
-Using template NOR for cells of type NOR.
-Using template NAND for cells of type NAND.
-Using template OBUF for cells of type OBUF.
-No more expansions possible.
-<suppressed ~41 debug messages>
 
 21. Executing OPT pass (performing simple optimizations).
 
@@ -924,7 +847,7 @@ Removed a total of 0 cells.
 
 21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter_4bit..
-Removed 0 unused cells and 69 unused wires.
+Removed 0 unused cells and 28 unused wires.
 <suppressed ~1 debug messages>
 
 21.8. Executing OPT_EXPR pass (perform const folding).
@@ -956,10 +879,95 @@ Optimizing module counter_4bit.
 
 21.16. Finished OPT passes. (There is nothing left to do.)
 
-22. Executing OPT_CLEAN pass (remove unused cells and wires).
+22. Executing TECHMAP pass (map to technology primitives).
+
+22.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/Logic_map.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_vhdl/tech/Logic_map.v' to AST representation.
+Generating RTLIL representation for module `\BUF'.
+Generating RTLIL representation for module `\TIELOM'.
+Generating RTLIL representation for module `\TIEHIM'.
+Generating RTLIL representation for module `\IBUF'.
+Generating RTLIL representation for module `\OBUF'.
+Generating RTLIL representation for module `\NOT'.
+Generating RTLIL representation for module `\AND'.
+Generating RTLIL representation for module `\NAND'.
+Generating RTLIL representation for module `\OR'.
+Generating RTLIL representation for module `\NOR'.
+Generating RTLIL representation for module `\XOR'.
+Generating RTLIL representation for module `\XNOR'.
+Successfully finished Verilog frontend.
+
+22.2. Continuing TECHMAP pass.
+Using template NOT for cells of type NOT.
+Using template BUF for cells of type BUF.
+Using template NOR for cells of type NOR.
+Using template NAND for cells of type NAND.
+No more expansions possible.
+<suppressed ~41 debug messages>
+
+23. Executing OPT pass (performing simple optimizations).
+
+23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_4bit.
+
+23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_4bit'.
+Removed a total of 0 cells.
+
+23.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_4bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_4bit.
+Performed a total of 0 changes.
+
+23.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_4bit'.
+Removed a total of 0 cells.
+
+23.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+23.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_4bit..
+Removed 0 unused cells and 69 unused wires.
+<suppressed ~1 debug messages>
+
+23.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_4bit.
+
+23.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+23.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_4bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_4bit.
+Performed a total of 0 changes.
+
+23.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_4bit'.
+Removed a total of 0 cells.
+
+23.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+23.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter_4bit..
 
-23. Printing statistics.
+23.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_4bit.
+
+23.16. Finished OPT passes. (There is nothing left to do.)
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_4bit..
+
+25. Printing statistics.
 
 === counter_4bit ===
 
@@ -971,18 +979,17 @@ Finding unused cells or wires in module \counter_4bit..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                 31
+     bufg                            8
      dff                             4
      nand_n                          3
      nor_n                          12
      notg                            4
-     pin                             3
-     pout                            5
 
-24. Executing Verilog backend.
+26. Executing Verilog backend.
 Dumping module `\counter_4bit'.
 
-25. Executing JSON backend.
+27. Executing JSON backend.
 
-End of script. Logfile hash: cb6d3ff8b2, CPU: user 1.11s system 0.04s
+End of script. Logfile hash: 3235efc6fe, CPU: user 1.10s system 0.04s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
 Time spent: 19% 32x opt_expr (0 sec), 15% 26x opt_clean (0 sec), ...

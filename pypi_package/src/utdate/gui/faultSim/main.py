@@ -14,16 +14,20 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def faultsim(directories, config):
-    FaultSim(directories, config)
+def faultsim(prop):
+    FaultSim(prop)
 
 
 class FaultSim(Frame):
-    def __init__(self, parent, directories, config, controller=None, *args, **kwargs):
+    def __init__(self, parent, prop, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir] = directories
-        
+        working_directory = prop["directories"][0]
+        synthesis_dir = prop["directories"][1]
+        test_dir = prop["directories"][4]
+        fltSim_dir = prop["directories"][5]
+        config = prop["config"]
+        tech = prop["tech"]
         self.test_file_dir = ""
         self.fault_file_dir = ""
         
@@ -221,7 +225,7 @@ class FaultSim(Frame):
             image=canvas.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.fault_sim(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir),
+            command=lambda: self.fault_sim(config, tech, synthesis_dir, test_dir, fltSim_dir),
             relief="flat"
         )
         faultsim_btn.place(
@@ -267,7 +271,7 @@ class FaultSim(Frame):
 
 
 
-    def fault_sim(self, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir):
+    def fault_sim(self, config, tech, synthesis_dir, test_dir, fltSim_dir):
         if(self.test_file_dir != ""):
             testbench = self.test_file_dir
         else:
@@ -278,7 +282,7 @@ class FaultSim(Frame):
         else:
             instance = self.parent.windows["test"].get_instance_name()
 
-        fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, instance)
+        fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, tech, testbench, instance)
 
         self.synth_log.config(state="normal")
 

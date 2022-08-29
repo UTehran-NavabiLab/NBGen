@@ -7,8 +7,8 @@ from utdate.src.conv.json2systemc import json2systemc
 WHITE_SPACE = "    "
 
 class json2systemc_flt(json2systemc):
-    def __init__(self, json_file) -> None:
-        json2systemc.__init__(self, json_file)
+    def __init__(self, json_file, tech_json) -> None:
+        json2systemc.__init__(self, json_file, tech_json)
         self.list_of_Q_ports = list()
         self.cells_instance_pointer, self.cells_instantiation = self.cells_declaration()
 

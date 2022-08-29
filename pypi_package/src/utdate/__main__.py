@@ -11,5 +11,5 @@ if __name__ == "__main__":
     root = tk.Tk()  # Make temporary window for app to start
     root.withdraw()  # WithDraw the window
     # loginWindow()
-    mainWindow(prop["directories"], prop["config"])
+    mainWindow(prop)
     root.mainloop()

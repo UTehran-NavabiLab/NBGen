@@ -13,16 +13,16 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def inputFile(directories, config):
-    InputFile(directories, config)
+def inputFile(prop):
+    InputFile(prop)
 
 
 class InputFile(Frame):
-    def __init__(self, parent, directories, config, controller=None, *args, **kwargs):
+    def __init__(self, parent, prop, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir] = directories
-
+        working_directory = prop["directories"][0]
+        
         self.file_directory = dict()        
         self.file_entry_box = dict()        
         self.delete_file_btn = dict()        

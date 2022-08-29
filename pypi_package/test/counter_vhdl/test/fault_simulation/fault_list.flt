@@ -36,13 +36,3 @@ testbench/fut/dff_21/D 1
 testbench/fut/dff_21/D 0
 testbench/fut/dff_22/D 1
 testbench/fut/dff_22/D 0
-testbench/fut/pout_24/in1 1
-testbench/fut/pout_24/in1 0
-testbench/fut/pout_25/in1 1
-testbench/fut/pout_25/in1 0
-testbench/fut/pout_26/in1 1
-testbench/fut/pout_26/in1 0
-testbench/fut/pout_27/in1 1
-testbench/fut/pout_27/in1 0
-testbench/fut/pout_28/in1 1
-testbench/fut/pout_28/in1 0

@@ -68,14 +68,14 @@ SC_MODULE( counter_4bit ) {
     dff* dff_20;
     dff* dff_21;
     dff* dff_22;
-    pin* pin_23;
-    pout* pout_24;
-    pout* pout_25;
-    pout* pout_26;
-    pout* pout_27;
-    pout* pout_28;
-    pin* pin_29;
-    pin* pin_30;
+    bufg* bufg_23;
+    bufg* bufg_24;
+    bufg* bufg_25;
+    bufg* bufg_26;
+    bufg* bufg_27;
+    bufg* bufg_28;
+    bufg* bufg_29;
+    bufg* bufg_30;
 
 SC_CTOR( counter_4bit ) {
     notg_0 = new notg("notg_0");
@@ -172,78 +172,78 @@ SC_CTOR( counter_4bit ) {
     dff_19 = new dff("dff_19");
         dff_19->C(S18);
         dff_19->CE(sc_logic_1_signal);
-        dff_19->CLR(S21);
         dff_19->D(S0);
         dff_19->NbarT(sc_logic_0_signal);
         dff_19->PRE(sc_logic_0_signal);
         dff_19->Q(new_counter_reg_0);
+        dff_19->R(S21);
         dff_19->Si(S22);
         dff_19->global_reset(sc_logic_0_signal);
 
     dff_20 = new dff("dff_20");
         dff_20->C(S18);
         dff_20->CE(sc_logic_1_signal);
-        dff_20->CLR(S21);
         dff_20->D(S1);
         dff_20->NbarT(sc_logic_0_signal);
         dff_20->PRE(sc_logic_0_signal);
         dff_20->Q(new_counter_reg_1);
+        dff_20->R(S21);
         dff_20->Si(S23);
         dff_20->global_reset(sc_logic_0_signal);
 
     dff_21 = new dff("dff_21");
         dff_21->C(S18);
         dff_21->CE(sc_logic_1_signal);
-        dff_21->CLR(S21);
         dff_21->D(S2);
         dff_21->NbarT(sc_logic_0_signal);
         dff_21->PRE(sc_logic_0_signal);
         dff_21->Q(new_counter_reg_2);
+        dff_21->R(S21);
         dff_21->Si(S24);
         dff_21->global_reset(sc_logic_0_signal);
 
     dff_22 = new dff("dff_22");
         dff_22->C(S18);
         dff_22->CE(sc_logic_1_signal);
-        dff_22->CLR(S21);
         dff_22->D(S3);
         dff_22->NbarT(sc_logic_0_signal);
         dff_22->PRE(sc_logic_0_signal);
         dff_22->Q(new_counter_reg_3);
+        dff_22->R(S21);
         dff_22->Si(S25);
         dff_22->global_reset(sc_logic_0_signal);
 
-    pin_23 = new pin("pin_23");
-        pin_23->in1(clk);
-        pin_23->out1(S18);
+    bufg_23 = new bufg("bufg_23");
+        bufg_23->in1(clk);
+        bufg_23->out1(S18);
 
-    pout_24 = new pout("pout_24");
-        pout_24->in1(S19);
-        pout_24->out1(co);
+    bufg_24 = new bufg("bufg_24");
+        bufg_24->in1(S19);
+        bufg_24->out1(co);
 
-    pout_25 = new pout("pout_25");
-        pout_25->in1(new_counter_reg_0);
-        pout_25->out1(counter[0]);
+    bufg_25 = new bufg("bufg_25");
+        bufg_25->in1(new_counter_reg_0);
+        bufg_25->out1(counter[0]);
 
-    pout_26 = new pout("pout_26");
-        pout_26->in1(new_counter_reg_1);
-        pout_26->out1(counter[1]);
+    bufg_26 = new bufg("bufg_26");
+        bufg_26->in1(new_counter_reg_1);
+        bufg_26->out1(counter[1]);
 
-    pout_27 = new pout("pout_27");
-        pout_27->in1(new_counter_reg_2);
-        pout_27->out1(counter[2]);
+    bufg_27 = new bufg("bufg_27");
+        bufg_27->in1(new_counter_reg_2);
+        bufg_27->out1(counter[2]);
 
-    pout_28 = new pout("pout_28");
-        pout_28->in1(new_counter_reg_3);
-        pout_28->out1(counter[3]);
+    bufg_28 = new bufg("bufg_28");
+        bufg_28->in1(new_counter_reg_3);
+        bufg_28->out1(counter[3]);
 
-    pin_29 = new pin("pin_29");
-        pin_29->in1(en);
-        pin_29->out1(S20);
+    bufg_29 = new bufg("bufg_29");
+        bufg_29->in1(en);
+        bufg_29->out1(S20);
 
-    pin_30 = new pin("pin_30");
-        pin_30->in1(rst);
-        pin_30->out1(S21);
+    bufg_30 = new bufg("bufg_30");
+        bufg_30->in1(rst);
+        bufg_30->out1(S21);
 
 
     SC_METHOD(sc_logic_signal_assignment);

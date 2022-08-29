@@ -110,27 +110,27 @@ notg_13: ENTITY WORK.notg
         in1 => S12,
         out1 => S10
     );
-pin_14: ENTITY WORK.pin
+bufg_14: ENTITY WORK.bufg
     PORT MAP (
         in1 => ci,
         out1 => S12
     );
-pout_15: ENTITY WORK.pout
+bufg_15: ENTITY WORK.bufg
     PORT MAP (
         in1 => S13,
         out1 => co
     );
-pin_16: ENTITY WORK.pin
+bufg_16: ENTITY WORK.bufg
     PORT MAP (
         in1 => i0,
         out1 => S14
     );
-pin_17: ENTITY WORK.pin
+bufg_17: ENTITY WORK.bufg
     PORT MAP (
         in1 => i1,
         out1 => S15
     );
-pout_18: ENTITY WORK.pout
+bufg_18: ENTITY WORK.bufg
     PORT MAP (
         in1 => S16,
         out1 => s

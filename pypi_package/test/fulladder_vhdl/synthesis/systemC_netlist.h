@@ -46,11 +46,11 @@ SC_MODULE( fulladder ) {
     notg* notg_11;
     notg* notg_12;
     notg* notg_13;
-    pin* pin_14;
-    pout* pout_15;
-    pin* pin_16;
-    pin* pin_17;
-    pout* pout_18;
+    bufg* bufg_14;
+    bufg* bufg_15;
+    bufg* bufg_16;
+    bufg* bufg_17;
+    bufg* bufg_18;
 
 SC_CTOR( fulladder ) {
     nor_n_0 = new nor_n("nor_n_0");
@@ -119,25 +119,25 @@ SC_CTOR( fulladder ) {
         notg_13->in1(S12);
         notg_13->out1(S10);
 
-    pin_14 = new pin("pin_14");
-        pin_14->in1(ci);
-        pin_14->out1(S12);
+    bufg_14 = new bufg("bufg_14");
+        bufg_14->in1(ci);
+        bufg_14->out1(S12);
 
-    pout_15 = new pout("pout_15");
-        pout_15->in1(S13);
-        pout_15->out1(co);
+    bufg_15 = new bufg("bufg_15");
+        bufg_15->in1(S13);
+        bufg_15->out1(co);
 
-    pin_16 = new pin("pin_16");
-        pin_16->in1(i0);
-        pin_16->out1(S14);
+    bufg_16 = new bufg("bufg_16");
+        bufg_16->in1(i0);
+        bufg_16->out1(S14);
 
-    pin_17 = new pin("pin_17");
-        pin_17->in1(i1);
-        pin_17->out1(S15);
+    bufg_17 = new bufg("bufg_17");
+        bufg_17->in1(i1);
+        bufg_17->out1(S15);
 
-    pout_18 = new pout("pout_18");
-        pout_18->in1(S16);
-        pout_18->out1(s);
+    bufg_18 = new bufg("bufg_18");
+        bufg_18->in1(S16);
+        bufg_18->out1(s);
 
 
     SC_METHOD(sc_logic_signal_assignment);

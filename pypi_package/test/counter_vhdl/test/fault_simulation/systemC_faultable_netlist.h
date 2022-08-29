@@ -76,14 +76,14 @@ SC_MODULE( counter_4bit ) {
     dff_flt* dff_20;
     dff_flt* dff_21;
     dff_flt* dff_22;
-    pin_flt* pin_23;
-    pout_flt* pout_24;
-    pout_flt* pout_25;
-    pout_flt* pout_26;
-    pout_flt* pout_27;
-    pout_flt* pout_28;
-    pin_flt* pin_29;
-    pin_flt* pin_30;
+    bufg_flt* bufg_23;
+    bufg_flt* bufg_24;
+    bufg_flt* bufg_25;
+    bufg_flt* bufg_26;
+    bufg_flt* bufg_27;
+    bufg_flt* bufg_28;
+    bufg_flt* bufg_29;
+    bufg_flt* bufg_30;
     pout_flt* pout_31;
     pin_flt* pin_32;
     pin_flt* pin_33;
@@ -185,78 +185,78 @@ SC_HAS_PROCESS(counter_4bit);
     dff_19 = new dff_flt("dff_19", accessRegistry);
         dff_19->C(S18);
         dff_19->CE(sc_logic_1_signal);
-        dff_19->CLR(S21);
         dff_19->D(S0);
         dff_19->NbarT(NbarT_sig);
         dff_19->PRE(sc_logic_0_signal);
         dff_19->Q(new_counter_reg_0);
+        dff_19->R(S21);
         dff_19->Si(Si_sig);
         dff_19->global_reset(global_reset_sig);
 
     dff_20 = new dff_flt("dff_20", accessRegistry);
         dff_20->C(S18);
         dff_20->CE(sc_logic_1_signal);
-        dff_20->CLR(S21);
         dff_20->D(S1);
         dff_20->NbarT(NbarT_sig);
         dff_20->PRE(sc_logic_0_signal);
         dff_20->Q(new_counter_reg_1);
+        dff_20->R(S21);
         dff_20->Si(new_counter_reg_0);
         dff_20->global_reset(global_reset_sig);
 
     dff_21 = new dff_flt("dff_21", accessRegistry);
         dff_21->C(S18);
         dff_21->CE(sc_logic_1_signal);
-        dff_21->CLR(S21);
         dff_21->D(S2);
         dff_21->NbarT(NbarT_sig);
         dff_21->PRE(sc_logic_0_signal);
         dff_21->Q(new_counter_reg_2);
+        dff_21->R(S21);
         dff_21->Si(new_counter_reg_1);
         dff_21->global_reset(global_reset_sig);
 
     dff_22 = new dff_flt("dff_22", accessRegistry);
         dff_22->C(S18);
         dff_22->CE(sc_logic_1_signal);
-        dff_22->CLR(S21);
         dff_22->D(S3);
         dff_22->NbarT(NbarT_sig);
         dff_22->PRE(sc_logic_0_signal);
         dff_22->Q(new_counter_reg_3);
+        dff_22->R(S21);
         dff_22->Si(new_counter_reg_2);
         dff_22->global_reset(global_reset_sig);
 
-    pin_23 = new pin_flt("pin_23", accessRegistry);
-        pin_23->in1(clk);
-        pin_23->out1(S18);
+    bufg_23 = new bufg_flt("bufg_23", accessRegistry);
+        bufg_23->in1(clk);
+        bufg_23->out1(S18);
 
-    pout_24 = new pout_flt("pout_24", accessRegistry);
-        pout_24->in1(S19);
-        pout_24->out1(co);
+    bufg_24 = new bufg_flt("bufg_24", accessRegistry);
+        bufg_24->in1(S19);
+        bufg_24->out1(co);
 
-    pout_25 = new pout_flt("pout_25", accessRegistry);
-        pout_25->in1(new_counter_reg_0);
-        pout_25->out1(counter[0]);
+    bufg_25 = new bufg_flt("bufg_25", accessRegistry);
+        bufg_25->in1(new_counter_reg_0);
+        bufg_25->out1(counter[0]);
 
-    pout_26 = new pout_flt("pout_26", accessRegistry);
-        pout_26->in1(new_counter_reg_1);
-        pout_26->out1(counter[1]);
+    bufg_26 = new bufg_flt("bufg_26", accessRegistry);
+        bufg_26->in1(new_counter_reg_1);
+        bufg_26->out1(counter[1]);
 
-    pout_27 = new pout_flt("pout_27", accessRegistry);
-        pout_27->in1(new_counter_reg_2);
-        pout_27->out1(counter[2]);
+    bufg_27 = new bufg_flt("bufg_27", accessRegistry);
+        bufg_27->in1(new_counter_reg_2);
+        bufg_27->out1(counter[2]);
 
-    pout_28 = new pout_flt("pout_28", accessRegistry);
-        pout_28->in1(new_counter_reg_3);
-        pout_28->out1(counter[3]);
+    bufg_28 = new bufg_flt("bufg_28", accessRegistry);
+        bufg_28->in1(new_counter_reg_3);
+        bufg_28->out1(counter[3]);
 
-    pin_29 = new pin_flt("pin_29", accessRegistry);
-        pin_29->in1(en);
-        pin_29->out1(S20);
+    bufg_29 = new bufg_flt("bufg_29", accessRegistry);
+        bufg_29->in1(en);
+        bufg_29->out1(S20);
 
-    pin_30 = new pin_flt("pin_30", accessRegistry);
-        pin_30->in1(rst);
-        pin_30->out1(S21);
+    bufg_30 = new bufg_flt("bufg_30", accessRegistry);
+        bufg_30->in1(rst);
+        bufg_30->out1(S21);
 
     pout_31 = new pout_flt("pout_31", accessRegistry);
         pout_31->in1(So_sig);

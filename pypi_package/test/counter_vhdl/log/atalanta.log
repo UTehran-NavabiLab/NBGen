@@ -10,7 +10,7 @@
 
 ******   SUMMARY OF TEST PATTERN GENERATION RESULTS   ******
 1. Circuit structure
-   Name of the circuit                       : Benchmark_"counter_4bit"_written_by_ABC_on_Thu_Aug__4_17:15:51_2022
+   Name of the circuit                       : Benchmark_"counter_4bit"_written_by_ABC_on_Mon_Aug_29_13:26:38_2022
    Number of primary inputs                  : 5
    Number of primary outputs                 : 9
    Number of gates                           : 25
@@ -20,7 +20,7 @@
    Test pattern generation Mode              : RPT + DTPG + TC
    Limit of random patterns (packets)        : 16
    Backtrack limit                           : 10
-   Initial random number generator seed      : 1659617152
+   Initial random number generator seed      : 1661763399
    Test pattern compaction Mode              : REVERSE + SHUFFLE 
    Limit of shuffling compaction             : 2
    Number of shuffles                        : 4

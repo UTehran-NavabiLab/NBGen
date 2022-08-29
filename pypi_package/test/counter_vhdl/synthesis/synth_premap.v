@@ -147,36 +147,36 @@ module counter_4bit(clk, rst, en, co, counter);
     .Q(\counter_reg[3] ),
     .R(_21_)
   );
-  IBUF _45_ (
-    .I(clk),
-    .O(_18_)
+  BUF _45_ (
+    .A(clk),
+    .Y(_18_)
   );
-  OBUF _46_ (
-    .I(_19_),
-    .O(co)
+  BUF _46_ (
+    .A(_19_),
+    .Y(co)
   );
-  OBUF _47_ (
-    .I(\counter_reg[0] ),
-    .O(counter[0])
+  BUF _47_ (
+    .A(\counter_reg[0] ),
+    .Y(counter[0])
   );
-  OBUF _48_ (
-    .I(\counter_reg[1] ),
-    .O(counter[1])
+  BUF _48_ (
+    .A(\counter_reg[1] ),
+    .Y(counter[1])
   );
-  OBUF _49_ (
-    .I(\counter_reg[2] ),
-    .O(counter[2])
+  BUF _49_ (
+    .A(\counter_reg[2] ),
+    .Y(counter[2])
   );
-  OBUF _50_ (
-    .I(\counter_reg[3] ),
-    .O(counter[3])
+  BUF _50_ (
+    .A(\counter_reg[3] ),
+    .Y(counter[3])
   );
-  IBUF _51_ (
-    .I(en),
-    .O(_20_)
+  BUF _51_ (
+    .A(en),
+    .Y(_20_)
   );
-  IBUF _52_ (
-    .I(rst),
-    .O(_21_)
+  BUF _52_ (
+    .A(rst),
+    .Y(_21_)
   );
 endmodule

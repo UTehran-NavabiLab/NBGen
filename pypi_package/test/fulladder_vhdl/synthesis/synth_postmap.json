@@ -38,7 +38,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:93.38-96.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:93.38-96.4"
           },
           "connections": {
             "in1": [ 7, 8 ],
@@ -55,7 +55,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 10, 11 ],
@@ -72,7 +72,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 7, 8 ],
@@ -88,7 +88,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:53.31-56.4"
           },
           "connections": {
             "in1": [ 13 ],
@@ -105,7 +105,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:93.38-96.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:93.38-96.4"
           },
           "connections": {
             "in1": [ 14, 9 ],
@@ -122,7 +122,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 13, 12 ],
@@ -139,7 +139,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 16, 17 ],
@@ -156,7 +156,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 15, 19 ],
@@ -173,7 +173,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 20, 18 ],
@@ -190,7 +190,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 12, 17 ],
@@ -207,7 +207,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:73.39-76.4"
           },
           "connections": {
             "in1": [ 22, 13 ],
@@ -223,7 +223,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:53.31-56.4"
           },
           "connections": {
             "in1": [ 8 ],
@@ -239,7 +239,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:53.31-56.4"
           },
           "connections": {
             "in1": [ 17 ],
@@ -255,7 +255,7 @@
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:53.31-56.4"
           },
           "connections": {
             "in1": [ 7 ],
@@ -264,14 +264,15 @@
         },
         "$iopadmap$fulladder.ci": {
           "hide_name": 1,
-          "type": "pin",
+          "type": "bufg",
           "parameters": {
-            "n": "00000000000000000000000000000001"
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
           },
           "attributes": {
             "keep": "00000000000000000000000000000001",
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:33.17-36.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:5.32-8.4"
           },
           "connections": {
             "in1": [ 4 ],
@@ -280,14 +281,15 @@
         },
         "$iopadmap$fulladder.co": {
           "hide_name": 1,
-          "type": "pout",
+          "type": "bufg",
           "parameters": {
-            "n": "00000000000000000000000000000001"
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
           },
           "attributes": {
             "keep": "00000000000000000000000000000001",
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:43.18-46.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:5.32-8.4"
           },
           "connections": {
             "in1": [ 23 ],
@@ -296,14 +298,15 @@
         },
         "$iopadmap$fulladder.i0": {
           "hide_name": 1,
-          "type": "pin",
+          "type": "bufg",
           "parameters": {
-            "n": "00000000000000000000000000000001"
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
           },
           "attributes": {
             "keep": "00000000000000000000000000000001",
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:33.17-36.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:5.32-8.4"
           },
           "connections": {
             "in1": [ 2 ],
@@ -312,14 +315,15 @@
         },
         "$iopadmap$fulladder.i1": {
           "hide_name": 1,
-          "type": "pin",
+          "type": "bufg",
           "parameters": {
-            "n": "00000000000000000000000000000001"
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
           },
           "attributes": {
             "keep": "00000000000000000000000000000001",
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:33.17-36.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:5.32-8.4"
           },
           "connections": {
             "in1": [ 3 ],
@@ -328,14 +332,15 @@
         },
         "$iopadmap$fulladder.s": {
           "hide_name": 1,
-          "type": "pout",
+          "type": "bufg",
           "parameters": {
-            "n": "00000000000000000000000000000001"
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
           },
           "attributes": {
             "keep": "00000000000000000000000000000001",
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:43.18-46.4"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/Logic_map.v:5.32-8.4"
           },
           "connections": {
             "in1": [ 21 ],

@@ -131,32 +131,37 @@ module fulladder(i0, i1, ci, s, co);
     .in1(_12_),
     .out1(_10_)
   );
-  pin #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _31_ (
     .in1(ci),
     .out1(_12_)
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _32_ (
     .in1(_13_),
     .out1(co)
   );
-  pin #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _33_ (
     .in1(i0),
     .out1(_14_)
   );
-  pin #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _34_ (
     .in1(i1),
     .out1(_15_)
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _35_ (
     .in1(_16_),
     .out1(s)

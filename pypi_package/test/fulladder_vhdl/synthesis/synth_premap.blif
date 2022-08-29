@@ -21,9 +21,9 @@
 .subckt NOT A=$iopadmap$i1 Y=$abc$96$new_n6_
 .subckt NOT A=$iopadmap$i0 Y=$abc$96$new_n7_
 .subckt NOT A=$iopadmap$ci Y=$abc$96$new_n8_
-.subckt IBUF I=ci O=$iopadmap$ci
-.subckt OBUF I=$iopadmap$co O=co
-.subckt IBUF I=i0 O=$iopadmap$i0
-.subckt IBUF I=i1 O=$iopadmap$i1
-.subckt OBUF I=$iopadmap$s O=s
+.subckt BUF A=ci Y=$iopadmap$ci
+.subckt BUF A=$iopadmap$co Y=co
+.subckt BUF A=i0 Y=$iopadmap$i0
+.subckt BUF A=i1 Y=$iopadmap$i1
+.subckt BUF A=$iopadmap$s Y=s
 .end

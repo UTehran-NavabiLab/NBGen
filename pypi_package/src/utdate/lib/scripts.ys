@@ -1,18 +1,27 @@
+# High-level synthesis
 hierarchy -check -auto-top
 synth; opt -full
-flatten
 
+# Map register flops
 # placeholder for dfflibmap
 # dfflibmap -liberty mycells.lib
 
 opt
 
+# Map combinatorial cells, standard script
 # placeholder for abc
 # abc -liberty mycells.lib 
 
+flatten
 opt
-hilomap -hicell TIEHIM Y -locell TIELOM Y
-iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
+
+# technology mapping of constant hi- and/or lo- drivers
+# placeholder for constant mapping
+# hilomap -hicell TIEHIM Y -locell TIELOM Y
+# technology mapping of i/o pads (or buffers)
+# placeholder for i/o pads mapping
+# iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
+
 splitnets
 opt
 clean -purge

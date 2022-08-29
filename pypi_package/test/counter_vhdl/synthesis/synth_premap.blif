@@ -30,12 +30,12 @@
 .subckt DFF_PP0 C=$iopadmap$clk D=$abc$182$auto$rtlil.cc:2481:MuxGate$177 Q=counter_reg[1] R=$iopadmap$rst
 .subckt DFF_PP0 C=$iopadmap$clk D=$abc$182$auto$rtlil.cc:2481:MuxGate$179 Q=counter_reg[2] R=$iopadmap$rst
 .subckt DFF_PP0 C=$iopadmap$clk D=$abc$182$auto$rtlil.cc:2481:MuxGate$181 Q=counter_reg[3] R=$iopadmap$rst
-.subckt IBUF I=clk O=$iopadmap$clk
-.subckt OBUF I=$iopadmap$co O=co
-.subckt OBUF I=counter_reg[0] O=counter[0]
-.subckt OBUF I=counter_reg[1] O=counter[1]
-.subckt OBUF I=counter_reg[2] O=counter[2]
-.subckt OBUF I=counter_reg[3] O=counter[3]
-.subckt IBUF I=en O=$iopadmap$en
-.subckt IBUF I=rst O=$iopadmap$rst
+.subckt BUF A=clk Y=$iopadmap$clk
+.subckt BUF A=$iopadmap$co Y=co
+.subckt BUF A=counter_reg[0] Y=counter[0]
+.subckt BUF A=counter_reg[1] Y=counter[1]
+.subckt BUF A=counter_reg[2] Y=counter[2]
+.subckt BUF A=counter_reg[3] Y=counter[3]
+.subckt BUF A=en Y=$iopadmap$en
+.subckt BUF A=rst Y=$iopadmap$rst
 .end

@@ -15,15 +15,22 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def synthesis(directories, config):
-    Synthesis(directories, config)
+def synthesis(prop):
+    Synthesis(prop)
 
 
 class Synthesis(Frame):
-    def __init__(self, parent, directories, config, controller=None, *args, **kwargs):
+    def __init__(self, parent, prop, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir] = directories
+        working_directory = prop["directories"][0]
+        synthesis_dir = prop["directories"][1]
+        lib_dir = prop["directories"][2]
+        log_dir = prop["directories"][3]
+        fltSim_dir = prop["directories"][5]
+        config_dir = prop["directories"][6]
+        config = prop["config"]
+        tech = prop["tech"]
 
         # self.geometry("800x600")
         self.configure(bg = "#FFFFFF")
@@ -83,7 +90,7 @@ class Synthesis(Frame):
             image=canvas.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.synthesize(working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config),
+            command=lambda: self.synthesize(working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config_dir, config, tech),
             relief="flat"
         )
         synthesis_btn.place(
@@ -104,7 +111,7 @@ class Synthesis(Frame):
             image=canvas.button_image_2_disabled,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.open_synth_log(working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config),
+            command=lambda: self.open_synth_log(),
             relief="flat"
         )
         self.open_log_btn.place(
@@ -224,7 +231,7 @@ class Synthesis(Frame):
             self.module_name_entry.insert(tk_BEGIN, top_module_name)
 
 
-    def synthesize(self, working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config):
+    def synthesize(self, working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config_dir, config, tech):
         
         input_file_directory = list()
         file_names = list()
@@ -247,9 +254,9 @@ class Synthesis(Frame):
             # for extension in extensions:
             #     ext = extension
             
-            netlist(input_file_directory, top_module_name, config, working_directory, 
-                synthesis_dir, lib_dir, log_dir, fltSim_dir,
-                vhdl=self.tk_is_vhdl.get(), use_existing_script=False)
+            netlist(input_file_name=input_file_directory, module_name=top_module_name, config=config, tech=tech, 
+                working_directory=working_directory, synthesis_dir=synthesis_dir, lib_dir=lib_dir, log_dir=log_dir, 
+                config_dir=config_dir, vhdl=self.tk_is_vhdl.get(), use_existing_script=False)
             
             self.synth_log.config(state="normal")
             # read log file
@@ -274,7 +281,7 @@ class Synthesis(Frame):
 
 
 
-    def open_synth_log(self, working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config):
+    def open_synth_log(self):
         print("not a functional, yet !!!")
         # TODO: create new window (TopLevel) and show report on it
   

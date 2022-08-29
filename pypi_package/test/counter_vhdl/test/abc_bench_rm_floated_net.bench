@@ -1,4 +1,4 @@
-# Benchmark "counter_4bit" written by ABC on Thu Aug  4 17:15:51 2022
+# Benchmark "counter_4bit" written by ABC on Mon Aug 29 13:26:38 2022
 INPUT(counter_reg[0])
 INPUT(counter_reg[1])
 INPUT(counter_reg[2])

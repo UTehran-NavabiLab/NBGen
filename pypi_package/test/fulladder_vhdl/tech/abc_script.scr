@@ -1,0 +1,3 @@
+read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/tech/mycells_abc.lib 
+read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/test/synth_dffport_rm.v 
+write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl/test/abc_bench.bench 

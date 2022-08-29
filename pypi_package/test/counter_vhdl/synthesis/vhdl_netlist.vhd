@@ -157,11 +157,11 @@ dff_19: ENTITY WORK.dff
     PORT MAP (
         C => S18,
         CE => '1',
-        CLR => S21,
         D => S0,
         NbarT => '0',
         PRE => '0',
         Q => new_counter_reg_0,
+        R => S21,
         Si => S22,
         global_reset => '0'
     );
@@ -169,11 +169,11 @@ dff_20: ENTITY WORK.dff
     PORT MAP (
         C => S18,
         CE => '1',
-        CLR => S21,
         D => S1,
         NbarT => '0',
         PRE => '0',
         Q => new_counter_reg_1,
+        R => S21,
         Si => S23,
         global_reset => '0'
     );
@@ -181,11 +181,11 @@ dff_21: ENTITY WORK.dff
     PORT MAP (
         C => S18,
         CE => '1',
-        CLR => S21,
         D => S2,
         NbarT => '0',
         PRE => '0',
         Q => new_counter_reg_2,
+        R => S21,
         Si => S24,
         global_reset => '0'
     );
@@ -193,50 +193,50 @@ dff_22: ENTITY WORK.dff
     PORT MAP (
         C => S18,
         CE => '1',
-        CLR => S21,
         D => S3,
         NbarT => '0',
         PRE => '0',
         Q => new_counter_reg_3,
+        R => S21,
         Si => S25,
         global_reset => '0'
     );
-pin_23: ENTITY WORK.pin
+bufg_23: ENTITY WORK.bufg
     PORT MAP (
         in1 => clk,
         out1 => S18
     );
-pout_24: ENTITY WORK.pout
+bufg_24: ENTITY WORK.bufg
     PORT MAP (
         in1 => S19,
         out1 => co
     );
-pout_25: ENTITY WORK.pout
+bufg_25: ENTITY WORK.bufg
     PORT MAP (
         in1 => new_counter_reg_0,
         out1 => counter(0)
     );
-pout_26: ENTITY WORK.pout
+bufg_26: ENTITY WORK.bufg
     PORT MAP (
         in1 => new_counter_reg_1,
         out1 => counter(1)
     );
-pout_27: ENTITY WORK.pout
+bufg_27: ENTITY WORK.bufg
     PORT MAP (
         in1 => new_counter_reg_2,
         out1 => counter(2)
     );
-pout_28: ENTITY WORK.pout
+bufg_28: ENTITY WORK.bufg
     PORT MAP (
         in1 => new_counter_reg_3,
         out1 => counter(3)
     );
-pin_29: ENTITY WORK.pin
+bufg_29: ENTITY WORK.bufg
     PORT MAP (
         in1 => en,
         out1 => S20
     );
-pin_30: ENTITY WORK.pin
+bufg_30: ENTITY WORK.bufg
     PORT MAP (
         in1 => rst,
         out1 => S21

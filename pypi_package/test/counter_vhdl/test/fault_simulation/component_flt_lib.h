@@ -807,7 +807,7 @@ protected:
 	faultRegistry* accessRegistry;
 	
 public:
-    sc_in<sc_logic> D, C, CLR, PRE, CE, NbarT, Si, global_reset;
+    sc_in<sc_logic> D, C, R, PRE, CE, NbarT, Si, global_reset;
     sc_out<sc_logic> Q;
 
     sc_signal<sc_logic, SC_MANY_WRITERS> val;
@@ -840,7 +840,7 @@ public:
             sensitive << C;
 			dont_initialize();
         SC_METHOD(reset);
-            sensitive << CLR << global_reset;
+            sensitive << R << global_reset;
         SC_METHOD(preset);
             sensitive << PRE;
 	}
@@ -856,7 +856,7 @@ public:
 	void faultable_set(void){
 		
 		
-        if ((C->read() == SC_LOGIC_1) && ((PRE->read() == SC_LOGIC_0) && (CLR->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0))){
+        if ((C->read() == SC_LOGIC_1) && ((PRE->read() == SC_LOGIC_0) && (R->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0))){
             if (NbarT->read() == SC_LOGIC_1) 
 				val.write(Si->read());
             else if (CE->read() == SC_LOGIC_1){
@@ -879,11 +879,11 @@ public:
 	}
 
     void reset(void){
-        if (CLR->read() == SC_LOGIC_1 || global_reset->read() == SC_LOGIC_1) val.write(SC_LOGIC_0);
+        if (R->read() == SC_LOGIC_1 || global_reset->read() == SC_LOGIC_1) val.write(SC_LOGIC_0);
     }
 
     void preset(void){
-        if ((PRE->read() == SC_LOGIC_1) && (CLR->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0)) val.write(SC_LOGIC_1);
+        if ((PRE->read() == SC_LOGIC_1) && (R->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0)) val.write(SC_LOGIC_1);
     }
 };
 

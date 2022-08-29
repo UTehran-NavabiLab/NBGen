@@ -13,9 +13,9 @@ from utdate.src.conv.json2hdl import json2hdl
 
 
 class json2verilog(json2hdl):
-    def __init__(self, json_file) -> None:
+    def __init__(self, json_file, tech_json) -> None:
         # add parent constructor
-        json2hdl.__init__(self, json_file)
+        json2hdl.__init__(self, json_file, tech_json)
         
         self.verilog = ""
         

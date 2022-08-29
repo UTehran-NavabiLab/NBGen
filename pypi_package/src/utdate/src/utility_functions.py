@@ -121,7 +121,7 @@ def restore_name(temp_page):
 
 
 # @def: 
-#   lut2gate ; find and remove . port from DFF
+#   remove_DFFport ; find and remove . port from DFF
 #     @input   ; string of a page
 def remove_DFFport(temp_page):
 
@@ -131,7 +131,7 @@ def remove_DFFport(temp_page):
         # find DFF_PP
         if (line.strip().find("DFF_PP") > -1) and (line.strip().find("(") > -1):
             for indx_2, line_2 in enumerate(page2line[indx:]):
-                # find ");" that happens after 
+                # find ");" that occures after 
                 if line_2.strip().find(");") > -1:
                     for indx_3, line_3 in enumerate(page2line[indx: indx + indx_2]):
                         if line_3.strip().find(".C") > -1:
@@ -145,25 +145,53 @@ def remove_DFFport(temp_page):
 # @def: 
 #   find_clk_rst_netNumber ; search json file and find signal (numbers) connected to pins "C" and "R" of every DFF 
 #       this would be "clock" & "rest" respectively
-#     @input   ; dictionary of cells
-def find_clk_rst_netNumber(cells):
+#   @input   ; 
+#       cells: dictionary of cells
+#       tech : dictionary of technology configuration file extracted from json "tech.json"
+def find_clk_rst_netNumber(cells, tech):
     clk_num = list()
     rst_num = list()
+    list_of_dff = list()
+    list_of_outputs = list()
+
+    if (tech["flopcell"] != ""):
+        list_of_dff.append(tech["flopcell"])
+    if (tech["flopset"] != ""):
+        list_of_dff.append(tech["flopset"])
+    if (tech["flopreset"] != ""):
+        list_of_dff.append(tech["flopreset"])
+    if (tech["flopsetreset"] != ""):
+        list_of_dff.append(tech["flopsetreset"])
+    if (tech["scanflop"] != ""):
+        list_of_dff.append(tech["scanflop"])
     
-    # find net numbers connected to clock and reset pins of DFFs
-    for cell in cells.values():
-        if cell["type"].find("DFF") > -1:
-            clk_num.append(cell["connections"]["C"][0])
-            rst_num.append(cell["connections"]["R"][0])
+    if (tech["bufpin_out"] != ""):
+        list_of_outputs.append(tech["bufpin_out"])
+    if (tech["clkbufpin_out"] != ""):
+        list_of_outputs.append(tech["clkbufpin_out"])
+    if (tech["invertpin_out"] != ""):
+        list_of_outputs.append(tech["invertpin_out"])
+    if (tech["norpin_out"] != ""):
+        list_of_outputs.append(tech["norpin_out"])
+    if (tech["nandpin_out"] != ""):
+        list_of_outputs.append(tech["nandpin_out"])
     
-    for cell in cells.values():
-        if cell["type"].find("dff") > -1:
-            clk_num.append(cell["connections"]["C"][0])
-            rst_num.append(cell["connections"]["CLR"][0])
+    for dff in list_of_dff:
+        # find net numbers connected to clock and reset pins of DFFs
+        for cell in cells.values():
+            if cell["type"].find(dff) > -1:
+                clk_num.append(cell["connections"][tech["floppinclk"]][0])
+                rst_num.append(cell["connections"][tech["resetpin"]][0])
+    
+    # for cell in cells.values():
+    #     if cell["type"].find("dff") > -1:
+    #         clk_num.append(cell["connections"]["C"][0])
+    #         rst_num.append(cell["connections"]["CLR"][0])
     
     # remove repeated numbers
     clk_num = unique_list(clk_num)
     rst_num = unique_list(rst_num)
+    list_of_outputs = unique_list(list_of_outputs)
     old_clk_num = clk_num.copy()
     
     # Recursive search for connected nets to nets we found so far
@@ -174,37 +202,50 @@ def find_clk_rst_netNumber(cells):
         do_while = False
         old_clk_num = clk_num.copy()
 
-        for cell in cells.values():
-            for connection_name, connection_value in cell["connections"].items():
-                # search for clk
-                if (connection_name.find("Y") > -1): # if output port named "Y"
-                    if (connection_value[0] in clk_num):
-                        if (cell["type"] == "BUF"):
-                            clk_num.append(cell["connections"]["A"][0])
-                        else:
-                            clk_num.append(cell["connections"]["A"][0])
-                            clk_num.append(cell["connections"]["B"][0])
-                if (connection_name.find("O") > -1): # if output port named "O"
-                    if (connection_value[0] in clk_num):
-                        clk_num.append(cell["connections"]["I"][0])
-                if (connection_name.find("out1") > -1): # if output port named "out1"
-                    if (connection_value[0] in clk_num):
-                        clk_num.append(cell["connections"]["in1"][0])
+        for cell in cells.values(): # for every cell
+            for connection_name, connection_value in cell["connections"].items(): # for every pin
+                for output_pin in list_of_outputs:  # for every output_pin from the list of tech output pins
+                    if (connection_name.find(output_pin) > -1): # if output port named is in output list
+                        if (connection_value[0] in clk_num): # and if clk is on the output pin
+                            for connection_value in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+                                clk_num.append(connection_value[0])
+                        if (connection_value[0] in rst_num): # and if clk is on the output pin
+                            for connection_value in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+                                rst_num.append(connection_value[0])
+
+
+
+        # for cell in cells.values():
+        #     for connection_name, connection_value in cell["connections"].items():
+        #         # search for clk
+        #         if (connection_name.find("Y") > -1): # if output port named "Y"
+        #             if (connection_value[0] in clk_num):
+        #                 if (cell["type"] == "BUF"):
+        #                     clk_num.append(cell["connections"]["A"][0])
+        #                 else:
+        #                     clk_num.append(cell["connections"]["A"][0])
+        #                     clk_num.append(cell["connections"]["B"][0])
+        #         if (connection_name.find("O") > -1): # if output port named "O"
+        #             if (connection_value[0] in clk_num):
+        #                 clk_num.append(cell["connections"]["I"][0])
+        #         if (connection_name.find("out1") > -1): # if output port named "out1"
+        #             if (connection_value[0] in clk_num):
+        #                 clk_num.append(cell["connections"]["in1"][0])
                 
-                # rest finder
-                if (connection_name.find("Y") > -1):
-                    if (connection_value[0] in rst_num):
-                        if (cell["type"] == "BUF"):
-                            rst_num.append(cell["connections"]["A"][0])
-                        else:
-                            rst_num.append(cell["connections"]["A"][0])
-                            rst_num.append(cell["connections"]["B"][0])
-                if (connection_name.find("O") > -1):
-                    if (connection_value[0] in rst_num):
-                        rst_num.append(cell["connections"]["I"][0])
-                if (connection_name.find("out1") > -1):
-                    if (connection_value[0] in rst_num):
-                        rst_num.append(cell["connections"]["in1"][0])
+        #         # rest finder
+        #         if (connection_name.find("Y") > -1):
+        #             if (connection_value[0] in rst_num):
+        #                 if (cell["type"] == "BUF"):
+        #                     rst_num.append(cell["connections"]["A"][0])
+        #                 else:
+        #                     rst_num.append(cell["connections"]["A"][0])
+        #                     rst_num.append(cell["connections"]["B"][0])
+        #         if (connection_name.find("O") > -1):
+        #             if (connection_value[0] in rst_num):
+        #                 rst_num.append(cell["connections"]["I"][0])
+        #         if (connection_name.find("out1") > -1):
+        #             if (connection_value[0] in rst_num):
+        #                 rst_num.append(cell["connections"]["in1"][0])
         
         clk_num = unique_list(clk_num)
         rst_num = unique_list(rst_num)
@@ -236,7 +277,7 @@ def find_clk_rst_name(ports, clk_num, rst_num):
 #     @input; 
 #       json_file: path to json file
 #       bench_file: path to input bench file
-def rm_float_net(json_file, bench_file):
+def rm_float_net(json_file, bench_file, tech):
     with open(json_file, "r") as j:
         js = json.load(j)
 
@@ -256,7 +297,7 @@ def rm_float_net(json_file, bench_file):
     
     # if it's sequential remove clock and reset from bench file
     if(is_seq):
-        clk_list, rst_list = find_clk_rst_netNumber(cells)
+        clk_list, rst_list = find_clk_rst_netNumber(cells, tech)
         clk, rst = find_clk_rst_name(ports, clk_list, rst_list)
 
         page2line = bench.splitlines()

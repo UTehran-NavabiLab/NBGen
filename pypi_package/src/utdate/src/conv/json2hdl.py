@@ -13,9 +13,11 @@ from ..utility_functions import find_clk_rst_netNumber, find_clk_rst_name
 
 
 class json2hdl:
-    def __init__(self, json_file) -> None:
+    def __init__(self, json_file, tech_json) -> None:
         with open(json_file, "r") as f:
             self.js = load(f)
+
+        self.tech_js = tech_json
         
         self.module_name = list(self.js["modules"])[0]
         self.top_module = self.js["modules"][self.module_name]
@@ -23,7 +25,7 @@ class json2hdl:
         self.net_dict = self.net_declartion()
         self.is_sequential = self.is_sequential_check()
 
-        clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"])
+        clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.tech_js)
         self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
 
 

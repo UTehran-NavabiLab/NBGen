@@ -1,0 +1,7 @@
+UC Berkeley, ABC 1.01 (compiled Dec  1 2021 11:18:53)
+abc - > read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_45nm/tech/NangateOpenCellLibrary_typical.lib 
+Library "NangateOpenCellLibrary" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_45nm/tech/NangateOpenCellLibrary_typical.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 9 dont_use).  Time =     0.11 sec
+Warning: Detected 2 multi-output gates (for example, "FA_X1").
+abc - > read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_45nm/test/synth_dffport_rm.v 
+abc - > write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_45nm/test/abc_bench.bench 
+***EOF***

@@ -190,11 +190,11 @@ module counter_4bit(clk, rst, en, co, counter);
   ) _45_ (
     .C(_18_),
     .CE(1'h1),
-    .CLR(_21_),
     .D(_00_),
     .NbarT(1'h0),
     .PRE(1'h0),
     .Q(\counter_reg[0] ),
+    .R(_21_),
     .Si(_22_),
     .global_reset(1'h0)
   );
@@ -204,11 +204,11 @@ module counter_4bit(clk, rst, en, co, counter);
   ) _46_ (
     .C(_18_),
     .CE(1'h1),
-    .CLR(_21_),
     .D(_01_),
     .NbarT(1'h0),
     .PRE(1'h0),
     .Q(\counter_reg[1] ),
+    .R(_21_),
     .Si(_23_),
     .global_reset(1'h0)
   );
@@ -218,11 +218,11 @@ module counter_4bit(clk, rst, en, co, counter);
   ) _47_ (
     .C(_18_),
     .CE(1'h1),
-    .CLR(_21_),
     .D(_02_),
     .NbarT(1'h0),
     .PRE(1'h0),
     .Q(\counter_reg[2] ),
+    .R(_21_),
     .Si(_24_),
     .global_reset(1'h0)
   );
@@ -232,58 +232,66 @@ module counter_4bit(clk, rst, en, co, counter);
   ) _48_ (
     .C(_18_),
     .CE(1'h1),
-    .CLR(_21_),
     .D(_03_),
     .NbarT(1'h0),
     .PRE(1'h0),
     .Q(\counter_reg[3] ),
+    .R(_21_),
     .Si(_25_),
     .global_reset(1'h0)
   );
-  pin #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _49_ (
     .in1(clk),
     .out1(_18_)
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _50_ (
     .in1(_19_),
     .out1(co)
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _51_ (
     .in1(\counter_reg[0] ),
     .out1(counter[0])
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _52_ (
     .in1(\counter_reg[1] ),
     .out1(counter[1])
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _53_ (
     .in1(\counter_reg[2] ),
     .out1(counter[2])
   );
-  pout #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _54_ (
     .in1(\counter_reg[3] ),
     .out1(counter[3])
   );
-  pin #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _55_ (
     .in1(en),
     .out1(_20_)
   );
-  pin #(
-    .n(32'sd1)
+  bufg #(
+    .tphl(32'sd0),
+    .tplh(32'sd0)
   ) _56_ (
     .in1(rst),
     .out1(_21_)

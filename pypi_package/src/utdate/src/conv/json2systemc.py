@@ -8,16 +8,17 @@ from json import dumps
 WHITE_SPACE = "    "
 
 class json2systemc(json2hdl):
-    def __init__(self, json_file, gate_signal_file) -> None:
-        json2hdl.__init__(self, json_file)
+    def __init__(self, json_file, tech_json, gate_signal_file="") -> None:
+        json2hdl.__init__(self, json_file, tech_json)
 
         self.systemc = ""
         self.gate_signal_dict = dict()
         self.gate_signal_file = gate_signal_file
 
     def dump_gate_signal_dict(self):
-        with open(self.gate_signal_file, "w") as f:
-            f.write(dumps(self.gate_signal_dict))
+        if (self.gate_signal_file != ""):
+            with open(self.gate_signal_file, "w") as f:
+                f.write(dumps(self.gate_signal_dict))
 
     # @def: 
     #   size_Of_Ports; helper function to find size of input/output ports

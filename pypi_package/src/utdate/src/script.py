@@ -25,9 +25,18 @@ def preparation():
    test_dir = mkdir("test", working_directory)
    fltSim_dir = mkdir("fault_simulation", test_dir)
 
+   # check wether the "tech" directory exist in working directory
+   if (os.path.isdir(os.path.join(working_directory, "tech"))):
+      config_dir = os.path.join(working_directory, "tech")
+   else:
+      config_dir = lib_dir
+   
    # read config file
-   with open(os.path.join(lib_dir, "config.json"), "r") as json_file:
+   with open(os.path.join(config_dir, "config.json"), "r") as json_file:
       config = json.load(json_file)
+   
+   with open(os.path.join(config_dir, "tech.json"), "r") as tech_json:
+      tech = json.load(tech_json)
 
    # copy abc.rc to test_dir
    abc_rc_src = os.path.join(lib_dir, "abc.rc")
@@ -65,9 +74,13 @@ def preparation():
          shutil.copy(source, destination)
       else:
          print("file/directory does not exist: ", source)
-
-   return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir], 
-            "config": config}
+   
+   # a map to output directories
+   # working_directory | synthesis_dir | lib_dir | log_dir | test_dir | fltSim_dir| config_dir
+   # ------------------|---------------|---------|---------|----------|-----------|------------
+   #        0          |       1       |    2    |    3    |     4    |    5      |      6
+   return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir, config_dir], 
+            "config": config, "tech": tech}
 
 # @def: synthesize using yosys
 #  @args: 
@@ -75,14 +88,14 @@ def preparation():
 #     vhdl: determine the design to be vhdl
 #     use_existing_script: if set to false bypasses script making process
 #        user must provide valid yosys script at valid location (under lib_dir)
-def netlist(input_file_name, module_name, config, working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, vhdl=False, use_existing_script=False):
-   yosys_script_dir = os.path.join(lib_dir, "yosys_script.ys")
+def netlist(input_file_name, module_name, config, tech, working_directory, synthesis_dir, lib_dir, log_dir, config_dir, vhdl=False, use_existing_script=False):
+   yosys_script_dir = os.path.join(config_dir, "yosys_script.ys")
 
    if not (use_existing_script):
       with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
          f.write(yosys_script_mk(input_file=input_file_name, module_name=module_name, 
-                                 config=config, working_directory=working_directory, 
-                                 lib_dir=lib_dir, synthesis_dir=synthesis_dir, vhdl=vhdl))
+                                 config=config, tech=tech, working_directory=working_directory, 
+                                 lib_dir=lib_dir, config_dir=config_dir,synthesis_dir=synthesis_dir, vhdl=vhdl))
    
    ###################### yosys ######################
    try:
@@ -99,18 +112,22 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
    
    else:
       ###################### convert to vhdl, verilog, systemC ######################
-      json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+      if (config["yosys_script_postmap_json_outputName"] != ""):
+         json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+      else:
+         json_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
+
       gate_signal_file = os.path.join(synthesis_dir, config["gate_signal_json_file"])
       
-      j2vhd = json2vhdl(json_input)
+      j2vhd = json2vhdl(json_input, tech)
       with open(os.path.join(synthesis_dir, config["vhdl_netlist_fileName"]), "w") as f:
          f.write(j2vhd.generate_vhdl())
       
-      j2v = json2verilog(json_input)
+      j2v = json2verilog(json_input, tech)
       with open(os.path.join(synthesis_dir, config["verilog_netlist_fileName"]), "w") as f:
          f.write(j2v.generate_verilog())
       
-      j2sc = json2systemc(json_input, gate_signal_file)
+      j2sc = json2systemc(json_input, tech, gate_signal_file)
       with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
          f.write(j2sc.generate_systemc())
       yosys_log_dir = os.path.join(log_dir, "yosys.log")
@@ -122,13 +139,12 @@ def netlist(input_file_name, module_name, config, working_directory, synthesis_d
 #  @args: 
 #     config: dictionary of configuration obtained from json
 #     reference to directories
-def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, config_dir):
    # writing abc script
-   abc_script_dir = os.path.join(lib_dir, "abc_script.scr")
+   abc_script_dir = os.path.join(config_dir, "abc_script.scr")
 
    with open(abc_script_dir,'w',encoding = 'utf-8') as f:
-      f.write(abc_script_mk(config=config, lib_dir=lib_dir, 
-                              test_dir=test_dir, synthesis_dir=synthesis_dir))
+      f.write(abc_script_mk(config=config, config_dir=config_dir, test_dir=test_dir))
    
    with open(os.path.join(synthesis_dir, config["yosys_script_premap_v_outputName"]), 'r', encoding = 'utf-8') as f:
       yosys_v_output = f.read()
@@ -165,8 +181,12 @@ def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
 #     config: dictionary of configuration obtained from json
 #     use_existing_script: if set to false bypasses script making process
 #     reference to directories
-def fault(testbench_name,  instance_name, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
-   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+def fault(testbench_name,  instance_name, config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+   if (config["yosys_script_postmap_json_outputName"] != ""):
+      json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+   else:
+      json_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
+      
    json_premap_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
    bench_input = os.path.join(test_dir, config["abc_bench_output"])
 
@@ -177,7 +197,7 @@ def fault(testbench_name,  instance_name, config, working_directory, synthesis_d
 
    ###################### atalanta ######################
    with open(os.path.join(test_dir, config["abc_bench_rm_floated_net_output"]), 'w', encoding = 'utf-8') as b:
-      b.write(rm_float_net(json_premap_input, bench_input))
+      b.write(rm_float_net(json_premap_input, bench_input, tech))
    
    # change dir to test_dirctory
    os.chdir(test_dir)
@@ -201,8 +221,12 @@ def fault(testbench_name,  instance_name, config, working_directory, synthesis_d
 #     config: dictionary of configuration obtained from json
 #     use_existing_script: if set to false bypasses script making process
 #     reference to directories
-def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, instance):
-   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, tech, testbench, instance):
+   if (config["yosys_script_postmap_json_outputName"] != ""):
+      json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+   else:
+      json_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
+   
    # change dir to fault simulation directory
    os.chdir(fltSim_dir)
 
@@ -247,11 +271,11 @@ def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, ins
       f.write(test_for_seq)
 
 
-   j2sc_testbench = json2sc_testbench(json_input, testbench, instance)
+   j2sc_testbench = json2sc_testbench(json_input, tech, testbench, instance)
    with open(os.path.join(fltSim_dir, config["systemC_testbench_fileName"]), "w") as f:
       f.write(j2sc_testbench.generate_systemc())
 
-   j2sc_faultable_netlist = json2systemc_flt(json_input)
+   j2sc_faultable_netlist = json2systemc_flt(json_input, tech)
    with open(os.path.join(fltSim_dir, config["systemC_faultable_netlist_fileName"]), "w") as f:
       f.write(j2sc_faultable_netlist.generate_systemc())
 
@@ -267,11 +291,14 @@ def fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, testbench, ins
 #     config: dictionary of configuration obtained from json
 #     use_existing_script: if set to false bypasses script making process
 #     reference to directories
-def faultCollapsing(testbench_name,  instance_name, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
-   json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
-
+def faultCollapsing(testbench_name,  instance_name, config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+   if (config["yosys_script_postmap_json_outputName"] != ""):
+      json_input = os.path.join(synthesis_dir, config["yosys_script_postmap_json_outputName"])
+   else:
+      json_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
+      
    ###################### fault collapsing ######################
-   fault_list = fault_collapsing(json_input, testbench_name,  instance_name)
+   fault_list = fault_collapsing(json_input, tech, testbench_name,  instance_name)
    with open(os.path.join(test_dir, config["fault_list_fileName"]), 'w', encoding = 'utf-8') as f:
       f.write(fault_list.generate_fault_list())
 
@@ -284,13 +311,13 @@ def faultCollapsing(testbench_name,  instance_name, config, working_directory, s
 #     config: dictionary of configuration obtained from json
 #     use_existing_script: if set to false bypasses script making process
 #     reference to directories
-def test_set_gen(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+def test_set_gen(config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
    json_premap_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
    bench_input = os.path.join(test_dir, config["abc_bench_output"])
 
    ###################### atalanta ######################
    with open(os.path.join(test_dir, config["abc_bench_rm_floated_net_output"]), 'w', encoding = 'utf-8') as b:
-      b.write(rm_float_net(json_premap_input, bench_input))
+      b.write(rm_float_net(json_premap_input, bench_input, tech))
    
    # change dir to test_dirctory
    os.chdir(test_dir)

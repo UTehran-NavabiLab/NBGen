@@ -29,10 +29,12 @@ SC_MODULE( testbench ) {
             flt_injector->output_ports(NbarT);
             flt_injector->output_ports(Si);
             // input_ports[0:2] is always assigned to scan pins
-            flt_injector->input_ports(clk);
-            flt_injector->input_ports(rst);
+            flt_injector->input_ports();
+            flt_injector->input_ports();
             flt_injector->input_ports(So);
 
+            flt_injector->output_ports(clk);
+            flt_injector->output_ports(rst);
             flt_injector->output_ports(en);
             flt_injector->input_ports(co);
             flt_injector->input_ports(counter[0]);
