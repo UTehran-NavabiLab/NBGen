@@ -8,11 +8,11 @@
  `timescale 1 ns / 1ns
  
  module bufg #(parameter tphl = 0, tplh = 0)
-     (out1,in1);               
- input in1;
- output out1;
+     (Y,A);               
+ input A;
+ output Y;
   
-	bufif1 #(tplh, tphl) inst(out1, in1, 1'b1);
+	bufif1 #(tplh, tphl) inst(Y, A, 1'b1);
     
  endmodule
 
@@ -23,11 +23,11 @@
  `timescale 1 ns / 1ns
  
  module notg #(parameter tphl = 0, tplh = 0)
-     (out1,in1);             
- input in1;
- output out1;
+     (Y,A);             
+ input A;
+ output Y;
   
-	not #(tplh, tphl) inst (out1, in1);
+	not #(tplh, tphl) inst (Y, A);
     
  endmodule
 
@@ -39,21 +39,21 @@
  
 module and_n
     #(parameter n = 2, tphl = 0, tplh = 0)
-    (out1,in1);           
-input [n-1:0] in1;
-output out1;
+    (Y,A);           
+input [n-1:0] A;
+output Y;
 wire [n-2:0] mwire;
 
 genvar i;
 
-	and and_0 (mwire [0], in1 [0], in1 [1]);
+	and and_0 (mwire [0], A [0], A [1]);
 
   generate
     for (i=1; i <= n-2; i=i+1) begin : AND_N
-       and inst (mwire [i], mwire [i-1], in1 [i+1]);
+       and inst (mwire [i], mwire [i-1], A [i+1]);
     end
   endgenerate
-	bufif1 #(tplh, tphl) inst(out1, mwire [n-2], 1'b1);	
+	bufif1 #(tplh, tphl) inst(Y, mwire [n-2], 1'b1);	
 	
 endmodule
 
@@ -65,21 +65,21 @@ endmodule
  
 module or_n
     #(parameter n = 2, tphl = 0, tplh = 0)
-    (out1,in1);             
-input [n-1:0] in1;
-output out1;
+    (Y,A);             
+input [n-1:0] A;
+output Y;
 wire [n-2:0] mwire;
 
 genvar i;
 
-	or or_0 (mwire [0], in1 [0], in1 [1]);
+	or or_0 (mwire [0], A [0], A [1]);
 
   generate
     for (i=1; i <= n-2; i=i+1) begin : OR_N
-       or inst (mwire [i], mwire [i-1], in1 [i+1]);
+       or inst (mwire [i], mwire [i-1], A [i+1]);
     end
   endgenerate
-	bufif1 #(tplh, tphl) inst(out1, mwire [n-2], 1'b1);	
+	bufif1 #(tplh, tphl) inst(Y, mwire [n-2], 1'b1);	
    
 endmodule
 
@@ -91,21 +91,21 @@ endmodule
  
 module nand_n
     #(parameter n = 2, tphl = 0, tplh = 0)
-    (out1,in1);               
-input [n-1:0] in1;
-output out1;
+    (Y,A);               
+input [n-1:0] A;
+output Y;
 wire [n-2:0] mwire;
 
 genvar i;
 
-	and and_0 (mwire [0], in1 [0], in1 [1]);
+	and and_0 (mwire [0], A [0], A [1]);
 
   generate
     for (i=1; i <= n-2; i=i+1) begin : NAND_N
-       and inst (mwire [i], mwire [i-1], in1 [i+1]);
+       and inst (mwire [i], mwire [i-1], A [i+1]);
     end
   endgenerate
-	not #(tplh, tphl) inst(out1, mwire [n-2]);	
+	not #(tplh, tphl) inst(Y, mwire [n-2]);	
 
 endmodule
 
@@ -117,21 +117,21 @@ endmodule
  
 module nor_n
     #(parameter n = 2, tphl = 0, tplh = 0)
-    (out1,in1);              
-input [n-1:0] in1;
-output out1;
+    (Y,A);              
+input [n-1:0] A;
+output Y;
 wire [n-2:0] mwire;
 
 genvar i;
 
-	or nor_0 (mwire [0], in1 [0], in1 [1]);
+	or nor_0 (mwire [0], A [0], A [1]);
 
   generate
     for (i=1; i <= n-2; i=i+1) begin : NOR_N
-       or inst (mwire [i], mwire [i-1], in1 [i+1]);
+       or inst (mwire [i], mwire [i-1], A [i+1]);
     end
   endgenerate
-	not #(tplh, tphl) inst(out1, mwire [n-2]);	
+	not #(tplh, tphl) inst(Y, mwire [n-2]);	
       
 endmodule
 
@@ -143,21 +143,21 @@ endmodule
  
 module xor_n
     #(parameter n = 2, tphl = 0, tplh = 0)
-    (out1,in1);              
-input [n-1:0] in1;
-output out1;
+    (Y,A);              
+input [n-1:0] A;
+output Y;
 wire [n-2:0] mwire;
 
 genvar i;
 
-	xor xor_0 (mwire [0], in1 [0], in1 [1]);
+	xor xor_0 (mwire [0], A [0], A [1]);
 
   generate
     for (i=1; i <= n-2; i=i+1) begin : XOR_N
-       xor inst (mwire [i], mwire [i-1], in1 [i+1]);
+       xor inst (mwire [i], mwire [i-1], A [i+1]);
     end
   endgenerate
-	bufif1 #(tplh, tphl) inst(out1, mwire [n-2], 1'b1);	
+	bufif1 #(tplh, tphl) inst(Y, mwire [n-2], 1'b1);	
    
 endmodule
 
@@ -169,21 +169,21 @@ endmodule
  
 module xnor_n
     #(parameter n = 2, tphl = 0, tplh = 0)
-    (out1,in1);              
-input [n-1:0] in1;
-output out1;
+    (Y,A);              
+input [n-1:0] A;
+output Y;
 wire [n-2:0] mwire;
 
 genvar i;
 
-	xor xnor_0 (mwire [0], in1 [0], in1 [1]);
+	xor xnor_0 (mwire [0], A [0], A [1]);
 
   generate
     for (i=1; i <= n-2; i=i+1) begin : XNOR_N
-       xor inst (mwire [i], mwire [i-1], in1 [i+1]);
+       xor inst (mwire [i], mwire [i-1], A [i+1]);
     end
   endgenerate
-	not #(tplh, tphl) inst(out1, mwire [n-2]);	
+	not #(tplh, tphl) inst(Y, mwire [n-2]);	
     
 endmodule
 
@@ -195,14 +195,14 @@ endmodule
  
 module fanout_n
     #(parameter n = 2,tphl = 3, tplh = 5)
-    (in1, out1);
-input in1;
-output [n-1 :0] out1;
+    (A, Y);
+input A;
+output [n-1 :0] Y;
 genvar i;
 
   generate
     for (i=0; i < n; i=i+1) begin : fanout
-       bufif1 #(tplh, tphl) inst (out1 [i], in1, 1'b1);
+       bufif1 #(tplh, tphl) inst (Y [i], A, 1'b1);
     end
   endgenerate		
    
@@ -215,15 +215,15 @@ endmodule
 `timescale 1 ns / 1ns
  
 module pin #(parameter n = 1)
-    (in1, out1);
-input [n-1:0] in1;
-output [n-1:0] out1;
+    (I, O);
+input [n-1:0] I;
+output [n-1:0] O;
 
 genvar i;
 
   generate
     for (i=0; i < n; i=i+1) begin : PI
-       bufif1 inst (out1 [i], in1[i], 1'b1);
+       bufif1 inst (O [i], I[i], 1'b1);
     end
   endgenerate
 
@@ -236,15 +236,15 @@ endmodule
 `timescale 1 ns / 1ns
  
 module pout #(parameter n = 1)
-    (in1, out1);
-input [n-1:0] in1;
-output [n-1:0] out1;
+    (I, O);
+input [n-1:0] I;
+output [n-1:0] O;
 
 genvar i;
 
   generate
     for (i=0; i < n; i=i+1) begin : PO
-       bufif1 inst (out1 [i], in1[i], 1'b1);
+       bufif1 inst (O [i], I[i], 1'b1);
     end
   endgenerate
    
@@ -255,15 +255,15 @@ endmodule
 /////////////////////////////////////////////////////////////////////////////////////
 module dff 
 #(parameter tphl = 0, tplh = 0)
-(Q, D, C, CLR, PRE, CE, NbarT, Si, global_reset); 
+(Q, D, C, R, PRE, CE, NbarT, Si, global_reset); 
 
-input D, C, CLR, PRE, CE, NbarT, Si, global_reset; 
+input D, C, R, PRE, CE, NbarT, Si, global_reset; 
 output reg Q; 
 reg val; 
 
 
-always @(posedge C or posedge PRE or posedge CLR or posedge global_reset) begin
-	if(CLR || global_reset)
+always @(posedge C or posedge PRE or posedge R or posedge global_reset) begin
+	if(R || global_reset)
 		val = 1'b0;
 	else	if(PRE)
 		val = 1'b1;

@@ -1,0 +1,1903 @@
+++ Registered Module: testbench.fut.notg_0
+++ Registered Module: testbench.fut.notg_1
+++ Registered Module: testbench.fut.notg_2
+++ Registered Module: testbench.fut.nand_n_3
+++ Registered Module: testbench.fut.nand_n_4
+++ Registered Module: testbench.fut.nor_n_5
+++ Registered Module: testbench.fut.nor_n_6
+++ Registered Module: testbench.fut.nor_n_7
+++ Registered Module: testbench.fut.nor_n_8
+++ Registered Module: testbench.fut.nor_n_9
+++ Registered Module: testbench.fut.nor_n_10
+++ Registered Module: testbench.fut.nor_n_11
+++ Registered Module: testbench.fut.nand_n_12
+++ Registered Module: testbench.fut.notg_13
+++ Registered Module: testbench.fut.nor_n_14
+++ Registered Module: testbench.fut.nor_n_15
+++ Registered Module: testbench.fut.nor_n_16
+++ Registered Module: testbench.fut.nor_n_17
+++ Registered Module: testbench.fut.nor_n_18
+++ Registered Module: testbench.fut.dff_19
+++ Registered Module: testbench.fut.dff_20
+++ Registered Module: testbench.fut.dff_21
+++ Registered Module: testbench.fut.dff_22
+++ Registered Module: testbench.fut.pin_23
+++ Registered Module: testbench.fut.pout_24
+++ Registered Module: testbench.fut.pout_25
+++ Registered Module: testbench.fut.pout_26
+++ Registered Module: testbench.fut.pout_27
+++ Registered Module: testbench.fut.pout_28
+++ Registered Module: testbench.fut.pin_29
+++ Registered Module: testbench.fut.pin_30
+++ Registered Module: testbench.fut.pout_31
+++ Registered Module: testbench.fut.pin_32
+++ Registered Module: testbench.fut.pin_33
+++ Registered Module: testbench.fut.pin_34
+* Initially Disable all faults 
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 1
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 0
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 1
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 0
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 1
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 0
+testbench | testbench
+dut       | fut
+module    | dff_22
+obj       | D
+faultType | 1
+testbench | testbench
+dut       | fut
+module    | dff_22
+obj       | D
+faultType | 0
+
+Registered fault objects
+Total number of faultable objects: 100
++++----+++----+++----+++----+++
+Faulty object: #0
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_0
+objId          | A
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #1
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_0
+objId          | A
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #2
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_1
+objId          | A
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #3
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_1
+objId          | A
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #4
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_2
+objId          | A
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #5
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_2
+objId          | A
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #6
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_3
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #7
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_3
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #8
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_3
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #9
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_3
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #10
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_4
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #11
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_4
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #12
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_4
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #13
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_4
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #14
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_5
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #15
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_5
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #16
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_5
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #17
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_5
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #18
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_6
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #19
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_6
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #20
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_6
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #21
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_6
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #22
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_7
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #23
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_7
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #24
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_7
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #25
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_7
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #26
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_8
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #27
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_8
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #28
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_8
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #29
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_8
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #30
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_9
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #31
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_9
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #32
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_9
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #33
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_9
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #34
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_10
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #35
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_10
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #36
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_10
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #37
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_10
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #38
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_11
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #39
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_11
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #40
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_11
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #41
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_11
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #42
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_12
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #43
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_12
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #44
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_12
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #45
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nand_n_12
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #46
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_13
+objId          | A
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #47
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | notg_13
+objId          | A
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #48
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_14
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #49
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_14
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #50
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_14
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #51
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_14
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #52
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_15
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #53
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_15
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #54
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_15
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #55
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_15
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #56
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_16
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #57
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_16
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #58
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_16
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #59
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_16
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #60
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_17
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #61
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_17
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #62
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_17
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #63
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_17
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #64
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_18
+objId          | A(0)
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #65
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_18
+objId          | A(0)
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #66
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_18
+objId          | A(1)
+faultId        | 3
+type           | 0
+enable         | 0
+
+Faulty object: #67
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | nor_n_18
+objId          | A(1)
+faultId        | 4
+type           | 1
+enable         | 0
+
+Faulty object: #68
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_19
+objId          | D
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #69
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_19
+objId          | D
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #70
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_20
+objId          | D
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #71
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_20
+objId          | D
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #72
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_21
+objId          | D
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #73
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_21
+objId          | D
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #74
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_22
+objId          | D
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #75
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | dff_22
+objId          | D
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #76
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_23
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #77
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_23
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #78
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_24
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #79
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_24
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #80
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_25
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #81
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_25
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #82
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_26
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #83
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_26
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #84
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_27
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #85
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_27
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #86
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_28
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #87
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_28
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #88
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_29
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #89
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_29
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #90
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_30
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #91
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_30
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #92
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_31
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #93
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pout_31
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #94
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_32
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #95
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_32
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #96
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_33
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #97
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_33
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+Faulty object: #98
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_34
+objId          | I
+faultId        | 1
+type           | 0
+enable         | 0
+
+Faulty object: #99
+-------------------------------
+getTestbenchId | testbench
+getDesignId    | fut
+moduleId       | pin_34
+objId          | I
+faultId        | 2
+type           | 1
+enable         | 0
+
+-----------------------------
+--------- Inject Fault:--------------------- NUMBER:1
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 1
+## enable faultInjected signal on module:: testbench.fut.dff_19
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 1 --- Time: 110 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 1 --- Time: 210 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101101110 = 1011 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 1 --- Time: 310 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100011111 = 1000 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100111111 = 1001 , 11111
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:1
+
+--------- Inject Fault:--------------------- NUMBER:2
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_19
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 0 --- Time: 430 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_19 D = 0 --- Time: 530 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101001110 = 1010 , 01110
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_19
+obj       | D
+faultType | 0
+--------- Remove Fault:--------------------- NUMBER:2
+
+--------- Inject Fault:--------------------- NUMBER:3
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 1
+## enable faultInjected signal on module:: testbench.fut.dff_20
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 1 --- Time: 650 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 1 --- Time: 750 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101101110 = 1011 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 1 --- Time: 850 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100011111 = 1000 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101011111 = 1010 , 11111
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:3
+
+--------- Inject Fault:--------------------- NUMBER:4
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_20
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 0 --- Time: 970 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_20 D = 0 --- Time: 1070 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100101110 = 1001 , 01110
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_20
+obj       | D
+faultType | 0
+--------- Remove Fault:--------------------- NUMBER:4
+
+--------- Inject Fault:--------------------- NUMBER:5
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 1
+## enable faultInjected signal on module:: testbench.fut.dff_21
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 1 --- Time: 1190 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 1 --- Time: 1290 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+111101110 = 1111 , 01110
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:5
+
+--------- Inject Fault:--------------------- NUMBER:6
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_21
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 1410 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 1510 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101101110 = 1011 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 1610 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100011111 = 1000 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100011111 = 1000 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 1710 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000000010 = 0000 , 00010
+
+---+++---+++---+++---+++
+Apply Test Vector: 00010000010000
+
+
+load_st(PPI) = 0000
+
+PI = 1
+
+expected_PO(PO) = 00000
+
+cur_expected_st(PPO) = 0001
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 0
+fault on testbench.fut.dff_21 D = 0 --- Time: 1810 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+001000000 = 0010 , 00000
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001000000 = 0010 , 00000
+
+---+++---+++---+++---+++
+Apply Test Vector: 11101110001110
+
+
+load_st(PPI) = 1110
+
+PI = 0
+
+expected_PO(PO) = 11100
+
+cur_expected_st(PPO) = 1110
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 0
+fault on testbench.fut.dff_21 D = 0 --- Time: 1910 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000111100 = 0001 , 11100
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000111100 = 0001 , 11100
+
+---+++---+++---+++---+++
+Apply Test Vector: 01000011010011
+
+
+load_st(PPI) = 0011
+
+PI = 1
+
+expected_PO(PO) = 00110
+
+cur_expected_st(PPO) = 0100
+
+Si = 0
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_21 D = 0 --- Time: 2010 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+111000110 = 1110 , 00110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101000110 = 1010 , 00110
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_21
+obj       | D
+faultType | 0
+--------- Remove Fault:--------------------- NUMBER:6
+
+--------- Inject Fault:--------------------- NUMBER:7
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_22
+obj       | D
+faultType | 1
+## enable faultInjected signal on module:: testbench.fut.dff_22
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 1 --- Time: 2130 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 1 --- Time: 2230 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+101101110 = 1011 , 01110
+
+---+++---+++---+++---+++
+Apply Test Vector: 00001111111111
+
+
+load_st(PPI) = 1111
+
+PI = 1
+
+expected_PO(PO) = 11111
+
+cur_expected_st(PPO) = 0000
+
+Si = 1
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 1 --- Time: 2330 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+100011111 = 1000 , 11111
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100011111 = 1000 , 11111
+
+---+++---+++---+++---+++
+Apply Test Vector: 00100001010001
+
+
+load_st(PPI) = 0001
+
+PI = 1
+
+expected_PO(PO) = 00010
+
+cur_expected_st(PPO) = 0010
+
+Si = 0
+
+Si = 0
+
+Si = 0
+
+Si = 1
+fault on testbench.fut.dff_22 D = 1 --- Time: 2430 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000000010 = 0000 , 00010
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+100000010 = 1000 , 00010
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_22
+obj       | D
+faultType | 1
+--------- Remove Fault:--------------------- NUMBER:7
+
+--------- Inject Fault:--------------------- NUMBER:8
+Fault to be Injected: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_22
+obj       | D
+faultType | 0
+## enable faultInjected signal on module:: testbench.fut.dff_22
+
+---+++---+++---+++---+++
+Apply Test Vector: 10111011001011
+
+
+load_st(PPI) = 1011
+
+PI = 0
+
+expected_PO(PO) = 10110
+
+cur_expected_st(PPO) = 1011
+
+Si = 1
+
+Si = 0
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 0 --- Time: 2550 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+000010110 = 0000 , 10110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+000010110 = 0000 , 10110
+
+---+++---+++---+++---+++
+Apply Test Vector: 10000111010111
+
+
+load_st(PPI) = 0111
+
+PI = 1
+
+expected_PO(PO) = 01110
+
+cur_expected_st(PPO) = 1000
+
+Si = 0
+
+Si = 1
+
+Si = 1
+
+Si = 1
+fault on testbench.fut.dff_22 D = 0 --- Time: 2650 ns
+
+pre_expected_st_and_expected_PO = (pre_expected_st, expected_PO)
+101101110 = 1011 , 01110
+
+saved_st_and_sampledPO = (saved_st, sampledPO)
+001101110 = 0011 , 01110
+Fault to be removed: 
+----------|-------------- 
+testbench | testbench
+dut       | fut
+module    | dff_22
+obj       | D
+faultType | 0
+--------- Remove Fault:--------------------- NUMBER:8
+
++ End of faultInjection::---------------------------  

@@ -1,0 +1,7 @@
+UC Berkeley, ABC 1.01 (compiled Dec  1 2021 11:18:53)
+abc - > read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_15nm/tech/NanGate_15nm_OCL_typical_conditional_nldm.lib 
+Library "NanGate_15nm_OCL" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_15nm/tech/NanGate_15nm_OCL_typical_conditional_nldm.lib" has 55 cells (12 skipped: 5 seq; 6 tri-state; 1 no func; 9 dont_use).  Time =     0.04 sec
+Warning: Detected 2 multi-output gates (for example, "FA_X1").
+abc - > read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_15nm/test/synth_dffport_rm.v 
+abc - > write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_vhdl_15nm/test/abc_bench.bench 
+***EOF***

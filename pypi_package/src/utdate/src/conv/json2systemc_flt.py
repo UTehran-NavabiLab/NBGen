@@ -16,6 +16,7 @@ class json2systemc_flt(json2systemc):
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <systemc.h>' + "\n"
+        ################### change
         include_lib += '#include "component_flt_lib.h"'
         return include_lib
 
@@ -112,6 +113,7 @@ class json2systemc_flt(json2systemc):
         
         # port mapping 
         # loop through each connection, get corresponding net-name
+        ################# change
         for con_name, con_value in cell_connections.items():
             if(((cell_type.find("DFF") > -1) or (cell_type.find("dff") > -1)) and (self.is_sequential)):
                 if(con_name == "NbarT"):
@@ -185,13 +187,13 @@ class json2systemc_flt(json2systemc):
                 if(j == 0):
                     instance_pointer += WHITE_SPACE + f'pout_flt* pout_{cell_index + j};\n'
                     cell_instantiation += WHITE_SPACE + f'pout_{cell_index + j} = new pout_flt("pout_{cell_index + j}", accessRegistry);\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{cell_index + j}->in1({pin_input_list[j]});\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{cell_index + j}->out1({pin_output_list[j]});\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{cell_index + j}->I({pin_input_list[j]});\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pout_{cell_index + j}->O({pin_output_list[j]});\n'
                 else:
                     instance_pointer += WHITE_SPACE + f'pin_flt* pin_{cell_index + j};\n'
                     cell_instantiation += WHITE_SPACE + f'pin_{cell_index + j} = new pin_flt("pin_{cell_index + j}", accessRegistry);\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{cell_index + j}->in1({pin_input_list[j]});\n'
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{cell_index + j}->out1({pin_output_list[j]});\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{cell_index + j}->I({pin_input_list[j]});\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'pin_{cell_index + j}->O({pin_output_list[j]});\n'
 
         return instance_pointer, cell_instantiation
 

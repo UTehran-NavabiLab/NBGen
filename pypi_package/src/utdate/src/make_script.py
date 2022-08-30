@@ -48,8 +48,9 @@ def yosys_script_mk(input_file, module_name, config, tech, working_directory, li
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for i/o pads mapping"])
     # split_page won't start from new line so we add it add new line 
     yosys_script_1st += '\n'
-    yosys_script_1st += f'iopadmap -inpad {tech["bufcell"]} {tech["bufpin_out"]}:{tech["bufpin_in"]} -bits \n'
-    yosys_script_1st += f'iopadmap -outpad {tech["bufcell"]} {tech["bufpin_in"]}:{tech["bufpin_out"]} -bits \n'
+    # some library might have different types of BUF for input/output, check for correnspoding variables
+    yosys_script_1st += f'iopadmap -inpad {tech["bufcell"] if (tech["inbufcell"] == "") else tech["inbufcell"]} {tech["bufpin_out"] if (tech["inbufpin_out"] == "") else tech["inbufpin_out"]}:{tech["bufpin_in"] if (tech["inbufpin_in"] == "") else tech["inbufpin_in"]} -bits \n'
+    yosys_script_1st += f'iopadmap -outpad {tech["bufcell"] if (tech["outbufcell"] == "") else tech["outbufcell"]} {tech["bufpin_in"] if (tech["outbufpin_in"] == "") else tech["outbufpin_in"]}:{tech["bufpin_out"] if (tech["outbufpin_out"] == "") else tech["outbufpin_out"]} -bits \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
 
 

@@ -1,0 +1,11 @@
+TB---->faultNum = 1 is injected @ 0 s, detected by testVector = 11111111110000 @ 310 ns
+TB---->faultNum = 2 is injected @ 310 ns, detected by testVector = 11101011100001 @ 530 ns
+TB---->faultNum = 3 is injected @ 530 ns, detected by testVector = 11111111110000 @ 850 ns
+TB---->faultNum = 4 is injected @ 850 ns, detected by testVector = 11101011100001 @ 1070 ns
+TB---->faultNum = 5 is injected @ 1070 ns, detected by testVector = 11101011100001 @ 1290 ns
+TB---->faultNum = 6 is injected @ 1290 ns, detected by testVector = 11001011000010 @ 2010 ns
+TB---->faultNum = 7 is injected @ 2010 ns, detected by testVector = 10001010000100 @ 2430 ns
+TB---->faultNum = 8 is injected @ 2430 ns, detected by testVector = 11101011100001 @ 2650 ns
+numOfDetecteds: 8
+numOfFaults: 8
+coverage: 1

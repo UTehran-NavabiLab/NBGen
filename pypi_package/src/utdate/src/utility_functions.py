@@ -167,6 +167,10 @@ def find_clk_rst_netNumber(cells, tech):
     
     if (tech["bufpin_out"] != ""):
         list_of_outputs.append(tech["bufpin_out"])
+    if (tech["outbufpin_out"] != ""):
+        list_of_outputs.append(tech["outbufpin_out"])
+    if (tech["inbufpin_out"] != ""):
+        list_of_outputs.append(tech["inbufpin_out"])
     if (tech["clkbufpin_out"] != ""):
         list_of_outputs.append(tech["clkbufpin_out"])
     if (tech["invertpin_out"] != ""):
@@ -176,9 +180,9 @@ def find_clk_rst_netNumber(cells, tech):
     if (tech["nandpin_out"] != ""):
         list_of_outputs.append(tech["nandpin_out"])
     
-    for dff in list_of_dff:
-        # find net numbers connected to clock and reset pins of DFFs
-        for cell in cells.values():
+    # find net numbers connected to clock and reset pins of DFFs
+    for cell in cells.values():
+        for dff in list_of_dff:
             if cell["type"].find(dff) > -1:
                 clk_num.append(cell["connections"][tech["floppinclk"]][0])
                 rst_num.append(cell["connections"][tech["resetpin"]][0])
@@ -207,11 +211,11 @@ def find_clk_rst_netNumber(cells, tech):
                 for output_pin in list_of_outputs:  # for every output_pin from the list of tech output pins
                     if (connection_name.find(output_pin) > -1): # if output port named is in output list
                         if (connection_value[0] in clk_num): # and if clk is on the output pin
-                            for connection_value in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
-                                clk_num.append(connection_value[0])
-                        if (connection_value[0] in rst_num): # and if clk is on the output pin
-                            for connection_value in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
-                                rst_num.append(connection_value[0])
+                            for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+                                clk_num.append(connection_value_2[0])
+                        if (connection_value[0] in rst_num): # and if reset is on the output pin
+                            for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+                                rst_num.append(connection_value_2[0])
 
 
 
@@ -249,7 +253,6 @@ def find_clk_rst_netNumber(cells, tech):
         
         clk_num = unique_list(clk_num)
         rst_num = unique_list(rst_num)
-    
     return clk_num, rst_num
 
 # @def: 
@@ -272,7 +275,7 @@ def find_clk_rst_name(ports, clk_num, rst_num):
 
 
 # @def: 
-#   find_clk_rst_name: read json/bench file for clock and reset name, remove clock and reset (along with all signals
+#   rm_float_net: read json/bench file for clock and reset name, remove clock and reset (along with all signals
 #       connected to them) from bench file
 #     @input; 
 #       json_file: path to json file
@@ -286,11 +289,25 @@ def rm_float_net(json_file, bench_file, tech):
         cells = top_module["cells"]
         ports = top_module["ports"]
 
+    list_of_dff = list()
+
+    if (tech["flopcell"] != ""):
+        list_of_dff.append(tech["flopcell"])
+    if (tech["flopset"] != ""):
+        list_of_dff.append(tech["flopset"])
+    if (tech["flopreset"] != ""):
+        list_of_dff.append(tech["flopreset"])
+    if (tech["flopsetreset"] != ""):
+        list_of_dff.append(tech["flopsetreset"])
+    if (tech["scanflop"] != ""):
+        list_of_dff.append(tech["scanflop"])
+   
     # check whether the design is sequential/combinational (check for existance of dff)
     is_seq = False
     for cell in cells.values():
-        if ((cell["type"].find("DFF") > -1) or (cell["type"].find("dff") > -1)):
-            is_seq = True
+        for dff in list_of_dff:
+            if (cell["type"].find(dff) > -1):
+                is_seq = True
 
     with open(bench_file, "r") as b:
         bench = b.read()
