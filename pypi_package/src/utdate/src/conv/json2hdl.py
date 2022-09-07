@@ -19,7 +19,11 @@ class json2hdl:
 
         self.tech_js = tech_json
         
-        self.module_name = list(self.js["modules"])[0]
+        try: 
+            self.module_name = self.tech_js["module_name"]
+        except KeyError:
+            self.module_name = list(self.js["modules"])[0]
+        
         self.top_module = self.js["modules"][self.module_name]
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
@@ -34,10 +38,24 @@ class json2hdl:
     def is_sequential_check(self):
         cells_dic = self.top_module["cells"]
         is_seq = False
+        list_of_dff = list()
 
+        if (self.tech_js["flopcell"] != ""):
+            list_of_dff.append(self.tech_js["flopcell"])
+        if (self.tech_js["flopset"] != ""):
+            list_of_dff.append(self.tech_js["flopset"])
+        if (self.tech_js["flopreset"] != ""):
+            list_of_dff.append(self.tech_js["flopreset"])
+        if (self.tech_js["flopsetreset"] != ""):
+            list_of_dff.append(self.tech_js["flopsetreset"])
+        if (self.tech_js["scanflop"] != ""):
+            list_of_dff.append(self.tech_js["scanflop"])
+    
+        # check whether the design is sequential/combinational (check for existance of dff)
         for cell in cells_dic.values():
-            if ((cell["type"].find("DFF") > -1) or (cell["type"].find("dff") > -1)):
-                is_seq = True
+            for dff in list_of_dff:
+                if (cell["type"].find(dff) > -1):
+                    is_seq = True
 
         return is_seq
 

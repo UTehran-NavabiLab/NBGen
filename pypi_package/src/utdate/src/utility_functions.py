@@ -154,38 +154,32 @@ def find_clk_rst_netNumber(cells, tech):
     list_of_dff = list()
     list_of_outputs = list()
 
-    if (tech["flopcell"] != ""):
-        list_of_dff.append(tech["flopcell"])
-    if (tech["flopset"] != ""):
-        list_of_dff.append(tech["flopset"])
-    if (tech["flopreset"] != ""):
-        list_of_dff.append(tech["flopreset"])
-    if (tech["flopsetreset"] != ""):
-        list_of_dff.append(tech["flopsetreset"])
-    if (tech["scanflop"] != ""):
-        list_of_dff.append(tech["scanflop"])
-    
-    if (tech["bufpin_out"] != ""):
-        list_of_outputs.append(tech["bufpin_out"])
-    if (tech["outbufpin_out"] != ""):
-        list_of_outputs.append(tech["outbufpin_out"])
-    if (tech["inbufpin_out"] != ""):
-        list_of_outputs.append(tech["inbufpin_out"])
-    if (tech["clkbufpin_out"] != ""):
-        list_of_outputs.append(tech["clkbufpin_out"])
-    if (tech["invertpin_out"] != ""):
-        list_of_outputs.append(tech["invertpin_out"])
-    if (tech["norpin_out"] != ""):
-        list_of_outputs.append(tech["norpin_out"])
-    if (tech["nandpin_out"] != ""):
-        list_of_outputs.append(tech["nandpin_out"])
+    list_of_dff.append(tech["flopcell"])
+    list_of_dff.append(tech["flopset"])
+    list_of_dff.append(tech["flopreset"])
+    list_of_dff.append(tech["flopsetreset"])
+    list_of_dff.append(tech["scanflop"])
+    if ("" in list_of_dff):
+        list_of_dff.remove("")
+
+    list_of_outputs.append(tech["bufpin_out"])
+    list_of_outputs.append(tech["outbufpin_out"])
+    list_of_outputs.append(tech["inbufpin_out"])
+    list_of_outputs.append(tech["clkbufpin_out"])
+    list_of_outputs.append(tech["invertpin_out"])
+    list_of_outputs.append(tech["norpin_out"])
+    list_of_outputs.append(tech["nandpin_out"])
+    if ("" in list_of_outputs):
+        list_of_outputs.remove("")
     
     # find net numbers connected to clock and reset pins of DFFs
     for cell in cells.values():
         for dff in list_of_dff:
             if cell["type"].find(dff) > -1:
-                clk_num.append(cell["connections"][tech["floppinclk"]][0])
-                rst_num.append(cell["connections"][tech["resetpin"]][0])
+                clk_num.append(cell["connections"][tech["floppinclk"]][0]) # dff must have clk, otherwise raise error
+                # it's not mandatory to have reset pin for dff
+                if (cell["connections"].get(tech["resetpin"]) != None): 
+                    rst_num.append(cell["connections"][tech["resetpin"]][0])
     
     # for cell in cells.values():
     #     if cell["type"].find("dff") > -1:
@@ -291,17 +285,14 @@ def rm_float_net(json_file, bench_file, tech):
 
     list_of_dff = list()
 
-    if (tech["flopcell"] != ""):
-        list_of_dff.append(tech["flopcell"])
-    if (tech["flopset"] != ""):
-        list_of_dff.append(tech["flopset"])
-    if (tech["flopreset"] != ""):
-        list_of_dff.append(tech["flopreset"])
-    if (tech["flopsetreset"] != ""):
-        list_of_dff.append(tech["flopsetreset"])
-    if (tech["scanflop"] != ""):
-        list_of_dff.append(tech["scanflop"])
-   
+    list_of_dff.append(tech["flopcell"])
+    list_of_dff.append(tech["flopset"])
+    list_of_dff.append(tech["flopreset"])
+    list_of_dff.append(tech["flopsetreset"])
+    list_of_dff.append(tech["scanflop"])
+    if ("" in list_of_dff):
+        list_of_dff.remove("")
+
     # check whether the design is sequential/combinational (check for existance of dff)
     is_seq = False
     for cell in cells.values():

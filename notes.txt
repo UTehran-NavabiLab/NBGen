@@ -1,4 +1,8 @@
 -------------------- TODO list --------------------
+* change indexing of gates in order of types
+    to be compatible with qflow 
+* check out what's with new prefix
+
 create a "configuration paga" to configure json file 
 add lookup list to choose cell library
 add "iverilog"/"ghdl" simulator for verilog/vhdl simulation

@@ -1,0 +1,26 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_qflow_45nm/tech/NangateOpenCellLibrary_typical.lib
+read_verilog  /usr/local/etc/map9v3_45nm/source/map9v3.v
+
+# High-level synthesis
+synth -top map9v3
+# Map register flops
+dfflibmap -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_qflow_45nm/tech/NangateOpenCellLibrary_typical.lib
+opt
+
+# Map combinatorial cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_qflow_45nm/tech/NangateOpenCellLibrary_typical.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+
+clean -purge
+hilomap -hicell LOGIC1_X1 Z
+hilomap -locell LOGIC0_X1 Z
+# Output buffering
+iopadmap -outpad BUF_X1 A:Z -bits
+# Cleanup
+opt
+clean
+rename -enumerate
+write_blif  -buf BUF_X1 A Z map9v3_mapped.blif
+stat
