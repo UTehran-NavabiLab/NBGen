@@ -97,7 +97,7 @@ class json2verilog(json2hdl):
         cell_connections = cell["connections"]
 
         # start string
-        cell_declaration = cell_type + " #(\n"
+        cell_declaration = cell_type + " #( \n"
         
         # loop through each parameter and add them
         #   despite actual verilog output, we use 32'b (instead of 32'd), assuming that all variables are less then 32 bit
@@ -105,10 +105,10 @@ class json2verilog(json2hdl):
             cell_declaration += "  ." + param_name + "(32'b" + param_value + "),\n"
         
         # remove last "," and add newline
-        cell_declaration = cell_declaration[:-2] + "\n"
+        cell_declaration = cell_declaration[:-2] + ") \n"
         
         # add cell name 
-        cell_declaration += ") " + cell_type + "_" + str(index) + "_" + " (\n"
+        cell_declaration += cell_type + "_" + str(index) + "_" + " (\n"
 
         # loop through each connection, get corresponding net-name
         for con_name, con_value in cell_connections.items():

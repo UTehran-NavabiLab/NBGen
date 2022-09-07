@@ -4,6 +4,7 @@ from json import dumps
 # see if it's multi-bit port
 # TODO: check if module name is also used for any other property
 #   if so change module name, since it raise an error in systemc
+#   add option to be yosys compatible
 
 WHITE_SPACE = "    "
 
@@ -202,11 +203,13 @@ class json2systemc(json2hdl):
         cell_instantiation = ""
         i = 0
         
+        
         for cell_name, cell_prop in self.top_module["cells"].items():
+            i = self.gate_indexing(cell_prop["type"])
             instance_pointer += self.get_each_cell(cell_prop, i)[0]
             cell_instantiation += self.get_each_cell(cell_prop, i)[1] + "\n"
-            i += 1
 
+        print(self.gate_index)
         return instance_pointer, cell_instantiation
 
     # @def: declare module signature 

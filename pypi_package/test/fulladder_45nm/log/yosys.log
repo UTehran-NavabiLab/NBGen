@@ -715,6 +715,6 @@ Dumping module `\fulladder'.
      OAI21_X1                        2
 
 Warnings: 8 unique messages, 72 total
-End of script. Logfile hash: 36b685396a, CPU: user 1.32s system 0.05s
+End of script. Logfile hash: 36b685396a, CPU: user 1.33s system 0.05s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
-Time spent: 15% 2x abc (0 sec), 15% 2x read_liberty (0 sec), ...
+Time spent: 15% 2x abc (0 sec), 14% 2x read_liberty (0 sec), ...

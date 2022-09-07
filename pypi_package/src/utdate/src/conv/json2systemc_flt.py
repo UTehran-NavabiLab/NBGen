@@ -168,7 +168,7 @@ class json2systemc_flt(json2systemc):
         dff_count = 0
         # set flags to identify first and last dff
         for cell_name, cell_prop in self.top_module["cells"].items():
-            
+            cell_index = self.gate_indexing(cell_prop["type"])
             instance_pointer_temp, cell_instantiation_temp = self.get_each_cell(cell_prop, cell_index, dff_count)
             instance_pointer += instance_pointer_temp
             cell_instantiation += cell_instantiation_temp + "\n"
@@ -177,7 +177,7 @@ class json2systemc_flt(json2systemc):
             if(((cell_prop["type"].find("DFF") > -1) or (cell_prop["type"].find("dff") > -1)) and (self.is_sequential)):
                 dff_count = dff_count + 1
             
-            cell_index += 1
+            # cell_index += 1
         
         pin_input_list = ["So_sig", "global_reset", "NbarT", "Si"]
         pin_output_list = ["So", "global_reset_sig", "NbarT_sig", "Si_sig"]

@@ -24,6 +24,8 @@ class json2hdl:
         except KeyError:
             self.module_name = list(self.js["modules"])[0]
         
+        self.gate_index = dict()
+        self.yosys_qflow_compatible = False
         self.top_module = self.js["modules"][self.module_name]
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
@@ -32,6 +34,27 @@ class json2hdl:
         clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.tech_js)
         self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
 
+    # @def: based on whether gate names are compatible with yosys/qflow generate index
+    #       if yosys is the target, just increment a predefined index by 1
+    #       if qflow is the target, increment based on gate type
+    #   cell_type: type of input gate
+    #   output: index
+    def gate_indexing(self, cell_type):
+        i = 0
+        if(self.yosys_qflow_compatible):
+            if(self.gate_index.get("cell_type") == None):
+                self.gate_index["cell_type"] = 1
+            else:
+                self.gate_index["cell_type"] = self.gate_index["cell_type"] + 1
+            i = self.gate_index["cell_type"]
+        else:
+            if(self.gate_index.get(cell_type) == None):
+                self.gate_index[cell_type] = 1
+            else:
+                self.gate_index[cell_type] = self.gate_index[cell_type] + 1
+            i = self.gate_index[cell_type]
+        
+        return i
 
     # @def: 
     #   is_sequential_check ; check whether the circuit is combinational/sequential
@@ -40,17 +63,14 @@ class json2hdl:
         is_seq = False
         list_of_dff = list()
 
-        if (self.tech_js["flopcell"] != ""):
-            list_of_dff.append(self.tech_js["flopcell"])
-        if (self.tech_js["flopset"] != ""):
-            list_of_dff.append(self.tech_js["flopset"])
-        if (self.tech_js["flopreset"] != ""):
-            list_of_dff.append(self.tech_js["flopreset"])
-        if (self.tech_js["flopsetreset"] != ""):
-            list_of_dff.append(self.tech_js["flopsetreset"])
-        if (self.tech_js["scanflop"] != ""):
-            list_of_dff.append(self.tech_js["scanflop"])
-    
+        list_of_dff.append(self.tech_js["flopcell"])
+        list_of_dff.append(self.tech_js["flopset"])
+        list_of_dff.append(self.tech_js["flopreset"])
+        list_of_dff.append(self.tech_js["flopsetreset"])
+        list_of_dff.append(self.tech_js["scanflop"])
+        if ("" in list_of_dff):
+            list_of_dff.remove("")
+
         # check whether the design is sequential/combinational (check for existance of dff)
         for cell in cells_dic.values():
             for dff in list_of_dff:
@@ -61,7 +81,7 @@ class json2hdl:
 
     # @def: find actual net name using net integer value
     #   input: -
-    #   output: dictionary of nets (key) and list of their correspondence net_number (value)
+    #   output: dictionary of nets (as key) and list of their correspondence net_number (as value)
     def net_declartion(self):
         i = 0
         net_dict = dict()
@@ -73,7 +93,7 @@ class json2hdl:
                 net_name = "S" + str(i)
                 i += 1
             elif not (net_name in self.ports_list):
-                net_name = "new_" + net_name
+                # net_name = "new_" + net_name
                 net_name = net_name.replace("[", "_")
                 net_name = net_name.replace("]", "")
                 net_name = net_name.replace(".", "_")
@@ -97,8 +117,9 @@ class json2hdl:
         i = 0
         
         for cell_name, cell_prop in self.top_module["cells"].items():
+            i = self.gate_indexing(cell_prop["type"])
             cells_declaration += self.get_each_cell(cell_prop, i) + "\n"
-            i += 1
+            # i += 1
         return cells_declaration
     
     # @def: find actual net name using net integer value
