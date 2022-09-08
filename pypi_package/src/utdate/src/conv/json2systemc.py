@@ -156,6 +156,7 @@ class json2systemc(json2hdl):
         cell_type = cell["type"]
         cell_parameter = cell["parameters"]
         cell_connections = cell["connections"]
+        cell_port_direction = cell["port_directions"]
 
         instance_pointer = ""
         cell_instantiation = ""
@@ -166,6 +167,7 @@ class json2systemc(json2hdl):
  
         cell_instantiation = WHITE_SPACE + instatnce_name + " = new " + cell_type + '("' + instatnce_name + '");\n'
         
+        # add new key to gate_signal dictionary
         self.gate_signal_dict.update({instatnce_name:[]})
 
         # port mapping 
@@ -175,8 +177,9 @@ class json2systemc(json2hdl):
             if (len(con_value) == 1):
                 cell_instantiation += WHITE_SPACE + WHITE_SPACE
                 cell_instantiation += instatnce_name + "->" + con_name + "(" + self.find_net(con_value[0]) + ");\n"
-
-                if(con_name.find("out") > -1 ):
+                
+                # first element must be output 
+                if( cell_port_direction[con_name] == "output" ):
                     self.gate_signal_dict[instatnce_name].insert(0, self.find_net(con_value[0]))
                 else:
                     self.gate_signal_dict[instatnce_name].append(self.find_net(con_value[0]))
@@ -188,7 +191,7 @@ class json2systemc(json2hdl):
                     cell_instantiation += instatnce_name + "->" + con_name + "[" + str(i) + "]" + "(" + self.find_net(connection) + ");\n"
                     i += 1
 
-                    if(con_name.find("out") > -1 ):
+                    if( cell_port_direction[con_name] == "output" ):
                         self.gate_signal_dict[instatnce_name].insert(0, self.find_net(connection))
                     else:
                         self.gate_signal_dict[instatnce_name].append(self.find_net(connection))
@@ -206,19 +209,19 @@ class json2systemc(json2hdl):
         
         for cell_name, cell_prop in self.top_module["cells"].items():
             i = self.gate_indexing(cell_prop["type"])
-            instance_pointer += self.get_each_cell(cell_prop, i)[0]
-            cell_instantiation += self.get_each_cell(cell_prop, i)[1] + "\n"
+            instance_pointer_temp, cell_instantiation_temp = self.get_each_cell(cell_prop, i)
+            instance_pointer += instance_pointer_temp
+            cell_instantiation += cell_instantiation_temp + "\n"
 
-        print(self.gate_index)
         return instance_pointer, cell_instantiation
 
     # @def: declare module signature 
-    def constructor_declaration(self):
+    def constructor_declaration(self, cell_in_constructor_declaration):
         constructor_declaration = ""
         constructor_declaration += f'SC_CTOR( {self.module_name} ) ' + '{\n'
         
         # add cell instantiation and binding
-        constructor_declaration += self.cells_declaration()[1] + "\n"
+        constructor_declaration += cell_in_constructor_declaration + "\n"
         
         # add sc_module for sc_logic_signals
         constructor_declaration += self.sc_logic_signals()[1] + "\n"
@@ -229,6 +232,9 @@ class json2systemc(json2hdl):
 
     # @def: declare module signature 
     def module_declaration(self):
+        # cell instantiation must get called only one time
+        cell_pointer_instantiation, cell_in_constructor_declaration = self.cells_declaration()
+
         entity_declaration = ""
         entity_declaration += f'SC_MODULE( {self.module_name} ) ' + '{\n'
         
@@ -237,9 +243,9 @@ class json2systemc(json2hdl):
         entity_declaration += "\n"
         entity_declaration += self.signal_declartion()
         entity_declaration += "\n"
-        entity_declaration += self.cells_declaration()[0]
+        entity_declaration += cell_pointer_instantiation
         entity_declaration += "\n"
-        entity_declaration += self.constructor_declaration()
+        entity_declaration += self.constructor_declaration(cell_in_constructor_declaration)
         entity_declaration += "\n"
         entity_declaration += self.sc_logic_signals()[2]
 
