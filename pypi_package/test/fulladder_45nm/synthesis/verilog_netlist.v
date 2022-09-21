@@ -17,79 +17,66 @@ input ci;
 output s;
 output co;
 
-INV_X1 #() 
-INV_X1_1_ (
+INV_X1 INV_X1_1_ (
   .A({ i0 }),
   .ZN({ _8_ })
 );
-NAND2_X1 #() 
-NAND2_X1_1_ (
+NAND2_X1 NAND2_X1_1_ (
   .A1({ i1 }),
   .A2({ ci }),
   .ZN({ _0_ })
 );
-INV_X1 #() 
-INV_X1_2_ (
+INV_X1 INV_X1_2_ (
   .A({ i1 }),
   .ZN({ _1_ })
 );
-INV_X1 #() 
-INV_X1_3_ (
+INV_X1 INV_X1_3_ (
   .A({ ci }),
   .ZN({ _2_ })
 );
-NAND2_X1 #() 
-NAND2_X1_2_ (
+NAND2_X1 NAND2_X1_2_ (
   .A1({ _1_ }),
   .A2({ _2_ }),
   .ZN({ _3_ })
 );
-NAND3_X1 #() 
-NAND3_X1_1_ (
+NAND3_X1 NAND3_X1_1_ (
   .A1({ _3_ }),
   .A2({ _8_ }),
   .A3({ _0_ }),
   .ZN({ _4_ })
 );
-NAND2_X1 #() 
-NAND2_X1_3_ (
+NAND2_X1 NAND2_X1_3_ (
   .A1({ _7_ }),
   .A2({ _4_ }),
   .ZN({ _10_ })
 );
-OAI21_X1 #() 
-OAI21_X1_1_ (
+OAI21_X1 OAI21_X1_1_ (
   .A({ _0_ }),
   .B1({ _6_ }),
   .B2({ _8_ }),
   .ZN({ _9_ })
 );
-AND2_X1 #() 
-AND2_X1_1_ (
+AND2_X1 AND2_X1_1_ (
   .A1({ ci }),
   .A2({ i1 }),
   .ZN({ _5_ })
 );
-NOR2_X1 #() 
-NOR2_X1_1_ (
+NOR2_X1 NOR2_X1_1_ (
   .A1({ i1 }),
   .A2({ ci }),
   .ZN({ _6_ })
 );
-OAI21_X1 #() 
-OAI21_X1_2_ (
+OAI21_X1 OAI21_X1_2_ (
   .A({ i0 }),
   .B1({ _5_ }),
   .B2({ _6_ }),
   .ZN({ _7_ })
 );
-BUF_X1 #() 
-BUF_X1_1_ (
+BUF_X1 BUF_X1_1_ (
   .A({ _9_ }),
   .Z({ co })
 );
-BUF_X1 #() 
-BUF_X1_2_ (
+BUF_X1 BUF_X1_2_ (
   .A({ _10_ }),
   .Z({ s })
 );
