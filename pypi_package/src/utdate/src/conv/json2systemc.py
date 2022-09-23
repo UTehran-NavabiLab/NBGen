@@ -36,14 +36,11 @@ class json2systemc(json2hdl):
             if port["direction"] == "output":
                 sizePO = sizePO + len(port["bits"])
 
-        # exclude clock and reset
-        sizePI = sizePI - 2
-        
         return sizePI, sizePO
     
     
     # @def: 
-    #   size_Of_Ports; helper function to find number of DFFs in design
+    #   number_of_DFF; helper function to find number of DFFs in design
     def number_of_DFF(self):
         cells_dic = self.top_module["cells"]
         numb_DFF = 0

@@ -72,6 +72,7 @@ class json2sc_testbench_pwr(json2sc_testbench):
         # pointer to power module
         instance_pointer += WHITE_SPACE + "power_analysis* power_module;\n"
         instance_pointer += WHITE_SPACE + f'std::array<sc_signal_pw<sc_logic>*, {len(self.net_dict)}> signal_arr;\n'
+        instance_pointer += WHITE_SPACE + f'std::array<sc_signal_pw<sc_logic>*, {self.size_Of_Ports()[0]}> input_arr;\n'
         
  
         cell_instantiation = WHITE_SPACE + WHITE_SPACE + f'power_module = new power_analysis();' + '\n'
@@ -103,10 +104,19 @@ class json2sc_testbench_pwr(json2sc_testbench):
         access_signal_proc += WHITE_SPACE + f'void access_signals(void)'+ '{\n'
         i = 0
         for port_name, port_prop in self.top_module["ports"].items():
-            access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name});' + '\n'
-            if port_prop["direction"] == "input":
-                access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->set_transition_time("{port_name}", 0.0);' + '\n'
-            i += 1
+            if len(port_prop["bits"]) == 1:
+                access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name});' + '\n'
+                if port_prop["direction"] == "input":
+                    access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'input_arr[{i}] = &({port_name});' + '\n'
+                    access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->set_transition_time("{port_name}", 0.0);' + '\n'
+                i += 1
+            else: # if port is multi-bit, slice the port loop through each bit
+                for j in range(len(port_prop["bits"])):
+                    access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name}[{str(j)}]);' + '\n'
+                    if port_prop["direction"] == "input":
+                        access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'input_arr[{i}] = &({port_name}[{str(j)}]);' + '\n'
+                        access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->set_transition_time("{port_name}[{str(j)}]", 0.0);' + '\n'
+                    i += 1
         for net in self.net_dict:
             if not (net in self.ports_list):
                 access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({self.instance_name}->{net});' + '\n'
@@ -137,16 +147,19 @@ class json2sc_testbench_pwr(json2sc_testbench):
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'reset_togglings();' + '\n'
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(10, SC_NS);' + '\n'
 
-
-        for port_name, port_prop in self.top_module["ports"].items():
-            if port_prop["direction"] == "input":
-                signaling_proc += WHITE_SPACE  + WHITE_SPACE
-                if len(port_prop["bits"]) == 1:
-                    signaling_proc += f'{port_name}.write(SC_LOGIC_1);\n'
-                else:
-                    for i in range(len(port_prop["bits"])):
-                        signaling_proc += f'{port_name}[{str(i)}].write(SC_LOGIC_1);\n'
-          
+        input_vec = ""
+        for j in range(self.size_Of_Ports()[0]):
+            input_vec += '1'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'apply_input_vector<sc_dt::sc_logic, {self.size_Of_Ports()[0]}>(input_arr, ("{input_vec}"));' + '\n'
+        # for port_name, port_prop in self.top_module["ports"].items():
+        #     if port_prop["direction"] == "input":
+        #         signaling_proc += WHITE_SPACE  + WHITE_SPACE
+        #         if len(port_prop["bits"]) == 1:
+        #             signaling_proc += f'{port_name}.write(SC_LOGIC_1);\n'
+        #         else:
+        #             for i in range(len(port_prop["bits"])):
+        #                 signaling_proc += f'{port_name}[{str(i)}].write(SC_LOGIC_1);\n'
+        
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(10, SC_NS);' + '\n'
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'ready2update.notify();' + '\n'

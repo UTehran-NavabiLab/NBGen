@@ -82,7 +82,7 @@ class json2sc_testbench(json2systemc):
             # pointer to faulty module under test
             instance_pointer = WHITE_SPACE + self.module_name + "* " + instatnce_name + ";\n"
             # pointer to fault injector module
-            instance_pointer += WHITE_SPACE + f'fault_injector<{self.number_of_DFF()}, {self.size_Of_Ports()[0]}, {self.size_Of_Ports()[1]}>* flt_injector;\n'
+            instance_pointer += WHITE_SPACE + f'fault_injector<{self.number_of_DFF()}, {self.size_Of_Ports()[0] - 2}, {self.size_Of_Ports()[1]}>* flt_injector;\n'
         else:
             # pointer to faulty module under test
             instance_pointer = WHITE_SPACE + self.module_name + "* " + faulty_instatnce_name + ";\n"
@@ -99,7 +99,7 @@ class json2sc_testbench(json2systemc):
         for p in range(3):
             if (p == 0):
                 if(self.is_sequential):
-                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'flt_injector = new fault_injector<{self.number_of_DFF()}, {self.size_Of_Ports()[0]}, {self.size_Of_Ports()[1]}>("fault_injector", accessRegistry);\n'
+                    cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'flt_injector = new fault_injector<{self.number_of_DFF()}, {self.size_Of_Ports()[0] - 2}, {self.size_Of_Ports()[1]}>("fault_injector", accessRegistry);\n'
                 else:
                     cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'flt_injector = new fault_injector("fault_injector", accessRegistry);\n'
             elif(p == 1):

@@ -1255,6 +1255,6 @@ Dumping module `\Circuit432'.
      OR4_X1                          1
 
 Warnings: 8 unique messages, 72 total
-End of script. Logfile hash: c5c218e30f, CPU: user 3.07s system 0.06s
+End of script. Logfile hash: c5c218e30f, CPU: user 3.14s system 0.07s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
 Time spent: 14% 9x opt_dff (0 sec), 13% 17x opt_expr (0 sec), ...
