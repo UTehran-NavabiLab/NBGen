@@ -21,7 +21,12 @@
     "vhdl_netlist_fileName": "vhdl_netlist.vhd",
     "verilog_netlist_fileName": "verilog_netlist.v",
     "systemC_netlist_fileName": "systemC_netlist.h",
+    "systemC_library": "component_library.h",
     "systemC_testbench_fileName": "testbench.h",
+    "systemC_gate_properties_json": "gate_properties_json.h",
+    "systemC_gate_signal_json": "gate_signal_json_file.h",
+    "systemC_tech_timing_power": "45nm_timing_power.h",
+    "systemC_gate_capacitance": "gate_cap.h",
     "systemC_faultable_netlist_fileName": "systemC_faultable_netlist.h",
     
     "fault_list_fileName": "fault_list.flt",

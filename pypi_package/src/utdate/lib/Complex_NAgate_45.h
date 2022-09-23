@@ -3237,6 +3237,31 @@ SC_MODULE(NOR4_X4){
     };
 };
 
+/////////////////////////////////////////////////////////////////////////////////////
+//    Xor
+/////////////////////////////////////////////////////////////////////////////////////
+SC_MODULE(XOR2_X1){
+
+    sc_in< sc_logic> A; 
+    sc_in< sc_logic> B; 
+    sc_out< sc_logic> Z;
+
+    SC_CTOR(XOR2_X1){
+
+        SC_METHOD(eval);
+        sensitive << A << B;
+
+    }
+
+    void eval(void){
+        if (A->read() == B->read()){
+            Z->write(SC_LOGIC_1);
+        } else {
+            Z->write(SC_LOGIC_0);
+        }
+    };
+};
+
 
 SC_MODULE(INV_X1){
 

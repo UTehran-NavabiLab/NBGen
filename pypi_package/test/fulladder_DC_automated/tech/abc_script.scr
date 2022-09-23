@@ -1,0 +1,3 @@
+read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_45nm/tech/NangateOpenCellLibrary_typical.lib 
+read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_45nm/test/synth_dffport_rm.v 
+write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/fulladder_45nm/test/abc_bench.bench 

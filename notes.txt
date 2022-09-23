@@ -1,4 +1,10 @@
 ---------------------------------------- TODO list ----------------------------------------
+script->netlist: json2sc_testbench_pwr()
+    power testbench & power netlist is hardcoded 
+
+json2sc_testbench_pwr -> signaling_process -> right now only one transition is covered
+    - using utilities.h -> input_signaling: make input for all possible transition
+
 add option to be yosys compatible 
     (so far it's hard coded only for systemc)
     do it for verilog and vhdl and make it optional

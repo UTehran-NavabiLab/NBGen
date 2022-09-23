@@ -10,7 +10,9 @@ from utdate.src.make_script import abc_script_mk
 from utdate.src.conv.json2vhdl import json2vhdl
 from utdate.src.conv.json2verilog import json2verilog
 from utdate.src.conv.json2sc_testbench import json2sc_testbench
+from utdate.src.conv.json2sc_testbench_pwr import json2sc_testbench_pwr
 from utdate.src.conv.json2systemc import json2systemc
+from utdate.src.conv.json2systemc_pwr import json2systemc_pwr
 from utdate.src.conv.json2systemc_flt import json2systemc_flt
 from utdate.src.flt.fault_collapsing import fault_collapsing
 import utdate.lib as lib
@@ -130,6 +132,13 @@ def netlist(input_file_name, module_name, config, tech, working_directory, synth
       j2sc = json2systemc(json_input, tech, gate_signal_file)
       with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
          f.write(j2sc.generate_systemc())
+      j2sc_pwr = json2systemc_pwr(json_input, tech, gate_signal_file)
+      with open(os.path.join(synthesis_dir, "power_netlist.h"), "w") as f:
+         f.write(j2sc_pwr.generate_systemc())
+      j2sc_tb_pwr = json2sc_testbench_pwr(json_input, tech, "testbench", "cut")
+      with open(os.path.join(synthesis_dir, "power_testbench.h"), "w") as f:
+         f.write(j2sc_tb_pwr.generate_systemc())
+
       yosys_log_dir = os.path.join(log_dir, "yosys.log")
       with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
          f.write(yosys_log.stdout)

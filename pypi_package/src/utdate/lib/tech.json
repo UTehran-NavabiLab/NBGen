@@ -1,4 +1,10 @@
 {
+    "systemC_library": "Complex_NAgate_45.h",
+    "systemC_gate_properties_json": "gate_properties.json",
+    "systemC_gate_signal_json": "gate_signal_json_file.json",
+    "systemC_tech_timing_power": "45nm_timing_power.json",
+    "systemC_gate_capacitance": "gate_cap.json",
+
     "flopcell":"DFF",
     "flopset":"DFF",
     "flopreset":"DFF",

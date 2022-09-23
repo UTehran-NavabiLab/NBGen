@@ -16,6 +16,7 @@ class json2systemc(json2hdl):
         self.gate_signal_dict = dict()
         self.gate_signal_file = gate_signal_file
 
+
     def dump_gate_signal_dict(self):
         if (self.gate_signal_file != ""):
             with open(self.gate_signal_file, "w") as f:
@@ -39,6 +40,7 @@ class json2systemc(json2hdl):
         sizePI = sizePI - 2
         
         return sizePI, sizePO
+    
     
     # @def: 
     #   size_Of_Ports; helper function to find number of DFFs in design
@@ -73,7 +75,8 @@ class json2systemc(json2hdl):
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <systemc.h>' + "\n"
-        include_lib += '#include "component_library.h"'
+        include_lib += f'{self.tech_js["systemC_library"]}'
+
         return include_lib
 
     # @def: define sc_core namespace

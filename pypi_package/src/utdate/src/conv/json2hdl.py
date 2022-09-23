@@ -18,11 +18,19 @@ class json2hdl:
             self.js = load(f)
 
         self.tech_js = tech_json
+        self.module_name = ""
+
+        for module_name, module in self.js["modules"].items():
+            if "attributes" in module:
+                if "top" in module["attributes"]:
+                    if int(module["attributes"]["top"]) == 1:
+                        self.module_name = module_name
         
-        try: 
-            self.module_name = self.tech_js["module_name"]
-        except KeyError:
-            self.module_name = list(self.js["modules"])[0]
+        if self.module_name == "":
+            try: 
+                self.module_name = self.tech_js["module_name"]
+            except KeyError:
+                self.module_name = list(self.js["modules"])[0]
         
         self.gate_index = dict()
         self.yosys_qflow_compatible = False
