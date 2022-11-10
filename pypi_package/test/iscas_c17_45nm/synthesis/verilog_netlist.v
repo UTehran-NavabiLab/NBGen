@@ -1,0 +1,59 @@
+module c17(N1, N2, N3, N6, N7, N22, N23);
+
+wire _0_;
+wire _1_;
+wire _2_;
+wire _3_;
+wire _4_;
+input N1;
+input N2;
+input N3;
+input N6;
+input N7;
+output N22;
+output N23;
+
+INV_X1 #() 
+INV_X1_1_ (
+  .A({ N7 }),
+  .ZN({ _2_ })
+);
+AOI22_X1 #() 
+AOI22_X1_1_ (
+  .A1({ _1_ }),
+  .A2({ _2_ }),
+  .B1({ N3 }),
+  .B2({ N6 }),
+  .ZN({ N23 })
+);
+NAND2_X1 #() 
+NAND2_X1_1_ (
+  .A1({ N6 }),
+  .A2({ N3 }),
+  .ZN({ _3_ })
+);
+NAND2_X1 #() 
+NAND2_X1_2_ (
+  .A1({ _3_ }),
+  .A2({ N2 }),
+  .ZN({ _4_ })
+);
+NAND2_X1 #() 
+NAND2_X1_3_ (
+  .A1({ N3 }),
+  .A2({ N1 }),
+  .ZN({ _0_ })
+);
+NAND2_X1 #() 
+NAND2_X1_4_ (
+  .A1({ _4_ }),
+  .A2({ _0_ }),
+  .ZN({ N22 })
+);
+INV_X1 #() 
+INV_X1_2_ (
+  .A({ N2 }),
+  .ZN({ _1_ })
+);
+
+endmodule

@@ -11,6 +11,8 @@ from utdate.src.conv.json2vhdl import json2vhdl
 from utdate.src.conv.json2verilog import json2verilog
 from utdate.src.conv.json2sc_testbench import json2sc_testbench
 from utdate.src.conv.json2sc_testbench_pwr import json2sc_testbench_pwr
+from utdate.src.conv.json2sc_testbench_atpg import json2sc_testbench_atpg
+from utdate.src.conv.json2sc_testbench_flt_uvm import json2sc_testbench_flt_uvm
 from utdate.src.conv.json2systemc import json2systemc
 from utdate.src.conv.json2systemc_pwr import json2systemc_pwr
 from utdate.src.conv.json2systemc_flt import json2systemc_flt
@@ -138,6 +140,14 @@ def netlist(input_file_name, module_name, config, tech, working_directory, synth
       j2sc_tb_pwr = json2sc_testbench_pwr(json_input, tech, "testbench", "cut")
       with open(os.path.join(synthesis_dir, "power_testbench.h"), "w") as f:
          f.write(j2sc_tb_pwr.generate_systemc())
+      
+      j2sc_tb_atpg = json2sc_testbench_atpg(json_input, tech, "testbench", "cut")
+      with open(os.path.join(synthesis_dir, "atpg_testbench.h"), "w") as f:
+         f.write(j2sc_tb_atpg.generate_systemc())
+      
+      j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, tech, "testbench", "dut")
+      with open(os.path.join(synthesis_dir, "testbench_flt.h"), "w") as f:
+         f.write(j2sc_tb_flt_uvm.generate_systemc())
 
       yosys_log_dir = os.path.join(log_dir, "yosys.log")
       with open(yosys_log_dir,'w', encoding = 'utf-8') as f:

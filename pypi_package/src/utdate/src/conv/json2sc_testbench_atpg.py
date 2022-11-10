@@ -1,8 +1,7 @@
 from utdate.src.conv.json2sc_testbench import json2sc_testbench
 
-# see if it's multi-bit port
-# TODO: check if module name is also used for any other property
-#   if so change module name, since it raise an error in systemc
+# TODO: 
+    # consider multi-bit port input/outputs
 
 WHITE_SPACE = "    "
 
@@ -65,9 +64,9 @@ class json2sc_testbench_atpg(json2sc_testbench):
         
         # pointer to faulty module under test
         instance_pointer = WHITE_SPACE + self.module_name + "* " + instatnce_name + ";\n"
-        # pointer to power module
-        instance_pointer += WHITE_SPACE + "itest* idd_test;\n"
-        instance_pointer += WHITE_SPACE + f'std::map<std::string, sc_dt::sc_logic> signal_value;' + '\n'
+        instance_pointer += WHITE_SPACE + f'itest idd_test = itest("gate_signal_json_file.json", "gate_properties.json");' + "\n"
+
+        instance_pointer += WHITE_SPACE + f'std::array<sc_core::sc_signal<sc_dt::sc_logic>*, {len(self.net_dict)}> signal_arr;' + '\n'
 
         input_buffer = ""
 
@@ -79,7 +78,6 @@ class json2sc_testbench_atpg(json2sc_testbench):
         else:
             print("no buf gate in library")
             
-        cell_instantiation = WHITE_SPACE + WHITE_SPACE + f'idd_test = new itest("gate_signal_json_file.json", "gate_properties.json", "{input_buffer}");' + '\n'
 
         cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.module_name}("{instatnce_name}");\n'
 
@@ -97,50 +95,58 @@ class json2sc_testbench_atpg(json2sc_testbench):
 
         return instance_pointer, cell_instantiation
 
-    def update_signals_thread(self):
-        update_signals_proc = ""
+    def access_signals_function(self):
+        access_signals_function = ""
 
-        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'update_signals();\n'
-        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'sensitive << ready2update;\n'
-        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'dont_initialize();\n'
+        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'access_signals();\n'
 
-        update_signals_proc += WHITE_SPACE + f'void update_signals(void)'+ '{\n'
+        access_signals_function += WHITE_SPACE + f'void access_signals(void)'+ '{\n'
+
         i = 0
-
-        for net in self.net_dict:
-            if not (net in self.ports_list):
-                update_signals_proc += WHITE_SPACE + WHITE_SPACE + f'signal_value[{net}] = {self.instance_name}->{net}.read();' + '\n'
-            i += 1
-
         for port_name, port_prop in self.top_module["ports"].items():
             if len(port_prop["bits"]) == 1:
-                update_signals_proc += WHITE_SPACE + WHITE_SPACE + f'signal_value[{port_name}] = {port_name}.read();' + '\n'
+                access_signals_function += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name});' + '\n'
+                if port_prop["direction"] == "input":
+                        access_signals_function += WHITE_SPACE + WHITE_SPACE + f'idd_test.add_to_port_list("{port_name}");' + '\n'
                 i += 1
             else: # if port is multi-bit, slice the port loop through each bit
                 for j in range(len(port_prop["bits"])):
-                    update_signals_proc += WHITE_SPACE + WHITE_SPACE + f'signal_value[{port_name}] = {port_name}[{str(j)}].read();' + '\n'
+                    access_signals_function += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name}[{str(j)}]);' + '\n'
+                    # ********** what to do for multiport inputs
+                    if port_prop["direction"] == "input":
+                        access_signals_function += WHITE_SPACE + WHITE_SPACE + f'idd_test.add_to_port_list("{port_name}");' + '\n'
                     i += 1
 
-        update_signals_proc += WHITE_SPACE +  WHITE_SPACE + f'run_idd_testing();'
+        for net in self.net_dict:
+            if not (net in self.ports_list):
+                access_signals_function += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({self.instance_name}->{net});' + '\n'
+                i += 1
 
-        update_signals_proc += WHITE_SPACE + '}\n'
+        access_signals_function += WHITE_SPACE + '}\n'
 
-        return SC_THREAD_definition, update_signals_proc
+        return SC_THREAD_definition, access_signals_function
 
-    def run_idd_testing(self):
-        reset_toggling_proc = ""
+    def run_idd_testing_method(self):
+        run_idd_testing = ""
+        SC_THREAD_definition = ""
 
-        reset_toggling_proc += WHITE_SPACE + f'void run_idd_testing(void)' + '{\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + f'idd_test.update_signal_value(signal_value);' + '{\n'
+        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + f'SC_METHOD(run_idd_testing);\n'
+        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'sensitive << ready2update;\n'
+        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'dont_initialize();\n'
+
+        run_idd_testing += WHITE_SPACE + f'void run_idd_testing(void)' + '{\n'
+        run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.update_signal<sc_dt::sc_logic, {len(self.net_dict)}>(signal_arr);' + '\n'
         
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + f'idd_test.mark_multiplath();' + '{\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + f'idd_test.print_critical_path_list();' + '{\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + f'idd_test.clear_critical_path_list();' + '{\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'signal_pointer->reset_toggling();' + '\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + '}\n'
-        reset_toggling_proc += WHITE_SPACE + '}\n'
+        for port_name, port_prop in self.top_module["ports"].items():
+            if port_prop["direction"] == "output":
+                run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.back_trace("{port_name}");' + '\n'
 
-        return reset_toggling_proc
+        run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.mark_multiplath();' + '\n'
+        run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.print_critical_path_list();' + '\n'
+        run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.clear_critical_path_list();' + '\n'
+        run_idd_testing += WHITE_SPACE + '}\n'
+
+        return SC_THREAD_definition, run_idd_testing
 
     def signaling_thread(self):
         signaling_proc = ""
@@ -148,79 +154,31 @@ class json2sc_testbench_atpg(json2sc_testbench):
         SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'SC_THREAD(signaling);\n'
 
         signaling_proc += WHITE_SPACE + f'void signaling(void)' + '{\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'reset_togglings();' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(10, SC_NS);' + '\n'
-
-        input_vec = ""
-        for j in range(self.size_Of_Ports()[0]):
-            input_vec += '1'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'apply_input_vector<sc_dt::sc_logic, {self.size_Of_Ports()[0]}>(input_arr, ("{input_vec}"));' + '\n'
-        # for port_name, port_prop in self.top_module["ports"].items():
-        #     if port_prop["direction"] == "input":
-        #         signaling_proc += WHITE_SPACE  + WHITE_SPACE
-        #         if len(port_prop["bits"]) == 1:
-        #             signaling_proc += f'{port_name}.write(SC_LOGIC_1);\n'
-        #         else:
-        #             for i in range(len(port_prop["bits"])):
-        #                 signaling_proc += f'{port_name}[{str(i)}].write(SC_LOGIC_1);\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'for (int i=0; i < pow(2, {self.size_Of_Ports()[0]}); i++)' + '{\n'
         
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(10, SC_NS);' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'ready2update.notify();' + '\n'
+        str_input_values = ""
+        str_input_vector = "input signals: "
+        port_indx = 0
+        for port_name, port_prop in self.top_module["ports"].items():
+            if port_prop["direction"] == "input":
+                signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'{port_name}.write(input_signalling({port_indx}, i));' + '\n'
+                str_input_vector += f' {port_name},'
+                str_input_values += f'<< {port_name}.read() '
+                port_indx += 1
+
+        str_input_vector = str_input_vector[:-1] + " = " 
+        
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'std::cout << "--------- Apply New input vector: " << std::endl; ' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'std::cout << "{str_input_vector}" {str_input_values} << std::endl; ' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'wait(5, SC_NS);' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'ready2update.notify();' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + '}\n'
         signaling_proc += WHITE_SPACE + '}\n'
 
         return SC_THREAD_definition, signaling_proc
 
-    def power_per_cycle_thread(self):
-        power_on_cycle_proc = ""
-
-        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'SC_METHOD(power_on_cycle);\n'
-        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'sensitive << ready2update;\n'
-        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'dont_initialize();\n'
-
-        power_on_cycle_proc += WHITE_SPACE + f'void power_on_cycle(void)'+ '{\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->update_signal<sc_dt::sc_logic, {len(self.net_dict)}>(signal_value);' + '\n'
-        
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::vector<std::string> input_signal_name = ' + '{'
-        
-        for port_name, port_prop in self.top_module["ports"].items():
-            if port_prop["direction"] == "input":
-                power_on_cycle_proc += f'"{port_name}", '
-        power_on_cycle_proc = power_on_cycle_proc[:-2] + '};\n'
-
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->timing_analysis("test", input_signal_name);' + '\n'
-        
-        dynamic_power = ""
-        net_switching_power = ""
-
-        for cell_name, cell_prop in self.top_module["cells"].items():
-            self.gate_indexing(cell_prop["type"])
-
-        for cell_type, cell_type_indx in self.gate_index.items():
-            for i in range(1, cell_type_indx + 1):
-                power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::vector<float> pwr_{cell_type}_{str(i)} = power_module->power_per_gate("{cell_type}_{str(i)}");' + '\n'
-                dynamic_power += f'pwr_{cell_type}_{str(i)}[0]' + ' + '
-                net_switching_power += f'pwr_{cell_type}_{str(i)}[1]' + ' + '
-        
-        power_on_cycle_proc += '\n'
-
-        # remove last "+" and add ";"
-        dynamic_power = f'float dynamic_power = ' + dynamic_power[:-2] + ';'
-        net_switching_power = f'float net_switching_power = ' + net_switching_power[:-2] + ';'
-        total_power = f'float total_power = dynamic_power + net_switching_power;'
-
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + dynamic_power + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + net_switching_power + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + total_power + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "net switching power: " << net_switching_power << std::endl;' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "dynamic power : " << dynamic_power << std::endl;' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "total power per cycle: " << total_power << std::endl;' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'reset_togglings();' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + '}\n'
-
-        return SC_THREAD_definition, power_on_cycle_proc
-        
     def thread_declaration(self):
         SC_THREAD_definition = ""
         processes = ""
@@ -228,29 +186,27 @@ class json2sc_testbench_atpg(json2sc_testbench):
         SC_THREAD_definition_tmp, processes_tmp = self.signaling_thread()
         SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
         processes += processes_tmp + '\n'
-        
-        SC_THREAD_definition_tmp, processes_tmp = self.power_per_cycle_thread()
-        SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
-        processes += processes_tmp + '\n'
-        
-        processes += self.reset_toggling_thread() + '\n'
-        
-        SC_THREAD_definition_tmp, processes_tmp = self.access_signal_thread()
+
+        SC_THREAD_definition_tmp, processes_tmp = self.run_idd_testing_method()
         SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
         processes += processes_tmp + '\n'
 
-
+        SC_THREAD_definition_tmp, processes_tmp = self.access_signals_function()
+        SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
+        processes += processes_tmp + '\n'
+        
         return SC_THREAD_definition, processes
 
 
     # @def: declare module signature 
-    def constructor_declaration(self, SC_THREAD_definition):
+    def constructor_declaration(self, SC_THREAD_definition, cell_in_constructor_declaration):
         constructor_declaration = ""
-        constructor_declaration += WHITE_SPACE + f'SC_HAS_PROCESS(testbench);\n'
-        constructor_declaration += WHITE_SPACE + f'testbench(sc_module_name _name)' + "{\n"
+        constructor_declaration += WHITE_SPACE + f'SC_HAS_PROCESS({self.testbench_name});\n'
+        constructor_declaration += WHITE_SPACE + f'{self.testbench_name}(sc_module_name _name)' + "{\n"
         
         # add cell instantiation and binding
-        constructor_declaration += self.cells_declaration()[1] + "\n"
+        # constructor_declaration += self.cells_declaration()[1] + "\n"
+        constructor_declaration += cell_in_constructor_declaration + "\n"
         constructor_declaration += SC_THREAD_definition + "\n"
 
         constructor_declaration += WHITE_SPACE + "}\n"
@@ -261,16 +217,19 @@ class json2sc_testbench_atpg(json2sc_testbench):
     def module_declaration(self):
         entity_declaration = ""
         SC_THREAD_definition, processes = self.thread_declaration()
+        # cell instantiation must get called only one time
+        cell_pointer_instantiation, cell_in_constructor_declaration = self.cells_declaration()
 
-        entity_declaration += f'SC_MODULE( testbench ) ' + '{\n'
+        entity_declaration += f'SC_MODULE( {self.testbench_name} ) ' + '{\n'
         entity_declaration += "\n"
         entity_declaration += self.signal_declartion()
         entity_declaration += "\n"
         entity_declaration += self.event_declartion()
         entity_declaration += "\n"
-        entity_declaration += self.cells_declaration()[0]
+        entity_declaration += cell_pointer_instantiation
+        # entity_declaration += self.cells_declaration()[0]
         entity_declaration += "\n"
-        entity_declaration += self.constructor_declaration(SC_THREAD_definition)
+        entity_declaration += self.constructor_declaration(SC_THREAD_definition, cell_in_constructor_declaration)
         entity_declaration += "\n"
         entity_declaration += processes
 

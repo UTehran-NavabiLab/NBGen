@@ -1,0 +1,219 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
+
+
+-- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/tech/yosys_script.ys' --
+
+1. Executing Liberty frontend.
+Imported 134 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v' to AST representation.
+Generating RTLIL representation for module `\c432'.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:47: Warning: Identifier `\_69_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:48: Warning: Identifier `\_70_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:49: Warning: Identifier `\_71_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:50: Warning: Identifier `\_72_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:51: Warning: Identifier `\_73_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:52: Warning: Identifier `\_74_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:53: Warning: Identifier `\_75_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:54: Warning: Identifier `\_76_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:55: Warning: Identifier `\_77_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:56: Warning: Identifier `\_78_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:57: Warning: Identifier `\_79_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:58: Warning: Identifier `\_80_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:59: Warning: Identifier `\_81_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:60: Warning: Identifier `\_82_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:61: Warning: Identifier `\_83_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:62: Warning: Identifier `\_84_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:63: Warning: Identifier `\_85_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:64: Warning: Identifier `\_86_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:65: Warning: Identifier `\_87_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:66: Warning: Identifier `\_88_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:67: Warning: Identifier `\_89_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:68: Warning: Identifier `\_90_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:69: Warning: Identifier `\_91_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:70: Warning: Identifier `\_92_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:71: Warning: Identifier `\_93_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:72: Warning: Identifier `\_94_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:73: Warning: Identifier `\_95_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:74: Warning: Identifier `\_96_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:75: Warning: Identifier `\_97_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:76: Warning: Identifier `\_98_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:77: Warning: Identifier `\_99_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:78: Warning: Identifier `\_100_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:79: Warning: Identifier `\_101_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:80: Warning: Identifier `\_102_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:81: Warning: Identifier `\_103_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:82: Warning: Identifier `\_104_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:83: Warning: Identifier `\_105_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:84: Warning: Identifier `\_106_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:85: Warning: Identifier `\_107_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:86: Warning: Identifier `\_108_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:87: Warning: Identifier `\_109_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:88: Warning: Identifier `\_110_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:89: Warning: Identifier `\_111_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:90: Warning: Identifier `\_112_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:91: Warning: Identifier `\_113_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:92: Warning: Identifier `\_114_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:93: Warning: Identifier `\_115_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:94: Warning: Identifier `\_116_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:95: Warning: Identifier `\_117_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:96: Warning: Identifier `\_118_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:97: Warning: Identifier `\_119_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:98: Warning: Identifier `\_120_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:99: Warning: Identifier `\_121_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:100: Warning: Identifier `\_122_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:101: Warning: Identifier `\_123_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:102: Warning: Identifier `\_124_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:103: Warning: Identifier `\_0_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:104: Warning: Identifier `\_1_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:105: Warning: Identifier `\_2_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:106: Warning: Identifier `\_3_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:107: Warning: Identifier `\_4_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:108: Warning: Identifier `\_5_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:109: Warning: Identifier `\_6_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:110: Warning: Identifier `\_7_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:111: Warning: Identifier `\_8_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:112: Warning: Identifier `\_9_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:113: Warning: Identifier `\_10_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:114: Warning: Identifier `\_11_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:115: Warning: Identifier `\_12_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:116: Warning: Identifier `\_13_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:117: Warning: Identifier `\_14_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:118: Warning: Identifier `\_15_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:119: Warning: Identifier `\_16_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:120: Warning: Identifier `\_17_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:121: Warning: Identifier `\_18_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:122: Warning: Identifier `\_19_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:123: Warning: Identifier `\_20_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:124: Warning: Identifier `\_21_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:125: Warning: Identifier `\_22_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:126: Warning: Identifier `\_23_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:127: Warning: Identifier `\_24_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:128: Warning: Identifier `\_25_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:129: Warning: Identifier `\_26_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:130: Warning: Identifier `\_27_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:131: Warning: Identifier `\_28_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:132: Warning: Identifier `\_29_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:133: Warning: Identifier `\_30_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:134: Warning: Identifier `\_31_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:135: Warning: Identifier `\_32_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:136: Warning: Identifier `\_33_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:137: Warning: Identifier `\_34_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:138: Warning: Identifier `\_35_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:139: Warning: Identifier `\_126_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:140: Warning: Identifier `\_36_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:141: Warning: Identifier `\_37_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:142: Warning: Identifier `\_38_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:143: Warning: Identifier `\_39_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:144: Warning: Identifier `\_40_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:145: Warning: Identifier `\_41_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:146: Warning: Identifier `\_42_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:147: Warning: Identifier `\_43_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:148: Warning: Identifier `\_44_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:149: Warning: Identifier `\_45_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:150: Warning: Identifier `\_46_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:151: Warning: Identifier `\_47_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:152: Warning: Identifier `\_48_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:153: Warning: Identifier `\_49_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:154: Warning: Identifier `\_50_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:155: Warning: Identifier `\_51_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:156: Warning: Identifier `\_52_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:157: Warning: Identifier `\_53_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:158: Warning: Identifier `\_54_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:159: Warning: Identifier `\_55_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:160: Warning: Identifier `\_56_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:161: Warning: Identifier `\_57_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:162: Warning: Identifier `\_58_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:163: Warning: Identifier `\_59_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:164: Warning: Identifier `\_127_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:165: Warning: Identifier `\_60_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:166: Warning: Identifier `\_61_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:167: Warning: Identifier `\_128_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:168: Warning: Identifier `\_129_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:169: Warning: Identifier `\_62_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:170: Warning: Identifier `\_63_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:171: Warning: Identifier `\_64_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:172: Warning: Identifier `\_65_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:173: Warning: Identifier `\_130_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:174: Warning: Identifier `\_66_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:175: Warning: Identifier `\_67_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:176: Warning: Identifier `\_68_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:177: Warning: Identifier `\_131_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:178: Warning: Identifier `\_125_' is implicitly declared.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Finding top of design hierarchy..
+root of   1 design levels: c432                
+Automatically selected c432 as design top module.
+
+3.2. Analyzing design hierarchy..
+Top module:  \c432
+
+3.3. Analyzing design hierarchy..
+Top module:  \c432
+Removed 0 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing Verilog backend.
+Dumping module `\c432'.
+
+6. Executing BLIF backend.
+
+7. Executing JSON backend.
+
+8. Printing statistics.
+
+=== c432 ===
+
+   Number of wires:                175
+   Number of wire bits:            175
+   Number of public wires:         175
+   Number of public wire bits:     175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                139
+     AND2_X1                         4
+     AND4_X1                         2
+     AOI211_X1                       1
+     AOI21_X1                        9
+     AOI22_X1                       11
+     BUF_X1                          7
+     INV_X1                         26
+     NAND2_X1                       26
+     NAND3_X1                        2
+     NAND4_X1                        4
+     NOR2_X1                        19
+     OAI211_X1                       2
+     OAI21_X1                       25
+     OR2_X1                          1
+
+Warnings: 132 unique messages, 132 total
+End of script. Logfile hash: 13b8a549fb, CPU: user 0.73s system 0.03s
+Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
+Time spent: 45% 2x write_verilog (0 sec), 34% 2x read_liberty (0 sec), ...

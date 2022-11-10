@@ -72,7 +72,7 @@ class json2systemc(json2hdl):
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <systemc.h>' + "\n"
-        include_lib += f'{self.tech_js["systemC_library"]}'
+        include_lib += f'#include "{self.tech_js["systemC_library"]}"'
 
         return include_lib
 
@@ -140,7 +140,7 @@ class json2systemc(json2hdl):
         for net in self.net_dict:
             if not (net in self.ports_list):
                 signal_declartion += WHITE_SPACE 
-                signal_declartion += "sc_signal<sc_logic> " + net + ";\n"
+                signal_declartion += f'sc_signal<sc_logic, sc_core::SC_MANY_WRITERS> {net} = sc_signal<sc_logic, sc_core::SC_MANY_WRITERS>("{net}");' + "\n"
 
         return signal_declartion
   

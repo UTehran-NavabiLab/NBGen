@@ -1,0 +1,810 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
+
+
+-- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/tech/yosys_script.ys' --
+
+1. Executing Liberty frontend.
+Imported 134 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v' to AST representation.
+Generating RTLIL representation for module `\c432'.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:47: Warning: Identifier `\_69_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:48: Warning: Identifier `\_70_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:49: Warning: Identifier `\_71_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:50: Warning: Identifier `\_72_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:51: Warning: Identifier `\_73_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:52: Warning: Identifier `\_74_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:53: Warning: Identifier `\_75_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:54: Warning: Identifier `\_76_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:55: Warning: Identifier `\_77_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:56: Warning: Identifier `\_78_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:57: Warning: Identifier `\_79_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:58: Warning: Identifier `\_80_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:59: Warning: Identifier `\_81_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:60: Warning: Identifier `\_82_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:61: Warning: Identifier `\_83_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:62: Warning: Identifier `\_84_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:63: Warning: Identifier `\_85_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:64: Warning: Identifier `\_86_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:65: Warning: Identifier `\_87_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:66: Warning: Identifier `\_88_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:67: Warning: Identifier `\_89_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:68: Warning: Identifier `\_90_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:69: Warning: Identifier `\_91_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:70: Warning: Identifier `\_92_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:71: Warning: Identifier `\_93_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:72: Warning: Identifier `\_94_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:73: Warning: Identifier `\_95_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:74: Warning: Identifier `\_96_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:75: Warning: Identifier `\_97_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:76: Warning: Identifier `\_98_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:77: Warning: Identifier `\_99_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:78: Warning: Identifier `\_100_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:79: Warning: Identifier `\_101_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:80: Warning: Identifier `\_102_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:81: Warning: Identifier `\_103_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:82: Warning: Identifier `\_104_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:83: Warning: Identifier `\_105_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:84: Warning: Identifier `\_106_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:85: Warning: Identifier `\_107_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:86: Warning: Identifier `\_108_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:87: Warning: Identifier `\_109_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:88: Warning: Identifier `\_110_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:89: Warning: Identifier `\_111_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:90: Warning: Identifier `\_112_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:91: Warning: Identifier `\_113_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:92: Warning: Identifier `\_114_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:93: Warning: Identifier `\_115_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:94: Warning: Identifier `\_116_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:95: Warning: Identifier `\_117_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:96: Warning: Identifier `\_118_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:97: Warning: Identifier `\_119_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:98: Warning: Identifier `\_120_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:99: Warning: Identifier `\_121_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:100: Warning: Identifier `\_122_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:101: Warning: Identifier `\_123_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:102: Warning: Identifier `\_124_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:103: Warning: Identifier `\_0_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:104: Warning: Identifier `\_1_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:105: Warning: Identifier `\_2_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:106: Warning: Identifier `\_3_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:107: Warning: Identifier `\_4_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:108: Warning: Identifier `\_5_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:109: Warning: Identifier `\_6_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:110: Warning: Identifier `\_7_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:111: Warning: Identifier `\_8_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:112: Warning: Identifier `\_9_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:113: Warning: Identifier `\_10_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:114: Warning: Identifier `\_11_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:115: Warning: Identifier `\_12_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:116: Warning: Identifier `\_13_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:117: Warning: Identifier `\_14_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:118: Warning: Identifier `\_15_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:119: Warning: Identifier `\_16_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:120: Warning: Identifier `\_17_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:121: Warning: Identifier `\_18_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:122: Warning: Identifier `\_19_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:123: Warning: Identifier `\_20_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:124: Warning: Identifier `\_21_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:125: Warning: Identifier `\_22_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:126: Warning: Identifier `\_23_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:127: Warning: Identifier `\_24_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:128: Warning: Identifier `\_25_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:129: Warning: Identifier `\_26_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:130: Warning: Identifier `\_27_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:131: Warning: Identifier `\_28_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:132: Warning: Identifier `\_29_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:133: Warning: Identifier `\_30_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:134: Warning: Identifier `\_31_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:135: Warning: Identifier `\_32_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:136: Warning: Identifier `\_33_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:137: Warning: Identifier `\_34_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:138: Warning: Identifier `\_35_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:139: Warning: Identifier `\_126_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:140: Warning: Identifier `\_36_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:141: Warning: Identifier `\_37_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:142: Warning: Identifier `\_38_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:143: Warning: Identifier `\_39_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:144: Warning: Identifier `\_40_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:145: Warning: Identifier `\_41_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:146: Warning: Identifier `\_42_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:147: Warning: Identifier `\_43_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:148: Warning: Identifier `\_44_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:149: Warning: Identifier `\_45_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:150: Warning: Identifier `\_46_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:151: Warning: Identifier `\_47_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:152: Warning: Identifier `\_48_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:153: Warning: Identifier `\_49_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:154: Warning: Identifier `\_50_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:155: Warning: Identifier `\_51_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:156: Warning: Identifier `\_52_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:157: Warning: Identifier `\_53_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:158: Warning: Identifier `\_54_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:159: Warning: Identifier `\_55_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:160: Warning: Identifier `\_56_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:161: Warning: Identifier `\_57_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:162: Warning: Identifier `\_58_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:163: Warning: Identifier `\_59_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:164: Warning: Identifier `\_127_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:165: Warning: Identifier `\_60_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:166: Warning: Identifier `\_61_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:167: Warning: Identifier `\_128_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:168: Warning: Identifier `\_129_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:169: Warning: Identifier `\_62_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:170: Warning: Identifier `\_63_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:171: Warning: Identifier `\_64_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:172: Warning: Identifier `\_65_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:173: Warning: Identifier `\_130_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:174: Warning: Identifier `\_66_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:175: Warning: Identifier `\_67_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:176: Warning: Identifier `\_68_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:177: Warning: Identifier `\_131_' is implicitly declared.
+/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v:178: Warning: Identifier `\_125_' is implicitly declared.
+Successfully finished Verilog frontend.
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Finding top of design hierarchy..
+root of   1 design levels: c432                
+Automatically selected c432 as design top module.
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \c432
+
+3.1.3. Analyzing design hierarchy..
+Top module:  \c432
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.2.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module c432...
+Found and reported 0 problems.
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \c432..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \c432.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.6.9. Finished OPT passes. (There is nothing left to do.)
+
+3.7. Executing FSM pass (extract and optimize FSM).
+
+3.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \c432..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \c432.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.8.9. Finished OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+
+3.10. Executing PEEPOPT pass (run peephole optimizers).
+
+3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module c432:
+  created 0 $alu and 0 $macc cells.
+
+3.13. Executing SHARE pass (SAT-based resource sharing).
+
+3.14. Executing OPT pass (performing simple optimizations).
+
+3.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \c432..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \c432.
+Performed a total of 0 changes.
+
+3.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.14.9. Finished OPT passes. (There is nothing left to do.)
+
+3.15. Executing MEMORY pass.
+
+3.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.15.4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.15.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.15.6. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.15.7. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.15.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.15.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.17.5. Finished fast OPT passes.
+
+3.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \c432..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \c432.
+Performed a total of 0 changes.
+
+3.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.19.6. Executing OPT_SHARE pass.
+
+3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.19.10. Finished OPT passes. (There is nothing left to do.)
+
+3.20. Executing TECHMAP pass (map to technology primitives).
+
+3.20.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/OpenSourceTools/fpga-toolchain/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/OpenSourceTools/fpga-toolchain/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+3.20.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~69 debug messages>
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing ABC pass (technology mapping using ABC).
+
+3.22.1. Extracting gate netlist of module `\c432' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+3.23.5. Finished fast OPT passes.
+
+3.24. Executing HIERARCHY pass (managing design hierarchy).
+
+3.24.1. Analyzing design hierarchy..
+Top module:  \c432
+
+3.24.2. Analyzing design hierarchy..
+Top module:  \c432
+Removed 0 unused modules.
+
+3.25. Printing statistics.
+
+=== c432 ===
+
+   Number of wires:                175
+   Number of wire bits:            175
+   Number of public wires:         175
+   Number of public wire bits:     175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                139
+     AND2_X1                         4
+     AND4_X1                         2
+     AOI211_X1                       1
+     AOI21_X1                        9
+     AOI22_X1                       11
+     BUF_X1                          7
+     INV_X1                         26
+     NAND2_X1                       26
+     NAND3_X1                        2
+     NAND4_X1                        4
+     NOR2_X1                        19
+     OAI211_X1                       2
+     OAI21_X1                       25
+     OR2_X1                          1
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module c432...
+Found and reported 0 problems.
+
+4. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFF_X1 (noninv, pins=4, area=4.52) is a direct match for cell type $_DFF_P_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFFR_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN0_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFFS_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN1_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFFRS_X1 (noninv, pins=6, area=6.38) is a direct match for cell type $_DFFSR_PNN_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \DFF_X1 _DFF_P_ (.CK( C), .D( D), .Q( Q), .QN(~Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \DFFR_X1 _DFF_PN0_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R));
+    \DFFS_X1 _DFF_PN1_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .SN( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFRS_X1 _DFFSR_PNN_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R), .SN( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+4.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\c432':
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \c432..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \c432.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+5.9. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Extracting gate netlist of module `\c432' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+7. Executing FLATTEN pass (flatten design).
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing HILOMAP pass (mapping to constant drivers).
+
+10. Executing HILOMAP pass (mapping to constant drivers).
+
+11. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Marking already mapped port: BUF_X1.Z[0].
+Marking already mapped port: c432.N223[0].
+Marking already mapped port: c432.N329[0].
+Marking already mapped port: c432.N370[0].
+Marking already mapped port: c432.N421[0].
+Marking already mapped port: c432.N430[0].
+Marking already mapped port: c432.N431[0].
+Marking already mapped port: c432.N432[0].
+Don't map input port c432.N1: Missing option -inpad.
+Don't map input port c432.N102: Missing option -inpad.
+Don't map input port c432.N105: Missing option -inpad.
+Don't map input port c432.N108: Missing option -inpad.
+Don't map input port c432.N11: Missing option -inpad.
+Don't map input port c432.N112: Missing option -inpad.
+Don't map input port c432.N115: Missing option -inpad.
+Don't map input port c432.N14: Missing option -inpad.
+Don't map input port c432.N17: Missing option -inpad.
+Don't map input port c432.N21: Missing option -inpad.
+Don't map input port c432.N24: Missing option -inpad.
+Don't map input port c432.N27: Missing option -inpad.
+Don't map input port c432.N30: Missing option -inpad.
+Don't map input port c432.N34: Missing option -inpad.
+Don't map input port c432.N37: Missing option -inpad.
+Don't map input port c432.N4: Missing option -inpad.
+Don't map input port c432.N40: Missing option -inpad.
+Don't map input port c432.N43: Missing option -inpad.
+Don't map input port c432.N47: Missing option -inpad.
+Don't map input port c432.N50: Missing option -inpad.
+Don't map input port c432.N53: Missing option -inpad.
+Don't map input port c432.N56: Missing option -inpad.
+Don't map input port c432.N60: Missing option -inpad.
+Don't map input port c432.N63: Missing option -inpad.
+Don't map input port c432.N66: Missing option -inpad.
+Don't map input port c432.N69: Missing option -inpad.
+Don't map input port c432.N73: Missing option -inpad.
+Don't map input port c432.N76: Missing option -inpad.
+Don't map input port c432.N79: Missing option -inpad.
+Don't map input port c432.N8: Missing option -inpad.
+Don't map input port c432.N82: Missing option -inpad.
+Don't map input port c432.N86: Missing option -inpad.
+Don't map input port c432.N89: Missing option -inpad.
+Don't map input port c432.N92: Missing option -inpad.
+Don't map input port c432.N95: Missing option -inpad.
+Don't map input port c432.N99: Missing option -inpad.
+
+12. Executing OPT pass (performing simple optimizations).
+
+12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \c432..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \c432.
+Performed a total of 0 changes.
+
+12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\c432'.
+Removed a total of 0 cells.
+
+12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \c432..
+
+12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module c432.
+
+12.9. Finished OPT passes. (There is nothing left to do.)
+
+13. Executing Verilog backend.
+Dumping module `\c432'.
+
+14. Executing BLIF backend.
+
+15. Executing JSON backend.
+
+16. Printing statistics.
+
+=== c432 ===
+
+   Number of wires:                175
+   Number of wire bits:            175
+   Number of public wires:         175
+   Number of public wire bits:     175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                139
+     AND2_X1                         4
+     AND4_X1                         2
+     AOI211_X1                       1
+     AOI21_X1                        9
+     AOI22_X1                       11
+     BUF_X1                          7
+     INV_X1                         26
+     NAND2_X1                       26
+     NAND3_X1                        2
+     NAND4_X1                        4
+     NOR2_X1                        19
+     OAI211_X1                       2
+     OAI21_X1                       25
+     OR2_X1                          1
+
+Warnings: 140 unique messages, 204 total
+End of script. Logfile hash: def092230a, CPU: user 2.06s system 0.06s
+Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
+Time spent: 16% 2x write_verilog (0 sec), 12% 1x dfflibmap (0 sec), ...

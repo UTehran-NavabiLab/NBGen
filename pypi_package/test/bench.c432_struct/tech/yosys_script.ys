@@ -1,0 +1,31 @@
+# Synthesis script for yosys created by qflow
+read_liberty -lib -ignore_miss_dir -setattr blackbox /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/tech/NangateOpenCellLibrary_typical.lib
+read_verilog  /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/c432_synth.rtlbb.v
+
+# High-level synthesis
+#synth -auto-top
+# Map register flops
+#dfflibmap -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/tech/NangateOpenCellLibrary_typical.lib
+#opt
+
+# Map combinatorial cells, standard script
+#abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/tech/NangateOpenCellLibrary_typical.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+hierarchy -auto-top
+flatten
+#setundef -zero
+#
+#clean -purge
+#hilomap -hicell LOGIC1_X1 Z
+#hilomap -locell LOGIC0_X1 Z
+## Output buffering
+#iopadmap -outpad BUF_X1 A:Z -bits
+## Cleanup
+##splitnets
+#opt
+#clean
+#rename -enumerate
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/synthesis/synth_premap.v 
+write_blif -buf BUF_X1 A Z /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/bench.c432_struct/synthesis/synth_premap.json 
+
+stat

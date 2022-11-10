@@ -76,6 +76,8 @@ def lut2gate(temp_page):
                 page2line[indx] = line.replace('LUT 0x8', 'AND')
             if (line.strip().find("LUT 0x7") > -1):
                 page2line[indx] = line.replace('LUT 0x7', 'NAND')
+            if (line.strip().find("LUT 0x0777") > -1):
+                page2line[indx] = line.replace('LUT 0x0777', 'AOI22_X1')
         else:
             if (line.strip().find("LUT 0x1") > -1):
                 page2line[indx] = line.replace('LUT 0x1', 'NOT')

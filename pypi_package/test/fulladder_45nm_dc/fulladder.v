@@ -1,12 +1,3 @@
-/* 
- *--------------------------------------------------------------
- * This module converts a counter value N into a reset value
- * for an 8-bit LFSR.  The count is initialized by "reset" high
- * or "start" transition high.  When the count is valid, it is
- * latched into "dp" and the signal "done" is raised to indicate
- * a valid new value of "dp".
- *--------------------------------------------------------------
- */
 
 module fulladder(i0, i1, ci, s, co);
 

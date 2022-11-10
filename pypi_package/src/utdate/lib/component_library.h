@@ -13,18 +13,18 @@
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(bufg){
 
-    sc_in< sc_logic> A; 
-    sc_out< sc_logic> Y;
+    sc_in< sc_logic> in1; 
+    sc_out< sc_logic> out1;
 
     SC_CTOR(bufg){
 
         SC_METHOD(eval);
-        sensitive << A;
+        sensitive << in1;
 
     }
 
     void eval(void){
-        Y->write(A->read());
+        out1->write(in1->read());
     };
 };
 
@@ -33,21 +33,21 @@ SC_MODULE(bufg){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(notg){
 
-    sc_in< sc_logic > A; 
-    sc_out< sc_logic > Y;
+    sc_in< sc_logic > in1; 
+    sc_out< sc_logic > out1;
 
     SC_CTOR(notg){
 
         SC_METHOD(eval);
-        sensitive << A;
+        sensitive << in1;
 
     }
 
     void eval(void){
-        if (A->read() == SC_LOGIC_1){
-            Y->write(SC_LOGIC_0);
-        } else if (A->read() == SC_LOGIC_0){
-            Y->write(SC_LOGIC_1);
+        if (in1->read() == SC_LOGIC_1){
+            out1->write(SC_LOGIC_0);
+        } else if (in1->read() == SC_LOGIC_0){
+            out1->write(SC_LOGIC_1);
         }
     };
 };
@@ -57,21 +57,21 @@ SC_MODULE(notg){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(and_n){
 
-    sc_in< sc_logic> A[2]; 
-    sc_out< sc_logic> Y;
+    sc_in< sc_logic> in1[2]; 
+    sc_out< sc_logic> out1;
 
     SC_CTOR(and_n){
 
         SC_METHOD(eval);
-        sensitive << A[0] << A[1];
+        sensitive << in1[0] << in1[1];
 
     }
 
     void eval(void){
-        if ((A[0]->read() == SC_LOGIC_0) || (A[1]->read() == SC_LOGIC_0)){
-            Y->write(SC_LOGIC_0);
+        if ((in1[0]->read() == SC_LOGIC_0) || (in1[1]->read() == SC_LOGIC_0)){
+            out1->write(SC_LOGIC_0);
         } else {
-            Y->write(SC_LOGIC_1);
+            out1->write(SC_LOGIC_1);
         }
     };
 };
@@ -81,21 +81,21 @@ SC_MODULE(and_n){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(or_n){
 
-    sc_in< sc_logic> A[2]; 
-    sc_out< sc_logic> Y;
+    sc_in< sc_logic> in1[2]; 
+    sc_out< sc_logic> out1;
 
     SC_CTOR(or_n){
 
         SC_METHOD(eval);
-        sensitive << A[0] << A[1];
+        sensitive << in1[0] << in1[1];
 
     }
 
     void eval(void){
-        if ((A[0]->read() == SC_LOGIC_0) && (A[1]->read() == SC_LOGIC_0)){
-            Y->write(SC_LOGIC_0);
+        if ((in1[0]->read() == SC_LOGIC_0) && (in1[1]->read() == SC_LOGIC_0)){
+            out1->write(SC_LOGIC_0);
         } else {
-            Y->write(SC_LOGIC_1);
+            out1->write(SC_LOGIC_1);
         }
     };
 };
@@ -105,21 +105,21 @@ SC_MODULE(or_n){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(nand_n){
 
-    sc_in< sc_logic > A[2]; 
-    sc_out< sc_logic > Y;
+    sc_in< sc_logic > in1[2]; 
+    sc_out< sc_logic > out1;
 
     SC_CTOR(nand_n){
 
         SC_METHOD(eval);
-        sensitive << A[0] << A[1];
+        sensitive << in1[0] << in1[1];
 
     }
 
     void eval(void){
-        if ((A[0]->read() == SC_LOGIC_1) && (A[1]->read() == SC_LOGIC_1)){
-            Y->write(SC_LOGIC_0);
+        if ((in1[0]->read() == SC_LOGIC_1) && (in1[1]->read() == SC_LOGIC_1)){
+            out1->write(SC_LOGIC_0);
         } else {
-            Y->write(SC_LOGIC_1);
+            out1->write(SC_LOGIC_1);
         }
     };
 };
@@ -129,21 +129,21 @@ SC_MODULE(nand_n){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(nor_n){
 
-    sc_in< sc_logic> A[2]; 
-    sc_out< sc_logic> Y;
+    sc_in< sc_logic> in1[2]; 
+    sc_out< sc_logic> out1;
 
     SC_CTOR(nor_n){
 
         SC_METHOD(eval);
-        sensitive << A[0] << A[1];
+        sensitive << in1[0] << in1[1];
 
     }
 
     void eval(void){
-        if ((A[0]->read() == SC_LOGIC_0) && (A[1]->read() == SC_LOGIC_0)){
-            Y->write(SC_LOGIC_1);
+        if ((in1[0]->read() == SC_LOGIC_0) && (in1[1]->read() == SC_LOGIC_0)){
+            out1->write(SC_LOGIC_1);
         } else {
-            Y->write(SC_LOGIC_0);
+            out1->write(SC_LOGIC_0);
         }
     };
 };
@@ -153,21 +153,21 @@ SC_MODULE(nor_n){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(xor_n){
 
-    sc_in< sc_logic> A[2]; 
-    sc_out< sc_logic> Y;
+    sc_in< sc_logic> in1[2]; 
+    sc_out< sc_logic> out1;
 
     SC_CTOR(xor_n){
 
         SC_METHOD(eval);
-        sensitive << A[0] << A[1];
+        sensitive << in1[0] << in1[1];
 
     }
 
     void eval(void){
-        if (A[0]->read() == A[1]->read()){
-            Y->write(SC_LOGIC_1);
+        if (in1[0]->read() == in1[1]->read()){
+            out1->write(SC_LOGIC_1);
         } else {
-            Y->write(SC_LOGIC_0);
+            out1->write(SC_LOGIC_0);
         }
     };
 };
@@ -177,21 +177,21 @@ SC_MODULE(xor_n){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(xnor_n){
 
-    sc_in< sc_logic> A[2]; 
-    sc_out< sc_logic> Y;
+    sc_in< sc_logic> in1[2]; 
+    sc_out< sc_logic> out1;
 
     SC_CTOR(xnor_n){
 
         SC_METHOD(eval);
-        sensitive << A[0] << A[1];
+        sensitive << in1[0] << in1[1];
 
     }
 
     void eval(void){
-        if (A[0]->read() == A[1]->read()){
-            Y->write(SC_LOGIC_0);
+        if (in1[0]->read() == in1[1]->read()){
+            out1->write(SC_LOGIC_0);
         } else {
-            Y->write(SC_LOGIC_1);
+            out1->write(SC_LOGIC_1);
         }
     };
 };
@@ -201,18 +201,18 @@ SC_MODULE(xnor_n){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(pin){
 
-    sc_in< sc_logic > I; 
-    sc_out< sc_logic > O;
+    sc_in< sc_logic > in1; 
+    sc_out< sc_logic > out1;
 
     SC_CTOR(pin){
 
         SC_METHOD(eval);
-        sensitive << I;
+        sensitive << in1;
 
     }
 
     void eval(void){
-        O->write(I->read());
+        out1->write(in1->read());
     };
 };
 
@@ -221,18 +221,18 @@ SC_MODULE(pin){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(pout){
 
-    sc_in< sc_logic > I; 
-    sc_out< sc_logic > O;
+    sc_in< sc_logic > in1; 
+    sc_out< sc_logic > out1;
 
     SC_CTOR(pout){
 
         SC_METHOD(eval);
-        sensitive << I;
+        sensitive << in1;
 
     }
 
     void eval(void){
-        O->write(I->read());
+        out1->write(in1->read());
     };
 };
 
@@ -241,7 +241,7 @@ SC_MODULE(pout){
 /////////////////////////////////////////////////////////////////////////////////////
 SC_MODULE(dff){
 
-    sc_in<sc_logic> D, C, R, PRE, CE, NbarT, Si, global_reset;
+    sc_in<sc_logic> D, C, CLR, PRE, CE, NbarT, Si, global_reset;
     sc_out<sc_logic> Q;
 
     sc_signal<sc_logic, SC_MANY_WRITERS> val;
@@ -261,7 +261,7 @@ SC_MODULE(dff){
         SC_METHOD(set);
             sensitive << C;
         SC_METHOD(reset);
-            sensitive << R << global_reset;
+            sensitive << CLR << global_reset;
         SC_METHOD(preset);
             sensitive << PRE;
         
@@ -274,18 +274,18 @@ SC_MODULE(dff){
         }
     }
     void set(void){
-        if ((C->read() == SC_LOGIC_1) && ((PRE->read() == SC_LOGIC_0) && (R->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0))){
+        if ((C->read() == SC_LOGIC_1) && ((PRE->read() == SC_LOGIC_0) && (CLR->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0))){
             if (NbarT->read() == SC_LOGIC_1) val.write(Si->read());
             else if (CE->read() == SC_LOGIC_1) val.write(D->read());
         }
     }
 
     void reset(void){
-        if (R->read() == SC_LOGIC_1 || global_reset->read() == SC_LOGIC_1) val.write(SC_LOGIC_0);
+        if (CLR->read() == SC_LOGIC_1 || global_reset->read() == SC_LOGIC_1) val.write(SC_LOGIC_0);
     }
 
     void preset(void){
-        if ((PRE->read() == SC_LOGIC_1) && (R->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0)) val.write(SC_LOGIC_1);
+        if ((PRE->read() == SC_LOGIC_1) && (CLR->read() == SC_LOGIC_0 && global_reset->read() == SC_LOGIC_0)) val.write(SC_LOGIC_1);
     }
 
 };
