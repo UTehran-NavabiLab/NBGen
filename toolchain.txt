@@ -1,0 +1,19 @@
+
+Detection:
+    detect ff
+    detect clock port 
+    goal: every internal clock must be (somehow) connected to primary input port
+
+    alg.
+        detect global clock
+        search through every register element 
+            find clock port
+            check if it's directly (or ...) connected to global clock *** 
+            if it's not GO TO Repair
+
+Repair: 
+    assumption> circuit has a single global clock 
+    put MUX to connect all (violated) clock ports to that global clock
+
+    alg.
+        

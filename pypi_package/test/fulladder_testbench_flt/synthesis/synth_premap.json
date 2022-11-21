@@ -1,4 +1,3 @@
-{
   "creator": "Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )",
   "modules": {
     "AND2_X1": {

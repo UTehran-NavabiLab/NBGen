@@ -1,4 +1,24 @@
 ---------------------------------------- TODO list ----------------------------------------
+- read dff name automaticly from .lib and fill tech.js file
+
+- replace manual dff list checking with a function
+
+
+- to repair:
+    get the list of defective dff
+    {   for every dff in list{
+            find input port 
+            add mux, meaning:
+                write corresponding string 
+        }
+        return string
+    }
+
+    open module.v in append mode 
+        append string
+    call yosys process 
+    
+------------------
 script->netlist: json2sc_testbench_pwr()
     power testbench & power netlist is hardcoded 
 

@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )",
+  "creator": "Yosys 0.22 (git sha1 f109fa3d4c5, clang 13.0.0 -fPIC -Os)",
   "modules": {
     "AND2_X1": {
       "attributes": {

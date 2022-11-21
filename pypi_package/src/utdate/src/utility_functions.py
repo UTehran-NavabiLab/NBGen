@@ -178,16 +178,24 @@ def find_clk_rst_netNumber(cells, tech):
     for cell in cells.values():
         for dff in list_of_dff:
             if cell["type"].find(dff) > -1:
-                clk_num.append(cell["connections"][tech["floppinclk"]][0]) # dff must have clk, otherwise raise error
+                # check if it's connected to primary inputs 
+                # use port_list
+                    # if it's connected
+                        # add to clk_num
+                        # clk_num.append(cell["connections"][tech["floppinclk"]][0]) # dff must have clk, otherwise raise error
+                    # else 
+                        # add to defective_dff
                 # it's not mandatory to have reset pin for dff
                 if (cell["connections"].get(tech["resetpin"]) != None): 
                     rst_num.append(cell["connections"][tech["resetpin"]][0])
-    
-    # for cell in cells.values():
-    #     if cell["type"].find("dff") > -1:
-    #         clk_num.append(cell["connections"]["C"][0])
-    #         rst_num.append(cell["connections"]["CLR"][0])
-    
+
+    # if len(clk_num) > 1 
+    #   warning for multiple clock domain / illigal clock     
+        # for cell in cells.values():
+        #     if cell["type"].find("dff") > -1:
+        #         clk_num.append(cell["connections"]["C"][0])
+        #         rst_num.append(cell["connections"]["CLR"][0])
+        
     # remove repeated numbers
     clk_num = unique_list(clk_num)
     rst_num = unique_list(rst_num)
