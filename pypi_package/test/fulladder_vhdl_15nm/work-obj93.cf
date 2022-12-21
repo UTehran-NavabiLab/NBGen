@@ -1,0 +1,4 @@
+v 4
+file . "fulladder.vhd" "8ae76fc66705a80154fbd17f2fbf5ed96039324b" "20221204124015.628":
+  entity fulladder at 1( 0) + 0 on 11;
+  architecture rtl of fulladder at 7( 231) + 0 on 12;

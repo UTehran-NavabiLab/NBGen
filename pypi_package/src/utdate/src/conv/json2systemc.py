@@ -178,11 +178,11 @@ class json2systemc(json2hdl):
                 cell_instantiation += WHITE_SPACE + WHITE_SPACE
                 cell_instantiation += instatnce_name + "->" + con_name + "(" + self.find_net(con_value[0]) + ");\n"
                 
-                # first element must be output 
+                # first element *can be* be output (change association to by-name), so the order is not that important
                 if( cell_port_direction[con_name] == "output" ):
-                    self.gate_signal_dict[instatnce_name].insert(0, self.find_net(con_value[0]))
+                    self.gate_signal_dict[instatnce_name].insert(0, {con_name: self.find_net(con_value[0])})
                 else:
-                    self.gate_signal_dict[instatnce_name].append(self.find_net(con_value[0]))
+                    self.gate_signal_dict[instatnce_name].append({con_name: self.find_net(con_value[0])})
                     
             else: # if net is multi-bit, slice the port loop through each bit
                 i = 0
@@ -192,9 +192,9 @@ class json2systemc(json2hdl):
                     i += 1
 
                     if( cell_port_direction[con_name] == "output" ):
-                        self.gate_signal_dict[instatnce_name].insert(0, self.find_net(connection))
+                        self.gate_signal_dict[instatnce_name].insert(0, {con_name: self.find_net(connection)})
                     else:
-                        self.gate_signal_dict[instatnce_name].append(self.find_net(connection))
+                        self.gate_signal_dict[instatnce_name].append({con_name: self.find_net(connection)})
                         
                     
         return instance_pointer, cell_instantiation
