@@ -1,7 +1,7 @@
 # Synthesis script for yosys created by qflow
 read_liberty -lib -ignore_miss_dir -setattr blackbox /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/vesal_mac_mycells/osu018_stdcells.lib
 read_verilog -lib /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/vesal_mac_mycells/osu018_stdcells.v
-read_verilog  /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/vesal_mac_mycells/synth_premap.v
+read_verilog  /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/vesal_mac_mycells/test_ready.v
 
 # High-level synthesis
 synth -auto-top
@@ -11,6 +11,7 @@ opt
 
 # Map combinatorial cells, standard script
 abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/vesal_mac_mycells/osu018_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+synth -auto-top
 #flatten
 setundef -zero
 

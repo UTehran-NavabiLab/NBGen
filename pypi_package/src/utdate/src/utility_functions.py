@@ -150,111 +150,57 @@ def remove_DFFport(temp_page):
 #   @input   ; 
 #       cells: dictionary of cells
 #       tech : dictionary of technology configuration file extracted from json "tech.json"
-def find_clk_rst_netNumber(cells, tech):
+def find_clk_rst_netNumber(cells, technology_parameter):
+
     clk_num = list()
     rst_num = list()
-    list_of_dff = list()
-    list_of_outputs = list()
 
-    list_of_dff.append(tech["flopcell"])
-    list_of_dff.append(tech["flopset"])
-    list_of_dff.append(tech["flopreset"])
-    list_of_dff.append(tech["flopsetreset"])
-    list_of_dff.append(tech["scanflop"])
-    if ("" in list_of_dff):
-        list_of_dff.remove("")
-
-    list_of_outputs.append(tech["bufpin_out"])
-    list_of_outputs.append(tech["outbufpin_out"])
-    list_of_outputs.append(tech["inbufpin_out"])
-    list_of_outputs.append(tech["clkbufpin_out"])
-    list_of_outputs.append(tech["invertpin_out"])
-    list_of_outputs.append(tech["norpin_out"])
-    list_of_outputs.append(tech["nandpin_out"])
-    if ("" in list_of_outputs):
-        list_of_outputs.remove("")
-    
     # find net numbers connected to clock and reset pins of DFFs
-    for cell in cells.values():
-        for dff in list_of_dff:
-            if cell["type"].find(dff) > -1:
-                # check if it's connected to primary inputs 
-                # use port_list
-                    # if it's connected
-                        # add to clk_num
-                        # clk_num.append(cell["connections"][tech["floppinclk"]][0]) # dff must have clk, otherwise raise error
-                    # else 
-                        # add to defective_dff
+    for cell in cells.values(): # search all cells of top module
+        for dff_name, dff_ports in technology_parameter.dict_of_dff.items():
+            if cell["type"].find(dff_name) > -1: # if it's a dff
+                # add to clk_num
+                if (cell["connections"].get(dff_ports["clocked_on"]) != None): 
+                    clk_num.append(cell["connections"][dff_ports["clocked_on"]][0]) # dff must have clk, otherwise raise error
+                else:
+                    print("ERROR: M[find_clk_rst_netNumber]" , dff_name ,", sequential cell with no clock port")
                 # it's not mandatory to have reset pin for dff
-                if (cell["connections"].get(tech["resetpin"]) != None): 
-                    rst_num.append(cell["connections"][tech["resetpin"]][0])
-
-    # if len(clk_num) > 1 
-    #   warning for multiple clock domain / illigal clock     
-        # for cell in cells.values():
-        #     if cell["type"].find("dff") > -1:
-        #         clk_num.append(cell["connections"]["C"][0])
-        #         rst_num.append(cell["connections"]["CLR"][0])
+                if (cell["connections"].get(dff_ports["clear"]) != None): 
+                    rst_num.append(cell["connections"][dff_ports["clear"]][0])
+                # else:
+                #     print("WARNING: M[find_clk_rst_netNumber]", dff_name ,", sequential cell with no reset port")
+    # # if len(clk_num) > 1 
+    # #   warning for multiple clock domain / illigal clock     
+    #     # for cell in cells.values():
+    #     #     if cell["type"].find("dff") > -1:
+    #     #         clk_num.append(cell["connections"]["C"][0])
+    #     #         rst_num.append(cell["connections"]["CLR"][0])
         
-    # remove repeated numbers
-    clk_num = unique_list(clk_num)
-    rst_num = unique_list(rst_num)
-    list_of_outputs = unique_list(list_of_outputs)
-    old_clk_num = clk_num.copy()
+    # # remove repeated numbers
+    # clk_num = unique_list(clk_num)
+    # rst_num = unique_list(rst_num)
+    # list_of_outputs = unique_list(list_of_outputs)
+    # old_clk_num = clk_num.copy()
     
-    # Recursive search for connected nets to nets we found so far
-    #   append new nets then loop again until there is no new net to add
-    #   in each loop, search for cells output for one of existing nets in list
-    do_while = True
-    while ((len(old_clk_num) != len(clk_num)) or do_while):
-        do_while = False
-        old_clk_num = clk_num.copy()
+    # # Recursive search for connected nets to nets we found so far
+    # #   append new nets then loop again until there is no new net to add
+    # #   in each loop, search for cells output for one of existing nets in list
+    # do_while = True
+    # while ((len(old_clk_num) != len(clk_num)) or do_while):
+    #     do_while = False
+    #     old_clk_num = clk_num.copy()
 
-        for cell in cells.values(): # for every cell
-            for connection_name, connection_value in cell["connections"].items(): # for every pin
-                for output_pin in list_of_outputs:  # for every output_pin from the list of tech output pins
-                    if (connection_name.find(output_pin) > -1): # if output port named is in output list
-                        if (connection_value[0] in clk_num): # and if clk is on the output pin
-                            for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
-                                clk_num.append(connection_value_2[0])
-                        if (connection_value[0] in rst_num): # and if reset is on the output pin
-                            for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
-                                rst_num.append(connection_value_2[0])
+    #     for cell in cells.values(): # for every cell
+    #         for connection_name, connection_value in cell["connections"].items(): # for every pin
+    #             for output_pin in list_of_outputs:  # for every output_pin from the list of tech output pins
+    #                 if (connection_name.find(output_pin) > -1): # if output port named is in output list
+    #                     if (connection_value[0] in clk_num): # and if clk is on the output pin
+    #                         for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+    #                             clk_num.append(connection_value_2[0])
+    #                     if (connection_value[0] in rst_num): # and if reset is on the output pin
+    #                         for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+    #                             rst_num.append(connection_value_2[0])
 
-
-
-        # for cell in cells.values():
-        #     for connection_name, connection_value in cell["connections"].items():
-        #         # search for clk
-        #         if (connection_name.find("Y") > -1): # if output port named "Y"
-        #             if (connection_value[0] in clk_num):
-        #                 if (cell["type"] == "BUF"):
-        #                     clk_num.append(cell["connections"]["A"][0])
-        #                 else:
-        #                     clk_num.append(cell["connections"]["A"][0])
-        #                     clk_num.append(cell["connections"]["B"][0])
-        #         if (connection_name.find("O") > -1): # if output port named "O"
-        #             if (connection_value[0] in clk_num):
-        #                 clk_num.append(cell["connections"]["I"][0])
-        #         if (connection_name.find("out1") > -1): # if output port named "out1"
-        #             if (connection_value[0] in clk_num):
-        #                 clk_num.append(cell["connections"]["in1"][0])
-                
-        #         # rest finder
-        #         if (connection_name.find("Y") > -1):
-        #             if (connection_value[0] in rst_num):
-        #                 if (cell["type"] == "BUF"):
-        #                     rst_num.append(cell["connections"]["A"][0])
-        #                 else:
-        #                     rst_num.append(cell["connections"]["A"][0])
-        #                     rst_num.append(cell["connections"]["B"][0])
-        #         if (connection_name.find("O") > -1):
-        #             if (connection_value[0] in rst_num):
-        #                 rst_num.append(cell["connections"]["I"][0])
-        #         if (connection_name.find("out1") > -1):
-        #             if (connection_value[0] in rst_num):
-        #                 rst_num.append(cell["connections"]["in1"][0])
-        
         clk_num = unique_list(clk_num)
         rst_num = unique_list(rst_num)
     return clk_num, rst_num

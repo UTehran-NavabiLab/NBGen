@@ -1,5 +1,52 @@
 ---------------------------------------- TODO list ----------------------------------------
-- read dff name automaticly from .lib and fill tech.js file
+    19Jan;
+        making some changes to vesal technology reader
+        project: [technology_reader]
+            create a dictionary for dff 
+                self.dict_of_dff.update({cell.args[0]: {
+                    "output" : self.find_dff_Q_signal(cell),
+                    "next_state": self.find_dff_D_signal(cell),
+                    "clocked_on": self.find_dff_clk(cell),
+                    "preset": self.find_set_signal(cell),
+                    "clear": self.find_rst_signal(cell)
+                }})
+        [utilies_functions.py]
+            function find_clk_rst_netNumber takes technology_parameter 
+                it contains list of all DFFs
+                search all cell for dff types 
+                list signal numbers that connects to its ports
+            function find_clk_rst_name takes list of numbers
+                check in design input ports for that signal number 
+                if find returns the corresponding names
+        [script.py]
+            change all netlist->js2** to take config.json (instead of tech.json)
+            in future completely remove the dependencies for tech.json and get rid of it
+        [config.json]
+            add value to point to library 
+                "library_directory": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/NangateOpenCellLibrary_typical.lib",
+            take 45nm as default library 
+            place it into library of package to be accessed everywhere
+        [json2**.py]
+            substitute tech_js with config_js
+            in future remove all dependencies to tech_json
+        
+    18Jan;
+        adding technology_parser class written by Vesal:
+            merge vesal codes to mine and create a bigger technology class
+                /Users/ebinouri/Documents/UNi/OpenSourceTools/power_analysis_framework/testsuites/liberty_parser_test/liberty2json.py    
+                
+- search source file for todo's
+- make it independent of tech file, reading the library directly and extract pin names
+    don't pass tech file as input to classes
+- if design is not flattened, there several module in hierarchical order 
+    right now only top module is being read from json file and turn into systemc netlist 
+    add option to read all internal modules (in case that the design is not flatten) and create a separate sc_module for each
+
+- add option to use user-defined yosys script choosing from file 
+    right now if there is no input file in first page, synthesis is not possible 
+    change it so that providing yosys script, synthesis would be possible based on script
+
+- read dff name automatically from .lib and fill tech.js file
 
 - replace manual dff list checking with a function
 
@@ -105,7 +152,7 @@ on testbench for counter :
 
 [utilies_functios->rm_float_net,find_clk_rst_netNumber, find_clk_rst_name]: are specific to "abc_my_cells.lib"
 
-synthesising SAYAC Netlist:
+synthesizing SAYAC Netlist:
     to synthesize netlist of SAYAC: we had to change "dff" description to fit ghdl compilation constraints
     to synthesize SAYAC along with mem and inst_rom: we comment out codes and assign input to output
         produce dff with asynch reset 
@@ -225,7 +272,7 @@ finding dependencies in files:
         number_of_DFF
         get_each_cell
         includes:
-            inlcude file is specific to our component library
+            include file is specific to our component library
     
     json2systemc_flt.py:
         get_each_cell

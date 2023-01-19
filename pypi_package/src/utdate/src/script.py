@@ -123,29 +123,29 @@ def netlist(input_file_name, module_name, config, tech, working_directory, synth
 
       gate_signal_file = os.path.join(synthesis_dir, config["gate_signal_json_file"])
       
-      j2vhd = json2vhdl(json_input, tech)
+      j2vhd = json2vhdl(json_input, config)
       with open(os.path.join(synthesis_dir, config["vhdl_netlist_fileName"]), "w") as f:
          f.write(j2vhd.generate_vhdl())
       
-      j2v = json2verilog(json_input, tech)
+      j2v = json2verilog(json_input, config)
       with open(os.path.join(synthesis_dir, config["verilog_netlist_fileName"]), "w") as f:
          f.write(j2v.generate_verilog())
       
-      j2sc = json2systemc(json_input, tech, gate_signal_file)
+      j2sc = json2systemc(json_input, config, gate_signal_file)
       with open(os.path.join(synthesis_dir, config["systemC_netlist_fileName"]), "w") as f:
          f.write(j2sc.generate_systemc())
-      j2sc_pwr = json2systemc_pwr(json_input, tech, gate_signal_file)
+      j2sc_pwr = json2systemc_pwr(json_input, config, gate_signal_file)
       with open(os.path.join(synthesis_dir, "power_netlist.h"), "w") as f:
          f.write(j2sc_pwr.generate_systemc())
-      j2sc_tb_pwr = json2sc_testbench_pwr(json_input, tech, "testbench", "cut")
+      j2sc_tb_pwr = json2sc_testbench_pwr(json_input, config, "testbench", "cut")
       with open(os.path.join(synthesis_dir, "power_testbench.h"), "w") as f:
          f.write(j2sc_tb_pwr.generate_systemc())
       
-      j2sc_tb_atpg = json2sc_testbench_atpg(json_input, tech, "testbench", "cut")
+      j2sc_tb_atpg = json2sc_testbench_atpg(json_input, config, "testbench", "cut")
       with open(os.path.join(synthesis_dir, "atpg_testbench.h"), "w") as f:
          f.write(j2sc_tb_atpg.generate_systemc())
       
-      j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, tech, "testbench", "dut")
+      j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, config, "testbench", "dut")
       with open(os.path.join(synthesis_dir, "testbench_flt.h"), "w") as f:
          f.write(j2sc_tb_flt_uvm.generate_systemc())
 

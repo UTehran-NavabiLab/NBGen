@@ -9,8 +9,8 @@ from json import dumps
 WHITE_SPACE = "    "
 
 class json2systemc(json2hdl):
-    def __init__(self, json_file, tech_json, gate_signal_file="") -> None:
-        json2hdl.__init__(self, json_file, tech_json)
+    def __init__(self, json_file, config_json, gate_signal_file="") -> None:
+        json2hdl.__init__(self, json_file, config_json)
 
         self.systemc = ""
         self.gate_signal_dict = dict()
@@ -72,7 +72,7 @@ class json2systemc(json2hdl):
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <systemc.h>' + "\n"
-        include_lib += f'#include "{self.tech_js["systemC_library"]}"'
+        include_lib += f'#include "{self.config_js["systemC_library"]}"'
 
         return include_lib
 

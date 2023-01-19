@@ -7,8 +7,8 @@ from utdate.src.conv.json2sc_testbench import json2sc_testbench
 WHITE_SPACE = "    "
 
 class json2sc_testbench_pwr(json2sc_testbench):
-    def __init__(self, json_file, tech_json, testbench, instance) -> None:
-        json2sc_testbench.__init__(self, json_file, tech_json, testbench, instance)
+    def __init__(self, json_file, config_json, testbench, instance) -> None:
+        json2sc_testbench.__init__(self, json_file, config_json, testbench, instance)
 
     # @def: add standard library library  
     def includes(self):
@@ -73,10 +73,10 @@ class json2sc_testbench_pwr(json2sc_testbench):
         
  
         cell_instantiation = WHITE_SPACE + WHITE_SPACE + f'power_module = new power_analysis();' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_gate_prop_json("{self.tech_js["systemC_gate_properties_json"]}");' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_gate_signal_json("{self.tech_js["systemC_gate_signal_json"]}", "{self.tech_js["systemC_gate_properties_json"]}");' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->tech_parameter_json("{self.tech_js["systemC_tech_timing_power"]}");' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_net_cap_json("{self.tech_js["systemC_gate_capacitance"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_gate_prop_json("{self.config_js["systemC_gate_properties_json"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_gate_signal_json("{self.config_js["systemC_gate_signal_json"]}", "{self.config_js["systemC_gate_properties_json"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->tech_parameter_json("{self.config_js["systemC_tech_timing_power"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_net_cap_json("{self.config_js["systemC_gate_capacitance"]}");' + '\n'
 
         cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.module_name}("{instatnce_name}");\n'
 

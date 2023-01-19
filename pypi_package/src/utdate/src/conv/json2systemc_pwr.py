@@ -9,13 +9,13 @@ from json import dumps
 WHITE_SPACE = "    "
 
 class json2systemc_pwr(json2systemc):
-    def __init__(self, json_file, tech_json, gate_signal_file="") -> None:
-        json2systemc.__init__(self, json_file, tech_json, gate_signal_file)
+    def __init__(self, json_file, config_json, gate_signal_file="") -> None:
+        json2systemc.__init__(self, json_file, config_json, gate_signal_file)
 
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <systemc.h>' + "\n"
-        include_lib += f'#include "{self.tech_js["systemC_library"]}"' + "\n"
+        include_lib += f'#include "{self.config_js["systemC_library"]}"' + "\n"
         include_lib += f'#include "sc_signal_pw.h"'
 
         return include_lib

@@ -1,5 +1,7 @@
 from json import load
-from ..utility_functions import find_clk_rst_netNumber, find_clk_rst_name
+from utdate.src.technology_reader import Technology_file
+from utdate.src.utility_functions import find_clk_rst_netNumber, find_clk_rst_name
+
 # assumptions: 
 #   1. It's a flattend netlist which contains only one module as a top module
 #   2. Numeric parameter and attribute values up are equ/less than 32 bits and are written as decimal
@@ -13,11 +15,11 @@ from ..utility_functions import find_clk_rst_netNumber, find_clk_rst_name
 
 
 class json2hdl:
-    def __init__(self, json_file, tech_json) -> None:
+    def __init__(self, json_file, config_json) -> None:
         with open(json_file, "r") as f:
             self.js = load(f)
 
-        self.tech_js = tech_json
+        self.config_js = config_json
         self.module_name = ""
 
         for module_name, module in self.js["modules"].items():
@@ -28,19 +30,21 @@ class json2hdl:
         
         if self.module_name == "":
             try: 
-                self.module_name = self.tech_js["module_name"]
+                self.module_name = self.config_js["module_name"]
             except KeyError:
                 self.module_name = list(self.js["modules"])[0]
         
+        # read thenology file
+        self.technology_parameter = Technology_file(self.config_js["library_directory"])
         self.gate_index = dict()
         self.yosys_qflow_compatible = False
         self.top_module = self.js["modules"][self.module_name]
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
         self.is_sequential = self.is_sequential_check()
-
-        clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.tech_js)
-        self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
+        if self.is_sequential:
+            clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.technology_parameter)
+            self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
 
     # @def: based on whether gate names are compatible with yosys/qflow generate index
     #       if yosys is the target, just increment a predefined index by 1
@@ -67,22 +71,12 @@ class json2hdl:
     # @def: 
     #   is_sequential_check ; check whether the circuit is combinational/sequential
     def is_sequential_check(self):
-        cells_dic = self.top_module["cells"]
         is_seq = False
-        list_of_dff = list()
-
-        list_of_dff.append(self.tech_js["flopcell"])
-        list_of_dff.append(self.tech_js["flopset"])
-        list_of_dff.append(self.tech_js["flopreset"])
-        list_of_dff.append(self.tech_js["flopsetreset"])
-        list_of_dff.append(self.tech_js["scanflop"])
-        if ("" in list_of_dff):
-            list_of_dff.remove("")
 
         # check whether the design is sequential/combinational (check for existance of dff)
-        for cell in cells_dic.values():
-            for dff in list_of_dff:
-                if (cell["type"].find(dff) > -1):
+        for cell in self.top_module["cells"].values():
+            for dff_name, dff_ports in self.technology_parameter.dict_of_dff.items():
+                if (cell["type"].find(dff_name) > -1):
                     is_seq = True
 
         return is_seq

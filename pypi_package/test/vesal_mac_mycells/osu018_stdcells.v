@@ -26,6 +26,50 @@ endmodule
 
 `timescale 1ns/10ps
 `celldefine
+module MUX2X1 (A, B, S, Y);
+input  A ;
+input  B ;
+input  S ;
+output Y ;
+
+  or(Y, i_12, i_13);
+  and(i_12, S, B);
+  and(i_13, A, i_14);
+  not(i_14, S);
+
+  specify
+    if((B == 1'b0) && (S == 1'b0)) (A => Y) = (0.1, 0.1);
+    if((B == 1'b1) && (S == 1'b0)) (A => Y) = (0.1, 0.1);
+    if((A == 1'b0) && (S == 1'b1)) (B => Y) = (0.1, 0.1);
+    if((A == 1'b1) && (S == 1'b1)) (B => Y) = (0.1, 0.1);
+    if((A == 1'b0) && (B == 1'b1)) (S => Y) = (0.1, 0.1);
+    if((A == 1'b1) && (B == 1'b0)) (S => Y) = (0.1, 0.1);
+  endspecify
+
+  //  not (Y, I0_out);
+
+  //  specify
+  //    // delay parameters
+  //    specparam
+  //      tpllh$S$Y = 0.1:0.1:0.1,
+  //      tplhl$S$Y = 0.099:0.099:0.099,
+  //      tplhl$A$Y = 0.05:0.05:0.05,
+  //      tphlh$A$Y = 0.072:0.072:0.072,
+  //      tplhl$B$Y = 0.055:0.055:0.055,
+  //      tphlh$B$Y = 0.066:0.066:0.066;
+
+  //    // path delays
+  //    (A *> Y) = (tphlh$A$Y, tplhl$A$Y);
+  //    (B *> Y) = (tphlh$B$Y, tplhl$B$Y);
+  //    (S *> Y) = (tpllh$S$Y, tplhl$S$Y);
+
+  //  endspecify
+
+endmodule
+`endcelldefine
+
+`timescale 1ns/10ps
+`celldefine
 module AND2X2 (A, B, Y);
 input  A ;
 input  B ;
