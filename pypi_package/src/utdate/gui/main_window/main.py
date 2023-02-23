@@ -259,7 +259,7 @@ class MainWindow(Toplevel):
             window.place(x=250, y=0, width=550.0, height=600.0)
         
         self.windows["file"].tkraise()
-        # Place the sidebar on respective button
+        # Place the sidebar_indicator on respective button
         self.sidebar_indicator.place(x=0, y=self.sidebar_indicator_y["file"], height=60, width=10)
         self.sidebar_indicator.tkraise()
 

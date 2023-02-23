@@ -6,6 +6,9 @@ __pycache__/
 bin/
 gui_tkinter/
 pypi_package/dist/
+pypi_package/MANIFEST.in
+pypi_package/pyproject.toml
+pypi_package/setup.cfg
 pypi_package/src/utdate.egg-info/
 pypi_package/src/utdate/bin/
 pypi_package/src/utdate/include/

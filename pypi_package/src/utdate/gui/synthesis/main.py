@@ -256,7 +256,7 @@ class Synthesis(Frame):
             
             netlist(input_file_name=input_file_directory, module_name=top_module_name, config=config, tech=tech, 
                 working_directory=working_directory, synthesis_dir=synthesis_dir, lib_dir=lib_dir, log_dir=log_dir, 
-                config_dir=config_dir, vhdl=self.tk_is_vhdl.get(), use_existing_script=False)
+                config_dir=config_dir, vhdl=self.tk_is_vhdl.get())
             
             self.synth_log.config(state="normal")
             # read log file
