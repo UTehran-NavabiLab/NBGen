@@ -24,26 +24,32 @@
 
 -- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/yosys_script.ys' --
 
-1. Executing Liberty frontend.
-Imported 134 cell types from liberty file.
-
-2. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/counter.v
+1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/counter.v
 Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/counter.v' to AST representation.
 Generating RTLIL representation for module `\counter'.
 Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: counter             
+Automatically selected counter as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \counter
+
+2.3. Analyzing design hierarchy..
+Top module:  \counter
+Removed 0 unused modules.
 
 3. Executing SYNTH pass.
 
 3.1. Executing HIERARCHY pass (managing design hierarchy).
 
-3.1.1. Finding top of design hierarchy..
-root of   0 design levels: counter             
-Automatically selected counter as design top module.
-
-3.1.2. Analyzing design hierarchy..
+3.1.1. Analyzing design hierarchy..
 Top module:  \counter
 
-3.1.3. Analyzing design hierarchy..
+3.1.2. Analyzing design hierarchy..
 Top module:  \counter
 Removed 0 unused modules.
 
@@ -346,8 +352,8 @@ Optimizing module counter.
 
 3.20. Executing TECHMAP pass (map to technology primitives).
 
-3.20.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/OpenSourceTools/fpga-toolchain/bin/../share/yosys/techmap.v
-Parsing Verilog input from `/Users/ebinouri/Documents/UNi/OpenSourceTools/fpga-toolchain/bin/../share/yosys/techmap.v' to AST representation.
+3.20.1. Executing Verilog-2005 frontend: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/bin/../share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -487,332 +493,479 @@ Removed 0 unused modules.
 Checking module counter...
 Found and reported 0 problems.
 
-4. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-  cell DFF_X1 (noninv, pins=4, area=4.52) is a direct match for cell type $_DFF_P_.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-  cell DFFR_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN0_.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-  cell DFFS_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN1_.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-  cell DFFRS_X1 (noninv, pins=6, area=6.38) is a direct match for cell type $_DFFSR_PNN_.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
-Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_SHARE pass.
+
+4.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+4.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+4.10. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFF_N (noninv, pins=3, area=0.00) is a direct match for cell type $_DFF_N_.
+  cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
+  cell DFF_NN0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NN0_.
+  cell DFF_NN1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NN1_.
+  cell DFF_NP0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NP0_.
+  cell DFF_NP1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NP1_.
+  cell DFF_PN0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PN0_.
+  cell DFF_PN1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PN1_.
+  cell DFF_PP0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PP0_.
+  cell DFF_PP1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PP1_.
   final dff cell mappings:
-    unmapped dff cell: $_DFF_N_
-    \DFF_X1 _DFF_P_ (.CK( C), .D( D), .Q( Q), .QN(~Q));
-    unmapped dff cell: $_DFF_NN0_
-    unmapped dff cell: $_DFF_NN1_
-    unmapped dff cell: $_DFF_NP0_
-    unmapped dff cell: $_DFF_NP1_
-    \DFFR_X1 _DFF_PN0_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R));
-    \DFFS_X1 _DFF_PN1_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .SN( R));
-    unmapped dff cell: $_DFF_PP0_
-    unmapped dff cell: $_DFF_PP1_
+    \DFF_N _DFF_N_ (.C( C), .D( D), .Q( Q));
+    \DFF _DFF_P_ (.C( C), .D( D), .Q( Q));
+    \DFF_NN0 _DFF_NN0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_NN1 _DFF_NN1_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_NP0 _DFF_NP0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_NP1 _DFF_NP1_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PN0 _DFF_PN0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PN1 _DFF_PN1_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PP0 _DFF_PP0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PP1 _DFF_PP1_ (.C( C), .D( D), .Q( Q), .R( R));
     unmapped dff cell: $_DFFSR_NNN_
     unmapped dff cell: $_DFFSR_NNP_
     unmapped dff cell: $_DFFSR_NPN_
     unmapped dff cell: $_DFFSR_NPP_
-    \DFFRS_X1 _DFFSR_PNN_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R), .SN( S));
+    unmapped dff cell: $_DFFSR_PNN_
     unmapped dff cell: $_DFFSR_PNP_
     unmapped dff cell: $_DFFSR_PPN_
     unmapped dff cell: $_DFFSR_PPP_
 
-4.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+5.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
 Mapping DFF cells in module `\counter':
-  mapped 4 $_DFF_P_ cells to \DFF_X1 cells.
+  mapped 4 $_DFF_P_ cells to \DFF cells.
 
-5. Executing OPT pass (performing simple optimizations).
+6. Executing OPT pass (performing simple optimizations).
 
-5.1. Executing OPT_EXPR pass (perform const folding).
+6.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-5.2. Executing OPT_MERGE pass (detect identical cells).
+6.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter.
 Performed a total of 0 changes.
 
-5.5. Executing OPT_MERGE pass (detect identical cells).
+6.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-5.6. Executing OPT_DFF pass (perform DFF optimizations).
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \counter..
-Removed 1 unused cells and 2 unused wires.
-<suppressed ~2 debug messages>
-
-5.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module counter.
-
-5.9. Rerunning OPT passes. (Maybe there is more to do..)
-
-5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \counter..
-  Creating internal representation of mux trees.
-  No muxes found in this module.
-Removed 0 multiplexer ports.
-
-5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \counter.
-Performed a total of 0 changes.
-
-5.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\counter'.
-Removed a total of 0 cells.
-
-5.13. Executing OPT_DFF pass (perform DFF optimizations).
-
-5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
 
-5.15. Executing OPT_EXPR pass (perform const folding).
+6.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-5.16. Finished OPT passes. (There is nothing left to do.)
+6.9. Finished OPT passes. (There is nothing left to do.)
 
-6. Executing ABC pass (technology mapping using ABC).
+7. Executing ABC pass (technology mapping using ABC).
 
-6.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
-Extracted 17 gates and 26 wires to a netlist network with 8 inputs and 5 outputs.
+7.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+Extracted 18 gates and 26 wires to a netlist network with 7 inputs and 5 outputs.
 
-6.1.1. Executing ABC.
+7.1.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/NangateOpenCellLibrary_typical.lib 
-ABC: Parsing finished successfully.  Parsing time =     0.05 sec
-ABC: Scl_LibertyReadGenlib() skipped cell "ANTENNA_X1" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X1" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X2" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X4" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X8" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X1" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X2" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X4" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X8" without logic function.
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X2".
-ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X1" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X2" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X4" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X8" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X16" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X32" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC0_X1" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC1_X1" due to dont_use attribute.
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X2".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X2".
-ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X1".
-ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X2".
-ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X4".
-ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X8".
-ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X16".
-ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV_X1".
-ABC: Scl_LibertyReadGenlib() skipped sequential cell "TLAT_X1".
-ABC: Library "NangateOpenCellLibrary" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/NangateOpenCellLibrary_typical.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 9 dont_use).  Time =     0.08 sec
-ABC: Memory =    8.88 MB. Time =     0.08 sec
-ABC: Warning: Detected 2 multi-output gates (for example, "FA_X1").
+ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/mycells_yosys.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Warning: Templates are not defined.
+ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
+ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_N".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NN0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NN1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NP0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NP1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PN0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PN1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PP0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PP1".
+ABC: Library "demo" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/mycells_yosys.lib" has 6 cells (10 skipped: 10 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.01 MB. Time =     0.00 sec
 ABC: + strash 
+ABC: + ifraig 
 ABC: + scorr 
 ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
-ABC: + ifraig 
-ABC: + retime 
+ABC: + dc2 
+ABC: + dretime 
 ABC: + strash 
-ABC: + dch -f 
-ABC: + map -M 1 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
-6.1.2. Re-integrating ABC results.
-ABC RESULTS:           AND2_X1 cells:        1
-ABC RESULTS:           AND3_X1 cells:        1
-ABC RESULTS:           AND4_X1 cells:        1
-ABC RESULTS:          AOI21_X1 cells:        4
-ABC RESULTS:            INV_X1 cells:        5
-ABC RESULTS:          NAND2_X1 cells:        3
-ABC RESULTS:          NAND3_X1 cells:        2
-ABC RESULTS:          NAND4_X1 cells:        1
-ABC RESULTS:          OAI21_X1 cells:        3
-ABC RESULTS:        internal signals:       13
-ABC RESULTS:           input signals:        8
+7.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:       11
+ABC RESULTS:               NOR cells:       10
+ABC RESULTS:               NOT cells:        8
+ABC RESULTS:        internal signals:       14
+ABC RESULTS:           input signals:        7
 ABC RESULTS:          output signals:        5
 Removing temp directory.
 
-7. Executing FLATTEN pass (flatten design).
+8. Executing FLATTEN pass (flatten design).
 
-8. Executing SETUNDEF pass (replace undef values with defined constants).
-Removed 0 unused cells and 23 unused wires.
+9. Executing OPT pass (performing simple optimizations).
 
-9. Executing HILOMAP pass (mapping to constant drivers).
-
-10. Executing HILOMAP pass (mapping to constant drivers).
-
-11. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
-Don't map input port counter.clk: Missing option -inpad.
-Don't map input port counter.clkEn: Missing option -inpad.
-Mapping port counter.co using BUF_X1.
-Mapping port counter.count using BUF_X1.
-Don't map input port counter.en: Missing option -inpad.
-Don't map input port counter.rst: Missing option -inpad.
-
-12. Executing OPT pass (performing simple optimizations).
-
-12.1. Executing OPT_EXPR pass (perform const folding).
+9.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-12.2. Executing OPT_MERGE pass (detect identical cells).
+9.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \counter..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \counter.
 Performed a total of 0 changes.
 
-12.5. Executing OPT_MERGE pass (detect identical cells).
+9.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\counter'.
 Removed a total of 0 cells.
 
-12.6. Executing OPT_DFF pass (perform DFF optimizations).
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
 
-12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \counter..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
 
-12.8. Executing OPT_EXPR pass (perform const folding).
+9.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module counter.
 
-12.9. Finished OPT passes. (There is nothing left to do.)
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
 
-13. Executing Verilog backend.
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+9.16. Finished OPT passes. (There is nothing left to do.)
+
+10. Executing HILOMAP pass (mapping to constant drivers).
+
+11. Executing HILOMAP pass (mapping to constant drivers).
+
+12. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Mapping port counter.clk using BUF.
+Mapping port counter.clkEn using BUF.
+Don't map output port counter.co: Missing option -outpad.
+Don't map output port counter.count: Missing option -outpad.
+Mapping port counter.en using BUF.
+Mapping port counter.rst using BUF.
+
+13. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port counter.clk: Missing option -inpad.
+Don't map input port counter.clkEn: Missing option -inpad.
+Don't map input port counter.en: Missing option -inpad.
+Don't map input port counter.rst: Missing option -inpad.
+Mapping port counter.co using BUF.
+Mapping port counter.count using BUF.
+
+14. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+15. Executing OPT pass (performing simple optimizations).
+
+15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+15.9. Finished OPT passes. (There is nothing left to do.)
+
+16. Executing Verilog backend.
 Dumping module `\counter'.
 
-14. Executing BLIF backend.
+17. Executing BLIF backend.
 
-15. Executing JSON backend.
+18. Executing JSON backend.
 
-16. Printing statistics.
+19. Executing TECHMAP pass (map to technology primitives).
+
+19.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/DFF_map.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/DFF_map.v' to AST representation.
+Generating RTLIL representation for module `\DFF'.
+Generating RTLIL representation for module `\DFF_N'.
+Generating RTLIL representation for module `\DFF_PP0'.
+Generating RTLIL representation for module `\DFF_PP1'.
+Generating RTLIL representation for module `\DFF_PN0'.
+Generating RTLIL representation for module `\DFF_PN1'.
+Generating RTLIL representation for module `\DFF_NN0'.
+Generating RTLIL representation for module `\DFF_NN1'.
+Generating RTLIL representation for module `\DFF_NP0'.
+Generating RTLIL representation for module `\DFF_NP1'.
+Successfully finished Verilog frontend.
+
+19.2. Continuing TECHMAP pass.
+Using template DFF for cells of type DFF.
+No more expansions possible.
+<suppressed ~16 debug messages>
+
+20. Executing ABC pass (technology mapping using ABC).
+
+20.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+21. Executing OPT pass (performing simple optimizations).
+
+21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+21.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+Removed 0 unused cells and 24 unused wires.
+<suppressed ~1 debug messages>
+
+21.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+21.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+21.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+21.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+21.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+21.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+21.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+21.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+21.16. Finished OPT passes. (There is nothing left to do.)
+
+22. Executing TECHMAP pass (map to technology primitives).
+
+22.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/Logic_map.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_19Jan/tech/Logic_map.v' to AST representation.
+Generating RTLIL representation for module `\BUF'.
+Generating RTLIL representation for module `\TIELOM'.
+Generating RTLIL representation for module `\TIEHIM'.
+Generating RTLIL representation for module `\IBUF'.
+Generating RTLIL representation for module `\OBUF'.
+Generating RTLIL representation for module `\NOT'.
+Generating RTLIL representation for module `\AND'.
+Generating RTLIL representation for module `\NAND'.
+Generating RTLIL representation for module `\OR'.
+Generating RTLIL representation for module `\NOR'.
+Generating RTLIL representation for module `\XOR'.
+Generating RTLIL representation for module `\XNOR'.
+Successfully finished Verilog frontend.
+
+22.2. Continuing TECHMAP pass.
+Using template NOT for cells of type NOT.
+Using template NAND for cells of type NAND.
+Using template NOR for cells of type NOR.
+Using template BUF for cells of type BUF.
+No more expansions possible.
+<suppressed ~52 debug messages>
+
+23. Executing OPT pass (performing simple optimizations).
+
+23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+23.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+23.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+23.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+23.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+Removed 0 unused cells and 97 unused wires.
+<suppressed ~1 debug messages>
+
+23.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+23.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+23.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+23.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+23.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+23.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+23.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter.
+
+23.16. Finished OPT passes. (There is nothing left to do.)
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+25. Printing statistics.
 
 === counter ===
 
-   Number of wires:                 32
-   Number of wire bits:             41
-   Number of public wires:          32
-   Number of public wire bits:      41
+   Number of wires:                 47
+   Number of wire bits:             50
+   Number of public wires:           6
+   Number of public wire bits:       9
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 30
-     AND2_X1                         1
-     AND3_X1                         1
-     AND4_X1                         1
-     AOI21_X1                        4
-     BUF_X1                          5
-     DFF_X1                          4
-     INV_X1                          5
-     NAND2_X1                        3
-     NAND3_X1                        2
-     NAND4_X1                        1
-     OAI21_X1                        3
+   Number of cells:                 42
+     bufg                            9
+     dff                             4
+     nand_n                         11
+     nor_n                          10
+     notg                            8
 
-Warnings: 8 unique messages, 72 total
-End of script. Logfile hash: decc5f23c4, CPU: user 1.55s system 0.04s
+26. Executing Verilog backend.
+Dumping module `\counter'.
+
+27. Executing JSON backend.
+
+End of script. Logfile hash: 25d6352f01, CPU: user 1.11s system 0.04s
 Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
-Time spent: 15% 2x abc (0 sec), 12% 1x dfflibmap (0 sec), ...
+Time spent: 19% 31x opt_expr (0 sec), 15% 25x opt_clean (0 sec), ...

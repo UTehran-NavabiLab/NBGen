@@ -7,37 +7,46 @@
 .names $true
 1
 .names $undef
-.subckt INV_X1 A=_20_[2] ZN=_4_
-.subckt AND4_X1 A1=_4_ A2=_20_[3] A3=_20_[1] A4=_20_[0] ZN=_24_
-.subckt INV_X1 A=_25_[0] ZN=_5_
-.subckt NAND2_X1 A1=clkEn A2=en ZN=_6_
-.subckt INV_X1 A=rst ZN=_7_
-.subckt OAI21_X1 A=_7_ B1=_6_ B2=_20_[0] ZN=_8_
-.subckt AOI21_X1 A=_8_ B1=_6_ B2=_5_ ZN=_0_
-.subckt INV_X1 A=_20_[1] ZN=_9_
-.subckt NAND3_X1 A1=clkEn A2=en A3=_25_[0] ZN=_10_
-.subckt NAND4_X1 A1=_20_[1] A2=_25_[0] A3=clkEn A4=en ZN=_11_
-.subckt NAND2_X1 A1=_11_ A2=_7_ ZN=_12_
-.subckt AOI21_X1 A=_12_ B1=_10_ B2=_9_ ZN=_1_
-.subckt NAND2_X1 A1=_20_[2] A2=_20_[1] ZN=_13_
-.subckt OAI21_X1 A=_7_ B1=_10_ B2=_13_ ZN=_14_
-.subckt AOI21_X1 A=_14_ B1=_11_ B2=_4_ ZN=_2_
-.subckt OAI21_X1 A=_20_[3] B1=_10_ B2=_13_ ZN=_15_
-.subckt INV_X1 A=_20_[3] ZN=_16_
-.subckt AND3_X1 A1=_25_[0] A2=en A3=clkEn ZN=_17_
-.subckt AND2_X1 A1=_20_[1] A2=_20_[2] ZN=_18_
-.subckt NAND3_X1 A1=_17_ A2=_16_ A3=_18_ ZN=_19_
-.subckt AOI21_X1 A=rst B1=_19_ B2=_15_ ZN=_3_
-.subckt DFF_X1 CK=clk D=_0_ Q=_25_[0] QN=_20_[0]
-.subckt DFF_X1 CK=clk D=_1_ Q=_20_[1] QN=_21_
-.subckt DFF_X1 CK=clk D=_2_ Q=_20_[2] QN=_22_
-.subckt DFF_X1 CK=clk D=_3_ Q=_20_[3] QN=_23_
-.subckt BUF_X1 A=_24_ Z=co
-.subckt BUF_X1 A=_25_[0] Z=count[0]
-.subckt BUF_X1 A=_20_[1] Z=count[1]
-.subckt BUF_X1 A=_20_[2] Z=count[2]
-.subckt BUF_X1 A=_20_[3] Z=count[3]
-.subckt BUF_X1 A=_20_[1] Z=_25_[1]
-.subckt BUF_X1 A=_20_[2] Z=_25_[2]
-.subckt BUF_X1 A=_20_[3] Z=_25_[3]
+.subckt NOT A=$iopadmap$count[0] Y=$abc$188$new_n13_
+.subckt NOT A=$iopadmap$count[3] Y=$abc$188$new_n14_
+.subckt NOT A=$iopadmap$count[2] Y=$abc$188$new_n15_
+.subckt NOT A=$iopadmap$count[1] Y=$abc$188$new_n16_
+.subckt NOT A=$iopadmap$rst Y=$abc$188$new_n17_
+.subckt NAND A=$abc$188$new_n13_ B=$iopadmap$count[3] Y=$abc$188$new_n18_
+.subckt NAND A=$abc$188$new_n15_ B=$iopadmap$count[1] Y=$abc$188$new_n19_
+.subckt NOR A=$abc$188$new_n18_ B=$abc$188$new_n19_ Y=$iopadmap$co
+.subckt NAND A=$iopadmap$clkEn B=$iopadmap$en Y=$abc$188$new_n21_
+.subckt NOR A=$abc$188$new_n13_ B=$abc$188$new_n21_ Y=$abc$188$new_n22_
+.subckt NOT A=$abc$188$new_n22_ Y=$abc$188$new_n23_
+.subckt NAND A=$abc$188$new_n13_ B=$abc$188$new_n21_ Y=$abc$188$new_n24_
+.subckt NAND A=$abc$188$new_n17_ B=$abc$188$new_n24_ Y=$abc$188$new_n25_
+.subckt NOR A=$abc$188$new_n22_ B=$abc$188$new_n25_ Y=$abc$188$auto$rtlil.cc:2481:MuxGate$175
+.subckt NOR A=$abc$188$new_n16_ B=$abc$188$new_n23_ Y=$abc$188$new_n27_
+.subckt NAND A=$iopadmap$count[1] B=$abc$188$new_n22_ Y=$abc$188$new_n28_
+.subckt NOR A=$iopadmap$count[1] B=$abc$188$new_n22_ Y=$abc$188$new_n29_
+.subckt NOR A=$iopadmap$rst B=$abc$188$new_n29_ Y=$abc$188$new_n30_
+.subckt NAND A=$abc$188$new_n28_ B=$abc$188$new_n30_ Y=$abc$188$new_n31_
+.subckt NOT A=$abc$188$new_n31_ Y=$abc$188$auto$rtlil.cc:2481:MuxGate$179
+.subckt NAND A=$iopadmap$count[2] B=$abc$188$new_n27_ Y=$abc$188$new_n33_
+.subckt NOR A=$iopadmap$count[2] B=$abc$188$new_n27_ Y=$abc$188$new_n34_
+.subckt NOR A=$iopadmap$rst B=$abc$188$new_n34_ Y=$abc$188$new_n35_
+.subckt NAND A=$abc$188$new_n33_ B=$abc$188$new_n35_ Y=$abc$188$new_n36_
+.subckt NOT A=$abc$188$new_n36_ Y=$abc$188$auto$rtlil.cc:2481:MuxGate$183
+.subckt NOR A=$abc$188$new_n14_ B=$abc$188$new_n33_ Y=$abc$188$new_n38_
+.subckt NAND A=$abc$188$new_n14_ B=$abc$188$new_n33_ Y=$abc$188$new_n39_
+.subckt NAND A=$abc$188$new_n17_ B=$abc$188$new_n39_ Y=$abc$188$new_n40_
+.subckt NOR A=$abc$188$new_n38_ B=$abc$188$new_n40_ Y=$abc$188$auto$rtlil.cc:2481:MuxGate$187
+.subckt DFF C=$iopadmap$clk D=$abc$188$auto$rtlil.cc:2481:MuxGate$175 Q=$iopadmap$count[0]
+.subckt DFF C=$iopadmap$clk D=$abc$188$auto$rtlil.cc:2481:MuxGate$179 Q=$iopadmap$count[1]
+.subckt DFF C=$iopadmap$clk D=$abc$188$auto$rtlil.cc:2481:MuxGate$183 Q=$iopadmap$count[2]
+.subckt DFF C=$iopadmap$clk D=$abc$188$auto$rtlil.cc:2481:MuxGate$187 Q=$iopadmap$count[3]
+.subckt BUF A=clk Y=$iopadmap$clk
+.subckt BUF A=clkEn Y=$iopadmap$clkEn
+.subckt BUF A=$iopadmap$co Y=co
+.subckt BUF A=$iopadmap$count[0] Y=count[0]
+.subckt BUF A=$iopadmap$count[1] Y=count[1]
+.subckt BUF A=$iopadmap$count[2] Y=count[2]
+.subckt BUF A=$iopadmap$count[3] Y=count[3]
+.subckt BUF A=en Y=$iopadmap$en
+.subckt BUF A=rst Y=$iopadmap$rst
 .end

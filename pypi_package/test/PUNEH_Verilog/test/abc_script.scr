@@ -1,0 +1,3 @@
+read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/PUNEH_Verilog/tech/mycells_abc.lib 
+read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/PUNEH_Verilog/test/synth_dffport_rm.v 
+write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/PUNEH_Verilog/test/abc_bench.bench 

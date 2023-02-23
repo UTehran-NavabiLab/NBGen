@@ -17,7 +17,9 @@ from utdate.src.conv.json2systemc import json2systemc
 from utdate.src.conv.json2systemc_pwr import json2systemc_pwr
 from utdate.src.conv.json2systemc_flt import json2systemc_flt
 from utdate.src.flt.fault_collapsing import fault_collapsing
+from utdate.src.technology_reader import Technology_file
 import utdate.lib as lib
+import utdate.bin as bin
 
 
 def preparation():
@@ -25,6 +27,7 @@ def preparation():
    working_directory = os.getcwd()
    synthesis_dir = mkdir("synthesis", working_directory, False)
    lib_dir = lib.__path__[0]
+   bin_dir = bin.__path__[0]
    log_dir = mkdir("log", working_directory)
    test_dir = mkdir("test", working_directory)
    fltSim_dir = mkdir("fault_simulation", test_dir)
@@ -94,6 +97,7 @@ def preparation():
 #        user must provide valid yosys script at valid location (under lib_dir)
 def netlist(input_file_name, module_name, config, tech, working_directory, synthesis_dir, lib_dir, log_dir, config_dir, vhdl=False, use_existing_script=False):
    yosys_script_dir = os.path.join(config_dir, "yosys_script.ys")
+   bin_dir = bin.__path__[0]
 
    if not (use_existing_script):
       with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
@@ -102,9 +106,11 @@ def netlist(input_file_name, module_name, config, tech, working_directory, synth
                                  lib_dir=lib_dir, config_dir=config_dir,synthesis_dir=synthesis_dir, vhdl=vhdl))
    
    ###################### yosys ######################
+   # get parent directory
+
    try:
       # run yosys script with input file name, throw exception if failed
-      yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
+      yosys_log = subprocess.run([os.path.join(bin_dir, "yosys"), yosys_script_dir], stdout=subprocess.PIPE, text=True, check=True)
       # an alternative would be to use input arg
       # yosys_log = subprocess.run([config["yosys_bin"], yosys_script_dir], stdout=subprocess.PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
    except CalledProcessError:
@@ -159,8 +165,10 @@ def netlist(input_file_name, module_name, config, tech, working_directory, synth
 #     config: dictionary of configuration obtained from json
 #     reference to directories
 def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, config_dir):
+   bin_dir = bin.__path__[0]
    # writing abc script
    abc_script_dir = os.path.join(config_dir, "abc_script.scr")
+   technology_parameter = Technology_file(os.path.join(lib_dir, config["liberty_file"]))
 
    with open(abc_script_dir,'w',encoding = 'utf-8') as f:
       f.write(abc_script_mk(config=config, config_dir=config_dir, test_dir=test_dir))
@@ -170,14 +178,14 @@ def bench(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, 
       
    # remove .C port from asynch DFF_PP
    with open(os.path.join(test_dir, config["abc_v_inputName"]), 'w', encoding = 'utf-8') as f:
-      f.write(remove_DFFport(yosys_v_output))
+      f.write(remove_DFFport(yosys_v_output, technology_parameter))
    
 
    # change dir to synthesis
    os.chdir(test_dir)
    ###################### yosys ######################
    # run abc script with input file name, through exception if failed
-   abc_log = subprocess.run([config["abc_bin"]], stdout=subprocess.PIPE, text=True, input=f'source -x {abc_script_dir}', check=True)
+   abc_log = subprocess.run([os.path.join(bin_dir, "yosys-abc")], stdout=subprocess.PIPE, text=True, input=f'source -x {abc_script_dir}', check=True)
    yosys_log_dir = os.path.join(log_dir, "abc.log")
    with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
       f.write(abc_log.stdout)
@@ -333,10 +341,11 @@ def faultCollapsing(testbench_name,  instance_name, config, tech, working_direct
 def test_set_gen(config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
    json_premap_input = os.path.join(synthesis_dir, config["yosys_script_premap_json_outputName"])
    bench_input = os.path.join(test_dir, config["abc_bench_output"])
+   technology_parameter = Technology_file(os.path.join(lib.__path__[0], config["liberty_file"]))
 
    ###################### atalanta ######################
    with open(os.path.join(test_dir, config["abc_bench_rm_floated_net_output"]), 'w', encoding = 'utf-8') as b:
-      b.write(rm_float_net(json_premap_input, bench_input, tech))
+      b.write(rm_float_net(json_premap_input, bench_input, technology_parameter))
    
    # change dir to test_dirctory
    os.chdir(test_dir)

@@ -25,7 +25,7 @@ SC_MODULE( testbench ) {
 
     counter* cut;
     itest idd_test = itest("gate_signal_json_file.json", "gate_properties.json");
-    std::array<sc_core::sc_signal<sc_dt::sc_logic>*, 32> signal_arr;
+    std::array<sc_core::sc_signal<sc_dt::sc_logic>*, 47> signal_arr;
 
     SC_HAS_PROCESS(testbench);
     testbench(sc_module_name _name){
@@ -67,7 +67,7 @@ SC_MODULE( testbench ) {
     }
 
     void run_idd_testing(void){
-        idd_test.update_signal<sc_dt::sc_logic, 32>(signal_arr);
+        idd_test.update_signal<sc_dt::sc_logic, 47>(signal_arr);
         idd_test.back_trace("count");
         idd_test.back_trace("co");
         idd_test.mark_multiplath();
@@ -89,32 +89,47 @@ SC_MODULE( testbench ) {
         signal_arr[6] = &(count[2]);
         signal_arr[7] = &(count[3]);
         signal_arr[8] = &(co);
-        signal_arr[9] = &(cut->_0_);
-        signal_arr[10] = &(cut->_10_);
-        signal_arr[11] = &(cut->_11_);
-        signal_arr[12] = &(cut->_12_);
-        signal_arr[13] = &(cut->_13_);
-        signal_arr[14] = &(cut->_14_);
-        signal_arr[15] = &(cut->_15_);
-        signal_arr[16] = &(cut->_16_);
-        signal_arr[17] = &(cut->_17_);
-        signal_arr[18] = &(cut->_18_);
-        signal_arr[19] = &(cut->_19_);
-        signal_arr[20] = &(cut->_1_);
-        signal_arr[21] = &(cut->_20_);
-        signal_arr[22] = &(cut->_21_);
-        signal_arr[23] = &(cut->_22_);
-        signal_arr[24] = &(cut->_23_);
-        signal_arr[25] = &(cut->_24_);
-        signal_arr[26] = &(cut->_25_);
-        signal_arr[27] = &(cut->_2_);
-        signal_arr[28] = &(cut->_3_);
-        signal_arr[29] = &(cut->_4_);
-        signal_arr[30] = &(cut->_5_);
-        signal_arr[31] = &(cut->_6_);
-        signal_arr[32] = &(cut->_7_);
-        signal_arr[33] = &(cut->_8_);
-        signal_arr[34] = &(cut->_9_);
+        signal_arr[9] = &(cut->S0);
+        signal_arr[10] = &(cut->S1);
+        signal_arr[11] = &(cut->S2);
+        signal_arr[12] = &(cut->S3);
+        signal_arr[13] = &(cut->S4);
+        signal_arr[14] = &(cut->S5);
+        signal_arr[15] = &(cut->S6);
+        signal_arr[16] = &(cut->S7);
+        signal_arr[17] = &(cut->S8);
+        signal_arr[18] = &(cut->S9);
+        signal_arr[19] = &(cut->S10);
+        signal_arr[20] = &(cut->S11);
+        signal_arr[21] = &(cut->S12);
+        signal_arr[22] = &(cut->S13);
+        signal_arr[23] = &(cut->S14);
+        signal_arr[24] = &(cut->S15);
+        signal_arr[25] = &(cut->S16);
+        signal_arr[26] = &(cut->S17);
+        signal_arr[27] = &(cut->S18);
+        signal_arr[28] = &(cut->S19);
+        signal_arr[29] = &(cut->S20);
+        signal_arr[30] = &(cut->S21);
+        signal_arr[31] = &(cut->S22);
+        signal_arr[32] = &(cut->S23);
+        signal_arr[33] = &(cut->S24);
+        signal_arr[34] = &(cut->S25);
+        signal_arr[35] = &(cut->S26);
+        signal_arr[36] = &(cut->S27);
+        signal_arr[37] = &(cut->S28);
+        signal_arr[38] = &(cut->S29);
+        signal_arr[39] = &(cut->S30);
+        signal_arr[40] = &(cut->S31);
+        signal_arr[41] = &(cut->S32);
+        signal_arr[42] = &(cut->S33);
+        signal_arr[43] = &(cut->S34);
+        signal_arr[44] = &(cut->S35);
+        signal_arr[45] = &(cut->S36);
+        signal_arr[46] = &(cut->S37);
+        signal_arr[47] = &(cut->S38);
+        signal_arr[48] = &(cut->S39);
+        signal_arr[49] = &(cut->S40);
     }
 
 };

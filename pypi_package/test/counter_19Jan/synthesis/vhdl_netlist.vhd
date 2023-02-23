@@ -12,221 +12,307 @@ ENTITY counter IS
 END ENTITY counter;
 
 ARCHITECTURE arch OF counter IS
-    SIGNAL _0_ : STD_LOGIC;
-    SIGNAL _10_ : STD_LOGIC;
-    SIGNAL _11_ : STD_LOGIC;
-    SIGNAL _12_ : STD_LOGIC;
-    SIGNAL _13_ : STD_LOGIC;
-    SIGNAL _14_ : STD_LOGIC;
-    SIGNAL _15_ : STD_LOGIC;
-    SIGNAL _16_ : STD_LOGIC;
-    SIGNAL _17_ : STD_LOGIC;
-    SIGNAL _18_ : STD_LOGIC;
-    SIGNAL _19_ : STD_LOGIC;
-    SIGNAL _1_ : STD_LOGIC;
-    SIGNAL _20_ : STD_LOGIC;
-    SIGNAL _21_ : STD_LOGIC;
-    SIGNAL _22_ : STD_LOGIC;
-    SIGNAL _23_ : STD_LOGIC;
-    SIGNAL _24_ : STD_LOGIC;
-    SIGNAL _25_ : STD_LOGIC;
-    SIGNAL _2_ : STD_LOGIC;
-    SIGNAL _3_ : STD_LOGIC;
-    SIGNAL _4_ : STD_LOGIC;
-    SIGNAL _5_ : STD_LOGIC;
-    SIGNAL _6_ : STD_LOGIC;
-    SIGNAL _7_ : STD_LOGIC;
-    SIGNAL _8_ : STD_LOGIC;
-    SIGNAL _9_ : STD_LOGIC;
+    SIGNAL S0 : STD_LOGIC;
+    SIGNAL S1 : STD_LOGIC;
+    SIGNAL S2 : STD_LOGIC;
+    SIGNAL S3 : STD_LOGIC;
+    SIGNAL S4 : STD_LOGIC;
+    SIGNAL S5 : STD_LOGIC;
+    SIGNAL S6 : STD_LOGIC;
+    SIGNAL S7 : STD_LOGIC;
+    SIGNAL S8 : STD_LOGIC;
+    SIGNAL S9 : STD_LOGIC;
+    SIGNAL S10 : STD_LOGIC;
+    SIGNAL S11 : STD_LOGIC;
+    SIGNAL S12 : STD_LOGIC;
+    SIGNAL S13 : STD_LOGIC;
+    SIGNAL S14 : STD_LOGIC;
+    SIGNAL S15 : STD_LOGIC;
+    SIGNAL S16 : STD_LOGIC;
+    SIGNAL S17 : STD_LOGIC;
+    SIGNAL S18 : STD_LOGIC;
+    SIGNAL S19 : STD_LOGIC;
+    SIGNAL S20 : STD_LOGIC;
+    SIGNAL S21 : STD_LOGIC;
+    SIGNAL S22 : STD_LOGIC;
+    SIGNAL S23 : STD_LOGIC;
+    SIGNAL S24 : STD_LOGIC;
+    SIGNAL S25 : STD_LOGIC;
+    SIGNAL S26 : STD_LOGIC;
+    SIGNAL S27 : STD_LOGIC;
+    SIGNAL S28 : STD_LOGIC;
+    SIGNAL S29 : STD_LOGIC;
+    SIGNAL S30 : STD_LOGIC;
+    SIGNAL S31 : STD_LOGIC;
+    SIGNAL S32 : STD_LOGIC;
+    SIGNAL S33 : STD_LOGIC;
+    SIGNAL S34 : STD_LOGIC;
+    SIGNAL S35 : STD_LOGIC;
+    SIGNAL S36 : STD_LOGIC;
+    SIGNAL S37 : STD_LOGIC;
+    SIGNAL S38 : STD_LOGIC;
+    SIGNAL S39 : STD_LOGIC;
+    SIGNAL S40 : STD_LOGIC;
 
 BEGIN
-INV_X1_1: ENTITY WORK.INV_X1
+notg_1: ENTITY WORK.notg
     PORT MAP (
-        A => _20_(2),
-        ZN => _4_
+        in1 => S31,
+        out1 => S4
     );
-AND4_X1_1: ENTITY WORK.AND4_X1
+notg_2: ENTITY WORK.notg
     PORT MAP (
-        A1 => _4_,
-        A2 => _20_(3),
-        A3 => _20_(1),
-        A4 => _20_(0),
-        ZN => _24_
+        in1 => S34,
+        out1 => S5
     );
-INV_X1_2: ENTITY WORK.INV_X1
+notg_3: ENTITY WORK.notg
     PORT MAP (
-        A => _25_(0),
-        ZN => _5_
+        in1 => S33,
+        out1 => S6
     );
-NAND2_X1_1: ENTITY WORK.NAND2_X1
+notg_4: ENTITY WORK.notg
     PORT MAP (
-        A1 => clkEn,
-        A2 => en,
-        ZN => _6_
+        in1 => S32,
+        out1 => S7
     );
-INV_X1_3: ENTITY WORK.INV_X1
+notg_5: ENTITY WORK.notg
     PORT MAP (
-        A => rst,
-        ZN => _7_
+        in1 => S36,
+        out1 => S8
     );
-OAI21_X1_1: ENTITY WORK.OAI21_X1
+nand_n_1: ENTITY WORK.nand_n
     PORT MAP (
-        A => _7_,
-        B1 => _6_,
-        B2 => _20_(0),
-        ZN => _8_
+        in1(0) => S34,
+        in1(1) => S4,
+        out1 => S9
     );
-AOI21_X1_1: ENTITY WORK.AOI21_X1
+nand_n_2: ENTITY WORK.nand_n
     PORT MAP (
-        A => _8_,
-        B1 => _6_,
-        B2 => _5_,
-        ZN => _0_
+        in1(0) => S32,
+        in1(1) => S6,
+        out1 => S10
     );
-INV_X1_4: ENTITY WORK.INV_X1
+nor_n_1: ENTITY WORK.nor_n
     PORT MAP (
-        A => _20_(1),
-        ZN => _9_
+        in1(0) => S10,
+        in1(1) => S9,
+        out1 => S30
     );
-NAND3_X1_1: ENTITY WORK.NAND3_X1
+nand_n_3: ENTITY WORK.nand_n
     PORT MAP (
-        A1 => clkEn,
-        A2 => en,
-        A3 => _25_(0),
-        ZN => _10_
+        in1(0) => S35,
+        in1(1) => S29,
+        out1 => S11
     );
-NAND4_X1_1: ENTITY WORK.NAND4_X1
+nor_n_2: ENTITY WORK.nor_n
     PORT MAP (
-        A1 => _20_(1),
-        A2 => _25_(0),
-        A3 => clkEn,
-        A4 => en,
-        ZN => _11_
+        in1(0) => S11,
+        in1(1) => S4,
+        out1 => S12
     );
-NAND2_X1_2: ENTITY WORK.NAND2_X1
+notg_6: ENTITY WORK.notg
     PORT MAP (
-        A1 => _11_,
-        A2 => _7_,
-        ZN => _12_
+        in1 => S12,
+        out1 => S13
     );
-AOI21_X1_2: ENTITY WORK.AOI21_X1
+nand_n_4: ENTITY WORK.nand_n
     PORT MAP (
-        A => _12_,
-        B1 => _10_,
-        B2 => _9_,
-        ZN => _1_
+        in1(0) => S11,
+        in1(1) => S4,
+        out1 => S14
     );
-NAND2_X1_3: ENTITY WORK.NAND2_X1
+nand_n_5: ENTITY WORK.nand_n
     PORT MAP (
-        A1 => _20_(2),
-        A2 => _20_(1),
-        ZN => _13_
+        in1(0) => S14,
+        in1(1) => S8,
+        out1 => S15
     );
-OAI21_X1_2: ENTITY WORK.OAI21_X1
+nor_n_3: ENTITY WORK.nor_n
     PORT MAP (
-        A => _7_,
-        B1 => _10_,
-        B2 => _13_,
-        ZN => _14_
+        in1(0) => S15,
+        in1(1) => S12,
+        out1 => S0
     );
-AOI21_X1_3: ENTITY WORK.AOI21_X1
+nor_n_4: ENTITY WORK.nor_n
     PORT MAP (
-        A => _14_,
-        B1 => _11_,
-        B2 => _4_,
-        ZN => _2_
+        in1(0) => S13,
+        in1(1) => S7,
+        out1 => S16
     );
-OAI21_X1_3: ENTITY WORK.OAI21_X1
+nand_n_6: ENTITY WORK.nand_n
     PORT MAP (
-        A => _20_(3),
-        B1 => _10_,
-        B2 => _13_,
-        ZN => _15_
+        in1(0) => S12,
+        in1(1) => S32,
+        out1 => S17
     );
-INV_X1_5: ENTITY WORK.INV_X1
+nor_n_5: ENTITY WORK.nor_n
     PORT MAP (
-        A => _20_(3),
-        ZN => _16_
+        in1(0) => S12,
+        in1(1) => S32,
+        out1 => S18
     );
-AND3_X1_1: ENTITY WORK.AND3_X1
+nor_n_6: ENTITY WORK.nor_n
     PORT MAP (
-        A1 => _25_(0),
-        A2 => en,
-        A3 => clkEn,
-        ZN => _17_
+        in1(0) => S18,
+        in1(1) => S36,
+        out1 => S19
     );
-AND2_X1_1: ENTITY WORK.AND2_X1
+nand_n_7: ENTITY WORK.nand_n
     PORT MAP (
-        A1 => _20_(1),
-        A2 => _20_(2),
-        ZN => _18_
+        in1(0) => S19,
+        in1(1) => S17,
+        out1 => S20
     );
-NAND3_X1_2: ENTITY WORK.NAND3_X1
+notg_7: ENTITY WORK.notg
     PORT MAP (
-        A1 => _17_,
-        A2 => _16_,
-        A3 => _18_,
-        ZN => _19_
+        in1 => S20,
+        out1 => S1
     );
-AOI21_X1_4: ENTITY WORK.AOI21_X1
+nand_n_8: ENTITY WORK.nand_n
     PORT MAP (
-        A => rst,
-        B1 => _19_,
-        B2 => _15_,
-        ZN => _3_
+        in1(0) => S16,
+        in1(1) => S33,
+        out1 => S21
     );
-DFF_X1_1: ENTITY WORK.DFF_X1
+nor_n_7: ENTITY WORK.nor_n
     PORT MAP (
-        CK => clk,
-        D => _0_,
-        Q => _25_(0),
-        QN => _20_(0)
+        in1(0) => S16,
+        in1(1) => S33,
+        out1 => S22
     );
-DFF_X1_2: ENTITY WORK.DFF_X1
+nor_n_8: ENTITY WORK.nor_n
     PORT MAP (
-        CK => clk,
-        D => _1_,
-        Q => _20_(1),
-        QN => _21_
+        in1(0) => S22,
+        in1(1) => S36,
+        out1 => S23
     );
-DFF_X1_3: ENTITY WORK.DFF_X1
+nand_n_9: ENTITY WORK.nand_n
     PORT MAP (
-        CK => clk,
-        D => _2_,
-        Q => _20_(2),
-        QN => _22_
+        in1(0) => S23,
+        in1(1) => S21,
+        out1 => S24
     );
-DFF_X1_4: ENTITY WORK.DFF_X1
+notg_8: ENTITY WORK.notg
     PORT MAP (
-        CK => clk,
-        D => _3_,
-        Q => _20_(3),
-        QN => _23_
+        in1 => S24,
+        out1 => S2
     );
-BUF_X1_1: ENTITY WORK.BUF_X1
+nor_n_9: ENTITY WORK.nor_n
     PORT MAP (
-        A => _24_,
-        Z => co
+        in1(0) => S21,
+        in1(1) => S5,
+        out1 => S25
     );
-BUF_X1_2: ENTITY WORK.BUF_X1
+nand_n_10: ENTITY WORK.nand_n
     PORT MAP (
-        A => _25_(0),
-        Z => count(0)
+        in1(0) => S21,
+        in1(1) => S5,
+        out1 => S26
     );
-BUF_X1_3: ENTITY WORK.BUF_X1
+nand_n_11: ENTITY WORK.nand_n
     PORT MAP (
-        A => _20_(1),
-        Z => count(1)
+        in1(0) => S26,
+        in1(1) => S8,
+        out1 => S27
     );
-BUF_X1_4: ENTITY WORK.BUF_X1
+nor_n_10: ENTITY WORK.nor_n
     PORT MAP (
-        A => _20_(2),
-        Z => count(2)
+        in1(0) => S27,
+        in1(1) => S25,
+        out1 => S3
     );
-BUF_X1_5: ENTITY WORK.BUF_X1
+dff_1: ENTITY WORK.dff
     PORT MAP (
-        A => _20_(3),
-        Z => count(3)
+        C => S28,
+        CE => '1',
+        CLR => '0',
+        D => S0,
+        NbarT => '0',
+        PRE => '0',
+        Q => S31,
+        Si => S37,
+        global_reset => '0'
+    );
+dff_2: ENTITY WORK.dff
+    PORT MAP (
+        C => S28,
+        CE => '1',
+        CLR => '0',
+        D => S1,
+        NbarT => '0',
+        PRE => '0',
+        Q => S32,
+        Si => S38,
+        global_reset => '0'
+    );
+dff_3: ENTITY WORK.dff
+    PORT MAP (
+        C => S28,
+        CE => '1',
+        CLR => '0',
+        D => S2,
+        NbarT => '0',
+        PRE => '0',
+        Q => S33,
+        Si => S39,
+        global_reset => '0'
+    );
+dff_4: ENTITY WORK.dff
+    PORT MAP (
+        C => S28,
+        CE => '1',
+        CLR => '0',
+        D => S3,
+        NbarT => '0',
+        PRE => '0',
+        Q => S34,
+        Si => S40,
+        global_reset => '0'
+    );
+bufg_1: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => clk,
+        out1 => S28
+    );
+bufg_2: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => clkEn,
+        out1 => S29
+    );
+bufg_3: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => S30,
+        out1 => co
+    );
+bufg_4: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => S31,
+        out1 => count(0)
+    );
+bufg_5: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => S32,
+        out1 => count(1)
+    );
+bufg_6: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => S33,
+        out1 => count(2)
+    );
+bufg_7: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => S34,
+        out1 => count(3)
+    );
+bufg_8: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => en,
+        out1 => S35
+    );
+bufg_9: ENTITY WORK.bufg
+    PORT MAP (
+        in1 => rst,
+        out1 => S36
     );
 
 END ARCHITECTURE arch;

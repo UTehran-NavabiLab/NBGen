@@ -1,0 +1,1993 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
+
+
+-- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/yosys_script.ys' --
+
+1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:90)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:93)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:96)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:554)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:569)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:597)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:622)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:642)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:656)
+Generating RTLIL representation for module `\PUNEH_Top'.
+Generating RTLIL representation for module `\Datapath'.
+Generating RTLIL representation for module `\Controller'.
+Note: Assuming pure combinatorial block at /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221.2-510.5 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\register'.
+Generating RTLIL representation for module `\Multiplexer_4_to_1'.
+Generating RTLIL representation for module `\Multiplexer_2_to_1'.
+Generating RTLIL representation for module `\INC'.
+Generating RTLIL representation for module `\IMM'.
+Generating RTLIL representation for module `\LGU'.
+Generating RTLIL representation for module `\ARU'.
+Generating RTLIL representation for module `\Tristate'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Finding top of design hierarchy..
+root of   0 design levels: Tristate            
+root of   0 design levels: ARU                 
+root of   0 design levels: LGU                 
+root of   0 design levels: IMM                 
+root of   0 design levels: INC                 
+root of   0 design levels: Multiplexer_2_to_1  
+root of   0 design levels: Multiplexer_4_to_1  
+root of   0 design levels: register            
+root of   0 design levels: Controller          
+root of   1 design levels: Datapath            
+root of   2 design levels: PUNEH_Top           
+Automatically selected PUNEH_Top as design top module.
+
+2.2. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+Used module:     \Controller
+Used module:     \Datapath
+Used module:         \Tristate
+Used module:         \ARU
+Used module:         \LGU
+Used module:         \IMM
+Used module:         \register
+Used module:         \INC
+Used module:         \Multiplexer_2_to_1
+Used module:         \Multiplexer_4_to_1
+Parameter 1 (\N) = 16
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\register'.
+Parameter 1 (\N) = 16
+Generating RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 1
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\register'.
+Parameter 1 (\N) = 1
+Generating RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000000001'.
+Parameter 1 (\N) = 1
+Found cached RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000000001'.
+Parameter 1 (\N) = 1
+Found cached RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000000001'.
+Parameter 1 (\N) = 1
+Found cached RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000000001'.
+Parameter 1 (\N) = 4
+
+2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\register'.
+Parameter 1 (\N) = 4
+Generating RTLIL representation for module `$paramod\register\N=s32'00000000000000000000000000000100'.
+Parameter 1 (\N) = 2
+
+2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\Multiplexer_2_to_1'.
+Parameter 1 (\N) = 2
+Generating RTLIL representation for module `$paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010'.
+Parameter 1 (\N) = 4
+
+2.7. Executing AST frontend in derive mode using pre-parsed AST for module `\Multiplexer_2_to_1'.
+Parameter 1 (\N) = 4
+Generating RTLIL representation for module `$paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100'.
+Parameter 1 (\N) = 16
+
+2.8. Executing AST frontend in derive mode using pre-parsed AST for module `\Multiplexer_2_to_1'.
+Parameter 1 (\N) = 16
+Generating RTLIL representation for module `$paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 4
+
+2.9. Executing AST frontend in derive mode using pre-parsed AST for module `\Multiplexer_4_to_1'.
+Parameter 1 (\N) = 4
+Generating RTLIL representation for module `$paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100'.
+Parameter 1 (\N) = 16
+
+2.10. Executing AST frontend in derive mode using pre-parsed AST for module `\Multiplexer_4_to_1'.
+Parameter 1 (\N) = 16
+Generating RTLIL representation for module `$paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000'.
+Parameter 1 (\N) = 16
+Found cached RTLIL representation for module `$paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000'.
+
+2.11. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+Used module:     \Controller
+Used module:     \Datapath
+Used module:         \Tristate
+Used module:         \ARU
+Used module:         \LGU
+Used module:         \IMM
+Used module:         $paramod\register\N=s32'00000000000000000000000000010000
+Used module:         $paramod\register\N=s32'00000000000000000000000000000001
+Used module:         $paramod\register\N=s32'00000000000000000000000000000100
+Used module:         \INC
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000
+
+2.12. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+Used module:     \Controller
+Used module:     \Datapath
+Used module:         \Tristate
+Used module:         \ARU
+Used module:         \LGU
+Used module:         \IMM
+Used module:         $paramod\register\N=s32'00000000000000000000000000010000
+Used module:         $paramod\register\N=s32'00000000000000000000000000000001
+Used module:         $paramod\register\N=s32'00000000000000000000000000000100
+Used module:         \INC
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000
+Removing unused module `\Multiplexer_2_to_1'.
+Removing unused module `\Multiplexer_4_to_1'.
+Removing unused module `\register'.
+Removed 3 unused modules.
+Mapping positional arguments of cell Datapath.TriBuff (Tristate).
+Mapping positional arguments of cell Datapath.ARU1 (ARU).
+Mapping positional arguments of cell Datapath.LGU1 (LGU).
+Mapping positional arguments of cell Datapath.IMM1 (IMM).
+Mapping positional arguments of cell Datapath.IN ($paramod\register\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.PC ($paramod\register\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.IR ($paramod\register\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.AC ($paramod\register\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.SR_V ($paramod\register\N=s32'00000000000000000000000000000001).
+Mapping positional arguments of cell Datapath.SR_C ($paramod\register\N=s32'00000000000000000000000000000001).
+Mapping positional arguments of cell Datapath.SR_N ($paramod\register\N=s32'00000000000000000000000000000001).
+Mapping positional arguments of cell Datapath.SR_Z ($paramod\register\N=s32'00000000000000000000000000000001).
+Mapping positional arguments of cell Datapath.OF ($paramod\register\N=s32'00000000000000000000000000000100).
+Mapping positional arguments of cell Datapath.INC_2 (INC).
+Mapping positional arguments of cell Datapath.INC_1 (INC).
+Mapping positional arguments of cell Datapath.mux10 ($paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010).
+Mapping positional arguments of cell Datapath.mux9 ($paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100).
+Mapping positional arguments of cell Datapath.mux8 ($paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.mux7 ($paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.mux6 ($paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.mux5 ($paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100).
+Mapping positional arguments of cell Datapath.mux4 ($paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.mux3 ($paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.mux2 ($paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell Datapath.mux1 ($paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell PUNEH_Top.CU (Controller).
+Mapping positional arguments of cell PUNEH_Top.DP (Datapath).
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+Used module:     \Controller
+Used module:     \Datapath
+Used module:         \Tristate
+Used module:         \ARU
+Used module:         \LGU
+Used module:         \IMM
+Used module:         $paramod\register\N=s32'00000000000000000000000000010000
+Used module:         $paramod\register\N=s32'00000000000000000000000000000001
+Used module:         $paramod\register\N=s32'00000000000000000000000000000100
+Used module:         \INC
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+Used module:     \Controller
+Used module:     \Datapath
+Used module:         \Tristate
+Used module:         \ARU
+Used module:         \LGU
+Used module:         \IMM
+Used module:         $paramod\register\N=s32'00000000000000000000000000010000
+Used module:         $paramod\register\N=s32'00000000000000000000000000000001
+Used module:         $paramod\register\N=s32'00000000000000000000000000000100
+Used module:         \INC
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100
+Used module:         $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$71 in module $paramod\register\N=s32'00000000000000000000000000000100.
+Marked 2 switch rules as full_case in process $proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$69 in module $paramod\register\N=s32'00000000000000000000000000000001.
+Marked 2 switch rules as full_case in process $proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$67 in module $paramod\register\N=s32'00000000000000000000000000010000.
+Removed 1 dead cases from process $proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13 in module Controller.
+Marked 6 switch rules as full_case in process $proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13 in module Controller.
+Marked 1 switch rules as full_case in process $proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:214$12 in module Controller.
+Removed a total of 1 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 47 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `$paramod\register\N=s32'00000000000000000000000000000100.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$71'.
+Found async reset \rst in `$paramod\register\N=s32'00000000000000000000000000000001.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$69'.
+Found async reset \rst in `$paramod\register\N=s32'00000000000000000000000000010000.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$67'.
+Found async reset \rst in `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:214$12'.
+
+3.2.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\register\N=s32'00000000000000000000000000000100.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$71'.
+     1/1: $0\q[3:0]
+Creating decoders for process `$paramod\register\N=s32'00000000000000000000000000000001.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$69'.
+     1/1: $0\q[0:0]
+Creating decoders for process `$paramod\register\N=s32'00000000000000000000000000010000.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$67'.
+     1/1: $0\q[15:0]
+Creating decoders for process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+     1/153: $6\nstate[1:0]
+     2/153: $6\ldPC[0:0]
+     3/153: $6\selINC_PC[0:0]
+     4/153: $6\INC1[0:0]
+     5/153: $5\ldAC[0:0]
+     6/153: $3\selMEM_AC[0:0]
+     7/153: $3\readMEM[0:0]
+     8/153: $2\selIN_ADR[0:0]
+     9/153: $3\selARU_SR[0:0]
+    10/153: $5\ADD[0:0]
+    11/153: $3\conOF[0:0]
+    12/153: $5\selARU_AC[0:0]
+    13/153: $3\selIR_ADR[0:0]
+    14/153: $3\selAC_MEM[0:0]
+    15/153: $2\selIN_MEM[0:0]
+    16/153: $3\selMO_ARU[0:0]
+    17/153: $3\selMEM_LGU[0:0]
+    18/153: $3\seldataBus[0:0]
+    19/153: $5\ldSR[3:0]
+    20/153: $3\writeMEM[0:0]
+    21/153: $5\nstate[1:0]
+    22/153: $5\ldPC[0:0]
+    23/153: $5\selINC_PC[0:0]
+    24/153: $4\INC2[0:0]
+    25/153: $5\INC1[0:0]
+    26/153: $4\nstate[1:0]
+    27/153: $4\ldPC[0:0]
+    28/153: $4\selINC_PC[0:0]
+    29/153: $4\INC1[0:0]
+    30/153: $4\ldOF[0:0]
+    31/153: $4\selPC_OF[0:0]
+    32/153: $4\selLGU_SR[0:0]
+    33/153: $4\ADD[0:0]
+    34/153: $4\NOT[0:0]
+    35/153: $4\LSB0E[0:0]
+    36/153: $4\selLGU_AC[0:0]
+    37/153: $4\selARU_AC[0:0]
+    38/153: $4\selIMM_PC[0:0]
+    39/153: $4\sel1_ARU[0:0]
+    40/153: $4\zeroAC[0:0]
+    41/153: $4\ldAC[0:0]
+    42/153: $4\ldSR[3:0]
+    43/153: $3\nstate[1:0]
+    44/153: $3\ldPC[0:0]
+    45/153: $3\selINC_PC[0:0]
+    46/153: $3\INC1[0:0]
+    47/153: $3\ldOF[0:0]
+    48/153: $3\selIMM_OF[0:0]
+    49/153: $3\SE12bits[0:0]
+    50/153: $3\selLGU_SR[0:0]
+    51/153: $3\INC2[0:0]
+    52/153: $3\selSET_SR[0:0]
+    53/153: $3\ADD[0:0]
+    54/153: $3\NOT[0:0]
+    55/153: $3\LSB0E[0:0]
+    56/153: $3\selLGU_AC[0:0]
+    57/153: $3\selARU_AC[0:0]
+    58/153: $3\selIMM_PC[0:0]
+    59/153: $3\sel1_ARU[0:0]
+    60/153: $3\selIMM_LGU[0:0]
+    61/153: $3\selPC_OF[0:0]
+    62/153: $3\zeroAC[0:0]
+    63/153: $3\ldAC[0:0]
+    64/153: $3\SHF[1:0]
+    65/153: $3\ldSR[3:0]
+    66/153: $2\nstate[1:0]
+    67/153: $2\ldPC[0:0]
+    68/153: $2\selINC_PC[0:0]
+    69/153: $2\INC1[0:0]
+    70/153: $2\ldAC[0:0]
+    71/153: $2\selIMM_AC[0:0]
+    72/153: $2\SE4bits[0:0]
+    73/153: $2\selLGU_SR[0:0]
+    74/153: $2\selARU_SR[0:0]
+    75/153: $2\INC2[0:0]
+    76/153: $2\selINC_IN[0:0]
+    77/153: $2\selSET_SR[0:0]
+    78/153: $2\MUL[0:0]
+    79/153: $2\ADD[0:0]
+    80/153: $2\NOT[0:0]
+    81/153: $2\AND[0:0]
+    82/153: $2\LSB0E[0:0]
+    83/153: $2\SE12bits[0:0]
+    84/153: $2\conOF[0:0]
+    85/153: $2\selLGU_AC[0:0]
+    86/153: $2\selARU_AC[0:0]
+    87/153: $2\selMEM_AC[0:0]
+    88/153: $2\selIR_ADR[0:0]
+    89/153: $2\selAC_MEM[0:0]
+    90/153: $2\selPC_MEM[0:0]
+    91/153: $2\selIMM_PC[0:0]
+    92/153: $2\selMEM_PC[0:0]
+    93/153: $2\selMO_ARU[0:0]
+    94/153: $2\sel1_ARU[0:0]
+    95/153: $2\selMEM_LGU[0:0]
+    96/153: $2\selIMM_LGU[0:0]
+    97/153: $2\selMEM_IN[0:0]
+    98/153: $2\selIMM_OF[0:0]
+    99/153: $2\selPC_OF[0:0]
+   100/153: $2\seldataBus[0:0]
+   101/153: $2\zeroAC[0:0]
+   102/153: $2\ldIN[0:0]
+   103/153: $2\ldOF[0:0]
+   104/153: $2\SHF[1:0]
+   105/153: $2\ldSR[3:0]
+   106/153: $2\readMEM[0:0]
+   107/153: $2\writeMEM[0:0]
+   108/153: $1\nstate[1:0]
+   109/153: $1\readMEM[0:0]
+   110/153: $1\ldIR[0:0]
+   111/153: $1\selPC_ADR[0:0]
+   112/153: $1\selLGU_SR[0:0]
+   113/153: $1\selARU_SR[0:0]
+   114/153: $1\INC2[0:0]
+   115/153: $1\INC1[0:0]
+   116/153: $1\selINC_IN[0:0]
+   117/153: $1\selSET_SR[0:0]
+   118/153: $1\MUL[0:0]
+   119/153: $1\ADD[0:0]
+   120/153: $1\NOT[0:0]
+   121/153: $1\AND[0:0]
+   122/153: $1\LSB0E[0:0]
+   123/153: $1\SE4bits[0:0]
+   124/153: $1\SE12bits[0:0]
+   125/153: $1\conOF[0:0]
+   126/153: $1\selLGU_AC[0:0]
+   127/153: $1\selARU_AC[0:0]
+   128/153: $1\selMEM_AC[0:0]
+   129/153: $1\selIMM_AC[0:0]
+   130/153: $1\selIR_ADR[0:0]
+   131/153: $1\selIN_ADR[0:0]
+   132/153: $1\selAC_MEM[0:0]
+   133/153: $1\selPC_MEM[0:0]
+   134/153: $1\selIN_MEM[0:0]
+   135/153: $1\selIMM_PC[0:0]
+   136/153: $1\selMEM_PC[0:0]
+   137/153: $1\selINC_PC[0:0]
+   138/153: $1\selMO_ARU[0:0]
+   139/153: $1\sel1_ARU[0:0]
+   140/153: $1\selMEM_LGU[0:0]
+   141/153: $1\selIMM_LGU[0:0]
+   142/153: $1\selMEM_IN[0:0]
+   143/153: $1\selIMM_OF[0:0]
+   144/153: $1\selPC_OF[0:0]
+   145/153: $1\seldataBus[0:0]
+   146/153: $1\zeroAC[0:0]
+   147/153: $1\ldAC[0:0]
+   148/153: $1\ldIN[0:0]
+   149/153: $1\ldPC[0:0]
+   150/153: $1\ldOF[0:0]
+   151/153: $1\SHF[1:0]
+   152/153: $1\ldSR[3:0]
+   153/153: $1\writeMEM[0:0]
+Creating decoders for process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:214$12'.
+     1/1: $0\pstate[1:0]
+
+3.2.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\Controller.\writeMEM' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\readMEM' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ldSR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\SHF' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ldIR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ldOF' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ldPC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ldIN' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ldAC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\zeroAC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\seldataBus' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selPC_OF' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIMM_OF' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selMEM_IN' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIMM_LGU' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selMEM_LGU' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\sel1_ARU' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selMO_ARU' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selINC_PC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selMEM_PC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIMM_PC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIN_MEM' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIR_MEM' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selPC_MEM' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selAC_MEM' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIN_ADR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIR_ADR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selPC_ADR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selIMM_AC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selMEM_AC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selARU_AC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selLGU_AC' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\conOF' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\SE12bits' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\SE4bits' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\LSB0E' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\AND' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\NOT' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\ADD' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\MUL' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selSET_SR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selINC_IN' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\INC1' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\INC2' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selARU_SR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\selLGU_SR' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+No latch inferred for signal `\Controller.\nstate' from process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+
+3.2.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod\register\N=s32'00000000000000000000000000000100.\q' using process `$paramod\register\N=s32'00000000000000000000000000000100.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$71'.
+  created $adff cell `$procdff$2031' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\register\N=s32'00000000000000000000000000000001.\q' using process `$paramod\register\N=s32'00000000000000000000000000000001.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$69'.
+  created $adff cell `$procdff$2032' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\register\N=s32'00000000000000000000000000010000.\q' using process `$paramod\register\N=s32'00000000000000000000000000010000.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$67'.
+  created $adff cell `$procdff$2033' with positive edge clock and positive level reset.
+Creating register for signal `\Controller.\pstate' using process `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:214$12'.
+  created $adff cell `$procdff$2034' with positive edge clock and positive level reset.
+
+3.2.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `$paramod\register\N=s32'00000000000000000000000000000100.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$71'.
+Removing empty process `$paramod\register\N=s32'00000000000000000000000000000100.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$71'.
+Found and cleaned up 2 empty switches in `$paramod\register\N=s32'00000000000000000000000000000001.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$69'.
+Removing empty process `$paramod\register\N=s32'00000000000000000000000000000001.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$69'.
+Found and cleaned up 2 empty switches in `$paramod\register\N=s32'00000000000000000000000000010000.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$67'.
+Removing empty process `$paramod\register\N=s32'00000000000000000000000000010000.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:523$67'.
+Found and cleaned up 6 empty switches in `\Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+Removing empty process `Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:221$13'.
+Removing empty process `Controller.$proc$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:214$12'.
+Cleaned up 12 empty switches.
+
+3.2.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100.
+Optimizing module $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010.
+Optimizing module $paramod\register\N=s32'00000000000000000000000000000100.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\register\N=s32'00000000000000000000000000000001.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\register\N=s32'00000000000000000000000000010000.
+<suppressed ~1 debug messages>
+Optimizing module Tristate.
+Optimizing module ARU.
+Optimizing module LGU.
+<suppressed ~2 debug messages>
+Optimizing module IMM.
+Optimizing module INC.
+Optimizing module $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000.
+Optimizing module $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100.
+Optimizing module $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000.
+Optimizing module Controller.
+<suppressed ~52 debug messages>
+Optimizing module Datapath.
+Optimizing module PUNEH_Top.
+
+3.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000100.
+Deleting now unused module $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000000010.
+Deleting now unused module $paramod\register\N=s32'00000000000000000000000000000100.
+Deleting now unused module $paramod\register\N=s32'00000000000000000000000000000001.
+Deleting now unused module $paramod\register\N=s32'00000000000000000000000000010000.
+Deleting now unused module Tristate.
+Deleting now unused module ARU.
+Deleting now unused module LGU.
+Deleting now unused module IMM.
+Deleting now unused module INC.
+Deleting now unused module $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000010000.
+Deleting now unused module $paramod\Multiplexer_4_to_1\N=s32'00000000000000000000000000000100.
+Deleting now unused module $paramod\Multiplexer_2_to_1\N=s32'00000000000000000000000000010000.
+Deleting now unused module Controller.
+Deleting now unused module Datapath.
+<suppressed ~27 debug messages>
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~20 debug messages>
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 27 unused cells and 374 unused wires.
+<suppressed ~56 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module PUNEH_Top...
+Warning: Wire PUNEH_Top.\DP.LGU1.Z is used but has no driver.
+Warning: Wire PUNEH_Top.\DP.LGU1.N is used but has no driver.
+Found and reported 2 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+<suppressed ~2826 debug messages>
+Removed a total of 942 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1717.
+    dead port 2/2 on $mux $flatten\CU.$procmux$313.
+    dead port 2/2 on $mux $flatten\CU.$procmux$315.
+    dead port 2/2 on $mux $flatten\CU.$procmux$324.
+    dead port 2/2 on $mux $flatten\CU.$procmux$326.
+    dead port 2/2 on $mux $flatten\CU.$procmux$328.
+    dead port 2/2 on $mux $flatten\CU.$procmux$337.
+    dead port 2/2 on $mux $flatten\CU.$procmux$339.
+    dead port 2/2 on $mux $flatten\CU.$procmux$341.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1255.
+    dead port 2/2 on $mux $flatten\CU.$procmux$357.
+    dead port 2/2 on $mux $flatten\CU.$procmux$359.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1129.
+    dead port 2/2 on $mux $flatten\CU.$procmux$361.
+    dead port 2/2 on $mux $flatten\CU.$procmux$377.
+    dead port 2/2 on $mux $flatten\CU.$procmux$379.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1843.
+    dead port 2/2 on $mux $flatten\CU.$procmux$381.
+    dead port 2/2 on $mux $flatten\CU.$procmux$397.
+    dead port 2/2 on $mux $flatten\CU.$procmux$399.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1444.
+    dead port 2/2 on $mux $flatten\CU.$procmux$401.
+    dead port 2/2 on $mux $flatten\CU.$procmux$417.
+    dead port 2/2 on $mux $flatten\CU.$procmux$419.
+    dead port 2/2 on $mux $flatten\CU.$procmux$421.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1612.
+    dead port 2/2 on $mux $flatten\CU.$procmux$438.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1066.
+    dead port 2/2 on $mux $flatten\CU.$procmux$440.
+    dead port 2/2 on $mux $flatten\CU.$procmux$442.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1213.
+    dead port 2/2 on $mux $flatten\CU.$procmux$459.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1738.
+    dead port 2/2 on $mux $flatten\CU.$procmux$461.
+    dead port 2/2 on $mux $flatten\CU.$procmux$186.
+    dead port 2/2 on $mux $flatten\CU.$procmux$463.
+    dead port 2/2 on $mux $flatten\CU.$procmux$478.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1528.
+    dead port 2/2 on $mux $flatten\CU.$procmux$480.
+    dead port 2/2 on $mux $flatten\CU.$procmux$482.
+    dead port 2/2 on $mux $flatten\CU.$procmux$495.
+    dead port 2/2 on $mux $flatten\CU.$procmux$497.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1318.
+    dead port 2/2 on $mux $flatten\CU.$procmux$499.
+    dead port 2/2 on $mux $flatten\CU.$procmux$513.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1171.
+    dead port 2/2 on $mux $flatten\CU.$procmux$515.
+    dead port 2/2 on $mux $flatten\CU.$procmux$517.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1381.
+    dead port 2/2 on $mux $flatten\CU.$procmux$132.
+    dead port 2/2 on $mux $flatten\CU.$procmux$533.
+    dead port 2/2 on $mux $flatten\CU.$procmux$535.
+    dead port 2/2 on $mux $flatten\CU.$procmux$537.
+    dead port 2/2 on $mux $flatten\CU.$procmux$551.
+    dead port 2/2 on $mux $flatten\CU.$procmux$553.
+    dead port 2/2 on $mux $flatten\CU.$procmux$555.
+    dead port 2/2 on $mux $flatten\CU.$procmux$568.
+    dead port 2/2 on $mux $flatten\CU.$procmux$570.
+    dead port 2/2 on $mux $flatten\CU.$procmux$572.
+    dead port 2/2 on $mux $flatten\CU.$procmux$588.
+    dead port 2/2 on $mux $flatten\CU.$procmux$590.
+    dead port 2/2 on $mux $flatten\CU.$procmux$592.
+    dead port 2/2 on $mux $flatten\CU.$procmux$605.
+    dead port 2/2 on $mux $flatten\CU.$procmux$607.
+    dead port 2/2 on $mux $flatten\CU.$procmux$609.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1633.
+    dead port 2/2 on $mux $flatten\CU.$procmux$624.
+    dead port 2/2 on $mux $flatten\CU.$procmux$626.
+    dead port 2/2 on $mux $flatten\CU.$procmux$628.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1759.
+    dead port 2/2 on $mux $flatten\CU.$procmux$642.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1465.
+    dead port 2/2 on $mux $flatten\CU.$procmux$644.
+    dead port 2/2 on $mux $flatten\CU.$procmux$646.
+    dead port 2/2 on $mux $flatten\CU.$procmux$176.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1045.
+    dead port 2/2 on $mux $flatten\CU.$procmux$661.
+    dead port 2/2 on $mux $flatten\CU.$procmux$193.
+    dead port 2/2 on $mux $flatten\CU.$procmux$663.
+    dead port 2/2 on $mux $flatten\CU.$procmux$665.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1549.
+    dead port 2/2 on $mux $flatten\CU.$procmux$674.
+    dead port 2/2 on $mux $flatten\CU.$procmux$676.
+    dead port 2/2 on $mux $flatten\CU.$procmux$685.
+    dead port 2/2 on $mux $flatten\CU.$procmux$687.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1276.
+    dead port 2/2 on $mux $flatten\CU.$procmux$696.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1108.
+    dead port 2/2 on $mux $flatten\CU.$procmux$698.
+    dead port 2/2 on $mux $flatten\CU.$procmux$707.
+    dead port 2/2 on $mux $flatten\CU.$procmux$709.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1402.
+    dead port 2/2 on $mux $flatten\CU.$procmux$722.
+    dead port 2/2 on $mux $flatten\CU.$procmux$123.
+    dead port 2/2 on $mux $flatten\CU.$procmux$724.
+    dead port 2/2 on $mux $flatten\CU.$procmux$737.
+    dead port 2/2 on $mux $flatten\CU.$procmux$739.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1339.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1654.
+    dead port 2/2 on $mux $flatten\CU.$procmux$751.
+    dead port 2/2 on $mux $flatten\CU.$procmux$753.
+    dead port 2/2 on $mux $flatten\CU.$procmux$765.
+    dead port 2/2 on $mux $flatten\CU.$procmux$767.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1780.
+    dead port 2/2 on $mux $flatten\CU.$procmux$775.
+    dead port 2/2 on $mux $flatten\CU.$procmux$777.
+    dead port 2/2 on $mux $flatten\CU.$procmux$784.
+    dead port 2/2 on $mux $flatten\CU.$procmux$786.
+    dead port 2/2 on $mux $flatten\CU.$procmux$798.
+    dead port 2/2 on $mux $flatten\CU.$procmux$800.
+    dead port 2/2 on $mux $flatten\CU.$procmux$141.
+    dead port 2/2 on $mux $flatten\CU.$procmux$812.
+    dead port 2/2 on $mux $flatten\CU.$procmux$814.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1024.
+    dead port 2/2 on $mux $flatten\CU.$procmux$826.
+    dead port 2/2 on $mux $flatten\CU.$procmux$828.
+    dead port 2/2 on $mux $flatten\CU.$procmux$200.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1486.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1234.
+    dead port 2/2 on $mux $flatten\CU.$procmux$840.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1570.
+    dead port 2/2 on $mux $flatten\CU.$procmux$842.
+    dead port 2/2 on $mux $flatten\CU.$procmux$854.
+    dead port 2/2 on $mux $flatten\CU.$procmux$856.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1150.
+    dead port 2/2 on $mux $flatten\CU.$procmux$868.
+    dead port 2/2 on $mux $flatten\CU.$procmux$870.
+    dead port 2/2 on $mux $flatten\CU.$procmux$882.
+    dead port 2/2 on $mux $flatten\CU.$procmux$884.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1192.
+    dead port 2/2 on $mux $flatten\CU.$procmux$895.
+    dead port 2/2 on $mux $flatten\CU.$procmux$897.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1801.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1675.
+    dead port 2/2 on $mux $flatten\CU.$procmux$909.
+    dead port 2/2 on $mux $flatten\CU.$procmux$911.
+    dead port 2/2 on $mux $flatten\CU.$procmux$208.
+    dead port 2/2 on $mux $flatten\CU.$procmux$923.
+    dead port 2/2 on $mux $flatten\CU.$procmux$158.
+    dead port 2/2 on $mux $flatten\CU.$procmux$925.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1003.
+    dead port 2/2 on $mux $flatten\CU.$procmux$215.
+    dead port 2/2 on $mux $flatten\CU.$procmux$168.
+    dead port 2/2 on $mux $flatten\CU.$procmux$937.
+    dead port 2/2 on $mux $flatten\CU.$procmux$939.
+    dead port 2/2 on $mux $flatten\CU.$procmux$223.
+    dead port 2/2 on $mux $flatten\CU.$procmux$949.
+    dead port 2/2 on $mux $flatten\CU.$procmux$951.
+    dead port 2/2 on $mux $flatten\CU.$procmux$232.
+    dead port 2/2 on $mux $flatten\CU.$procmux$150.
+    dead port 2/2 on $mux $flatten\CU.$procmux$959.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1423.
+    dead port 2/2 on $mux $flatten\CU.$procmux$961.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1297.
+    dead port 2/2 on $mux $flatten\CU.$procmux$240.
+    dead port 2/2 on $mux $flatten\CU.$procmux$247.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1087.
+    dead port 2/2 on $mux $flatten\CU.$procmux$254.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1360.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1591.
+    dead port 2/2 on $mux $flatten\CU.$procmux$270.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1507.
+    dead port 2/2 on $mux $flatten\CU.$procmux$1822.
+    dead port 2/2 on $mux $flatten\CU.$procmux$982.
+    dead port 2/2 on $mux $flatten\CU.$procmux$279.
+    dead port 2/2 on $mux $flatten\CU.$procmux$287.
+    dead port 2/2 on $mux $flatten\CU.$procmux$289.
+    dead port 2/2 on $mux $flatten\CU.$procmux$291.
+    dead port 2/2 on $mux $flatten\CU.$procmux$299.
+    dead port 2/2 on $mux $flatten\CU.$procmux$301.
+    dead port 2/2 on $mux $flatten\CU.$procmux$303.
+    dead port 2/2 on $mux $flatten\CU.$procmux$311.
+    dead port 1/2 on $mux $flatten\DP.\LGU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:621$45.
+Removed 173 multiplexer ports.
+<suppressed ~62 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1280: { $auto$opt_reduce.cc:134:opt_mux$2038 $auto$opt_reduce.cc:134:opt_mux$2036 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$173: $auto$opt_reduce.cc:134:opt_mux$2040
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1385: { $auto$opt_reduce.cc:134:opt_mux$2044 $auto$opt_reduce.cc:134:opt_mux$2042 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1616: { $auto$opt_reduce.cc:134:opt_mux$2048 $auto$opt_reduce.cc:134:opt_mux$2046 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1406: { $flatten\CU.$procmux$1001_CMP $auto$opt_reduce.cc:134:opt_mux$2050 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1322: { $auto$opt_reduce.cc:134:opt_mux$2052 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$746: $auto$opt_reduce.cc:134:opt_mux$2054
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1721: { $auto$opt_reduce.cc:134:opt_mux$2058 $auto$opt_reduce.cc:134:opt_mux$2056 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1217: { $flatten\CU.$procmux$1012_CMP $auto$opt_reduce.cc:134:opt_mux$2060 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1112: { $auto$opt_reduce.cc:134:opt_mux$2064 $auto$opt_reduce.cc:134:opt_mux$2062 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1658: { $auto$opt_reduce.cc:134:opt_mux$2066 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1784: { $auto$opt_reduce.cc:134:opt_mux$2072 $auto$opt_reduce.cc:134:opt_mux$2070 $flatten\CU.$procmux$1012_CMP $auto$opt_reduce.cc:134:opt_mux$2068 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1175: { $flatten\CU.$procmux$1018_CMP $auto$opt_reduce.cc:134:opt_mux$2074 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1070: { $flatten\CU.$procmux$1002_CMP $auto$opt_reduce.cc:134:opt_mux$2076 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1343: { $auto$opt_reduce.cc:134:opt_mux$2080 $auto$opt_reduce.cc:134:opt_mux$2078 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1846: { $flatten\CU.$procmux$1849_CMP $flatten\CU.$procmux$1004_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$835: { $flatten\CU.$procmux$358_CMP $auto$opt_reduce.cc:134:opt_mux$2082 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1490: { $auto$opt_reduce.cc:134:opt_mux$2086 $auto$opt_reduce.cc:134:opt_mux$2084 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1574: { $auto$opt_reduce.cc:134:opt_mux$2090 $auto$opt_reduce.cc:134:opt_mux$2088 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$475: $auto$opt_reduce.cc:134:opt_mux$2092
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1238: { $auto$opt_reduce.cc:134:opt_mux$2096 $auto$opt_reduce.cc:134:opt_mux$2094 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1028: { $auto$opt_reduce.cc:134:opt_mux$2100 $auto$opt_reduce.cc:134:opt_mux$2098 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$891: $auto$opt_reduce.cc:134:opt_mux$2102
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1154: { $auto$opt_reduce.cc:134:opt_mux$2104 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1196: { $auto$opt_reduce.cc:134:opt_mux$2106 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1133: { $auto$opt_reduce.cc:134:opt_mux$2110 $auto$opt_reduce.cc:134:opt_mux$2108 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1637: { $auto$opt_reduce.cc:134:opt_mux$2112 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1805: { $auto$opt_reduce.cc:134:opt_mux$2116 $auto$opt_reduce.cc:134:opt_mux$2114 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$639: $auto$opt_reduce.cc:134:opt_mux$2118
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$932: { $flatten\CU.$procmux$358_CMP $auto$opt_reduce.cc:134:opt_mux$2120 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1742: { $auto$opt_reduce.cc:134:opt_mux$2122 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$658: $auto$opt_reduce.cc:134:opt_mux$2124
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1700: { $auto$opt_reduce.cc:134:opt_mux$2126 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1007: { $auto$opt_reduce.cc:134:opt_mux$2130 $auto$opt_reduce.cc:134:opt_mux$2128 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1763: { $auto$opt_reduce.cc:134:opt_mux$2132 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1448: { $flatten\CU.$procmux$1020_CMP $auto$opt_reduce.cc:134:opt_mux$2134 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$237: $auto$opt_reduce.cc:134:opt_mux$2136
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1532: { $auto$opt_reduce.cc:134:opt_mux$2140 $auto$opt_reduce.cc:134:opt_mux$2138 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1469: { $flatten\CU.$procmux$1009_CMP $auto$opt_reduce.cc:134:opt_mux$2142 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$965: { $auto$opt_reduce.cc:134:opt_mux$2146 $auto$opt_reduce.cc:134:opt_mux$2144 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$671: { }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1427: { $auto$opt_reduce.cc:134:opt_mux$2150 $auto$opt_reduce.cc:134:opt_mux$2148 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1301: { $auto$opt_reduce.cc:134:opt_mux$2152 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$155: $auto$opt_reduce.cc:134:opt_mux$2154
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$682: { }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$276: $auto$opt_reduce.cc:134:opt_mux$2156
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1553: { $auto$opt_reduce.cc:134:opt_mux$2158 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1595: { $auto$opt_reduce.cc:134:opt_mux$2162 $auto$opt_reduce.cc:134:opt_mux$2160 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$986: { $auto$opt_reduce.cc:134:opt_mux$2166 $auto$opt_reduce.cc:134:opt_mux$2164 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1259: { $auto$opt_reduce.cc:134:opt_mux$2168 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1826: { $auto$opt_reduce.cc:134:opt_mux$2172 $auto$opt_reduce.cc:134:opt_mux$2170 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1049: { $auto$opt_reduce.cc:134:opt_mux$2176 $auto$opt_reduce.cc:134:opt_mux$2174 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1511: { $flatten\CU.$procmux$1010_CMP $auto$opt_reduce.cc:134:opt_mux$2178 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$693: $flatten\CU.$procmux$358_CMP
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1364: { $auto$opt_reduce.cc:134:opt_mux$2182 $auto$opt_reduce.cc:134:opt_mux$2180 $flatten\CU.$procmux$1008_CMP }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$183: $auto$opt_reduce.cc:134:opt_mux$2184
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$1091: { $auto$opt_reduce.cc:134:opt_mux$2188 $auto$opt_reduce.cc:134:opt_mux$2186 }
+    New ctrl vector for $pmux cell $flatten\CU.$procmux$965: { $auto$opt_reduce.cc:134:opt_mux$2144 $auto$opt_reduce.cc:134:opt_mux$2190 }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:128:opt_mux$2189: { $flatten\CU.$procmux$1001_CMP $flatten\CU.$procmux$1002_CMP $flatten\CU.$procmux$1008_CMP $flatten\CU.$procmux$1010_CMP $flatten\CU.$procmux$1011_CMP $flatten\CU.$procmux$1012_CMP $flatten\CU.$procmux$1014_CMP $flatten\CU.$procmux$1015_CMP $flatten\CU.$procmux$1016_CMP $flatten\CU.$procmux$1017_CMP $flatten\CU.$procmux$1020_CMP }
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 59 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+<suppressed ~126 debug messages>
+Removed a total of 42 cells.
+
+3.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 2 unused cells and 1159 unused wires.
+<suppressed ~3 debug messages>
+
+3.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~68 debug messages>
+
+3.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+3.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.7.16. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing FSM pass (extract and optimize FSM).
+
+3.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking PUNEH_Top.CU.pstate as FSM state register:
+    Circuit seems to be self-resetting.
+
+3.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.9. Executing OPT pass (performing simple optimizations).
+
+3.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~68 debug messages>
+
+3.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+3.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $flatten\DP.\SR_Z.$procdff$2032 ($adff) from module PUNEH_Top (D = \DP.SR_Z.d, Q = \DP.SR_Z.q).
+Adding EN signal on $flatten\DP.\SR_V.$procdff$2032 ($adff) from module PUNEH_Top (D = \DP.SR_V.d, Q = \DP.SR_V.q).
+Adding EN signal on $flatten\DP.\SR_N.$procdff$2032 ($adff) from module PUNEH_Top (D = \DP.SR_N.d, Q = \DP.SR_N.q).
+Adding EN signal on $flatten\DP.\SR_C.$procdff$2032 ($adff) from module PUNEH_Top (D = \DP.SR_C.d, Q = \DP.SR_C.q).
+Adding EN signal on $flatten\DP.\PC.$procdff$2033 ($adff) from module PUNEH_Top (D = \DP.PC.d, Q = \DP.PC.q).
+Adding EN signal on $flatten\DP.\OF.$procdff$2031 ($adff) from module PUNEH_Top (D = \DP.OF.d, Q = \DP.OF.q).
+Adding EN signal on $flatten\DP.\IR.$procdff$2033 ($adff) from module PUNEH_Top (D = \dataBus_in, Q = \DP.IR.q).
+Adding EN signal on $flatten\DP.\IN.$procdff$2033 ($adff) from module PUNEH_Top (D = \DP.IN.d, Q = \DP.IN.q).
+Adding EN signal on $flatten\DP.\AC.$procdff$2033 ($adff) from module PUNEH_Top (D = $flatten\DP.\AC.$0\q[15:0], Q = \DP.AC.q).
+
+3.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+3.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~1 debug messages>
+
+3.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~63 debug messages>
+
+3.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+3.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.9.16. Finished OPT passes. (There is nothing left to do.)
+
+3.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 16 bits (of 32) from port Y of cell PUNEH_Top.$flatten\DP.\ARU1.$mul$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:641$52 ($mul).
+Removed top 15 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\ARU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$54 ($mux).
+Removed top 16 bits (of 32) from port A of cell PUNEH_Top.$flatten\DP.\LGU1.$not$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:617$36 ($not).
+Removed top 1 bits (of 2) from port B of cell PUNEH_Top.$flatten\DP.\LGU1.$eq$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$39 ($eq).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\LGU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:616$50 ($mux).
+Removed cell PUNEH_Top.$flatten\DP.\AC.$procmux$111 ($mux).
+Removed top 30 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux10.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:567$76 ($mux).
+Removed top 28 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux9.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:567$80 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux8.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:567$84 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux7.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:567$84 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux6.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:567$84 ($mux).
+Removed top 28 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux5.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:550$92 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux4.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:550$100 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux3.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:550$100 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux2.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:550$100 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:550$100 ($mux).
+Removed top 15 bits (of 32) from port Y of cell PUNEH_Top.$flatten\DP.\ARU1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$51 ($add).
+Removed top 16 bits (of 32) from port Y of cell PUNEH_Top.$flatten\DP.\LGU1.$and$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:616$34 ($and).
+Removed top 1 bits (of 2) from port B of cell PUNEH_Top.$flatten\DP.\INC_2.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29 ($add).
+Removed top 2 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1020_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1019_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1018_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1017_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1016_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1004_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1001_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$1000_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$783_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$749_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$748_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$747_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell PUNEH_Top.$flatten\CU.$procmux$477_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell PUNEH_Top.$flatten\CU.$procmux$476_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell PUNEH_Top.$flatten\CU.$procmux$396_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell PUNEH_Top.$flatten\CU.$procmux$358_CMP0 ($eq).
+Removed top 15 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\ARU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:641$53 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\LGU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:617$49 ($mux).
+Removed top 30 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux10.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:568$74 ($mux).
+Removed top 28 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux9.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:568$78 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux8.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:568$82 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux7.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:568$82 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux6.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:568$82 ($mux).
+Removed top 28 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux5.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:551$90 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux4.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:551$98 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux3.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:551$98 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux2.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:551$98 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:551$98 ($mux).
+Removed top 16 bits (of 32) from port Y of cell PUNEH_Top.$flatten\DP.\LGU1.$not$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:617$36 ($not).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\LGU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:618$48 ($mux).
+Removed top 28 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux5.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$88 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux4.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$96 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux3.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$96 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux2.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$96 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$96 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\LGU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$47 ($mux).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:553$94 ($mux).
+Removed top 16 bits (of 32) from port Y of cell PUNEH_Top.$flatten\DP.\LGU1.$shr$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$40 ($shr).
+Removed top 16 bits (of 32) from mux cell PUNEH_Top.$flatten\DP.\LGU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:620$46 ($mux).
+Removed top 16 bits (of 32) from port Y of cell PUNEH_Top.$flatten\DP.\LGU1.$sshr$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:618$38 ($sshr).
+Removed top 15 bits (of 32) from wire PUNEH_Top.$flatten\DP.\ARU1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$51_Y.
+Removed top 15 bits (of 32) from wire PUNEH_Top.$flatten\DP.\ARU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$54_Y.
+Removed top 15 bits (of 32) from wire PUNEH_Top.$flatten\DP.\ARU1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:641$53_Y.
+Removed top 16 bits (of 32) from wire PUNEH_Top.$flatten\DP.\LGU1.$shr$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$40_Y.
+Removed top 16 bits (of 32) from wire PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:551$98_Y.
+Removed top 23 bits (of 32) from wire PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$96_Y.
+Removed top 31 bits (of 32) from wire PUNEH_Top.$flatten\DP.\mux1.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:553$94_Y.
+Removed top 30 bits (of 32) from wire PUNEH_Top.$flatten\DP.\mux10.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:568$74_Y.
+Removed top 23 bits (of 32) from wire PUNEH_Top.$flatten\DP.\mux2.$ternary$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:552$96_Y.
+
+3.11. Executing PEEPOPT pass (run peephole optimizers).
+
+3.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 22 unused wires.
+<suppressed ~1 debug messages>
+
+3.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module PUNEH_Top:
+  creating $macc model for $flatten\DP.\ARU1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$51 ($add).
+  creating $macc model for $flatten\DP.\ARU1.$mul$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:641$52 ($mul).
+  creating $macc model for $flatten\DP.\INC_1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29 ($add).
+  creating $macc model for $flatten\DP.\INC_2.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29 ($add).
+  creating $alu model for $macc $flatten\DP.\INC_2.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29.
+  creating $alu model for $macc $flatten\DP.\INC_1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29.
+  creating $alu model for $macc $flatten\DP.\ARU1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$51.
+  creating $macc cell for $flatten\DP.\ARU1.$mul$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:641$52: $auto$alumacc.cc:365:replace_macc$2211
+  creating $alu cell for $flatten\DP.\ARU1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:640$51: $auto$alumacc.cc:485:replace_alu$2212
+  creating $alu cell for $flatten\DP.\INC_1.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29: $auto$alumacc.cc:485:replace_alu$2215
+  creating $alu cell for $flatten\DP.\INC_2.$add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:578$29: $auto$alumacc.cc:485:replace_alu$2218
+  created 3 $alu and 1 $macc cells.
+
+3.14. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module PUNEH_Top that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\DP.\LGU1.$sshr$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:618$38 ($sshr):
+    Found 2 activation_patterns using ctrl signal { \CU.zeroAC \DP.mux1.sel3 \DP.mux1.sel2 \DP.mux1.sel1 \DP.mux1.sel0 $flatten\DP.\LGU1.$eq$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:620$41_Y $flatten\DP.\LGU1.$eq$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$39_Y $flatten\DP.\LGU1.$eq$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:618$37_Y \DP.LGU1.NOT \DP.LGU1.AND }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\DP.\LGU1.$shr$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$40 ($shr):
+    Found 1 activation_patterns using ctrl signal { \CU.zeroAC \DP.mux1.sel3 \DP.mux1.sel2 \DP.mux1.sel1 \DP.mux1.sel0 $flatten\DP.\LGU1.$eq$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:619$39_Y $flatten\DP.\LGU1.$eq$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v:618$37_Y \DP.LGU1.NOT \DP.LGU1.AND }.
+    No candidates found.
+
+3.15. Executing OPT pass (performing simple optimizations).
+
+3.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~63 debug messages>
+
+3.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+3.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.15.9. Finished OPT passes. (There is nothing left to do.)
+
+3.16. Executing MEMORY pass.
+
+3.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.16.4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.16.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.16.6. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.16.7. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.16.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.16.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.18. Executing OPT pass (performing simple optimizations).
+
+3.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~137 debug messages>
+
+3.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 49 unused cells and 118 unused wires.
+<suppressed ~94 debug messages>
+
+3.18.5. Finished fast OPT passes.
+
+3.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.20. Executing OPT pass (performing simple optimizations).
+
+3.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~28 debug messages>
+
+3.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+    Consolidated identical input bits for $mux cell $flatten\CU.$procmux$268:
+      Old ports: A=4'0000, B=4'1111, Y=$flatten\CU.$5\ldSR[3:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\CU.$5\ldSR[3:0] [0]
+      New connections: $flatten\CU.$5\ldSR[3:0] [3:1] = { $flatten\CU.$5\ldSR[3:0] [0] $flatten\CU.$5\ldSR[3:0] [0] $flatten\CU.$5\ldSR[3:0] [0] }
+    Consolidated identical input bits for $mux cell $flatten\CU.$procmux$658:
+      Old ports: A=4'0000, B=4'1100, Y=$flatten\CU.$4\ldSR[3:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\CU.$4\ldSR[3:0] [2]
+      New connections: { $flatten\CU.$4\ldSR[3:0] [3] $flatten\CU.$4\ldSR[3:0] [1:0] } = { $flatten\CU.$4\ldSR[3:0] [2] 2'00 }
+    Consolidated identical input bits for $mux cell $flatten\CU.$procmux$965:
+      Old ports: A=2'10, B=2'00, Y=$flatten\CU.$2\nstate[1:0]
+      New ports: A=1'1, B=1'0, Y=$flatten\CU.$2\nstate[1:0] [1]
+      New connections: $flatten\CU.$2\nstate[1:0] [0] = 1'0
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 3 changes.
+
+3.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.20.6. Executing OPT_SHARE pass.
+
+3.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~3 debug messages>
+
+3.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~28 debug messages>
+
+3.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+3.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.20.14. Executing OPT_SHARE pass.
+
+3.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.20.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.20.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~28 debug messages>
+
+3.20.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+3.20.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+3.20.22. Executing OPT_SHARE pass.
+
+3.20.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.20.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+3.20.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+3.20.26. Finished OPT passes. (There is nothing left to do.)
+
+3.21. Executing TECHMAP pass (map to technology primitives).
+
+3.21.1. Executing Verilog-2005 frontend: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+3.21.2. Continuing TECHMAP pass.
+Using extmapper maccmap for cells of type $macc.
+  add \DP.AC.q [7:0] * \DP.ARU1.in1 [7:0] (8x8 bits, unsigned)
+Using template $paramod$081ba1a4a7201ecdb44563d3c3bd7013d1ebf4eb\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $logic_or.
+Using template $paramod$constmap:00a5b8c078faac2d9dcf7d1311e85cfd31359fcf$paramod$dbf40641f46a3d6fcbead2665c61c1c54aefb005\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshr.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$constmap:00a5b8c078faac2d9dcf7d1311e85cfd31359fcf$paramod$e31da3c1e7d1078ed1477dabeabe646dcd7d3c9b\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod$cc01eb4b12ca3a903e6a730e12703045df75a1af\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adffe.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xnor.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$bf2533632d512eac76dd186c0da49367e29b8e98\_90_pmux for cells of type $pmux.
+Using template $paramod$20d3ee62d72123142eb855d7ddafd835e31ba009\_90_pmux for cells of type $pmux.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000010001 for cells of type $lcu.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+No more expansions possible.
+<suppressed ~1626 debug messages>
+
+3.22. Executing OPT pass (performing simple optimizations).
+
+3.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~766 debug messages>
+
+3.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+<suppressed ~867 debug messages>
+Removed a total of 289 cells.
+
+3.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 84 unused cells and 748 unused wires.
+<suppressed ~85 debug messages>
+
+3.22.5. Finished fast OPT passes.
+
+3.23. Executing ABC pass (technology mapping using ABC).
+
+3.23.1. Extracting gate netlist of module `\PUNEH_Top' to `<abc-temp-dir>/input.blif'..
+Extracted 1388 gates and 1481 wires to a netlist network with 90 inputs and 101 outputs.
+
+3.23.1.1. Executing ABC.
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+3.23.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       23
+ABC RESULTS:            ANDNOT cells:      356
+ABC RESULTS:               MUX cells:      336
+ABC RESULTS:              NAND cells:       44
+ABC RESULTS:               NOR cells:       58
+ABC RESULTS:               NOT cells:      113
+ABC RESULTS:                OR cells:      266
+ABC RESULTS:             ORNOT cells:       49
+ABC RESULTS:              XNOR cells:       17
+ABC RESULTS:               XOR cells:      172
+ABC RESULTS:        internal signals:     1290
+ABC RESULTS:           input signals:       90
+ABC RESULTS:          output signals:      101
+Removing temp directory.
+
+3.24. Executing OPT pass (performing simple optimizations).
+
+3.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~20 debug messages>
+
+3.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.24.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 1 unused cells and 751 unused wires.
+<suppressed ~147 debug messages>
+
+3.24.5. Finished fast OPT passes.
+
+3.25. Executing HIERARCHY pass (managing design hierarchy).
+
+3.25.1. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+
+3.25.2. Analyzing design hierarchy..
+Top module:  \PUNEH_Top
+Removed 0 unused modules.
+
+3.26. Printing statistics.
+
+=== PUNEH_Top ===
+
+   Number of wires:               1498
+   Number of wire bits:           2251
+   Number of public wires:         149
+   Number of public wire bits:     902
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1506
+     $_ANDNOT_                     356
+     $_AND_                         23
+     $_DFFE_PP0P_                   72
+     $_DFF_PP0_                      2
+     $_MUX_                        336
+     $_NAND_                        44
+     $_NOR_                         57
+     $_NOT_                        112
+     $_ORNOT_                       49
+     $_OR_                         266
+     $_XNOR_                        17
+     $_XOR_                        172
+
+3.27. Executing CHECK pass (checking for obvious problems).
+Checking module PUNEH_Top...
+Found and reported 0 problems.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~9 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $_MUX_ $abc$5848$auto$blifparse.cc:381:parse_blif$6969 in front of them:
+        $abc$5848$auto$blifparse.cc:381:parse_blif$6968
+        $abc$5848$auto$blifparse.cc:381:parse_blif$6967
+
+4.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+<suppressed ~2 debug messages>
+
+4.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+4.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+4.14. Executing OPT_SHARE pass.
+
+4.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+4.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+4.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+4.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+4.22. Executing OPT_SHARE pass.
+
+4.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+4.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+4.26. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFF_N (noninv, pins=3, area=0.00) is a direct match for cell type $_DFF_N_.
+  cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
+  cell DFF_NN0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NN0_.
+  cell DFF_NN1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NN1_.
+  cell DFF_NP0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NP0_.
+  cell DFF_NP1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_NP1_.
+  cell DFF_PN0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PN0_.
+  cell DFF_PN1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PN1_.
+  cell DFF_PP0 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PP0_.
+  cell DFF_PP1 (noninv, pins=4, area=0.00) is a direct match for cell type $_DFF_PP1_.
+  final dff cell mappings:
+    \DFF_N _DFF_N_ (.C( C), .D( D), .Q( Q));
+    \DFF _DFF_P_ (.C( C), .D( D), .Q( Q));
+    \DFF_NN0 _DFF_NN0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_NN1 _DFF_NN1_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_NP0 _DFF_NP0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_NP1 _DFF_NP1_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PN0 _DFF_PN0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PN1 _DFF_PN1_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PP0 _DFF_PP0_ (.C( C), .D( D), .Q( Q), .R( R));
+    \DFF_PP1 _DFF_PP1_ (.C( C), .D( D), .Q( Q), .R( R));
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\PUNEH_Top':
+  mapped 74 $_DFF_PP0_ cells to \DFF_PP0 cells.
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+6.9. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing ABC pass (technology mapping using ABC).
+
+7.1. Extracting gate netlist of module `\PUNEH_Top' to `<abc-temp-dir>/input.blif'..
+Extracted 1502 gates and 1592 wires to a netlist network with 90 inputs and 108 outputs.
+
+7.1.1. Executing ABC.
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/mycells_yosys.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Warning: Templates are not defined.
+ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
+ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_N".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NN0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NN1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NP0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_NP1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PN0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PN1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PP0".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_PP1".
+ABC: Library "demo" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/mycells_yosys.lib" has 6 cells (10 skipped: 10 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.01 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:     1201
+ABC RESULTS:               NOR cells:     1107
+ABC RESULTS:               NOT cells:      264
+ABC RESULTS:        internal signals:     1394
+ABC RESULTS:           input signals:       90
+ABC RESULTS:          output signals:      108
+Removing temp directory.
+
+8. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+9. Executing TECHMAP pass (map to technology primitives).
+
+9.1. Executing Verilog-2005 frontend: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+9.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~69 debug messages>
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+10.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 1627 unused wires.
+<suppressed ~83 debug messages>
+
+10.5. Finished fast OPT passes.
+
+11. Executing ABC pass (technology mapping using ABC).
+
+11.1. Extracting gate netlist of module `\PUNEH_Top' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+12. Executing OPT pass (performing simple optimizations).
+
+12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+12.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 66 unused wires.
+<suppressed ~66 debug messages>
+
+12.5. Finished fast OPT passes.
+
+13. Executing ABC pass (technology mapping using ABC).
+
+13.1. Extracting gate netlist of module `\PUNEH_Top' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+14. Executing OPT pass (performing simple optimizations).
+
+14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+14.9. Finished OPT passes. (There is nothing left to do.)
+Removed 0 unused cells and 626 unused wires.
+
+15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+16. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map output port PUNEH_Top.addrBus: Missing option -outpad.
+Mapping port PUNEH_Top.clk using BUF.
+Mapping port PUNEH_Top.dataBus_in using BUF.
+Don't map output port PUNEH_Top.dataBus_out: Missing option -outpad.
+Don't map output port PUNEH_Top.readMEM: Missing option -outpad.
+Mapping port PUNEH_Top.rst using BUF.
+Don't map output port PUNEH_Top.writeMEM: Missing option -outpad.
+
+17. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port PUNEH_Top.clk: Missing option -inpad.
+Don't map input port PUNEH_Top.dataBus_in: Missing option -inpad.
+Don't map input port PUNEH_Top.rst: Missing option -inpad.
+Mapping port PUNEH_Top.addrBus using BUF.
+Mapping port PUNEH_Top.dataBus_out using BUF.
+Mapping port PUNEH_Top.readMEM using BUF.
+Mapping port PUNEH_Top.writeMEM using BUF.
+
+18. Executing Verilog backend.
+Dumping module `\PUNEH_Top'.
+
+19. Executing BLIF backend.
+
+20. Executing JSON backend.
+
+21. Executing TECHMAP pass (map to technology primitives).
+
+21.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/DFF_map.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/DFF_map.v' to AST representation.
+Generating RTLIL representation for module `\DFF'.
+Generating RTLIL representation for module `\DFF_N'.
+Generating RTLIL representation for module `\DFF_PP0'.
+Generating RTLIL representation for module `\DFF_PP1'.
+Generating RTLIL representation for module `\DFF_PN0'.
+Generating RTLIL representation for module `\DFF_PN1'.
+Generating RTLIL representation for module `\DFF_NN0'.
+Generating RTLIL representation for module `\DFF_NN1'.
+Generating RTLIL representation for module `\DFF_NP0'.
+Generating RTLIL representation for module `\DFF_NP1'.
+Successfully finished Verilog frontend.
+
+21.2. Continuing TECHMAP pass.
+Using template DFF_PP0 for cells of type DFF_PP0.
+No more expansions possible.
+<suppressed ~86 debug messages>
+
+22. Executing ABC pass (technology mapping using ABC).
+
+22.1. Extracting gate netlist of module `\PUNEH_Top' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+23. Executing OPT pass (performing simple optimizations).
+
+23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+23.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+23.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+23.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+23.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 518 unused wires.
+<suppressed ~1 debug messages>
+
+23.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+23.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+23.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+23.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+23.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+23.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+23.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+23.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+23.16. Finished OPT passes. (There is nothing left to do.)
+
+24. Executing TECHMAP pass (map to technology primitives).
+
+24.1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/Logic_map.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/tech/Logic_map.v' to AST representation.
+Generating RTLIL representation for module `\BUF'.
+Generating RTLIL representation for module `\TIELOM'.
+Generating RTLIL representation for module `\TIEHIM'.
+Generating RTLIL representation for module `\IBUF'.
+Generating RTLIL representation for module `\OBUF'.
+Generating RTLIL representation for module `\NOT'.
+Generating RTLIL representation for module `\AND'.
+Generating RTLIL representation for module `\NAND'.
+Generating RTLIL representation for module `\OR'.
+Generating RTLIL representation for module `\NOR'.
+Generating RTLIL representation for module `\XOR'.
+Generating RTLIL representation for module `\XNOR'.
+Successfully finished Verilog frontend.
+
+24.2. Continuing TECHMAP pass.
+Using template BUF for cells of type BUF.
+Using template NOT for cells of type NOT.
+Using template NOR for cells of type NOR.
+Using template NAND for cells of type NAND.
+No more expansions possible.
+<suppressed ~2638 debug messages>
+
+25. Executing OPT pass (performing simple optimizations).
+
+25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+25.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+25.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+25.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+25.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+25.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+Removed 0 unused cells and 7556 unused wires.
+<suppressed ~1 debug messages>
+
+25.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+25.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+25.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PUNEH_Top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+25.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PUNEH_Top.
+Performed a total of 0 changes.
+
+25.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PUNEH_Top'.
+Removed a total of 0 cells.
+
+25.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+25.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+25.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PUNEH_Top.
+
+25.16. Finished OPT passes. (There is nothing left to do.)
+
+26. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PUNEH_Top..
+
+27. Printing statistics.
+
+=== PUNEH_Top ===
+
+   Number of wires:               2700
+   Number of wire bits:           2790
+   Number of public wires:          83
+   Number of public wire bits:     128
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               2698
+     bufg                           52
+     dff                            74
+     nand_n                       1201
+     nor_n                        1107
+     notg                          264
+
+28. Executing Verilog backend.
+Dumping module `\PUNEH_Top'.
+
+29. Executing JSON backend.
+
+Warnings: 11 unique messages, 11 total
+End of script. Logfile hash: 2dea493619, CPU: user 23.47s system 0.09s
+Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )
+Time spent: 24% 4x write_verilog (5 sec), 14% 4x techmap (3 sec), ...

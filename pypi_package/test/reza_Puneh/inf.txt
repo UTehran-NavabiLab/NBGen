@@ -1,0 +1,28 @@
+Printing statistics.
+
+=== Puneh_Top ===
+
+   Number of wires:               2925
+   Number of wire bits:           2970
+   Number of public wires:         134
+   Number of public wire bits:     179
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               2877
+     dff                            75
+     nand_n                        968
+     nor_n                        1373
+     notg                          409
+     pin                            18
+     pout                           34
+
+26. Executing Verilog backend.
+Dumping module `\Puneh_Top'.
+
+27. Executing JSON backend.
+
+End of script. Logfile hash: 965e9c129e
+Yosys 0.7 (git sha1 61f6811, i686-w64-mingw32.static-gcc 4.9.3 -Os)
+Time spent: 2% 32x opt_expr (0 sec), 2% 28x opt_merge (0 sec), ...
+

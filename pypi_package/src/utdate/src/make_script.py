@@ -19,11 +19,11 @@ def yosys_script_mk(input_file, module_name, config, tech, working_directory, li
     for file_name in input_file:
         list_of_files += f'{os.path.join(working_directory, file_name)} '
     
-    if (not vhdl):
+    if (vhdl):
+        yosys_script = f'ghdl {list_of_files} -e {module_name} \n' + yosys_script
+    else:
         # create yosys_script from template
         yosys_script = f'read_verilog {list_of_files} \n' + yosys_script
-    else:
-        yosys_script = f'ghdl {list_of_files} -e {module_name} \n' + yosys_script
 
 
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for dfflibmap"])
@@ -37,6 +37,7 @@ def yosys_script_mk(input_file, module_name, config, tech, working_directory, li
     yosys_script_1st += '\n'
     yosys_script_1st += f'abc -liberty {os.path.join(config_dir, config["mycells_yosys_lib_fileName"])} \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
+    
     
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for constant mapping"])
     # split_page won't start from new line so we add it add new line 
@@ -53,6 +54,11 @@ def yosys_script_mk(input_file, module_name, config, tech, working_directory, li
     yosys_script_1st += f'iopadmap -outpad {tech["bufcell"] if (tech["outbufcell"] == "") else tech["outbufcell"]} {tech["bufpin_in"] if (tech["outbufpin_in"] == "") else tech["outbufpin_in"]}:{tech["bufpin_out"] if (tech["outbufpin_out"] == "") else tech["outbufpin_out"]} -bits \n'
     yosys_script = yosys_script_1st + yosys_script_2nd
 
+    yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for abc after splitnets"])
+    # split_page won't start from new line so we add it add new line 
+    yosys_script_1st += '\n'
+    yosys_script_1st += f'abc -liberty {os.path.join(config_dir, config["mycells_yosys_lib_fileName"])} \n'
+    yosys_script = yosys_script_1st + yosys_script_2nd
 
     yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for premap_synthesis file"])
     # split_page won't start from new line so we add it add new line 

@@ -125,20 +125,24 @@ def restore_name(temp_page):
 # @def: 
 #   remove_DFFport ; find and remove . port from DFF
 #     @input   ; string of a page
-def remove_DFFport(temp_page):
+def remove_DFFport(temp_page, technology_parameter):
 
     page2line = temp_page.splitlines()
 
     for indx, line in enumerate(page2line):
         # find DFF_PP
-        if (line.strip().find("DFF_PP") > -1) and (line.strip().find("(") > -1):
-            for indx_2, line_2 in enumerate(page2line[indx:]):
-                # find ");" that occures after 
-                if line_2.strip().find(");") > -1:
-                    for indx_3, line_3 in enumerate(page2line[indx: indx + indx_2]):
-                        if line_3.strip().find(".C") > -1:
-                            page2line[indx + indx_3] = ""
-                    break
+        dff_detected = False
+        for dff_name, dff_ports in technology_parameter.dict_of_dff.items():
+            # if (line.strip().find(dff_name) > -1) and (line.strip().find("(") > -1):
+            if ((line.strip().find(dff_name) > -1) and (not(dff_detected))):
+                for indx_2, line_2 in enumerate(page2line[indx:]):
+                    # find ");" that occures after 
+                    if line_2.strip().find(");") > -1:
+                        for indx_3, line_3 in enumerate(page2line[indx: indx + indx_2]):
+                            if line_3.strip().find(f'.{dff_ports["clocked_on"]}(') > -1:
+                                dff_detected = True
+                                page2line[indx + indx_3] = ""
+                        break
 
     # create new page
     return "\n".join(page2line)
@@ -230,7 +234,7 @@ def find_clk_rst_name(ports, clk_num, rst_num):
 #     @input; 
 #       json_file: path to json file
 #       bench_file: path to input bench file
-def rm_float_net(json_file, bench_file, tech):
+def rm_float_net(json_file, bench_file, technology_parameter):
     with open(json_file, "r") as j:
         js = json.load(j)
 
@@ -239,21 +243,13 @@ def rm_float_net(json_file, bench_file, tech):
         cells = top_module["cells"]
         ports = top_module["ports"]
 
-    list_of_dff = list()
-
-    list_of_dff.append(tech["flopcell"])
-    list_of_dff.append(tech["flopset"])
-    list_of_dff.append(tech["flopreset"])
-    list_of_dff.append(tech["flopsetreset"])
-    list_of_dff.append(tech["scanflop"])
-    if ("" in list_of_dff):
-        list_of_dff.remove("")
-
     # check whether the design is sequential/combinational (check for existance of dff)
     is_seq = False
+
+    # check whether the design is sequential/combinational (check for existance of dff)
     for cell in cells.values():
-        for dff in list_of_dff:
-            if (cell["type"].find(dff) > -1):
+        for dff_name, dff_ports in technology_parameter.dict_of_dff.items():
+            if (cell["type"].find(dff_name) > -1):
                 is_seq = True
 
     with open(bench_file, "r") as b:
@@ -261,26 +257,30 @@ def rm_float_net(json_file, bench_file, tech):
     
     # if it's sequential remove clock and reset from bench file
     if(is_seq):
-        clk_list, rst_list = find_clk_rst_netNumber(cells, tech)
+        clk_list, rst_list = find_clk_rst_netNumber(cells, technology_parameter)
         clk, rst = find_clk_rst_name(ports, clk_list, rst_list)
 
         page2line = bench.splitlines()
         rst_nets = list()
         for indx, line in enumerate(page2line):
-            if (line.strip().find(clk) > -1):
+            if (line.strip().find(f'INPUT({clk})') > -1):
                 page2line[indx] = "# " + page2line[indx]
-            if (line.strip().find(rst) > -1):
-                if (line.strip().find("=") > -1):
-                    rst_name_name = line[:line.strip().find("=")].strip()
-                    rst_nets.append(rst_name_name)
-                    page2line[indx] = "# " + page2line[indx]
-                else:
-                    page2line[indx] = "# " + page2line[indx]
+            if (line.strip().find(f'INPUT({rst})') > -1):
+                page2line[indx] = "# " + page2line[indx]
+            if (line.strip().find(f' {rst} ') > -1): # if reset
+                for buf in technology_parameter.list_of_buf:
+                    if (line.strip().find(f'{buf}') > -1):
+                        rst_name_name = line[:line.strip().find("=")].strip()
+                        rst_nets.append(rst_name_name)
+                        page2line[indx] = "# " + page2line[indx]
+                # else:
+                #     page2line[indx] = "# " + page2line[indx]
                 # page2line[indx] = li " +npage2line[indx]
         
+
         for indx, line in enumerate(page2line):
             for rst_net in rst_nets:
-                if (line.strip().find(rst_net) > -1):
+                if (line.strip().find(f'OUPUT({rst_net})') > -1):
                     page2line[indx] = "# " + page2line[indx]
 
         return "\n".join(page2line)

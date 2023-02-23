@@ -1,4 +1,8 @@
 ---------------------------------------- TODO list ----------------------------------------
+    20Feb;
+        at this point all the functions are independent
+            make a class out of functions 
+            this way we can share attributes like dir, reduce the overhead of passing so many arguments
     19Jan;
         making some changes to vesal technology reader
         project: [technology_reader]
@@ -10,7 +14,7 @@
                     "preset": self.find_set_signal(cell),
                     "clear": self.find_rst_signal(cell)
                 }})
-        [utilies_functions.py]
+        [utilities_functions.py]
             function find_clk_rst_netNumber takes technology_parameter 
                 it contains list of all DFFs
                 search all cell for dff types 
@@ -34,7 +38,8 @@
         adding technology_parser class written by Vesal:
             merge vesal codes to mine and create a bigger technology class
                 /Users/ebinouri/Documents/UNi/OpenSourceTools/power_analysis_framework/testsuites/liberty_parser_test/liberty2json.py    
-                
+
+- support for inout bus
 - search source file for todo's
 - make it independent of tech file, reading the library directly and extract pin names
     don't pass tech file as input to classes
@@ -225,15 +230,27 @@ to add assets(images) to package use
     inside setup.cfg
 
 ----------------- process of updating package on Pypi 
-python3 -m build
-python3 -m twine upload --repository testpypi dist/*
-pypi-AgENdGVzdC5weXBpLm9yZwIkNWM0MWE2NjYtNjFiYy00YzdkLTkxZTAtY2QzYjY5YmVkODEzAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiBalV4e0AW3J68SKZpne_6k-gz9MfwzNKVgIuxLhAmj-A
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install -i https://test.pypi.org/simple/ utdate==0.0.10
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 uninstall utdate
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 list
+*[read manual above to refresh]
+** for backend tool, always use latest version of setuptool in file [pyproject.toml]
 
-Run module (__main__.py) gets called and starts program
+create dist folder:
+    > python3 -m build
+upload using twine:
+    > python3 -m twine upload --repository testpypi dist/*
+enter user and password:
+    username = __token__
+    password: pypi-AgENdGVzdC5weXBpLm9yZwIkNWM0MWE2NjYtNjFiYy00YzdkLTkxZTAtY2QzYjY5YmVkODEzAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiBalV4e0AW3J68SKZpne_6k-gz9MfwzNKVgIuxLhAmj-A
+
+to install:
+    > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install -i https://test.pypi.org/simple/ utdate==0.0.10
+to uninstall:
+    > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 uninstall utdate
+to list all packages in site-package:
+    > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 list
+
+to Run module:
     > python3 -m udate
+    doing that, (__main__.py) gets called and starts program
 
 ----------------- compatiblility with qflow
 yosys:
@@ -256,6 +273,57 @@ qflow:
             INV_X1 INV_X1_2  ( .A(i1), .ZN(_1_) );
             INV_X1 INV_X1_3  ( .A(ci), .ZN(_2_) );
     
+
+-------------------- Adding new feature to GUI --------------------
+    we use figma platform to design 
+        [https://www.figma.com/]
+    we then extract design to tkinter format using tkinter-designer
+        [https://github.com/ParthJadhav/Tkinter-Designer]
+    tkinter-designer has some constraints on naming of elements
+        [https://github.com/ParthJadhav/Tkinter-Designer/blob/master/docs/instructions.md]
+    when designing is done, open tkdesigner gui 
+    copy url & token (get token from setting in figma)
+
+-------------------- How GUI works --------------------
+    by calling the package 
+        > python3 -m utdate 
+        the __main__.h executes
+    it creates the root window and immediately disable it 
+    then it calls the mainWindow 
+    mainWindow is a toplevel entity of tkinter
+    inside mainWindow:
+        we create a main canvas that is plate for all elements 
+        we place sidebar on the left
+        create a dictionary of windows
+            creating this object in main window makes them child of this class
+            we would normally pass pointer to main window to every page 
+                this way we can access properties of other pages anywhere, when needed
+            call each page constructor while creating an object on dictionary
+            also, having this object in main window
+        call create_all_pages():
+            place all window in their position
+            raise the file page to stand out and hide other pages 
+            put sidebar_indicator (red ribbon beside button) on respective button (file)
+            raise the sidebar_indicator to front
+        disable resizing feature 
+        start mainloop()
+    
+    InputFile page:
+        inside constructor:
+            store pointer to parent (mainWindow) 
+            store working directory
+            initial some variables
+                file_directory
+                file_entry_box
+                delete_file_btn
+            create canvas
+            place elements on canvas 
+            for buttons, detemine callback functions 
+            write callback functions
+
+
+
+
 
 -------------------- Making process tech-library independent --------------------
 finding dependencies in files:

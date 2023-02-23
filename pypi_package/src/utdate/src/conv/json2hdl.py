@@ -1,6 +1,8 @@
 from json import load
+from os import path
 from utdate.src.technology_reader import Technology_file
 from utdate.src.utility_functions import find_clk_rst_netNumber, find_clk_rst_name
+import utdate.lib as lib
 
 # assumptions: 
 #   1. It's a flattend netlist which contains only one module as a top module
@@ -35,7 +37,7 @@ class json2hdl:
                 self.module_name = list(self.js["modules"])[0]
         
         # read thenology file
-        self.technology_parameter = Technology_file(self.config_js["library_directory"])
+        self.technology_parameter = Technology_file(path.join(lib.__path__[0], self.config_js["liberty_file"]))
         self.gate_index = dict()
         self.yosys_qflow_compatible = False
         self.top_module = self.js["modules"][self.module_name]

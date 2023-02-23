@@ -1,0 +1,75 @@
+read_verilog /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/Puneh_Top.v  
+# High-level synthesis
+hierarchy -check -auto-top
+synth; opt -full
+
+# Map register flops
+# placeholder for dfflibmap
+dfflibmap -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/tech/mycells_yosys.lib 
+
+# dfflibmap -liberty mycells.lib
+
+opt
+
+# Map combinatorial cells, standard script
+# placeholder for abc
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/tech/mycells_yosys.lib 
+
+# abc -liberty mycells.lib 
+
+flatten
+opt
+
+splitnets
+techmap 
+opt -fast
+abc -fast
+opt -fast
+
+# placeholder for abc after splitnets
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/tech/mycells_yosys.lib 
+
+# abc -liberty mycells.lib 
+opt
+clean -purge
+opt_clean
+
+# technology mapping of constant hi- and/or lo- drivers
+# placeholder for constant mapping
+# hilomap -hicell TIEHIM Y -locell TIELOM Y
+# technology mapping of i/o pads (or buffers)
+# placeholder for i/o pads mapping
+iopadmap -inpad BUF Y:A -bits 
+iopadmap -outpad BUF A:Y -bits 
+
+# iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
+
+
+# placeholder for premap_synthesis file
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/synthesis/synth_premap.v 
+write_blif /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/synthesis/synth_premap.json 
+
+# write_verilog -noattr synth_premap.v
+# write_blif synth_premap.blif
+# write_json synth_premap.v
+# placeholder techmap
+techmap -map /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/tech/DFF_map.v 
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/tech/mycells_yosys.lib 
+opt; clean -purge
+techmap -map /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/tech/Logic_map.v 
+
+# techmap -map DFF_map.v
+# techmap -map Logic_map.v
+
+opt
+clean -purge
+opt_clean
+stat
+
+# placeholder for postmap_synthesis file
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/synthesis/synth_postmap.v 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/reza_Puneh/synthesis/synth_postmap.json 
+
+# write_verilog -noattr synth_postmap.v
+# write_json -noattr synth_postmap.v

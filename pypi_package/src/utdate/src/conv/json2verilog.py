@@ -102,7 +102,7 @@ class json2verilog(json2hdl):
         # loop through each parameter and add them
         #   despite actual verilog output, we use 32'b (instead of 32'd), assuming that all variables are less then 32 bit
         for param_name, param_value in cell_parameter.items():
-            cell_declaration += "  ." + param_name + "(32'b" + param_value + "),\n"
+            cell_declaration += "  ." + str(param_name) + "(32'b" + str(param_value) + "),\n"
         
         # remove last "," and add newline
         cell_declaration = cell_declaration[:-2] + ") \n"
