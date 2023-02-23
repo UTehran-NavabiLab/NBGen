@@ -1,8 +1,0 @@
-include src/utdate/gui/main_window/assets/*.png
-include src/utdate/gui/faultSim/assets/*.png
-include src/utdate/gui/file/assets/*.png
-include src/utdate/gui/synthesis/assets/*.png
-include src/utdate/gui/test/assets/*.png
-include src/utdate/lib/*.*
-include src/utdate/lib/fault_simulation/Makefile
-include src/utdate/lib/fault_simulation/*.*
