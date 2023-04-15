@@ -5,7 +5,6 @@ import os
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Frame, Canvas, Entry, Text, Button, PhotoImage, filedialog
 from tkinter.tix import TEXT
-from utdate.src.script import fault_simulation
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -14,20 +13,16 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def faultsim(prop):
-    FaultSim(prop)
+def faultsim(backend):
+    FaultSim(backend)
 
 
 class FaultSim(Frame):
-    def __init__(self, parent, prop, controller=None, *args, **kwargs):
+    def __init__(self, parent, backend, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        working_directory = prop["directories"][0]
-        synthesis_dir = prop["directories"][1]
-        test_dir = prop["directories"][4]
-        fltSim_dir = prop["directories"][5]
-        config = prop["config"]
-        tech = prop["tech"]
+        self.backend = backend
+
         self.test_file_dir = ""
         self.fault_file_dir = ""
         
@@ -225,7 +220,7 @@ class FaultSim(Frame):
             image=canvas.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.fault_sim(config, tech, synthesis_dir, test_dir, fltSim_dir),
+            command=lambda: self.fault_sim(),
             relief="flat"
         )
         faultsim_btn.place(
@@ -242,7 +237,7 @@ class FaultSim(Frame):
             image=canvas.button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.open_test_file(working_directory),
+            command=lambda: self.open_test_file(),
             relief="flat"
         )
         open_test_btn.place(
@@ -259,7 +254,7 @@ class FaultSim(Frame):
             image=canvas.button_image_3,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.open_fault_file(working_directory),
+            command=lambda: self.open_fault_file(),
             relief="flat"
         )
         open_fault_btn.place(
@@ -271,7 +266,7 @@ class FaultSim(Frame):
 
 
 
-    def fault_sim(self, config, tech, synthesis_dir, test_dir, fltSim_dir):
+    def fault_sim(self):
         if(self.test_file_dir != ""):
             testbench = self.test_file_dir
         else:
@@ -282,12 +277,12 @@ class FaultSim(Frame):
         else:
             instance = self.parent.windows["test"].get_instance_name()
 
-        fault_simulation(synthesis_dir, test_dir, fltSim_dir, config, tech, testbench, instance)
+        self.backend.fault_simulation(testbench, instance)
 
         self.synth_log.config(state="normal")
 
         # read log file
-        with open(os.path.join(fltSim_dir, "reportFile.txt"), "r") as log_file:
+        with open(os.path.join(self.backend.log_dir, "reportFile.txt"), "r") as log_file:
             log_txt = log_file.read()
         
         page2line = log_txt.splitlines()
@@ -301,20 +296,20 @@ class FaultSim(Frame):
 
 
     # callback function for open file dialog 
-    def open_test_file(self, working_directory):
+    def open_test_file(self):
         self.entry_2.config(state="normal")
         
-        self.test_file_dir = filedialog.askopenfilename(initialdir=working_directory, title="Select test file", filetypes=[("txt", ".txt"), ("test", ".test"), ("vector", ".vect"), ("pattern", ".pat")])
+        self.test_file_dir = filedialog.askopenfilename(initialdir=self.backend.working_dir, title="Select test file", filetypes=[("txt", ".txt"), ("test", ".test"), ("vector", ".vect"), ("pattern", ".pat")])
         file_name = self.test_file_dir[self.test_file_dir.rfind('/') + 1:]
         self.entry_2.delete('1.0', 'end')
         self.entry_2.insert('1.0', file_name)
         self.entry_2.config(state="disabled")
 
     # callback function for open file dialog 
-    def open_fault_file(self, working_directory):
+    def open_fault_file(self):
         self.entry_3.config(state="normal")
         
-        self.fault_file_dir = filedialog.askopenfilename(initialdir=working_directory, title="Select fault file", filetypes=[("txt", ".txt"), ("fault", ".flt")])
+        self.fault_file_dir = filedialog.askopenfilename(initialdir=self.backend.working_dir, title="Select fault file", filetypes=[("txt", ".txt"), ("fault", ".flt")])
         file_name = self.fault_file_dir[self.fault_file_dir.rfind('/') + 1:]
         
         self.entry_3.delete('1.0', 'end')

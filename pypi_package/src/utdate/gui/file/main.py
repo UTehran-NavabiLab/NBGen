@@ -1,6 +1,4 @@
 from pathlib import Path
-import os
-
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Frame, Canvas, Entry, Text, Button, PhotoImage, filedialog, Checkbutton
@@ -13,15 +11,15 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def inputFile(prop):
-    InputFile(prop)
+def inputFile(backend):
+    InputFile(backend)
 
 
 class InputFile(Frame):
-    def __init__(self, parent, prop, controller=None, *args, **kwargs):
+    def __init__(self, parent, backend, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        working_directory = prop["directories"][0]
+        working_directory = backend.working_dir
         
         self.file_directory = dict()        
         self.file_entry_box = dict()        

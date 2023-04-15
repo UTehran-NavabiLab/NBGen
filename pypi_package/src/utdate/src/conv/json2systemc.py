@@ -9,8 +9,8 @@ from json import dumps
 WHITE_SPACE = "    "
 
 class json2systemc(json2hdl):
-    def __init__(self, json_file, config_json, gate_signal_file="") -> None:
-        json2hdl.__init__(self, json_file, config_json)
+    def __init__(self, json_file, config_json, technology_parameters, gate_signal_file="") -> None:
+        json2hdl.__init__(self, json_file, config_json, technology_parameters)
 
         self.systemc = ""
         self.gate_signal_dict = dict()
@@ -22,22 +22,7 @@ class json2systemc(json2hdl):
             with open(self.gate_signal_file, "w") as f:
                 f.write(dumps(self.gate_signal_dict))
 
-    # @def: 
-    #   size_Of_Ports; helper function to find size of input/output ports
-    def size_Of_Ports(self):
-        port_dic = self.top_module["ports"]
-        sizePI = 0
-        sizePO = 0
 
-        for port in port_dic.values():
-            if port["direction"] == "input":
-                # considering ports can be multi-bit, add length of bits
-                sizePI = sizePI + len(port["bits"])
-            if port["direction"] == "output":
-                sizePO = sizePO + len(port["bits"])
-
-        return sizePI, sizePO
-    
     
     # @def: 
     #   number_of_DFF; helper function to find number of DFFs in design

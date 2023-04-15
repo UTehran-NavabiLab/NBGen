@@ -17,7 +17,7 @@ import utdate.lib as lib
 
 
 class json2hdl:
-    def __init__(self, json_file, config_json) -> None:
+    def __init__(self, json_file, config_json, technology_parameters) -> None:
         with open(json_file, "r") as f:
             self.js = load(f)
 
@@ -37,7 +37,7 @@ class json2hdl:
                 self.module_name = list(self.js["modules"])[0]
         
         # read thenology file
-        self.technology_parameter = Technology_file(path.join(lib.__path__[0], self.config_js["liberty_file"]))
+        self.technology_parameter = technology_parameters
         self.gate_index = dict()
         self.yosys_qflow_compatible = False
         self.top_module = self.js["modules"][self.module_name]
@@ -83,6 +83,21 @@ class json2hdl:
 
         return is_seq
 
+    # @def: 
+    #   size_Of_Ports; helper function to find size of input/output ports
+    def size_Of_Ports(self):
+        sizePI = 0
+        sizePO = 0
+
+        for port in self.top_module["ports"].values():
+            if port["direction"] == "input":
+                # considering ports can be multi-bit, add length of bits
+                sizePI = sizePI + len(port["bits"])
+            if port["direction"] == "output":
+                sizePO = sizePO + len(port["bits"])
+
+        return sizePI, sizePO
+    
     # @def: find actual net name using net integer value
     #   input: -
     #   output: dictionary of nets (as key) and list of their correspondence net_number (as value)

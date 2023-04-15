@@ -6,8 +6,6 @@ from tkinter import Tk, Frame, Canvas, Entry, Text, Button, PhotoImage, Checkbut
 from tkinter import END as tk_END
 from tkinter import INSERT as tk_BEGIN
 
-from utdate.src.script import netlist
-
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 
@@ -15,23 +13,15 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def synthesis(prop):
-    Synthesis(prop)
+def synthesis(backend):
+    Synthesis(backend)
 
 
 class Synthesis(Frame):
-    def __init__(self, parent, prop, controller=None, *args, **kwargs):
+    def __init__(self, parent, backend, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        working_directory = prop["directories"][0]
-        synthesis_dir = prop["directories"][1]
-        lib_dir = prop["directories"][2]
-        log_dir = prop["directories"][3]
-        fltSim_dir = prop["directories"][5]
-        config_dir = prop["directories"][6]
-        config = prop["config"]
-        tech = prop["tech"]
-
+        self.backend = backend
         # self.geometry("800x600")
         self.configure(bg = "#FFFFFF")
 
@@ -82,33 +72,33 @@ class Synthesis(Frame):
             image=canvas.image_image_2
         )
 
-        # Buttons: Synthesis, open_log -----------------------------
+        # Buttons: Synthesis, open_log, to_vhdl, to_verilog, to_systemc -----------------------------
         canvas.button_image_1 = PhotoImage(
-            file=relative_to_assets("button_1.png"))
+            file=relative_to_assets("synthesis.png"))
         synthesis_btn = Button(
             self,
             image=canvas.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.synthesize(working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config_dir, config, tech),
+            command=lambda: self.synthesize(),
             relief="flat"
         )
         synthesis_btn.place(
             x=28.0,
-            y=540.0,
+            y=387.0,
             width=240.0,
             height=37.0
         )
 
-        self.button_2_success = PhotoImage(
-            file=relative_to_assets("button_2_success.png"))
-        self.button_2_fail = PhotoImage(
-            file=relative_to_assets("button_2_fail.png"))
-        canvas.button_image_2_disabled = PhotoImage(
-            file=relative_to_assets("button_2_disabled.png"))
+        self.open_log_folder_success = PhotoImage(
+            file=relative_to_assets("open_log_folder_success.png"))
+        self.open_log_folder_fail = PhotoImage(
+            file=relative_to_assets("open_log_folder_fail.png"))
+        canvas.open_log_folder_disabled = PhotoImage(
+            file=relative_to_assets("open_log_folder_disabled.png"))
         self.open_log_btn = Button(
             self,
-            image=canvas.button_image_2_disabled,
+            image=canvas.open_log_folder_disabled,
             borderwidth=0,
             highlightthickness=0,
             command=lambda: self.open_synth_log(),
@@ -121,6 +111,66 @@ class Synthesis(Frame):
             height=37.0
         )
         self.open_log_btn.config(state="disabled")
+
+        self.to_vhdl = PhotoImage(
+            file=relative_to_assets("to_vhdl.png"))
+        canvas.to_vhdl_disabled = PhotoImage(
+            file=relative_to_assets("to_vhdl_disabled.png"))
+        self.to_vhdl_btn = Button(
+            self,
+            image=canvas.to_vhdl_disabled,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: self.convert_to_vhdl(),
+            relief="flat"
+        )
+        self.to_vhdl_btn.place(
+            x=67.0,
+            y=489.0,
+            width=159.0,
+            height=37.0
+        )
+        self.to_vhdl_btn.config(state="disabled")
+
+        self.to_verilog = PhotoImage(
+            file=relative_to_assets("to_verilog.png"))
+        canvas.to_verilog_disabled = PhotoImage(
+            file=relative_to_assets("to_verilog_disabled.png"))
+        self.to_verilog_btn = Button(
+            self,
+            image=canvas.to_verilog_disabled,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: self.convert_to_verilog(),
+            relief="flat"
+        )
+        self.to_verilog_btn.place(
+            x=68.0,
+            y=438.0,
+            width=159.0,
+            height=37.0
+        )
+        self.to_verilog_btn.config(state="disabled")
+
+        self.to_systemc = PhotoImage(
+            file=relative_to_assets("to_systemc.png"))
+        canvas.to_systemc_disabled = PhotoImage(
+            file=relative_to_assets("to_systemc_disabled.png"))
+        self.to_systemc_btn = Button(
+            self,
+            image=canvas.to_systemc_disabled,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: self.convert_to_systemc(),
+            relief="flat"
+        )
+        self.to_systemc_btn.place(
+            x=67.0,
+            y=540.0,
+            width=159.0,
+            height=37.0
+        )
+        self.to_systemc_btn.config(state="disabled")
 
         # Text & Shapes:  rectangle#1; synthe_report -------------------------------
         canvas.create_text(
@@ -202,7 +252,7 @@ class Synthesis(Frame):
             self,
             bg = "#EBEBEB",
             width = 240,
-            height = 310,
+            height = 158,
             bd = 0,
             highlightthickness = 0,
             relief = "ridge"
@@ -210,20 +260,22 @@ class Synthesis(Frame):
 
         canvas_for_files.place(x = 28, y = 215)
         
-        # get file name from File().get_files() dictionary and
+        # get file names from File().get_files() dictionary and
         file_names = list()
         for file_name in self.parent.windows["file"].get_files():
             file_names.append(file_name)
 
         for i, file in enumerate(file_names):
-            canvas_for_files.create_text(
-                15.0,
-                15.0 + (34 * i),
-                anchor="nw",
-                text=file,
-                fill="#222020",
-                font=('Helvetica 15')
-            )
+            # display first three files
+            if (i < 4):
+                canvas_for_files.create_text(
+                    15.0,
+                    15.0 + (34 * i),
+                    anchor="nw",
+                    text=file,
+                    fill="#222020",
+                    font=('Helvetica 15')
+                )
         
         if(len(file_names) != 0):
             top_module_name = file_names[0][:file_names[0].rfind('.')]
@@ -231,7 +283,7 @@ class Synthesis(Frame):
             self.module_name_entry.insert(tk_BEGIN, top_module_name)
 
 
-    def synthesize(self, working_directory, synthesis_dir, lib_dir, log_dir, fltSim_dir, config_dir, config, tech):
+    def synthesize(self):
         
         input_file_directory = list()
         file_names = list()
@@ -254,13 +306,12 @@ class Synthesis(Frame):
             # for extension in extensions:
             #     ext = extension
             
-            netlist(input_file_name=input_file_directory, module_name=top_module_name, config=config, tech=tech, 
-                working_directory=working_directory, synthesis_dir=synthesis_dir, lib_dir=lib_dir, log_dir=log_dir, 
-                config_dir=config_dir, vhdl=self.tk_is_vhdl.get())
+            self.backend.netlist(input_file_name=input_file_directory, module_name=top_module_name, vhdl=self.tk_is_vhdl.get())
             
+            # textbox to print synthesis output log
             self.synth_log.config(state="normal")
             # read log file
-            with open(os.path.join(log_dir, "yosys.log"), "r") as log_file:
+            with open(os.path.join(self.backend.log_dir, "yosys.log"), "r") as log_file:
                 log_txt = log_file.read()
             
             self.open_log_btn.config(state="normal")
@@ -268,21 +319,38 @@ class Synthesis(Frame):
             self.synth_log.delete(tk_BEGIN, tk_END)
             
             if(log_txt.find("CalledProcessError") > -1):
-                self.open_log_btn.config(image=self.button_2_fail)
+                self.open_log_btn.config(image=self.open_log_folder_fail)
             else:
                 # separate and log a few last lines
                 indx = log_txt.rfind("Printing statistics")
                 log_txt = log_txt[indx:]
-                self.open_log_btn.config(image=self.button_2_success)
+                self.open_log_btn.config(image=self.open_log_folder_success)
+                # enable to-hdl-conversion buttons
+                self.to_vhdl_btn.config(state="normal")
+                self.to_vhdl_btn.config(image=self.to_vhdl)
+                self.to_verilog_btn.config(state="normal")
+                self.to_verilog_btn.config(image=self.to_verilog)
+                self.to_systemc_btn.config(state="normal")
+                self.to_systemc_btn.config(image=self.to_systemc)
+
 
             self.synth_log.insert(tk_BEGIN, log_txt)
             self.synth_log.config(state="disabled")
 
 
+    def convert_to_vhdl(self):
+        self.backend.to_vhdl()
+        # self.to_vhdl_btn.config(image=self.to_vhdl_successful)
 
+    def convert_to_verilog(self):
+        self.backend.to_verilog()
+        # self.to_verilog_btn.config(image=self.to_verilog_successful)
+    def convert_to_systemc(self):
+        self.backend.to_systemc()
+        # self.to_systemc_btn.config(image=self.to_systemc_successful)
 
     def open_synth_log(self):
-        print("not a functional, yet !!!")
+        print("not functional, yet!!!")
         # TODO: create new window (TopLevel) and show report on it
   
         # # read log file

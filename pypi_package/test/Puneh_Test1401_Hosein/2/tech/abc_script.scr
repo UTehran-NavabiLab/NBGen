@@ -1,3 +1,0 @@
-read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/Puneh_Test1401_Hosein/2/tech/mycells_abc.lib 
-read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/Puneh_Test1401_Hosein/2/test/synth_dffport_rm.v 
-write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/Puneh_Test1401_Hosein/2/test/abc_bench.bench 

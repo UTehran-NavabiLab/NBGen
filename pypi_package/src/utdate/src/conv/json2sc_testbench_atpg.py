@@ -6,8 +6,8 @@ from utdate.src.conv.json2sc_testbench import json2sc_testbench
 WHITE_SPACE = "    "
 
 class json2sc_testbench_atpg(json2sc_testbench):
-    def __init__(self, json_file, config_json, testbench, instance) -> None:
-        json2sc_testbench.__init__(self, json_file, config_json, testbench, instance)
+    def __init__(self, json_file, config_json, technology_parameter, testbench, instance) -> None:
+        json2sc_testbench.__init__(self, json_file, config_json, technology_parameter, testbench, instance)
 
     # @def: add standard library library  
     def includes(self):

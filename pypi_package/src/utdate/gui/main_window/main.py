@@ -23,13 +23,13 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def mainWindow(prop):
-    MainWindow(prop)
+def mainWindow(backend):
+    MainWindow(backend)
 
 
 class MainWindow(Toplevel):
 
-    def __init__(self, prop, *args, **kwargs):
+    def __init__(self, backend, *args, **kwargs):
         Toplevel.__init__(self, *args, **kwargs)
 
         self.title("DATE: Design and Test Environment")
@@ -218,10 +218,10 @@ class MainWindow(Toplevel):
 
         # Loop through windows and place them
         self.windows = {
-            "file": InputFile(self, prop),
-            "synth": Synthesis(self, prop),
-            "test": Test(self, prop),
-            "faultsim": FaultSim(self, prop)
+            "file": InputFile(self, backend),
+            "synth": Synthesis(self, backend),
+            "test": Test(self, backend),
+            "faultsim": FaultSim(self, backend)
         }
         self.sidebar_indicator_y ={
             "file": 134,

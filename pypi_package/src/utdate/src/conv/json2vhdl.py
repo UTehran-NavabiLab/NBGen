@@ -16,9 +16,9 @@ from utdate.src.conv.json2hdl import json2hdl
 WHITE_SPACE = "    "
 
 class json2vhdl(json2hdl): 
-    def __init__(self, json_file, config_json) -> None:
+    def __init__(self, json_file, config_json, technology_parameters) -> None:
         # add parent constructor
-        json2hdl.__init__(self, json_file, config_json)
+        json2hdl.__init__(self, json_file, config_json, technology_parameters)
         
         self.vhdl = ""
     

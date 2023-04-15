@@ -7,21 +7,22 @@ from utdate.src.conv.json2sc_testbench import json2sc_testbench
 WHITE_SPACE = "    "
 
 class json2sc_testbench_pwr(json2sc_testbench):
-    def __init__(self, json_file, config_json, testbench, instance) -> None:
-        json2sc_testbench.__init__(self, json_file, config_json, testbench, instance)
+    def __init__(self, json_file, config_json, technology_parameter, testbench, instance) -> None:
+        json2sc_testbench.__init__(self, json_file, config_json, technology_parameter, testbench, instance)
 
     # @def: add standard library library  
     def includes(self):
-        include_lib = '#include <iostream>' + "\n"
+        include_lib =  '#include <iostream>' + "\n"
         include_lib += '#include <fstream>' + "\n"
         include_lib += '#include <string>' + "\n"
         include_lib += '#include <vector>' + "\n"
         include_lib += '#include <map>' + "\n"
         include_lib += '#include <math.h>' + "\n"
         include_lib += '#include "systemc.h"' + "\n"
-        include_lib += '#include "power_netlist.h"' + "\n"
-        include_lib += '#include "utilities.h"' + "\n"
-        include_lib += '#include "power_analysis.h"' + "\n"
+        include_lib += f'#include "input_files/{self.config_js["systemC_netlist_fileName"]}"' + "\n"
+        include_lib += '#include "src/utility_functions.h"' + "\n"
+        include_lib += '#include "src/power_analysis.h"' + "\n"
+        include_lib += '#include "src/dict_trace_var.h"' + "\n"
 
         return include_lib
 
@@ -37,9 +38,9 @@ class json2sc_testbench_pwr(json2sc_testbench):
 
             # check whether port is single bit
             if len(port_prop["bits"]) == 1:
-                signal_declaration += f'sc_signal_pw<sc_logic> {port_name} = sc_signal_pw<sc_logic>("{port_name}");\n'
+                signal_declaration += f'sc_signal<sc_logic> {port_name} = sc_signal<sc_logic>("{port_name}");\n'
             else:
-                signal_declaration += f'sc_signal_pw<sc_logic> {port_name}[{str(len(port_prop["bits"]))}] = sc_signal_pw<sc_logic>("{port_name}");\n'
+                signal_declaration += f'sc_signal<sc_logic> {port_name}[{str(len(port_prop["bits"]))}] = sc_signal<sc_logic>("{port_name}");\n'
 
 
         return signal_declaration
@@ -50,7 +51,7 @@ class json2sc_testbench_pwr(json2sc_testbench):
         event_declaration = ""
 
         # define sc_event
-        event_declaration += WHITE_SPACE + f'sc_event ready2update;' + '\n'
+        event_declaration += WHITE_SPACE + f'sc_event ready_for_analysis;' + '\n'
         event_declaration += WHITE_SPACE + f'sc_event ready2reset;' + '\n'
 
         return event_declaration
@@ -68,15 +69,30 @@ class json2sc_testbench_pwr(json2sc_testbench):
         instance_pointer = WHITE_SPACE + self.module_name + "* " + instatnce_name + ";\n"
         # pointer to power module
         instance_pointer += WHITE_SPACE + "power_analysis* power_module;\n"
-        instance_pointer += WHITE_SPACE + f'std::array<sc_signal_pw<sc_logic>*, {len(self.net_dict)}> signal_arr;\n'
-        instance_pointer += WHITE_SPACE + f'std::array<sc_signal_pw<sc_logic>*, {self.size_Of_Ports()[0]}> input_arr;\n'
+        instance_pointer += WHITE_SPACE + "sc_trace_file* dict_trace_file;\n"
+
+        # create an array to apply input, get pointer to input ports
+        array_of_inputs = WHITE_SPACE + f'std::array<sc_signal<sc_logic>*, {self.size_Of_Ports()[0]}> input_arr = ' + '{'
+        for port_name, port_prop in self.top_module["ports"].items():
+            if port_prop["direction"] == "input":
+                # is port single-bit
+                if len(port_prop["bits"]) == 1:
+                    array_of_inputs += f'&({port_name}), '
+                else: # if port is multi-bit, slice the port loop through each bit
+                    for i in range(len(port_prop["bits"])):
+                        array_of_inputs += f'&({port_name}[{i}]), '
         
+        array_of_inputs = array_of_inputs[:-2] + '};\n'
+
+        instance_pointer += array_of_inputs
+
  
-        cell_instantiation = WHITE_SPACE + WHITE_SPACE + f'power_module = new power_analysis();' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_gate_prop_json("{self.config_js["systemC_gate_properties_json"]}");' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_gate_signal_json("{self.config_js["systemC_gate_signal_json"]}", "{self.config_js["systemC_gate_properties_json"]}");' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->tech_parameter_json("{self.config_js["systemC_tech_timing_power"]}");' + '\n'
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_net_cap_json("{self.config_js["systemC_gate_capacitance"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'dict_trace_file = sc_create_dict_trace_var("two_level_nand");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'power_module = new power_analysis();' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->tech_parameter_json("input_files/{self.config_js["systemC_tech_timing_power"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_netlist_json("input_files/{self.config_js["systemC_gate_properties_json"]}");' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->read_net_cap_json("input_files/{self.config_js["systemC_gate_capacitance"]});' + '\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'power_module->initialize_trace_file("dict_trace_file");' + '\n'
 
         cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.module_name}("{instatnce_name}");\n'
 
@@ -94,45 +110,68 @@ class json2sc_testbench_pwr(json2sc_testbench):
 
         return instance_pointer, cell_instantiation
 
-    def access_signal_thread(self):
-        access_signal_proc = ""
-        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'access_signals();\n'
+    def registration_and_tracing_thread(self):
+        registration_and_tracing_proc = ""
+        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'registration_and_tracing();\n'
         
-        access_signal_proc += WHITE_SPACE + f'void access_signals(void)'+ '{\n'
-        i = 0
-        for port_name, port_prop in self.top_module["ports"].items():
-            if len(port_prop["bits"]) == 1:
-                access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name});' + '\n'
-                if port_prop["direction"] == "input":
-                    access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'input_arr[{i}] = &({port_name});' + '\n'
-                    access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->set_transition_time("{port_name}", 0.0);' + '\n'
-                i += 1
-            else: # if port is multi-bit, slice the port loop through each bit
-                for j in range(len(port_prop["bits"])):
-                    access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({port_name}[{str(j)}]);' + '\n'
-                    if port_prop["direction"] == "input":
-                        access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'input_arr[{i}] = &({port_name}[{str(j)}]);' + '\n'
-                        access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->set_transition_time("{port_name}[{str(j)}]", 0.0);' + '\n'
-                    i += 1
+        registration_and_tracing_proc += WHITE_SPACE + f'void registration_and_tracing(void)'+ '{\n'
+
+        # Register gates
+        for cell_name, cell_prop in self.top_module["cells"].items():
+            registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->register_gate({self.instance_name}->{cell_name});' + '\n'
+
+        # Register internal nets
         for net in self.net_dict:
             if not (net in self.ports_list):
-                access_signal_proc += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({self.instance_name}->{net});' + '\n'
-            i += 1
+                registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE
+                registration_and_tracing_proc += f'power_module->register_signal(&({self.instance_name}->{net}));' + "\n"
+        # loop through each connection, get corresponding net-name            
+        for port_name, port_prop in self.top_module["ports"].items():
+            # is port single-bit
+            if len(port_prop["bits"]) == 1:
+                registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE
+                registration_and_tracing_proc += f'power_module->register_signal(&({port_name}));' + "\n"
+            else: # if port is multi-bit, slice the port loop through each bit
+                for i in range(len(port_prop["bits"])):
+                    registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE
+                    registration_and_tracing_proc += f'power_module->register_signal(&({port_name}[{i}]));' + "\n"
 
-        access_signal_proc += WHITE_SPACE + '}\n'
+        # Trace internal nets
+        for net in self.net_dict:
+            if not (net in self.ports_list):
+                registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE
+                registration_and_tracing_proc += f'sc_trace(dict_trace_file, {self.instance_name}->{net}, "{net}");' + "\n"
+        
+        # Trace ports
+        # loop through each connection, get corresponding net-name            
+        for port_name, port_prop in self.top_module["ports"].items():
+            # is port single-bit
+            if len(port_prop["bits"]) == 1:
+                registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE
+                registration_and_tracing_proc += f'sc_trace(dict_trace_file, {port_name}, "{port_name}");' + "\n"
+            else: # if port is multi-bit, slice the port loop through each bit
+                for i in range(len(port_prop["bits"])):
+                    registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE
+                    registration_and_tracing_proc += f'sc_trace(dict_trace_file, {port_name}[{i}], "{port_name}[{i}]");' + "\n"
 
-        return SC_THREAD_definition, access_signal_proc
+        registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE + 'power_module->find_primary_inputs();' + '\n'
+        registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE + 'power_module->find_primary_outputs();' + '\n'
+        registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE + '// set transition time of primary input' + '\n'
+        registration_and_tracing_proc += WHITE_SPACE + WHITE_SPACE + 'power_module->set_primary_input_transition_time("");' + '\n'
+        registration_and_tracing_proc += WHITE_SPACE + '}\n'
 
-    def reset_toggling_thread(self):
-        reset_toggling_proc = ""
+        return SC_THREAD_definition, registration_and_tracing_proc
 
-        reset_toggling_proc += WHITE_SPACE + f'void reset_togglings(void)' + '{\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + f'for(auto& signal_pointer: signal_arr)' + '{\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'signal_pointer->reset_toggling();' + '\n'
-        reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + '}\n'
-        reset_toggling_proc += WHITE_SPACE + '}\n'
+    # def reset_toggling_thread(self):
+    #     reset_toggling_proc = ""
 
-        return reset_toggling_proc
+    #     reset_toggling_proc += WHITE_SPACE + f'void reset_togglings(void)' + '{\n'
+    #     reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + f'for(auto& signal_pointer: signal_arr)' + '{\n'
+    #     reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'signal_pointer->reset_toggling();' + '\n'
+    #     reset_toggling_proc += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + '}\n'
+    #     reset_toggling_proc += WHITE_SPACE + '}\n'
+
+    #     return reset_toggling_proc
 
     def signaling_thread(self):
         signaling_proc = ""
@@ -141,77 +180,58 @@ class json2sc_testbench_pwr(json2sc_testbench):
 
         signaling_proc += WHITE_SPACE + f'void signaling(void)' + '{\n'
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'reset_togglings();' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(10, SC_NS);' + '\n'
-
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'// apply input as string' + '\n'
         input_vec = ""
-        for j in range(self.size_Of_Ports()[0]):
-            input_vec += '1'
+        # get size of input ports
+        for j in range(self.size_Of_Ports()[0]): 
+            input_vec += '0'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'// apply_input_vector<3>(input_arr, ("{input_vec}"));' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'// notify ready_to_analyze event' + '\n'
+        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'// ready2reportTrace.notify();' + '\n'
+
         signaling_proc += WHITE_SPACE + WHITE_SPACE + f'apply_input_vector<sc_dt::sc_logic, {self.size_Of_Ports()[0]}>(input_arr, ("{input_vec}"));' + '\n'
-        # for port_name, port_prop in self.top_module["ports"].items():
-        #     if port_prop["direction"] == "input":
-        #         signaling_proc += WHITE_SPACE  + WHITE_SPACE
-        #         if len(port_prop["bits"]) == 1:
-        #             signaling_proc += f'{port_name}.write(SC_LOGIC_1);\n'
-        #         else:
-        #             for i in range(len(port_prop["bits"])):
-        #                 signaling_proc += f'{port_name}[{str(i)}].write(SC_LOGIC_1);\n'
-        
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(SC_ZERO_TIME);' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'wait(10, SC_NS);' + '\n'
-        signaling_proc += WHITE_SPACE + WHITE_SPACE + f'ready2update.notify();' + '\n'
         signaling_proc += WHITE_SPACE + '}\n'
 
         return SC_THREAD_definition, signaling_proc
 
-    def power_per_cycle_thread(self):
-        power_on_cycle_proc = ""
+    def analyze_thread(self):
+        analyze_proc = ""
 
-        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'SC_METHOD(power_on_cycle);\n'
-        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'sensitive << ready2update;\n'
+        SC_THREAD_definition = WHITE_SPACE + WHITE_SPACE + f'SC_METHOD(analyze);\n'
+        SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'sensitive << ready_for_analysis;\n'
         SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'dont_initialize();\n'
 
-        power_on_cycle_proc += WHITE_SPACE + f'void power_on_cycle(void)'+ '{\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->update_signal<sc_dt::sc_logic, {len(self.net_dict)}>(signal_arr);' + '\n'
-        
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::vector<std::string> input_signal_name = ' + '{'
-        
-        for port_name, port_prop in self.top_module["ports"].items():
-            if port_prop["direction"] == "input":
-                power_on_cycle_proc += f'"{port_name}", '
-        power_on_cycle_proc = power_on_cycle_proc[:-2] + '};\n'
-
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'power_module->timing_analysis("test", input_signal_name);' + '\n'
+        analyze_proc += WHITE_SPACE + f'void analyze(void)'+ '{\n'
         
         dynamic_power = ""
         net_switching_power = ""
 
-        for cell_name, cell_prop in self.top_module["cells"].items():
-            self.gate_indexing(cell_prop["type"])
+        # for cell_name, cell_prop in self.top_module["cells"].items():
+        #     self.gate_indexing(cell_prop["type"])
 
-        for cell_type, cell_type_indx in self.gate_index.items():
-            for i in range(1, cell_type_indx + 1):
-                power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::vector<float> pwr_{cell_type}_{str(i)} = power_module->power_per_gate("{cell_type}_{str(i)}");' + '\n'
-                dynamic_power += f'pwr_{cell_type}_{str(i)}[0]' + ' + '
-                net_switching_power += f'pwr_{cell_type}_{str(i)}[1]' + ' + '
+        # for cell_type, cell_type_indx in self.gate_index.items():
+        #     for i in range(1, cell_type_indx + 1):
+        #         analyze_proc += WHITE_SPACE + WHITE_SPACE + f'std::vector<float> pwr_{cell_type}_{str(i)} = power_module->power_per_gate("{cell_type}_{str(i)}");' + '\n'
+        #         dynamic_power += f'pwr_{cell_type}_{str(i)}[0]' + ' + '
+        #         net_switching_power += f'pwr_{cell_type}_{str(i)}[1]' + ' + '
         
-        power_on_cycle_proc += '\n'
+        # analyze_proc += '\n'
 
-        # remove last "+" and add ";"
-        dynamic_power = f'float dynamic_power = ' + dynamic_power[:-2] + ';'
-        net_switching_power = f'float net_switching_power = ' + net_switching_power[:-2] + ';'
-        total_power = f'float total_power = dynamic_power + net_switching_power;'
+        # # remove last "+" and add ";"
+        # dynamic_power = f'float dynamic_power = ' + dynamic_power[:-2] + ';'
+        # net_switching_power = f'float net_switching_power = ' + net_switching_power[:-2] + ';'
+        # total_power = f'float total_power = dynamic_power + net_switching_power;'
 
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + dynamic_power + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + net_switching_power + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + total_power + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "net switching power: " << net_switching_power << std::endl;' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "dynamic power : " << dynamic_power << std::endl;' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "total power per cycle: " << total_power << std::endl;' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + WHITE_SPACE + f'reset_togglings();' + '\n'
-        power_on_cycle_proc += WHITE_SPACE + '}\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + dynamic_power + '\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + net_switching_power + '\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + total_power + '\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "net switching power: " << net_switching_power << std::endl;' + '\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "dynamic power : " << dynamic_power << std::endl;' + '\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + f'std::cout << "total power per cycle: " << total_power << std::endl;' + '\n'
+        # analyze_proc += WHITE_SPACE + WHITE_SPACE + f'reset_togglings();' + '\n'
+        analyze_proc += WHITE_SPACE + '}\n'
 
-        return SC_THREAD_definition, power_on_cycle_proc
+        return SC_THREAD_definition, analyze_proc
         
     def thread_declaration(self):
         SC_THREAD_definition = ""
@@ -221,13 +241,11 @@ class json2sc_testbench_pwr(json2sc_testbench):
         SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
         processes += processes_tmp + '\n'
         
-        SC_THREAD_definition_tmp, processes_tmp = self.power_per_cycle_thread()
+        SC_THREAD_definition_tmp, processes_tmp = self.analyze_thread()
         SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
         processes += processes_tmp + '\n'
         
-        processes += self.reset_toggling_thread() + '\n'
-        
-        SC_THREAD_definition_tmp, processes_tmp = self.access_signal_thread()
+        SC_THREAD_definition_tmp, processes_tmp = self.registration_and_tracing_thread()
         SC_THREAD_definition += SC_THREAD_definition_tmp + '\n'
         processes += processes_tmp + '\n'
 

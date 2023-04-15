@@ -7,8 +7,8 @@ from utdate.src.conv.json2systemc import json2systemc
 WHITE_SPACE = "    "
 
 class json2sc_testbench(json2systemc):
-    def __init__(self, json_file, config_json, testbench, instance) -> None:
-        json2systemc.__init__(self, json_file, config_json)
+    def __init__(self, json_file, config_json, technology_paramter, testbench, instance) -> None:
+        json2systemc.__init__(self, json_file, config_json, technology_paramter)
         self.testbench_name = testbench
         self.instance_name = instance
 

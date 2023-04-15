@@ -6,7 +6,14 @@
     "yosys_script_premap_json_outputName": "synth_premap.json",
     "yosys_script_postmap_v_outputName": "synth_postmap.v",
     "yosys_script_postmap_json_outputName": "synth_postmap.json",
+    
+    "systemC_library": "Complex_NAgate_45.h",
+    "systemC_gate_properties_json": "gate_properties.json",
+    "systemC_gate_signal_json": "gate_signal_json_file.json",
+    "systemC_tech_timing_power": "45nm_timing_power.json",
+    "systemC_gate_capacitance": "gate_cap.json",
     "mycells_yosys_lib_fileName": "mycells_yosys.lib",
+    "liberty_file": "mycells_yosys.lib",
     
     "Logic_map_fileName": "Logic_map.v",
     "DFF_map_fileName": "DFF_map.v",
@@ -21,12 +28,7 @@
     "vhdl_netlist_fileName": "vhdl_netlist.vhd",
     "verilog_netlist_fileName": "verilog_netlist.v",
     "systemC_netlist_fileName": "systemC_netlist.h",
-    "systemC_library": "component_library.h",
     "systemC_testbench_fileName": "testbench.h",
-    "systemC_gate_properties_json": "gate_properties_json.h",
-    "systemC_gate_signal_json": "gate_signal_json_file.h",
-    "systemC_tech_timing_power": "45nm_timing_power.h",
-    "systemC_gate_capacitance": "gate_cap.h",
     "systemC_faultable_netlist_fileName": "systemC_faultable_netlist.h",
     
     "fault_list_fileName": "fault_list.flt",

@@ -1,7 +1,5 @@
 from pathlib import Path
 from tkinter import Tk, Frame, Canvas, Entry, Text, Button, PhotoImage
-from utdate.src.script import faultCollapsing, bench, test_set_gen
-
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -10,23 +8,15 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def test(prop):
-    Test(prop)
+def test(backend):
+    Test(backend)
 
 
 class Test(Frame):
-    def __init__(self, parent, prop, controller=None, *args, **kwargs):
+    def __init__(self, parent, backend, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-        working_directory = prop["directories"][0]
-        synthesis_dir = prop["directories"][1]
-        lib_dir = prop["directories"][2]
-        log_dir = prop["directories"][3]
-        test_dir = prop["directories"][4]
-        config_dir = prop["directories"][6]
-        config = prop["config"]
-        tech = prop["tech"]
-
+        self.backend = backend
         self.testbench_name = ""
         self.instance_name = ""
 
@@ -99,7 +89,7 @@ class Test(Frame):
             image=self.faultcllps_img,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.fault_collapsing(config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir),
+            command=lambda: self.fault_collapsing(),
             relief="flat"
         )
         self.faultCollpse_btn.place(
@@ -123,7 +113,7 @@ class Test(Frame):
             image=self.test_disabled_img,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.test_set_generation(config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir),
+            command=lambda: self.test_set_generation(),
             relief="flat"
         )
         self.testset_btn.place(
@@ -147,7 +137,7 @@ class Test(Frame):
             image=self.bench_img,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.bench_generation(config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, config_dir),
+            command=lambda: self.bench_generation(),
             relief="flat"
         )
         self.bench_btn.place(
@@ -282,30 +272,28 @@ class Test(Frame):
         # window.resizable(False, False)
         # window.mainloop()
 
-    def fault_collapsing(self, config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+    def fault_collapsing(self):
         self.testbench_name = self.testbench_name_entry.get()
         self.instance_name = self.instance_name_entry.get()
 
-        faultCollapsing(self.testbench_name,  self.instance_name, config, tech, working_directory, 
-            synthesis_dir, lib_dir, log_dir, test_dir)
+        self.backend.faultCollapsing(self.testbench_name,  self.instance_name)
 
         self.faultCollpse_btn.config(image=self.faultcllps_success_img)
         self.openlog_flt_btn.config(image=self.openlog_img)
         
 
-    def bench_generation(self, config, working_directory, synthesis_dir, lib_dir, log_dir, test_dir, config_dir):
+    def bench_generation(self):
         
-        bench(config=config, working_directory=working_directory, synthesis_dir=synthesis_dir, 
-                lib_dir=lib_dir, log_dir=log_dir, test_dir=test_dir, config_dir=config_dir)
+        self.backend.bench()
         
         self.bench_btn.config(image=self.bench_success_img)
         self.testset_btn.config(image=self.test_img)
         self.testset_btn.config(state="normal")
         self.openlog_bench_btn.config(image=self.openlog_img)
 
-    def test_set_generation(self, config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir):
+    def test_set_generation(self):
 
-        test_set_gen(config, tech, working_directory, synthesis_dir, lib_dir, log_dir, test_dir)
+        self.backend.test_set_gen()
         self.testset_btn.config(image=self.test_success_img)
         self.openlog_testset_btn.config(image=self.openlog_img)
 
