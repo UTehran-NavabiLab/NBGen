@@ -6,7 +6,7 @@ import utdate.lib as lib
 class bist_insertion:
     # get bist_configuration containing all the neccessary information about the bist and design
     def __init__(self, bist_configuration: dict) -> None:
-        self.configuraion = bist_configuration
+        self.configuration = bist_configuration
         # get directory of library inside package repository
         self.bist_lib = path.join((path.join(lib.__path__[0], "test")), "bist")
         self.working_dir = getcwd()
@@ -34,7 +34,7 @@ class bist_insertion:
             # replace shiftSize
             p1, p2 = split_page(rts_cnt, ["shiftSize", ":", "INTEGER", ":="])
             p2, p3 = split_page(p2, [";"])
-            rts_cnt = p1 + " " + str(self.configuraion["shiftSize"]) + ";" + p3
+            rts_cnt = p1 + " " + str(self.configuration["shiftSize"]) + ";" + p3
 
             with open(path.join(self.bist_dir, "RTS_Controller.vhd"), "w") as wr:
                 wr.write(rts_cnt)

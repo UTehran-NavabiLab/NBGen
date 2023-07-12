@@ -1,4 +1,5 @@
 from liberty.parser import parse_liberty
+from utdate.src.utility_functions import unique_list
 import re
 
 class Technology_file:
@@ -62,8 +63,8 @@ class Technology_file:
         for pin in cell.get_groups('pin'):
             if (pin["clock"] == "true"):
                 clk_list.append(pin.args[0])
+                self.list_of_clk.append(pin.args[0])
                 
-        self.list_of_clk.append(clk_list)
         if (len(clk_list) > 1):
             return clk_list
         else:

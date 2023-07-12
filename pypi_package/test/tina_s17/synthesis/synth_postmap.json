@@ -1,0 +1,424 @@
+{
+  "creator": "Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )",
+  "modules": {
+    "sequence": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:1.1-30.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "x": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "out": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+        "$abc$193$auto$blifparse.cc:381:parse_blif$194": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$195": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$196": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "A": [ 10, 6 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$197": {
+          "hide_name": 1,
+          "type": "notg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:53.31-56.4"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "Y": [ 12 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$198": {
+          "hide_name": 1,
+          "type": "nor_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:93.38-96.4"
+          },
+          "connections": {
+            "A": [ 10, 7 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$199": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "A": [ 13, 8 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$200": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "A": [ 9, 10 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$201": {
+          "hide_name": 1,
+          "type": "nand_n",
+          "parameters": {
+            "n": "00000000000000000000000000000010",
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:73.39-76.4"
+          },
+          "connections": {
+            "A": [ 15, 14 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$202": {
+          "hide_name": 1,
+          "type": "bufg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:5.32-8.4"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$147": {
+          "hide_name": 1,
+          "type": "dff",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:10.5-15.8|/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/DFF_map.v:46.30-56.4"
+          },
+          "connections": {
+            "C": [ 18 ],
+            "CE": [ "1" ],
+            "D": [ 17 ],
+            "NbarT": [ "0" ],
+            "PRE": [ "0" ],
+            "Q": [ 10 ],
+            "R": [ 19 ],
+            "Si": [ 20 ],
+            "global_reset": [ "0" ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$148": {
+          "hide_name": 1,
+          "type": "dff",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:10.5-15.8|/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/DFF_map.v:46.30-56.4"
+          },
+          "connections": {
+            "C": [ 18 ],
+            "CE": [ "1" ],
+            "D": [ 16 ],
+            "NbarT": [ "0" ],
+            "PRE": [ "0" ],
+            "Q": [ 6 ],
+            "R": [ 19 ],
+            "Si": [ 21 ],
+            "global_reset": [ "0" ]
+          }
+        },
+        "$iopadmap$sequence.clk": {
+          "hide_name": 1,
+          "type": "bufg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:5.32-8.4"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$iopadmap$sequence.out": {
+          "hide_name": 1,
+          "type": "bufg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:5.32-8.4"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "Y": [ 5 ]
+          }
+        },
+        "$iopadmap$sequence.rst": {
+          "hide_name": 1,
+          "type": "bufg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:5.32-8.4"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "Y": [ 19 ]
+          }
+        },
+        "$iopadmap$sequence.x": {
+          "hide_name": 1,
+          "type": "bufg",
+          "parameters": {
+            "tphl": "00000000000000000000000000000000",
+            "tplh": "00000000000000000000000000000000"
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/Logic_map.v:5.32-8.4"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "Y": [ 8 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$193$new_n11_": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n12_": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n13_": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n7_": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n8_": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n9_": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$clk": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$out": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$rst": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$x": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "$techmap290$auto$simplemap.cc:377:simplemap_ff$147.Si": {
+          "hide_name": 1,
+          "bits": [ 20 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:10.5-15.8|/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/DFF_map.v:45.17-45.19"
+          }
+        },
+        "$techmap291$auto$simplemap.cc:377:simplemap_ff$148.Si": {
+          "hide_name": 1,
+          "bits": [ 21 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:10.5-15.8|/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/DFF_map.v:45.17-45.19"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:2.11-2.14"
+          }
+        },
+        "ns[0]": {
+          "hide_name": 0,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "ns[1]": {
+          "hide_name": 0,
+          "bits": [ 16 ],
+          "offset": 1,
+          "attributes": {
+          }
+        },
+        "out": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:5.12-5.15"
+          }
+        },
+        "ps[0]": {
+          "hide_name": 0,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "ps[1]": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "offset": 1,
+          "attributes": {
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:3.11-3.14"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:4.11-4.12"
+          }
+        }
+      }
+    }
+  }
+}

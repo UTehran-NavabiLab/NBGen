@@ -168,7 +168,7 @@ class FaultSim(Frame):
         # Text: -------------------------------
         canvas.create_text(
             35.0,
-            8.0,
+            20.0,
             anchor="nw",
             text="Fault ",
             fill="#FFFFFF",
@@ -177,7 +177,7 @@ class FaultSim(Frame):
 
         canvas.create_text(
             10.0,
-            37.0,
+            42.0,
             anchor="nw",
             text="Simulation",
             fill="#FFFFFF",

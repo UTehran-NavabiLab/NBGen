@@ -1,0 +1,342 @@
+{
+  "creator": "Yosys 0.10+12 (open-tool-forge build) (git sha1 356ec7bb, clang 11.0.3 )",
+  "modules": {
+    "sequence": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:1.1-30.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "x": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "out": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+        "$abc$193$auto$blifparse.cc:381:parse_blif$194": {
+          "hide_name": 1,
+          "type": "NOT",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 6 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$195": {
+          "hide_name": 1,
+          "type": "NOT",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$196": {
+          "hide_name": 1,
+          "type": "NAND",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 6 ],
+            "B": [ 10 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$197": {
+          "hide_name": 1,
+          "type": "NOT",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 11 ],
+            "Y": [ 12 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$198": {
+          "hide_name": 1,
+          "type": "NOR",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 7 ],
+            "B": [ 10 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$199": {
+          "hide_name": 1,
+          "type": "NAND",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 8 ],
+            "B": [ 13 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$200": {
+          "hide_name": 1,
+          "type": "NAND",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 10 ],
+            "B": [ 9 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$201": {
+          "hide_name": 1,
+          "type": "NAND",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 14 ],
+            "B": [ 15 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$abc$193$auto$blifparse.cc:381:parse_blif$202": {
+          "hide_name": 1,
+          "type": "BUF",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$147": {
+          "hide_name": 1,
+          "type": "DFF_PP0",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:10.5-15.8"
+          },
+          "connections": {
+            "C": [ 18 ],
+            "D": [ 17 ],
+            "Q": [ 10 ],
+            "R": [ 19 ]
+          }
+        },
+        "$auto$simplemap.cc:377:simplemap_ff$148": {
+          "hide_name": 1,
+          "type": "DFF_PP0",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:10.5-15.8"
+          },
+          "connections": {
+            "C": [ 18 ],
+            "D": [ 16 ],
+            "Q": [ 6 ],
+            "R": [ 19 ]
+          }
+        },
+        "$iopadmap$sequence.clk": {
+          "hide_name": 1,
+          "type": "BUF",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$iopadmap$sequence.out": {
+          "hide_name": 1,
+          "type": "BUF",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "Y": [ 5 ]
+          }
+        },
+        "$iopadmap$sequence.rst": {
+          "hide_name": 1,
+          "type": "BUF",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "Y": [ 19 ]
+          }
+        },
+        "$iopadmap$sequence.x": {
+          "hide_name": 1,
+          "type": "BUF",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "Y": [ 8 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$193$new_n11_": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n12_": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n13_": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n7_": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n8_": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$193$new_n9_": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$clk": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$out": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$rst": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$iopadmap$x": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:2.11-2.14"
+          }
+        },
+        "ns[0]": {
+          "hide_name": 0,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "ns[1]": {
+          "hide_name": 0,
+          "bits": [ 16 ],
+          "offset": 1,
+          "attributes": {
+          }
+        },
+        "out": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:5.12-5.15"
+          }
+        },
+        "ps[0]": {
+          "hide_name": 0,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "ps[1]": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "offset": 1,
+          "attributes": {
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:3.11-3.14"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/tina_s17/sequence.v:4.11-4.12"
+          }
+        }
+      }
+    }
+  }
+}

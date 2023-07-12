@@ -13,8 +13,8 @@
     "systemC_tech_timing_power": "45nm_timing_power.json",
     "systemC_gate_capacitance": "gate_cap.json",
     "mycells_yosys_lib_fileName": "mycells_yosys.lib",
-    "liberty_file": "mycells_yosys.lib",
-    
+  "liberty_file": "osu018_stdcells.lib",
+  "tech_file_ver": [ "osu018_stdcells.v" ],
     "Logic_map_fileName": "Logic_map.v",
     "DFF_map_fileName": "DFF_map.v",
     
@@ -35,5 +35,7 @@
     
     "gate_signal_json_file": "gate_signal_json_file.json",
     "atalanta_bin": "atalanta",
-    "atalanta_output_fileName": "atalanta_output.log"
+    "atalanta_output_fileName": "atalanta_output.log",
+    "NbarT_signal":"NBART",
+    "Global_reset_signal":"Grst"
 }

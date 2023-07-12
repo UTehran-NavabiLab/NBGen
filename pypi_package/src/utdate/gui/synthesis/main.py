@@ -200,13 +200,13 @@ class Synthesis(Frame):
             font=('Helvetica 15')
         )
 
-        canvas.create_rectangle(
-            290.0,
-            270.0,
-            (290 + 240.0),
-            (270 + 255.0),
-            fill="#D9D9D9",
-            outline="")
+        # canvas.create_rectangle(
+        #     290.0,
+        #     270.0,
+        #     (290 + 240.0),
+        #     (270 + 255.0),
+        #     fill="#D9D9D9",
+        #     outline="")
 
         # Entry: Top module name, synthesis_log-------------------------------
         self.module_name_entry = Entry(
@@ -340,14 +340,14 @@ class Synthesis(Frame):
 
     def convert_to_vhdl(self):
         self.backend.to_vhdl()
-        # self.to_vhdl_btn.config(image=self.to_vhdl_successful)
+
 
     def convert_to_verilog(self):
         self.backend.to_verilog()
-        # self.to_verilog_btn.config(image=self.to_verilog_successful)
+
     def convert_to_systemc(self):
         self.backend.to_systemc()
-        # self.to_systemc_btn.config(image=self.to_systemc_successful)
+
 
     def open_synth_log(self):
         print("not functional, yet!!!")

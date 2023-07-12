@@ -1,8 +1,7 @@
-read_verilog /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/PUNEH.v  
+read_verilog /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/seqDetector.v  
 # High-level synthesis
 hierarchy -check -auto-top
-synth -flatten
-opt -full 
+synth; opt -full
 
 # Map register flops
 # placeholder for dfflibmap
@@ -18,12 +17,11 @@ abc -liberty /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/s
 
 # abc -liberty mycells.lib 
 
+flatten
+opt
+
 splitnets
 techmap 
-opt -fast
-abc -fast
-opt -fast
-
 # placeholder for abc after splitnets
 abc -liberty /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/mycells_yosys.lib 
 
@@ -37,16 +35,16 @@ opt_clean
 # hilomap -hicell TIEHIM Y -locell TIELOM Y
 # technology mapping of i/o pads (or buffers)
 # placeholder for i/o pads mapping
-iopadmap -inpad BUF Y:A -bits 
-iopadmap -outpad BUF A:Y -bits 
+iopadmap -inpad BUFX2 Y:A -bits 
+iopadmap -outpad BUFX2 A:Y -bits 
 
 # iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
 
 
 # placeholder for premap_synthesis file
-write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/synthesis/synth_premap.v 
-write_blif /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/synthesis/synth_premap.blif 
-write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/synthesis/synth_premap.json 
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/synthesis/synth_premap.v 
+write_blif /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/synthesis/synth_premap.json 
 
 # write_verilog -noattr synth_premap.v
 # write_blif synth_premap.blif
@@ -67,8 +65,8 @@ opt_clean
 stat
 
 # placeholder for postmap_synthesis file
-write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/synthesis/synth_postmap.v 
-write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/ali_alipour/synthesis/synth_postmap.json 
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/synthesis/synth_postmap.v 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/synthesis/synth_postmap.json 
 
 # write_verilog -noattr synth_postmap.v
 # write_json -noattr synth_postmap.v

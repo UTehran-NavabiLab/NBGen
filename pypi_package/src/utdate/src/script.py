@@ -1,6 +1,7 @@
 from os import path, getcwd, chdir, listdir, mkdir
 from subprocess import run, PIPE
 from json import load, dump
+from sys import platform
 from subprocess import CalledProcessError
 from shutil import copyfile, SameFileError, copy
 from utdate.src.utility_functions import *
@@ -18,6 +19,8 @@ from utdate.src.conv.json2systemc_flt import json2systemc_flt
 from utdate.src.flt.fault_collapsing import fault_collapsing
 from utdate.src.technology_reader import Technology_file
 from utdate.src.test.bist import bist_insertion
+from utdate.src.scan.DRC import DRC
+from utdate.src.scan.ScanSynth import ScanSynth
 import utdate.lib as lib
 import utdate.bin as bin
 
@@ -29,6 +32,7 @@ class utdate_beckend:
       self.log_dir = mkdir("log", self.working_dir)
       self.test_dir = mkdir("test", self.working_dir)
       self.fltSim_dir = mkdir("fault_simulation", self.test_dir)
+      self.scan_dir = mkdir("scan", self.working_dir, False)
       self.lib_dir = lib.__path__[0]
       self.bin_dir = bin.__path__[0]
       self.config_dir = ""
@@ -76,14 +80,15 @@ class utdate_beckend:
       
       # fetch all files
       for file_name in listdir(source_folder):
-         # construct full file path
-         source = path.join(source_folder, file_name)
-         destination = path.join(destination_folder, file_name)
-         # copy only files
-         if path.isfile(source):
-            copy(source, destination)
-         else:
-            print("file/directory does not exist: ", source)
+         if (file_name != "__pycache__"):
+            # construct full file path
+            source = path.join(source_folder, file_name)
+            destination = path.join(destination_folder, file_name)
+            # copy only files
+            if path.isfile(source):
+               copy(source, destination)
+            else:
+               print("file/directory does not exist: ", source)
       
 
       self.technology_parameter = Technology_file(path.join(self.lib_dir, self.config_json["liberty_file"]))
@@ -103,7 +108,17 @@ class utdate_beckend:
    #        user must provide valid yosys script at valid location (under lib_dir)
    def netlist(self, input_file_name, module_name, vhdl=False, use_existing_script=False):
       yosys_script_dir = path.join(self.config_dir, "yosys_script.ys")
+      # set a default path for yosys executable file
+      yosys_exec_dir = path.join(self.bin_dir, "yosys")
+      # check OS to see and set path to executable accordingly
+      if platform == "linux" or platform == "linux2": # linux
+         yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "linux"), "bin"), "yosys")
+      elif platform == "darwin": # OS X
+         yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "darwin"), "bin"), "yosys")
+      elif platform == "win32" or platform == "cygwin": # Windows
+         yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "win"), "bin"), "yosys")
 
+         
       if not (use_existing_script):
          with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
             f.write(self.yosys_script_mk(input_file=input_file_name, module_name=module_name, vhdl=vhdl))
@@ -113,7 +128,7 @@ class utdate_beckend:
 
       try:
          # run yosys script with input file name, throw exception if failed
-         yosys_log = run([path.join(self.bin_dir, "yosys"), yosys_script_dir], stdout=PIPE, text=True, check=True)
+         yosys_log = run([yosys_exec_dir, yosys_script_dir], stdout=PIPE, text=True, check=True)
          # an alternative would be to use input arg
          # yosys_log = run([config["yosys_bin"], yosys_script_dir], stdout=PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
       except CalledProcessError:
@@ -215,12 +230,13 @@ class utdate_beckend:
          f.write(j2sc_tb_flt_uvm.generate_systemc())
 
    def insert_bist(self, bist_type : str):
-      bist = bist_insertion(bist_config)
       
       Primary_input_size, Primary_output_size = self.hdl_base.size_Of_Ports()
       bist_config = dict()
       bist_config.update({"type": bist_type})
       bist_config.update({"shiftSize": Primary_input_size})
+      
+      bist = bist_insertion(bist_config)
       
       if (bist_type == "RTS"):
          bist.rts()
@@ -316,6 +332,145 @@ class utdate_beckend:
 
       return yosys_script
 
+   #########################################vesal added start ###########################################
+   def scan_yosys_script(self, lib_dir, techver, scan_dir, file_dir, filename, rename_flag, flatten_flag):
+
+      script =""
+      ## read liberty file
+      script = script + "read_liberty -lib -ignore_miss_dir -setattr blackbox "
+      script = script + lib_dir + '\n'
+
+      ##read verilog as -lib
+      for t in techver:
+         script = script + "read_verilog -lib "
+         script = script + t + '\n'
+      for dir in file_dir:
+         script = script + "read_verilog " + dir + '\n'
+
+      script = script + "synth -auto-top\n"
+
+      script = script + "dfflibmap -liberty " + lib_dir + '\n'
+
+      script = script + "opt\n"
+
+      script = script + "abc -liberty " + lib_dir
+
+      script = script + " -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}\n"
+
+      if(flatten_flag):
+         script = script + "flatten\n"
+
+      script = script + "setundef -zero\nclean -purge\nopt\n"
+
+      script = script + "clean\n"
+
+      if(rename_flag):
+         script = script + "rename -enumerate\n"
+
+      write_dir= os.path.join(scan_dir, (filename[:filename.find(".v")]+"_synth_premap.v"))
+
+
+      script = script + "write_verilog -noattr " + write_dir + "\n"
+
+      write_dir= os.path.join(scan_dir, (filename[:filename.find(".v")]+"_synth_premap.blif"))
+
+      script = script + "write_blif -buf BUF_X1 A Z " +  write_dir + "\n"
+
+      write_dir= os.path.join(scan_dir, (filename[:filename.find(".v")]+"_synth_premap.json"))
+
+      script = script + "write_json " +  write_dir + "\n"
+
+      script = script + "stat\n"
+
+      #print(script)
+
+      return script
+
+   def Scan_script(self, file_dir, file_name, rename_flag, flatten_flag):
+      # set a default path for yosys executable file
+      yosys_exec_dir = path.join(self.bin_dir, "yosys")
+      # check OS to see and set path to executable accordingly
+      if platform == "linux" or platform == "linux2": # linux
+         yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "linux"), "bin"), "yosys")
+      elif platform == "darwin": # OS X
+         yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "darwin"), "bin"), "yosys")
+      elif platform == "win32" or platform == "cygwin": # Windows
+         yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "win"), "bin"), "yosys")
+
+      lib = path.join(self.lib_dir, self.config_json['liberty_file'])
+      techver = list()
+      for vf in self.config_json['tech_file_ver']:
+         techver.append(path.join(self.lib_dir, vf))
+      script = self.scan_yosys_script(lib, techver, self.scan_dir, file_dir, file_name, rename_flag,flatten_flag)
+      scan_script_dir = path.join(self.lib_dir, "scan_script.ys")
+      f = open(scan_script_dir, "w")
+      f.write(script)
+      f.close()
+      try:
+         # run yosys script with input file name, throw exception if failed
+         yosys_log = run([yosys_exec_dir, scan_script_dir], stdout=PIPE, text=True, check=True)
+         # an alternative would be to use input arg
+         # yosys_log = run([config["yosys_bin"], yosys_script_dir], stdout=PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
+      except CalledProcessError:
+         yosys_log = "CalledProcessError: \n" 
+         yosys_log += "    yosys returned non-zero exit status 1"
+         yosys_log_dir = path.join(self.log_dir, "yosys.log")
+         with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
+            f.write(yosys_log)
+   
+   def design_rule_check(self, file_dir, file_name):
+      self.Scan_script(file_dir, file_name, 1,1)
+      #scan_json_file = self.scan_dir + file_name[:file_name.find(".v")]+"_synth_premap.json"
+      scan_json_file = path.join(self.scan_dir, (file_name[:file_name.find(".v")]+"_synth_premap.json"))
+      self.DRC = DRC(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")])
+      drc_log = self.DRC.Design_Rule_Check(self.config_json['NbarT_signal'], self.config_json['Global_reset_signal']) ### yadet bashe vorudi ha bayad az config khunde beshe
+      if self.DRC.Success :
+         drc_log.append("Type = Report  \n--------------------------------- \n")
+         drc_log.append("Type = Report  \n  DESIGN RULE CHECK SUCCESSFUL\n")
+         drc_log.append("Type = Report  \n--------------------------------- \n")
+
+      new_dir =  path.join(self.scan_dir, ("test_ready.v"))
+      print(new_dir)
+
+      self.Scan_script([new_dir], "test_ready.v", 0,1)
+
+      return drc_log , self.DRC.Success
+
+   def get_scan_info(self, file_name):
+      scan_json_file = path.join(self.scan_dir, ( file_name[:file_name.find(".v")] +"_synth_premap.json"))
+      self.scansynth = ScanSynth(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")], self.DRC.PI_clock)
+      return self.scansynth.scan_info
+
+   def scan_synth(self, si, so, chain_size):
+     
+      # file_name = (file_name[:file_name.find(".v")] + "_test_ready.v" )
+     
+      # file_dir = path.join(self.scan_dir, file_name)
+      # self.Scan_script(file_dir, file_name, 0,1)
+      # scan_json_file = path.join(self.scan_dir, (file_name[:file_name.find(".v")]+"_synth_premap.json"))
+      # self.scansynth = ScanSynth(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")], self.DRC.PI_clock)
+      # print(si)
+      # print(so)
+      self.scansynth.full_scan(self.config_json['NbarT_signal'], self.config_json['Global_reset_signal'],si,so,chain_size)
+      if self.scansynth.Success : 
+         self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
+         self.scansynth.log.append("Type = Report  \n  SCAN INSERTION SUCCESSFUL\n")
+         self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
+      else : 
+         self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
+         self.scansynth.log.append("Type = Report  \n  SCAN INSERTION FAILED\n")
+         self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
+
+      return self.scansynth.log, self.scansynth.Success
+
+      
+      
+
+      #__init__(self, json_file, config_json, technology_parameters, scan_dir, filename) -> None:
+
+
+      #self.config_json, self.technology_parameter
+   ########################################vesal added end #####################################
 
    # @def: generate bench file using abc
    #  @args: 
@@ -324,6 +479,15 @@ class utdate_beckend:
    def bench(self):
       # writing abc script
       abc_script_dir = path.join(self.config_dir, "abc_script.scr")
+      # set a default path for abc executable file
+      abc_exec_dir = path.join(self.bin_dir, "yosys")
+      # check OS to see and set path to executable accordingly
+      if platform == "linux" or platform == "linux2": # linux
+         abc_exec_dir = path.join(path.join(path.join(self.bin_dir, "linux"), "bin"), "yosys-abc")
+      elif platform == "darwin": # OS X
+         abc_exec_dir = path.join(path.join(path.join(self.bin_dir, "darwin"), "bin"), "yosys-abc")
+      elif platform == "win32" or platform == "cygwin": # Windows
+         abc_exec_dir = path.join(path.join(path.join(self.bin_dir, "win"), "bin"), "yosys-abc")
 
       with open(abc_script_dir,'w',encoding = 'utf-8') as f:
          f.write(self.abc_script_mk())
@@ -340,7 +504,7 @@ class utdate_beckend:
       chdir(self.test_dir)
       ###################### yosys ######################
       # run abc script with input file name, through exception if failed
-      abc_log = run([path.join(self.bin_dir, "yosys-abc")], stdout=PIPE, text=True, input=f'source -x {abc_script_dir}', check=True)
+      abc_log = run([abc_exec_dir], stdout=PIPE, text=True, input=f'source -x {abc_script_dir}', check=True)
       yosys_log_dir = path.join(self.log_dir, "abc.log")
       with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
          f.write(abc_log.stdout)
@@ -455,6 +619,16 @@ class utdate_beckend:
    def test_set_gen(self):
       json_premap_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
       bench_input = path.join(self.test_dir, self.config_json["abc_bench_output"])
+
+      # set a default path for atalanta executable file
+      atalanta_exec_dir = path.join(self.bin_dir, "yosys")
+      # check OS to see and set path to executable accordingly
+      if platform == "linux" or platform == "linux2": # linux
+         atalanta_exec_dir = path.join(path.join(path.join(self.bin_dir, "linux"), "bin"), "atalanta")
+      elif platform == "darwin": # OS X
+         atalanta_exec_dir = path.join(path.join(path.join(self.bin_dir, "darwin"), "bin"), "atalanta")
+      elif platform == "win32" or platform == "cygwin": # Windows
+         atalanta_exec_dir = path.join(path.join(path.join(self.bin_dir, "win"), "bin"), "atalanta")
 
       ###################### atalanta ######################
       with open(path.join(self.test_dir, self.config_json["abc_bench_rm_floated_net_output"]), 'w', encoding = 'utf-8') as b:

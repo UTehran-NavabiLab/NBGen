@@ -1,0 +1,2375 @@
+{
+  "creator": "Yosys 0.29+23 (git sha1 cdeef5481, x86_64-w64-mingw32-g++ 9.2.1 -Os)",
+  "modules": {
+    "AND2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:3.1-24.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:4.8-4.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:5.8-5.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:6.8-6.9"
+          }
+        }
+      }
+    },
+    "AND2X2": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:29.1-50.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:30.8-30.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:31.8-31.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:32.8-32.9"
+          }
+        }
+      }
+    },
+    "AOI21X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:55.1-82.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:56.8-56.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:57.8-57.9"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:58.8-58.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:59.8-59.9"
+          }
+        }
+      }
+    },
+    "AOI22X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:87.1-119.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:88.8-88.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:89.8-89.9"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:90.8-90.9"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:91.8-91.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:92.8-92.9"
+          }
+        }
+      }
+    },
+    "BUFX2": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:124.1-141.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:125.8-125.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:126.8-126.9"
+          }
+        }
+      }
+    },
+    "BUFX4": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:146.1-163.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:147.8-147.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:148.8-148.9"
+          }
+        }
+      }
+    },
+    "CLKBUF1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:168.1-185.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:169.8-169.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:170.8-170.9"
+          }
+        }
+      }
+    },
+    "CLKBUF2": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:190.1-207.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:191.8-191.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:192.8-192.9"
+          }
+        }
+      }
+    },
+    "CLKBUF3": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:212.1-229.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:213.8-213.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:214.8-214.9"
+          }
+        }
+      }
+    },
+    "DFFNEGX1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DFFPOSX1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "DFFSR": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "R": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "S": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "R": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "S": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "FAX1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "YC": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "YS": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "YC": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "YS": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "HAX1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "YC": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "YS": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "YC": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "YS": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INVX1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "INVX2": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:234.1-251.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:235.8-235.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:236.8-236.9"
+          }
+        }
+      }
+    },
+    "INVX4": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:256.1-273.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:257.8-257.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:258.8-258.9"
+          }
+        }
+      }
+    },
+    "INVX8": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:278.1-295.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 3 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:279.8-279.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:280.8-280.9"
+          }
+        }
+      }
+    },
+    "LATCH": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "CLK": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Q": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "CLK": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "Q": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "MUX2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "S": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "S": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        }
+      }
+    },
+    "NAND2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:300.1-322.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:301.8-301.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:302.8-302.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:303.8-303.9"
+          }
+        }
+      }
+    },
+    "NAND3X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:327.1-353.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:328.8-328.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:329.8-329.9"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:330.8-330.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:331.8-331.9"
+          }
+        }
+      }
+    },
+    "NOR2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:358.1-380.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:359.8-359.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:360.8-360.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:361.8-361.9"
+          }
+        }
+      }
+    },
+    "NOR3X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:385.1-411.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:386.8-386.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:387.8-387.9"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:388.8-388.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:389.8-389.9"
+          }
+        }
+      }
+    },
+    "OAI21X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:416.1-443.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:417.8-417.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:418.8-418.9"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:419.8-419.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:420.8-420.9"
+          }
+        }
+      }
+    },
+    "OAI22X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:448.1-480.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "D": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:449.8-449.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:450.8-450.9"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:451.8-451.9"
+          }
+        },
+        "D": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:452.8-452.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:453.8-453.9"
+          }
+        }
+      }
+    },
+    "OR2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:485.1-506.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:486.8-486.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:487.8-487.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:488.8-488.9"
+          }
+        }
+      }
+    },
+    "OR2X2": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:511.1-532.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:512.8-512.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:513.8-513.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:514.8-514.9"
+          }
+        }
+      }
+    },
+    "TBUFX1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:537.1-561.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:538.8-538.9"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:539.8-539.10"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:540.8-540.9"
+          }
+        }
+      }
+    },
+    "TBUFX2": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:566.1-590.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "EN": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:567.8-567.9"
+          }
+        },
+        "EN": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:568.8-568.10"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:569.8-569.9"
+          }
+        }
+      }
+    },
+    "XNOR2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:595.1-617.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:596.8-596.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:597.8-597.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:598.8-598.9"
+          }
+        }
+      }
+    },
+    "XOR2X1": {
+      "attributes": {
+        "blackbox": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:622.1-643.10"
+      },
+      "ports": {
+        "A": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "Y": {
+          "direction": "output",
+          "bits": [ 4 ]
+        }
+      },
+      "cells": {
+      },
+      "netnames": {
+        "A": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:623.8-623.9"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:624.8-624.9"
+          }
+        },
+        "Y": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\utdate\\lib\\osu018_stdcells.v:625.8-625.9"
+          }
+        }
+      }
+    },
+    "register": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:3.1-233.10"
+      },
+      "ports": {
+        "NBART": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "Grst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "clk": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "A": {
+          "direction": "input",
+          "bits": [ 6, 7, 8, 9 ]
+        },
+        "B": {
+          "direction": "input",
+          "bits": [ 10, 11, 12, 13 ]
+        },
+        "C": {
+          "direction": "input",
+          "bits": [ 14, 15, 16, 17 ]
+        },
+        "Q1": {
+          "direction": "output",
+          "bits": [ 18, 19, 20, 21 ]
+        },
+        "Q2": {
+          "direction": "output",
+          "bits": [ 22, 23, 24, 25 ]
+        },
+        "Q3": {
+          "direction": "output",
+          "bits": [ 26, 27, 28, 29 ]
+        }
+      },
+      "cells": {
+        "$abc$99$auto$blifparse.cc:386:parse_blif$100": {
+          "hide_name": 1,
+          "type": "INVX1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 30 ],
+            "Y": [ 31 ]
+          }
+        },
+        "$abc$99$auto$blifparse.cc:386:parse_blif$101": {
+          "hide_name": 1,
+          "type": "NAND2X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 4 ],
+            "Y": [ 32 ]
+          }
+        },
+        "$abc$99$auto$blifparse.cc:386:parse_blif$102": {
+          "hide_name": 1,
+          "type": "OAI21X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "C": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 31 ],
+            "B": [ 2 ],
+            "C": [ 32 ],
+            "Y": [ 33 ]
+          }
+        },
+        "$abc$99$auto$blifparse.cc:386:parse_blif$103": {
+          "hide_name": 1,
+          "type": "OR2X2",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 34 ],
+            "Y": [ 35 ]
+          }
+        },
+        "_10_": {
+          "hide_name": 0,
+          "type": "XOR2X1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:48.10-52.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 36 ],
+            "B": [ 37 ],
+            "Y": [ 38 ]
+          }
+        },
+        "_11_": {
+          "hide_name": 0,
+          "type": "NAND3X1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:53.11-58.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "C": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 37 ],
+            "B": [ 36 ],
+            "C": [ 39 ],
+            "Y": [ 40 ]
+          }
+        },
+        "_12_": {
+          "hide_name": 0,
+          "type": "INVX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:59.9-62.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 40 ],
+            "Y": [ 41 ]
+          }
+        },
+        "_13_": {
+          "hide_name": 0,
+          "type": "AOI21X1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:63.11-68.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "C": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 37 ],
+            "B": [ 36 ],
+            "C": [ 39 ],
+            "Y": [ 42 ]
+          }
+        },
+        "_14_": {
+          "hide_name": 0,
+          "type": "NOR2X1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:69.10-73.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 42 ],
+            "B": [ 41 ],
+            "Y": [ 43 ]
+          }
+        },
+        "_15_": {
+          "hide_name": 0,
+          "type": "XNOR2X1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:74.11-78.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 40 ],
+            "B": [ 44 ],
+            "Y": [ 45 ]
+          }
+        },
+        "_16_": {
+          "hide_name": 0,
+          "type": "NAND2X1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:79.11-83.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 44 ],
+            "B": [ 41 ],
+            "Y": [ 34 ]
+          }
+        },
+        "_17_": {
+          "hide_name": 0,
+          "type": "INVX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:84.9-87.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "Y": [ 46 ]
+          }
+        },
+        "_18_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:88.9-94.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 14 ],
+            "Q": [ 26 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_19_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:95.9-101.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 15 ],
+            "Q": [ 27 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_20_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:102.9-108.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 16 ],
+            "Q": [ 28 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_21_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:109.9-115.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 17 ],
+            "Q": [ 29 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_22_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:116.9-122.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 10 ],
+            "Q": [ 22 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_23_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:123.9-129.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 11 ],
+            "Q": [ 23 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_24_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:130.9-136.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 12 ],
+            "Q": [ 24 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_25_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:137.9-143.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 13 ],
+            "Q": [ 25 ],
+            "R": [ 35 ],
+            "S": [ "1" ]
+          }
+        },
+        "_26_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:144.9-150.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 47 ],
+            "Q": [ 36 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_27_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:151.9-157.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 38 ],
+            "Q": [ 37 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_28_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:158.9-164.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 43 ],
+            "Q": [ 39 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_29_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:165.9-171.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 45 ],
+            "Q": [ 44 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_30_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:172.9-178.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 6 ],
+            "Q": [ 18 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_31_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:179.9-185.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 7 ],
+            "Q": [ 19 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_32_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:186.9-192.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 8 ],
+            "Q": [ 20 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_33_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:193.9-199.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 33 ],
+            "D": [ 9 ],
+            "Q": [ 21 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_34_": {
+          "hide_name": 0,
+          "type": "DFFSR",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:200.9-206.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "R": "input",
+            "S": "input"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 48 ],
+            "Q": [ 30 ],
+            "R": [ 46 ],
+            "S": [ "1" ]
+          }
+        },
+        "_8_": {
+          "hide_name": 0,
+          "type": "INVX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:207.9-210.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 36 ],
+            "Y": [ 47 ]
+          }
+        },
+        "_9_": {
+          "hide_name": 0,
+          "type": "INVX1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:211.9-214.4"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 30 ],
+            "Y": [ 48 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$99$new_n7_": {
+          "hide_name": 1,
+          "bits": [ 31 ],
+          "attributes": {
+          }
+        },
+        "$abc$99$new_n8_": {
+          "hide_name": 1,
+          "bits": [ 32 ],
+          "attributes": {
+          }
+        },
+        "A": {
+          "hide_name": 0,
+          "bits": [ 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:4.15-4.16"
+          }
+        },
+        "B": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:24.15-24.16"
+          }
+        },
+        "C": {
+          "hide_name": 0,
+          "bits": [ 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:26.15-26.16"
+          }
+        },
+        "CK": {
+          "hide_name": 0,
+          "bits": [ 30 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:28.8-28.10"
+          }
+        },
+        "Grst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:6.8-6.12"
+          }
+        },
+        "NBART": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:5.9-5.14"
+          }
+        },
+        "Q1": {
+          "hide_name": 0,
+          "bits": [ 18, 19, 20, 21 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:29.16-29.18"
+          }
+        },
+        "Q2": {
+          "hide_name": 0,
+          "bits": [ 22, 23, 24, 25 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:31.16-31.18"
+          }
+        },
+        "Q3": {
+          "hide_name": 0,
+          "bits": [ 26, 27, 28, 29 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:33.16-33.18"
+          }
+        },
+        "_0_": {
+          "hide_name": 0,
+          "bits": [ 48 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:35.8-35.11"
+          }
+        },
+        "_1_": {
+          "hide_name": 0,
+          "bits": [ 34 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:36.8-36.11"
+          }
+        },
+        "_2_": {
+          "hide_name": 0,
+          "bits": [ 46 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:37.8-37.11"
+          }
+        },
+        "_3_": {
+          "hide_name": 0,
+          "bits": [ 40 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:38.8-38.11"
+          }
+        },
+        "_4_": {
+          "hide_name": 0,
+          "bits": [ 41 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:39.8-39.11"
+          }
+        },
+        "_5_": {
+          "hide_name": 0,
+          "bits": [ 42 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:40.8-40.11"
+          }
+        },
+        "_6_": {
+          "hide_name": 0,
+          "bits": [ 47, 37, 39, 44 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:41.14-41.17"
+          }
+        },
+        "_7_": {
+          "hide_name": 0,
+          "bits": [ 47, 38, 43, 45 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:42.14-42.17"
+          }
+        },
+        "_DRS0_": {
+          "hide_name": 0,
+          "bits": [ 35 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:7.8-7.14"
+          }
+        },
+        "_MUX0_": {
+          "hide_name": 0,
+          "bits": [ 33 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:15.6-15.12"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:43.9-43.12"
+          }
+        },
+        "cnt": {
+          "hide_name": 0,
+          "bits": [ 36, 37, 39, 44 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:45.14-45.17"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "C:\\Users\\ASUS\\Documents\\Test\\scan\\test_ready.v:46.9-46.12"
+          }
+        }
+      }
+    }
+  }
+}

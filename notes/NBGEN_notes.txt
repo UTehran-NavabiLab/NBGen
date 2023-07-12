@@ -1,6 +1,59 @@
 ----------------------------------------------------
 *********************** TODO ***********************
 ----------------------------------------------------
+    23May;
+        ~ use the output of synth as input for design rule check phase 
+            match the yosys scripts of both process
+
+        adding 
+
+        - fix warning about __pycache__ 
+            the reason was:
+            during copying fault simulation file from lib to working directory the __pycache__ was listed but couldn't be found
+        - remove title bar 
+            \__ add <self.overrideredirect(True)> to main_window
+            [https://stackoverflow.com/questions/4055267/tkinter-mouse-drag-a-window-without-borders-eg-overridedirect1]
+            \__ add two label with one for sidebar and one for page 
+        - fix Manifest.in and include new pages 
+        - upload package 
+        fix size of synthesis report
+        - fault simulation for vhdl
+
+    22May;
+        - distinguish OS to check for executable 
+            * changes are made in [site-package] and must be synchronize with local instance
+            \__ support for different platform
+                \__ linux
+                \__ win32
+                \__ darwin
+
+        [json2vhdl_vTesterScan.py]
+        - add support for vhdl virtual tester for scan-chain
+        - add 
+            \__ some lines are copied from template file 
+            \__ a few changes are made in template file 
+
+        [json2vhdl_vTesterScan] L:42
+            fill out configurations with parameter
+            
+        ~ check atalanta 
+    13May;
+        - how to determine OS
+        - update binary files
+
+        - how to use pixel instead of point textbox
+        - for synthesis page -> 
+    20Apr;
+        - adding scan tab to gui 
+            \__ create scan page in figma
+            \__ extract and download tk element (using tkdesigner)
+        
+        - I did some neat move to make check button toggle between single and multiple scan 
+            \__ only one of them is active at a time 
+                >   def single_scan_select(self):
+                        if (self.single_scan_var.get()):
+                            if (self.multiple_scan_var.get()):
+                                self.multiple_scan_btn.invoke()
     15Apr;
         ~ add BIST to toolchain
         - add new source file, [src->test->bist.py]
@@ -267,7 +320,7 @@
 
     [pypi]
         username = __token__
-        password = pypi-AgEIcHlwaS5vcmcCJDNlN2JkM2UzLTNlNmEtNGI5ZS1iNDAzLTY2ODg4YjY3Zjg4NwACKlszLCI3OTc5NDgxZC1jMmZjLTRkYTYtOTc3Mi0zYzIzMDVjY2RmNDciXQAABiCuJfR3_5yXDyABSj7Q0gYwx8j8U0m1bmzcYQLQvSVyAQ
+        password = pypi-AgEIcHlwaS5vcmcCJDA0MzU0NDc2LTI1YjQtNDQ1Yy04OWI3LWRmM2Y2NmU3MGE3NwACD1sxLFsidXQtZGF0ZSJdXQACLFsyLFsiN2NhMTA5ZTctMTZjNC00MThlLWJjNDYtYzJiNjVmOTZmODc2Il1dAAAGIC4e3gY6M0Xxm8sn_wfsdHMs-Gk1yXfaxvSpTpfN5Ei_
 
     to add assets(images) to package use 
         > include_package_data = True
@@ -281,9 +334,10 @@
         > python3 -m build
     upload using twine:
         > python3 -m twine upload --repository testpypi dist/*
+        > python3 -m twine upload dist/*
     enter user and password:
         username = __token__
-        password: pypi-AgENdGVzdC5weXBpLm9yZwIkNWM0MWE2NjYtNjFiYy00YzdkLTkxZTAtY2QzYjY5YmVkODEzAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiBalV4e0AW3J68SKZpne_6k-gz9MfwzNKVgIuxLhAmj-A
+        password: pypi-AgEIcHlwaS5vcmcCJGZjNTBiNmRlLWZkYWQtNGJkZi05NTBjLTljNGNjODQ4MmJhMgACD1sxLFsidXQtZGF0ZSJdXQACLFsyLFsiN2NhMTA5ZTctMTZjNC00MThlLWJjNDYtYzJiNjVmOTZmODc2Il1dAAAGIK8jut7MOsy8UFCboZCzuNhvfQyUIr18d9NfonVvqYUb
 
     to install:
         > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install -i https://test.pypi.org/simple/ utdate==0.0.10
@@ -318,6 +372,12 @@
                 INV_X1 INV_X1_3  ( .A(ci), .ZN(_2_) );
         
 
+    -------------------- Adding new tab to GUI --------------------
+    add package 
+    add button
+        \__ pass name of page to handle_btn_press
+    add to windows dict 
+    add to sidebar_indicator dict 
     -------------------- Adding new feature to GUI --------------------
         we use figma platform to design 
             [https://www.figma.com/]
