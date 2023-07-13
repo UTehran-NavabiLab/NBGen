@@ -36,7 +36,7 @@ class ScanSynth(json2hdl, Technology_file):
                 return key
 
     def port_name(self, text, port):
-        #print(text)
+     
         keyword = '.' + port + '('
         start_of_port_index = text.find(keyword) - 1
         start_of_replacement_index = start_of_port_index + text[start_of_port_index:].find('(')
@@ -75,8 +75,8 @@ class ScanSynth(json2hdl, Technology_file):
 
         if clear_port != "None":
             clear_name = self.port_name(module_desc, clear_port)
-
-
+            
+        
         # print(D_name, Q_name, clock_name, clear_name, preset_name)
     
 
@@ -261,7 +261,7 @@ class ScanSynth(json2hdl, Technology_file):
 
                     #print( chain_size[chain_num])
 
-                    print("\033[1;32m" + "cell " + cell_name + " is replacable" + "\033[0;0m")
+                    #print("\033[1;32m" + "cell " + cell_name + " is replacable" + "\033[0;0m")
 
                     scan_desc, Si_port = self.replace_text(module_desc, cell["type"], cell_name, Si_port, NBART, Grst)
 
@@ -270,6 +270,7 @@ class ScanSynth(json2hdl, Technology_file):
 
                 else:
                     print("\033[1;33m"+"cannot replace cell" + cell_name + " with scan cell"+"\033[0;0m")
+                    self.log.append("Type = Warning  " + "Cannot replace cell " + cell_name + "\n with scan cell\n")
 
         if i == chain_size[chain_num]:
             list_of_so_signals.append(Si_port)

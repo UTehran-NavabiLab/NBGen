@@ -125,8 +125,7 @@ class Technology_file:
         for pin in cell.get_groups('pin'):
             if pin["direction"] == "output":
                 Q_list.append(pin.args[0])
-
-        self.list_of_dff_Q.append(Q_list)
+                self.list_of_dff_Q.append(pin.args[0])
         return Q_list
 
     def find_dff_D_signal(self, cell):

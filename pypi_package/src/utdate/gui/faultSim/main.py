@@ -270,12 +270,12 @@ class FaultSim(Frame):
         if(self.test_file_dir != ""):
             testbench = self.test_file_dir
         else:
-            testbench = self.parent.windows["test"].get_testbench_name()
+            testbench = self.parent.windows["atpg_fltg"].get_testbench_name()
         
         if(self.fault_file_dir != ""):
             instance = self.fault_file_dir
         else:
-            instance = self.parent.windows["test"].get_instance_name()
+            instance = self.parent.windows["atpg_fltg"].get_instance_name()
 
         self.backend.fault_simulation(testbench, instance)
 

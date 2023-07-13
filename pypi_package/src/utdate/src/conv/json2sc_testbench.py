@@ -11,7 +11,9 @@ class json2sc_testbench(json2systemc):
         json2systemc.__init__(self, json_file, config_json, technology_paramter)
         self.testbench_name = testbench
         self.instance_name = instance
-
+        self.is_sequential = True
+        self.clk_name = "clk"
+        self.rst_name = "rst"
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <iostream>' + "\n"

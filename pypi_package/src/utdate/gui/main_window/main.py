@@ -109,7 +109,7 @@ class MainWindow(Toplevel):
             image=resize_btn_image_7,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.handle_btn_press("scan"),
+          #  command=lambda: self.handle_btn_press("scan"),
             relief="flat"
         )
         self.resize_btn.place(
@@ -126,7 +126,7 @@ class MainWindow(Toplevel):
             image=button_image_8,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.handle_btn_press("scan"),
+            #command=lambda: self.handle_btn_press("scan"),
             relief="flat"
         )
         self.button_8.place(
@@ -356,6 +356,9 @@ class MainWindow(Toplevel):
 
             if(name == "synth"):
                 self.windows[name].display_files()
+
+            if (name == "scan"):
+                self.windows[name].get_scan_info()
 
             # Set current Window
             self.current_window = self.windows.get(name)

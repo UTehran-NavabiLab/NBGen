@@ -443,14 +443,8 @@ class utdate_beckend:
 
    def scan_synth(self, si, so, chain_size):
      
-      # file_name = (file_name[:file_name.find(".v")] + "_test_ready.v" )
-     
-      # file_dir = path.join(self.scan_dir, file_name)
-      # self.Scan_script(file_dir, file_name, 0,1)
-      # scan_json_file = path.join(self.scan_dir, (file_name[:file_name.find(".v")]+"_synth_premap.json"))
-      # self.scansynth = ScanSynth(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")], self.DRC.PI_clock)
-      # print(si)
-      # print(so)
+      scan_json_file = path.join(self.scan_dir, ("test_ready_synth_premap.json"))
+      self.scansynth = ScanSynth(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, "test_ready", self.DRC.PI_clock)
       self.scansynth.full_scan(self.config_json['NbarT_signal'], self.config_json['Global_reset_signal'],si,so,chain_size)
       if self.scansynth.Success : 
          self.scansynth.log.append("Type = Report  \n--------------------------------- \n")

@@ -389,17 +389,20 @@ class Scan(Frame):
         # Function Definition --------------------
 
     def open_log(self):
-        pass
+        tet = self.scan_synth_result.get(1.0)
+        print(tet)
 
     def get_scan_info(self):
         if (self.scan_synthesis_btn["state"] == "disabled"):
             return
         elif self.end_of_info == 1.0:
             info_log = self.backend.get_scan_info("test_ready.v")
-            print(info_log[0][15:])
+            #print(info_log[0][15:])
             self.scan_synth_result.config(state="normal")
+            self.scan_synth_result.delete(1.0, tk_END)
             self.scan_synth_result.insert(tk_END, info_log[0][15:])
-            self.end_of_info = tk_END + " - " + str(len(info_log)) + "c"
+            self.end_of_info = "1.0" + " + " + str(len(info_log[0][15:])+1) + "c"
+            #print(self.end_of_info)
             self.scan_synth_result.tag_add("if",self.end_of_info, tk_END)
             self.scan_synth_result.tag_config("if", foreground="black")
             self.scan_synth_result.config(state="disable")
@@ -437,6 +440,7 @@ class Scan(Frame):
         ### Single Chain ###
         if(self.single_scan_var.get()):
             self.scan_synth_result.config(state="normal")
+            print(self.end_of_info)
             self.scan_synth_result.delete(self.end_of_info, tk_END)
 
             si = self.si_port_name_single_entry.get()
@@ -470,6 +474,7 @@ class Scan(Frame):
             if( si == "Enter Si Port Name" or so == "Enter So Port Name" or chains == "No. of cells in chain"):
                 return
             else:
+                self.scan_synth_result.delete(self.end_of_info, tk_END)
                 si_list  = [x.strip() for x in si.split(',')]
                 so_list  = [x.strip() for x in so.split(',')]
                 chain_list = [x.strip() for x in chains.split(',')]
@@ -500,7 +505,8 @@ class Scan(Frame):
                         chain_list[i]=int(chain_list[i])
                 
                 else : 
-                    report = " Mismatch in no. of Si, So and chains\n"
+                    
+                    report = " Mismatch in nubmer of\n Si, So and chains\n"
                     self.scan_synth_result.insert(tk_END, report)
                     position = tk_END + " - " + str(len(report)+1) + "c"
                     self.scan_synth_result.tag_add("bd",position, tk_END)

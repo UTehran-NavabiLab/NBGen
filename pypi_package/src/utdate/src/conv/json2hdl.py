@@ -44,6 +44,7 @@ class json2hdl:
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
         self.is_sequential = self.is_sequential_check()
+        print(self.is_sequential)
         if self.is_sequential:
             clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.technology_parameter)
             self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
@@ -78,6 +79,8 @@ class json2hdl:
         # check whether the design is sequential/combinational (check for existance of dff)
         for cell in self.top_module["cells"].values():
             for dff_name, dff_ports in self.technology_parameter.dict_of_dff.items():
+                print(dff_name)
+                print(dff_ports)
                 if (cell["type"].find(dff_name) > -1):
                     is_seq = True
 

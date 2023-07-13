@@ -293,7 +293,6 @@ class Synthesis(Frame):
 
         if(len(input_file_directory) != 0):
             extension = file_names[0][file_names[0].rfind('.') + 1:]
-            # if module name entry is empty, use the first file name (without extension) as top module name
             if((self.module_name_entry.get() == "") or (self.module_name_entry.get() == "Top Module Name")):
                 top_module_name = file_names[0][:file_names[0].rfind('.')]
             else:
