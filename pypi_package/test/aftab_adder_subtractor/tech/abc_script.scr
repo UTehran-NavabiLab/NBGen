@@ -1,0 +1,3 @@
+read /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/mycells_abc.lib 
+read -m /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/test/synth_dffport_rm.v 
+write_bench /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/test/abc_bench.bench 

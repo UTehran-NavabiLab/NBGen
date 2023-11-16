@@ -1,0 +1,41 @@
+ghdl /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/SAYAC_DPB.vhd /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/SAYAC_TRF.vhd /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/SAYAC_DPU.vhd /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/SAYAC_CCU.vhd /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/SAYAC_TOP.vhd -e SAYAC_TOP 
+hierarchy -check -auto-top
+synth; opt -full
+#flatten
+read_liberty -lib -ignore_miss_dir -setattr blackbox /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor_separate_file/tech/NangateOpenCellLibrary_typical.lib 
+
+# placeholder for dfflibmap
+dfflibmap -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/tech/NangateOpenCellLibrary_typical.lib 
+
+opt
+
+# placeholder for abc
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor_separate_file/tech/NangateOpenCellLibrary_typical.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D} 
+
+opt
+iopadmap -inpad BUF_X1 Z:A -bits 
+iopadmap -outpad BUF_X1 A:Z -bits 
+splitnets
+opt
+clean -purge
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor_separate_file/tech/NangateOpenCellLibrary_typical.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D} 
+
+# placeholder for premap_synthesis file
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/synthesis/synth_premap.v 
+write_blif /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/synthesis/synth_premap.json 
+
+# placeholder techmap
+#techmap -map /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/tech/DFF_map.v 
+#abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/tech/NangateOpenCellLibrary_typical.lib 
+#opt; clean -purge
+#techmap -map /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/tech/Logic_map.v 
+
+opt
+clean -purge
+opt_clean
+stat
+
+# placeholder for postmap_synthesis file
+#write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/synthesis/synth_postmap.v 
+#write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/sayac_jul29/synthesis/synth_postmap.json 

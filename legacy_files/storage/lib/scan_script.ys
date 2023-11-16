@@ -1,0 +1,16 @@
+read_liberty -lib -ignore_miss_dir -setattr blackbox /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/osu018_stdcells.lib
+read_verilog -lib /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/osu018_stdcells.v
+read_verilog /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/scan/test_ready.v
+synth -auto-top
+dfflibmap -liberty /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/osu018_stdcells.lib
+opt
+abc -liberty /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/utdate/lib/osu018_stdcells.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+clean -purge
+opt
+clean
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/scan/test_ready_synth_premap.v
+write_blif -buf BUF_X1 A Z /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/scan/test_ready_synth_premap.blif
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/amir_seqDetector/scan/test_ready_synth_premap.json
+stat

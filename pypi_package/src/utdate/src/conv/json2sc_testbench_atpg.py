@@ -6,8 +6,8 @@ from utdate.src.conv.json2sc_testbench import json2sc_testbench
 WHITE_SPACE = "    "
 
 class json2sc_testbench_atpg(json2sc_testbench):
-    def __init__(self, json_file, config_json, technology_parameter, testbench, instance) -> None:
-        json2sc_testbench.__init__(self, json_file, config_json, technology_parameter, testbench, instance)
+    def __init__(self, json_file, technology_parameter, config_json, testbench, instance) -> None:
+        json2sc_testbench.__init__(self, json_file, technology_parameter, config_json, testbench, instance)
 
     # @def: add standard library library  
     def includes(self):
@@ -69,15 +69,6 @@ class json2sc_testbench_atpg(json2sc_testbench):
         instance_pointer += WHITE_SPACE + f'std::array<sc_core::sc_signal<sc_dt::sc_logic>*, {len(self.net_dict)}> signal_arr;' + '\n'
 
         input_buffer = ""
-
-        # if ("inbufcell" in self.config_js):
-        #     if (self.config_js["inbufcell"] != ""):
-        #         input_buffer = self.config_js["inbufcell"]
-        #     else:
-        #         input_buffer = self.config_js["bufcell"]
-        # else:
-        #     print("no buf gate in library")
-            
 
         cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.module_name}("{instatnce_name}");\n'
 

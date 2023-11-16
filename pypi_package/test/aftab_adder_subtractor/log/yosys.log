@@ -1,0 +1,1345 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)
+
+
+-- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/yosys_script.ys' --
+
+1. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder_subtractor.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder_subtractor.v' to AST representation.
+Generating RTLIL representation for module `\aftab_adder_subtractor'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v
+Parsing Verilog input from `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v' to AST representation.
+Generating RTLIL representation for module `\aftab_adder'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Finding top of design hierarchy..
+root of   0 design levels: aftab_adder         
+root of   1 design levels: aftab_adder_subtractor
+Automatically selected aftab_adder_subtractor as design top module.
+
+3.2. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     \aftab_adder
+Parameter 1 (\size) = 32
+
+3.3. Executing AST frontend in derive mode using pre-parsed AST for module `\aftab_adder'.
+Parameter 1 (\size) = 32
+Generating RTLIL representation for module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+
+3.4. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     $paramod\aftab_adder\size=s32'00000000000000000000000000100000
+
+3.5. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     $paramod\aftab_adder\size=s32'00000000000000000000000000100000
+Removing unused module `\aftab_adder'.
+Removed 1 unused modules.
+
+4. Executing SYNTH pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     $paramod\aftab_adder\size=s32'00000000000000000000000000100000
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     $paramod\aftab_adder\size=s32'00000000000000000000000000100000
+Removed 0 unused modules.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+<suppressed ~3 debug messages>
+
+4.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+Removed 1 unused cells and 5 unused wires.
+<suppressed ~3 debug messages>
+
+4.5. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\aftab_adder\size=s32'00000000000000000000000000100000...
+Checking module aftab_adder_subtractor...
+Found and reported 0 problems.
+
+4.6. Executing OPT pass (performing simple optimizations).
+
+4.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+4.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.6.9. Finished OPT passes. (There is nothing left to do.)
+
+4.7. Executing FSM pass (extract and optimize FSM).
+
+4.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+4.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+4.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+4.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+4.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+4.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.8.9. Finished OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+
+4.10. Executing PEEPOPT pass (run peephole optimizers).
+
+4.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000:
+  creating $macc model for $add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v:26$8 ($add).
+  creating $macc model for $add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v:26$9 ($add).
+  merging $macc model for $add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v:26$8 into $add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v:26$9.
+  creating $alu model for $macc $add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v:26$9.
+  creating $alu cell for $add$/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/aftab_adder.v:26$9: $auto$alumacc.cc:485:replace_alu$10
+  created 1 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module aftab_adder_subtractor:
+  created 0 $alu and 0 $macc cells.
+
+4.13. Executing SHARE pass (SAT-based resource sharing).
+
+4.14. Executing OPT pass (performing simple optimizations).
+
+4.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+4.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+4.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+4.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.14.16. Finished OPT passes. (There is nothing left to do.)
+
+4.15. Executing MEMORY pass.
+
+4.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+4.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+4.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+4.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+4.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+4.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+4.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+4.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.17. Executing OPT pass (performing simple optimizations).
+
+4.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.17.5. Finished fast OPT passes.
+
+4.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+4.19. Executing OPT pass (performing simple optimizations).
+
+4.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+4.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+4.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.19.6. Executing OPT_SHARE pass.
+
+4.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+4.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.19.10. Finished OPT passes. (There is nothing left to do.)
+
+4.20. Executing TECHMAP pass (map to technology primitives).
+
+4.20.1. Executing Verilog-2005 frontend: /usr/local/Cellar/yosys/0.30/share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/Cellar/yosys/0.30/share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+4.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$857150d3a9b7fb38b73bbaa31ff652415e553f98\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000100001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~386 debug messages>
+
+4.21. Executing OPT pass (performing simple optimizations).
+
+4.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+<suppressed ~40 debug messages>
+Optimizing module aftab_adder_subtractor.
+
+4.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+Removed 32 unused cells and 25 unused wires.
+<suppressed ~33 debug messages>
+
+4.21.5. Finished fast OPT passes.
+
+4.22. Executing ABC pass (technology mapping using ABC).
+
+4.22.1. Extracting gate netlist of module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000' to `<abc-temp-dir>/input.blif'..
+Extracted 238 gates and 303 wires to a netlist network with 65 inputs and 33 outputs.
+
+4.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.22.1.2. Re-integrating ABC results.
+ABC RESULTS:             ORNOT cells:        6
+ABC RESULTS:              XNOR cells:       36
+ABC RESULTS:              NAND cells:       16
+ABC RESULTS:               XOR cells:       28
+ABC RESULTS:               AND cells:       16
+ABC RESULTS:               NOR cells:       36
+ABC RESULTS:            ANDNOT cells:       47
+ABC RESULTS:                OR cells:       53
+ABC RESULTS:        internal signals:      205
+ABC RESULTS:           input signals:       65
+ABC RESULTS:          output signals:       33
+Removing temp directory.
+
+4.22.2. Extracting gate netlist of module `\aftab_adder_subtractor' to `<abc-temp-dir>/input.blif'..
+Extracted 96 gates and 162 wires to a netlist network with 66 inputs and 64 outputs.
+
+4.22.2.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+4.22.2.2. Re-integrating ABC results.
+ABC RESULTS:               XOR cells:       32
+ABC RESULTS:               MUX cells:       32
+ABC RESULTS:        internal signals:       32
+ABC RESULTS:           input signals:       66
+ABC RESULTS:          output signals:       64
+Removing temp directory.
+
+4.23. Executing OPT pass (performing simple optimizations).
+
+4.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+4.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+4.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+Removed 0 unused cells and 342 unused wires.
+<suppressed ~2 debug messages>
+
+4.23.5. Finished fast OPT passes.
+
+4.24. Executing HIERARCHY pass (managing design hierarchy).
+
+4.24.1. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     $paramod\aftab_adder\size=s32'00000000000000000000000000100000
+
+4.24.2. Analyzing design hierarchy..
+Top module:  \aftab_adder_subtractor
+Used module:     $paramod\aftab_adder\size=s32'00000000000000000000000000100000
+Removed 0 unused modules.
+
+4.25. Printing statistics.
+
+=== $paramod\aftab_adder\size=s32'00000000000000000000000000100000 ===
+
+   Number of wires:                210
+   Number of wire bits:            303
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                238
+     $_ANDNOT_                      47
+     $_AND_                         16
+     $_NAND_                        16
+     $_NOR_                         36
+     $_ORNOT_                        6
+     $_OR_                          53
+     $_XNOR_                        36
+     $_XOR_                         28
+
+=== aftab_adder_subtractor ===
+
+   Number of wires:                  8
+   Number of wire bits:            163
+   Number of public wires:           8
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 65
+     $_MUX_                         32
+     $_XOR_                         32
+     $paramod\aftab_adder\size=s32'00000000000000000000000000100000      1
+
+=== design hierarchy ===
+
+   aftab_adder_subtractor            1
+     $paramod\aftab_adder\size=s32'00000000000000000000000000100000      1
+
+   Number of wires:                218
+   Number of wire bits:            466
+   Number of public wires:          13
+   Number of public wire bits:     261
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                302
+     $_ANDNOT_                      47
+     $_AND_                         16
+     $_MUX_                         32
+     $_NAND_                        16
+     $_NOR_                         36
+     $_ORNOT_                        6
+     $_OR_                          53
+     $_XNOR_                        36
+     $_XOR_                         60
+
+4.26. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\aftab_adder\size=s32'00000000000000000000000000100000...
+Checking module aftab_adder_subtractor...
+Found and reported 0 problems.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_SHARE pass.
+
+5.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+5.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+5.10. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing Liberty frontend: /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/NangateOpenCellLibrary_typical.lib
+Imported 134 cell types from liberty file.
+
+7. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFF_X1 (noninv, pins=4, area=4.52) is a direct match for cell type $_DFF_P_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFFR_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN0_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFFS_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN1_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  cell DFFRS_X1 (noninv, pins=6, area=6.38) is a direct match for cell type $_DFFSR_PNN_.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFRS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFR_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFFS_X2' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X1' - skipping.
+Warning: Found unsupported expression 'SE*SI+D*!SE' in pin attribute of cell 'SDFF_X2' - skipping.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \DFF_X1 _DFF_P_ (.CK( C), .D( D), .Q( Q), .QN(~Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \DFFR_X1 _DFF_PN0_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R));
+    \DFFS_X1 _DFF_PN1_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .SN( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFRS_X1 _DFFSR_PNN_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R), .SN( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+7.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000':
+Mapping DFF cells in module `\aftab_adder_subtractor':
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+8.9. Finished OPT passes. (There is nothing left to do.)
+
+9. Executing ABC pass (technology mapping using ABC).
+
+9.1. Extracting gate netlist of module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000' to `<abc-temp-dir>/input.blif'..
+Extracted 238 gates and 303 wires to a netlist network with 65 inputs and 33 outputs.
+
+9.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/NangateOpenCellLibrary_typical.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "ANTENNA_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X2".
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X32" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC0_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC1_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X16".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "TLAT_X1".
+ABC: Library "NangateOpenCellLibrary" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/NangateOpenCellLibrary_typical.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 9 dont_use).  Time =     0.09 sec
+ABC: Memory =   11.38 MB. Time =     0.09 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FA_X1").
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+9.1.2. Re-integrating ABC results.
+ABC RESULTS:         AOI211_X1 cells:        1
+ABC RESULTS:          NAND4_X1 cells:        4
+ABC RESULTS:          NAND3_X1 cells:        3
+ABC RESULTS:           NOR3_X1 cells:        3
+ABC RESULTS:          OAI22_X1 cells:        1
+ABC RESULTS:           NOR4_X1 cells:        1
+ABC RESULTS:            OR2_X1 cells:        5
+ABC RESULTS:          AOI21_X1 cells:       18
+ABC RESULTS:          XNOR2_X1 cells:       24
+ABC RESULTS:           XOR2_X1 cells:       16
+ABC RESULTS:            INV_X1 cells:       45
+ABC RESULTS:          NAND2_X1 cells:       61
+ABC RESULTS:           AND2_X1 cells:        7
+ABC RESULTS:          OAI21_X1 cells:       20
+ABC RESULTS:           NOR2_X1 cells:       41
+ABC RESULTS:            OR3_X1 cells:        2
+ABC RESULTS:         OAI211_X1 cells:        5
+ABC RESULTS:        internal signals:      205
+ABC RESULTS:           input signals:       65
+ABC RESULTS:          output signals:       33
+Removing temp directory.
+
+9.2. Extracting gate netlist of module `\aftab_adder_subtractor' to `<abc-temp-dir>/input.blif'..
+Extracted 64 gates and 130 wires to a netlist network with 66 inputs and 64 outputs.
+
+9.2.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/NangateOpenCellLibrary_typical.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "ANTENNA_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X2".
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X32" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC0_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC1_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X16".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "TLAT_X1".
+ABC: Library "NangateOpenCellLibrary" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/aftab_adder_subtractor/tech/NangateOpenCellLibrary_typical.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 9 dont_use).  Time =     0.09 sec
+ABC: Memory =   11.38 MB. Time =     0.09 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FA_X1").
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+9.2.2. Re-integrating ABC results.
+ABC RESULTS:           AND2_X1 cells:       32
+ABC RESULTS:           NOR2_X1 cells:       64
+ABC RESULTS:            INV_X1 cells:       32
+ABC RESULTS:          NAND2_X1 cells:       32
+ABC RESULTS:          OAI21_X1 cells:       32
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:       66
+ABC RESULTS:          output signals:       64
+Removing temp directory.
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+Removed 0 unused cells and 433 unused wires.
+<suppressed ~2 debug messages>
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+10.16. Finished OPT passes. (There is nothing left to do.)
+
+11. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+12. Executing TECHMAP pass (map to technology primitives).
+
+12.1. Executing Verilog-2005 frontend: /usr/local/Cellar/yosys/0.30/share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/Cellar/yosys/0.30/share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+12.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~73 debug messages>
+
+13. Executing ABC pass (technology mapping using ABC).
+
+13.1. Extracting gate netlist of module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+13.2. Extracting gate netlist of module `\aftab_adder_subtractor' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+14. Executing OPT pass (performing simple optimizations).
+
+14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+14.9. Finished OPT passes. (There is nothing left to do.)
+
+15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+16. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Mapping port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.a using BUF_X1.
+Mapping port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.b using BUF_X1.
+Mapping port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.cin using BUF_X1.
+Don't map output port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.cout: Missing option -outpad.
+Don't map output port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.sum: Missing option -outpad.
+Mapping port aftab_adder_subtractor.a using BUF_X1.
+Mapping port aftab_adder_subtractor.b using BUF_X1.
+Don't map output port aftab_adder_subtractor.cout: Missing option -outpad.
+Mapping port aftab_adder_subtractor.pass using BUF_X1.
+Don't map output port aftab_adder_subtractor.result: Missing option -outpad.
+Mapping port aftab_adder_subtractor.subsel using BUF_X1.
+
+17. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Marking already mapped port: BUF_X1.Z[0].
+Don't map input port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.a: Missing option -inpad.
+Don't map input port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.b: Missing option -inpad.
+Don't map input port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.cin: Missing option -inpad.
+Mapping port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.cout using BUF_X1.
+Mapping port $paramod\aftab_adder\size=s32'00000000000000000000000000100000.sum using BUF_X1.
+Don't map input port aftab_adder_subtractor.a: Missing option -inpad.
+Don't map input port aftab_adder_subtractor.b: Missing option -inpad.
+Don't map input port aftab_adder_subtractor.pass: Missing option -inpad.
+Don't map input port aftab_adder_subtractor.subsel: Missing option -inpad.
+Mapping port aftab_adder_subtractor.cout using BUF_X1.
+Mapping port aftab_adder_subtractor.result using BUF_X1.
+
+18. Executing Verilog backend.
+
+18.1. Executing BMUXMAP pass.
+
+18.2. Executing DEMUXMAP pass.
+Dumping module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Dumping module `\aftab_adder_subtractor'.
+
+19. Executing BLIF backend.
+
+20. Executing JSON backend.
+
+21. Executing OPT pass (performing simple optimizations).
+
+21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aftab_adder_subtractor..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+  Optimizing cells in module \aftab_adder_subtractor.
+Performed a total of 0 changes.
+
+21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\aftab_adder\size=s32'00000000000000000000000000100000'.
+Finding identical cells in module `\aftab_adder_subtractor'.
+Removed a total of 0 cells.
+
+21.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+21.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\aftab_adder\size=s32'00000000000000000000000000100000.
+Optimizing module aftab_adder_subtractor.
+
+21.9. Finished OPT passes. (There is nothing left to do.)
+
+22. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\aftab_adder\size=s32'00000000000000000000000000100000..
+Finding unused cells or wires in module \aftab_adder_subtractor..
+
+23. Printing statistics.
+
+=== $paramod\aftab_adder\size=s32'00000000000000000000000000100000 ===
+
+   Number of wires:                234
+   Number of wire bits:            420
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                355
+     AND2_X1                         7
+     AOI211_X1                       1
+     AOI21_X1                       18
+     BUF_X1                         98
+     INV_X1                         45
+     NAND2_X1                       61
+     NAND3_X1                        3
+     NAND4_X1                        4
+     NOR2_X1                        41
+     NOR3_X1                         3
+     NOR4_X1                         1
+     OAI211_X1                       5
+     OAI21_X1                       20
+     OAI22_X1                        1
+     OR2_X1                          5
+     OR3_X1                          2
+     XNOR2_X1                       24
+     XOR2_X1                        16
+
+=== aftab_adder_subtractor ===
+
+   Number of wires:                204
+   Number of wire bits:            390
+   Number of public wires:          70
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                292
+     $paramod\aftab_adder\size=s32'00000000000000000000000000100000      1
+     AND2_X1                        32
+     BUF_X1                         99
+     INV_X1                         32
+     NAND2_X1                       32
+     NOR2_X1                        64
+     OAI21_X1                       32
+
+=== design hierarchy ===
+
+   aftab_adder_subtractor            1
+     $paramod\aftab_adder\size=s32'00000000000000000000000000100000      1
+
+   Number of wires:                438
+   Number of wire bits:            810
+   Number of public wires:          75
+   Number of public wire bits:     261
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                646
+     AND2_X1                        39
+     AOI211_X1                       1
+     AOI21_X1                       18
+     BUF_X1                        197
+     INV_X1                         77
+     NAND2_X1                       93
+     NAND3_X1                        3
+     NAND4_X1                        4
+     NOR2_X1                       105
+     NOR3_X1                         3
+     NOR4_X1                         1
+     OAI211_X1                       5
+     OAI21_X1                       52
+     OAI22_X1                        1
+     OR2_X1                          5
+     OR3_X1                          2
+     XNOR2_X1                       24
+     XOR2_X1                        16
+
+Warnings: 8 unique messages, 72 total
+End of script. Logfile hash: 9af11add0b, CPU: user 0.56s system 0.05s
+Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)
+Time spent: 49% 3x abc (0 sec), 9% 2x read_liberty (0 sec), ...

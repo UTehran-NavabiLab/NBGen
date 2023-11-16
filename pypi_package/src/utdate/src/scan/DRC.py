@@ -4,8 +4,8 @@ from os import path
 
 class DRC(json2hdl):
 
-    def __init__(self, json_file, config_json, technology_parameters, scan_dir, filename) -> None:
-        json2hdl.__init__(self, json_file, config_json, technology_parameters)
+    def __init__(self, json_file, technology_parameters, scan_dir, filename) -> None:
+        json2hdl.__init__(self, json_file, technology_parameters)
         self.DIR = scan_dir
         self.filename = filename
         self.log = list()
