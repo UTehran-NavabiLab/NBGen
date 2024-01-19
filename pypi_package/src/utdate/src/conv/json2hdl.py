@@ -17,11 +17,10 @@ import utdate.lib as lib
 
 
 class json2hdl:
-    def __init__(self, json_file, config_json, technology_parameters) -> None:
+    def __init__(self, json_file, technology_parameters) -> None:
         with open(json_file, "r") as f:
             self.js = load(f)
 
-        self.config_js = config_json
         self.module_name = ""
 
         for module_name, module in self.js["modules"].items():
@@ -30,11 +29,11 @@ class json2hdl:
                     if int(module["attributes"]["top"]) == 1:
                         self.module_name = module_name
         
-        if self.module_name == "":
-            try: 
-                self.module_name = self.config_js["module_name"]
-            except KeyError:
-                self.module_name = list(self.js["modules"])[0]
+        # if self.module_name == "":
+        #     try: 
+        #         self.module_name = self.config_js["module_name"]
+        #     except KeyError:
+        #         self.module_name = list(self.js["modules"])[0]
         
         # read thenology file
         self.technology_parameter = technology_parameters
@@ -44,22 +43,22 @@ class json2hdl:
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
         self.is_sequential = self.is_sequential_check()
-        print(self.is_sequential)
+        self.number_of_dffs = self.find_number_of_dffs()
         if self.is_sequential:
             clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.technology_parameter)
             self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
 
     # @def: based on whether gate names are compatible with yosys/qflow generate index
-    #       if yosys is the target, just increment a predefined index by 1
-    #       if qflow is the target, increment based on gate type
+    #       if yosys is the target, just increment a predefined index by 1 (don't consider the gate type)
+    #       if qflow is the target, increment based on gate type (each type is incremented separately)
     #   cell_type: type of input gate
     #   output: index
     def gate_indexing(self, cell_type):
         i = 0
         if(self.yosys_qflow_compatible):
-            if(self.gate_index.get("cell_type") == None):
+            if(self.gate_index.get("cell_type") == None): # if it's the first of a kind, add to dictionary
                 self.gate_index["cell_type"] = 1
-            else:
+            else: # if already exist in dictionary, increment by one
                 self.gate_index["cell_type"] = self.gate_index["cell_type"] + 1
             i = self.gate_index["cell_type"]
         else:
@@ -79,8 +78,6 @@ class json2hdl:
         # check whether the design is sequential/combinational (check for existance of dff)
         for cell in self.top_module["cells"].values():
             for dff_name, dff_ports in self.technology_parameter.dict_of_dff.items():
-                print(dff_name)
-                print(dff_ports)
                 if (cell["type"].find(dff_name) > -1):
                     is_seq = True
 
@@ -157,3 +154,12 @@ class json2hdl:
                         return key
         else:
             return net_number 
+    
+    def find_number_of_dffs(self):
+        num_of_dff = 0
+
+        for cell in self.top_module["cells"].values():
+            if cell["type"] in self.technology_parameter.list_of_dff:
+                num_of_dff += 1
+        
+        return num_of_dff

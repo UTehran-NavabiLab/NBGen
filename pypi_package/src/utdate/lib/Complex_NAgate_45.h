@@ -14,6 +14,9 @@
 
 #include "systemc.h"
 
+#ifndef __COMPLEX_NAGATE_45_H__
+#define __COMPLEX_NAGATE_45_H__
+
 /*******************************------------------COMPLEX-----------------*******************************/
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1772,7 +1775,7 @@ ______________________________
 
 SC_MODULE(DLL_X1){
 
-	sc_in<sc_logic> D, G;
+	sc_in<sc_logic> D, GN;
 	sc_out<sc_logic> Q;
 
 	sc_signal<sc_logic, SC_MANY_WRITERS> val;
@@ -1784,7 +1787,7 @@ SC_MODULE(DLL_X1){
 		SC_THREAD(eval);
 		sensitive << val;
 		SC_METHOD(set);
-		sensitive << G << D;
+		sensitive << GN << D;
 	}
 
 	void eval(void){
@@ -1794,7 +1797,7 @@ SC_MODULE(DLL_X1){
 		}
 	}
 	void set(void){
-		if ((G->read() == SC_LOGIC_0)){
+		if ((GN->read() == SC_LOGIC_0)){
 			val.write(D->read());
 		}
 	}
@@ -1862,7 +1865,7 @@ ______________________________
 
 SC_MODULE(DLL_X2){
 
-	sc_in<sc_logic> D, G;
+	sc_in<sc_logic> D, GN;
 	sc_out<sc_logic> Q;
 
 	sc_signal<sc_logic, SC_MANY_WRITERS> val;
@@ -1874,7 +1877,7 @@ SC_MODULE(DLL_X2){
 		SC_THREAD(eval);
 		sensitive << val;
 		SC_METHOD(set);
-		sensitive << G << D;
+		sensitive << GN << D;
 	}
 
 	void eval(void){
@@ -1884,7 +1887,7 @@ SC_MODULE(DLL_X2){
 		}
 	}
 	void set(void){
-		if ((G->read() == SC_LOGIC_0)){
+		if ((GN->read() == SC_LOGIC_0)){
 			val.write(D->read());
 		}
 	}
@@ -3458,3 +3461,176 @@ SC_MODULE(INV_X8){
         }
     };
 };
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//    DFFR_X1: Pos.edge D-Flip-Flop with active low reset, and drive strength X1
+/*
+______________________________________________________________________________________
+|RN   nextstate   CK    NOTIFIER  :   @IQ   :   IQ                                    |
+|?        0        r       ?      :    ?    :   0;                                    |
+|1        1        r       ?      :    ?    :   1;                                    |
+|?        0        *       ?      :    0    :   0; // reduce pessimism                |
+|1        1        *       ?      :    1    :   1; // reduce pessimism                |
+|1        *        ?       ?      :    ?    :   -; // Ignore all edges on nextstate   |
+|1        ?        n       ?      :    ?    :   -; // Ignore non-triggering clock edge|
+|0        ?        ?       ?      :    ?    :   0; // RN activated                    |
+|*        ?        ?       ?      :    0    :   0; // Cover all transitions on RN     |
+|?        ?        ?       *      :    ?    :   x; // Any NOTIFIER change             |
+|_____________________________________________________________________________________|
+*/
+
+SC_MODULE(DFFR_X1){
+
+	sc_in<sc_logic> D, RN, CK;
+	sc_out<sc_logic> Q, QN;
+
+	sc_signal<sc_logic, SC_MANY_WRITERS> val;
+
+	SC_HAS_PROCESS(DFFR_X1);
+	DFFR_X1(sc_module_name _name)
+		: sc_module(_name) {
+
+        SC_METHOD(eval);
+            sensitive << val;
+        SC_METHOD(clock);
+            sensitive << CK;
+        SC_METHOD(reset);
+            sensitive << RN;
+    }
+
+    void eval(void){
+		if (val.read() == SC_LOGIC_0){
+			Q.write(SC_LOGIC_0);
+			QN.write(SC_LOGIC_1);
+		} else if (val.read() == SC_LOGIC_1){
+			Q.write(SC_LOGIC_1);
+			QN.write(SC_LOGIC_0);
+		}
+    }
+    void clock(void){
+        if ((CK->read() == SC_LOGIC_1) && (RN->read() == SC_LOGIC_1)){
+            val.write(D->read());
+        }
+    }
+
+    void reset(void){
+        if (RN->read() == SC_LOGIC_0) 
+			val.write(SC_LOGIC_0);
+    }
+
+};
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////
+//    DFFS_X1: Pos.edge D-Flip-Flop with active low set, and drive strength X1
+/*
+______________________________________________________________________________________
+|SN   nextstate   CK    NOTIFIER  :   @IQ   :   IQ                                    |
+|?        0        r       ?      :    ?    :   0;                                    |
+|1        1        r       ?      :    ?    :   1;                                    |
+|?        0        *       ?      :    0    :   0; // reduce pessimism                |
+|1        1        *       ?      :    1    :   1; // reduce pessimism                |
+|1        *        ?       ?      :    ?    :   -; // Ignore all edges on nextstate   |
+|1        ?        n       ?      :    ?    :   -; // Ignore non-triggering clock edge|
+|0        ?        ?       ?      :    ?    :   0; // SN activated                    |
+|*        ?        ?       ?      :    0    :   0; // Cover all transitions on SN     |
+|?        ?        ?       *      :    ?    :   x; // Any NOTIFIER change             |
+|_____________________________________________________________________________________|
+*/
+
+SC_MODULE(DFFS_X1){
+
+	sc_in<sc_logic> D, SN, CK;
+	sc_out<sc_logic> Q, QN;
+
+	sc_signal<sc_logic, SC_MANY_WRITERS> val;
+
+	SC_HAS_PROCESS(DFFS_X1);
+	DFFS_X1(sc_module_name _name)
+		: sc_module(_name) {
+
+        SC_METHOD(eval);
+            sensitive << val;
+        SC_METHOD(clock);
+            sensitive << CK;
+        SC_METHOD(set);
+            sensitive << SN;
+    }
+
+    void eval(void){
+		if (val.read() == SC_LOGIC_0){
+			Q.write(SC_LOGIC_0);
+			QN.write(SC_LOGIC_1);
+		} else if (val.read() == SC_LOGIC_1){
+			Q.write(SC_LOGIC_1);
+			QN.write(SC_LOGIC_0);
+		}
+    }
+    void clock(void){
+        if ((CK->read() == SC_LOGIC_1) && (SN->read() == SC_LOGIC_1)){
+            val.write(D->read());
+        }
+    }
+
+    void set(void){
+        if (SN->read() == SC_LOGIC_0) 
+			val.write(SC_LOGIC_0);
+    }
+
+};
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////
+//    DFF_X1: Pos.edge D-Flip-Flop with drive strength X1
+/*
+______________________________________________________________________________________
+|// nextstate   CK    NOTIFIER :  @IQ  : IQ                                           |
+|       0       r        ?     :   ?   :  0   ;										  |
+|       1       r        ?     :   ?   :  1   ;										  |
+|       0       *        ?     :   0   :  0   ; // reduce pessimism					  |
+|       1       *        ?     :   1   :  1   ; // reduce pessimism					  |
+|       *       ?        ?     :   ?   :  -   ; // Ignore all edges on nextstate      |
+|       ?       n        ?     :   ?   :  -   ; // Ignore non-triggering clock edge   |
+|       ?       ?        *     :   ?   :  x   ; // Any NOTIFIER change				  |
+|_____________________________________________________________________________________|
+*/
+SC_MODULE(DFF_X1){
+
+	sc_in<sc_logic> D, CK;
+	sc_out<sc_logic> Q, QN;
+
+	sc_signal<sc_logic, SC_MANY_WRITERS> val;
+
+	SC_HAS_PROCESS(DFF_X1);
+	DFF_X1(sc_module_name _name)
+		: sc_module(_name) {
+
+        SC_METHOD(eval);
+            sensitive << val;
+        SC_METHOD(clock);
+            sensitive << CK;
+    }
+
+    void eval(void){
+		if (val.read() == SC_LOGIC_0){
+			Q.write(SC_LOGIC_0);
+			QN.write(SC_LOGIC_1);
+		} else if (val.read() == SC_LOGIC_1){
+			Q.write(SC_LOGIC_1);
+			QN.write(SC_LOGIC_0);
+		}
+    }
+    void clock(void){
+        if ((CK->read() == SC_LOGIC_1)){
+            val.write(D->read());
+        }
+    }
+
+};
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+#endif /* __COMPLEX_NAGATE_45_H__ */

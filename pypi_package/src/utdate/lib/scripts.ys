@@ -2,6 +2,8 @@
 hierarchy -check -auto-top
 synth; opt -full
 
+# placeholder for reading liberty file 
+
 # Map register flops
 # placeholder for dfflibmap
 # dfflibmap -liberty mycells.lib
@@ -12,7 +14,7 @@ opt
 # placeholder for abc
 # abc -liberty mycells.lib 
 
-flatten
+# placeholder for flatten option
 opt
 
 splitnets

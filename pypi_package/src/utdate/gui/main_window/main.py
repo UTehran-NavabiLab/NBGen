@@ -17,7 +17,7 @@ from utdate.gui.DRC.main import DRC
 from utdate.gui.scan.main import Scan
 from utdate.gui.atpg_fltg.main import ATPG_FLTG # must change to atpg_fltg
 from utdate.gui.faultSim.main import FaultSim
-# from utdate.gui.bist.main import Bist
+from utdate.gui.bist.main import Bist
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -279,8 +279,8 @@ class MainWindow(Toplevel):
             "drc": DRC(self, backend),
             "scan": Scan(self, backend),
             "atpg_fltg": ATPG_FLTG(self, backend),
-            "faultsim": FaultSim(self, backend)
-            # "bist": FaultSim(self, backend)
+            "faultsim": FaultSim(self, backend),
+            "bist": Bist(self, backend)
             # "about": About(self, backend)
         }
         self.sidebar_indicator_y ={
@@ -289,8 +289,8 @@ class MainWindow(Toplevel):
             "drc": (60 * 3),
             "scan": (60 * 4),
             "atpg_fltg": (60 * 5),
-            "faultsim": (60 * 6)
-            # "bist": (60 * 1),
+            "faultsim": (60 * 6),
+            "bist": (60 * 7),
             # "about": (60 * 1),
         }
 

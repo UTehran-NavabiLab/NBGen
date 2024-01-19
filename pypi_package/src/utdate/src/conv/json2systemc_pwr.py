@@ -9,9 +9,9 @@ from json import dumps
 WHITE_SPACE = "    "
 
 class json2systemc_pwr(json2systemc):
-    def __init__(self, json_file, config_json, technology_parameter, gate_signal_file="") -> None:
-        json2systemc.__init__(self, json_file, config_json, technology_parameter, gate_signal_file)
-
+    def __init__(self, json_file, technology_parameter, config_json,  gate_signal_file="") -> None:
+        json2systemc.__init__(self, json_file, technology_parameter,config_json, gate_signal_file)
+        
     # @def: add standard library library  
     def includes(self):
         include_lib = '#include <systemc.h>' + "\n"

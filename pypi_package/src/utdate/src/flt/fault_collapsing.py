@@ -2,8 +2,8 @@ from ..conv.json2hdl import json2hdl
 
 
 class fault_collapsing(json2hdl):
-    def __init__(self, json_file, config_json, technology_parameters, testbench, instance_name) -> None:
-        json2hdl.__init__(self, json_file, config_json, technology_parameters)
+    def __init__(self, json_file, technology_parameters, testbench, instance_name) -> None:
+        json2hdl.__init__(self, json_file, technology_parameters)
 
         self.fault_list = ""
         self.testbench = testbench

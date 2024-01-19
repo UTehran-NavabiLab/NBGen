@@ -10,8 +10,8 @@ import utdate.lib as lib
 WHITE_SPACE = "    "
 
 class json2vhdl_virtualTesterScan(json2vhdl):
-    def __init__(self, json_file, config_json, technology_parameter) -> None:
-        json2vhdl.__init__(self, json_file, config_json, technology_parameter)
+    def __init__(self, json_file, technology_parameter) -> None:
+        json2vhdl.__init__(self, json_file, technology_parameter)
         self.list_of_Q_ports = list()
         self.cells_instance_pointer, self.cells_instantiation = self.cells_declaration()
         # get directory of library inside package repository

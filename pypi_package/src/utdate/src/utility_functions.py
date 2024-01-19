@@ -180,30 +180,30 @@ def find_clk_rst_netNumber(cells, technology_parameter):
     #     #         clk_num.append(cell["connections"]["C"][0])
     #     #         rst_num.append(cell["connections"]["CLR"][0])
         
-    # # remove repeated numbers
-    # clk_num = unique_list(clk_num)
-    # rst_num = unique_list(rst_num)
+    # remove repeated numbers
+    clk_num = unique_list(clk_num)
+    rst_num = unique_list(rst_num)
     # list_of_outputs = unique_list(list_of_outputs)
-    # old_clk_num = clk_num.copy()
+    old_clk_num = clk_num.copy()
     
-    # # Recursive search for connected nets to nets we found so far
-    # #   append new nets then loop again until there is no new net to add
-    # #   in each loop, search for cells output for one of existing nets in list
-    # do_while = True
-    # while ((len(old_clk_num) != len(clk_num)) or do_while):
-    #     do_while = False
-    #     old_clk_num = clk_num.copy()
+    # Recursive search for connected nets to nets we found so far
+    #   append new nets then loop again until there is no new net to add
+    #   in each loop, search for cells output for one of existing nets in list
+    do_while = True
+    while ((len(old_clk_num) != len(clk_num)) or do_while):
+        do_while = False
+        old_clk_num = clk_num.copy()
 
-    #     for cell in cells.values(): # for every cell
-    #         for connection_name, connection_value in cell["connections"].items(): # for every pin
-    #             for output_pin in list_of_outputs:  # for every output_pin from the list of tech output pins
-    #                 if (connection_name.find(output_pin) > -1): # if output port named is in output list
-    #                     if (connection_value[0] in clk_num): # and if clk is on the output pin
-    #                         for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
-    #                             clk_num.append(connection_value_2[0])
-    #                     if (connection_value[0] in rst_num): # and if reset is on the output pin
-    #                         for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
-    #                             rst_num.append(connection_value_2[0])
+        for cell in cells.values(): # search all cells of top module
+            for connection_name, connection_value in cell["connections"].items(): # for every pin
+                # If it's output pin && is connected to the clock
+                if (cell["port_directions"][connection_name] == "output") and (connection_value[0] in clk_num): 
+                    for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+                        clk_num.append(connection_value_2[0])
+                # If it's output pin && is connected to the clock
+                if (cell["port_directions"][connection_name] == "output") and (connection_value[0] in rst_num): 
+                    for connection_value_2 in cell["connections"].values(): # add all net to list (output repeats again but doesn't matter)
+                        rst_num.append(connection_value_2[0])
 
         clk_num = unique_list(clk_num)
         rst_num = unique_list(rst_num)

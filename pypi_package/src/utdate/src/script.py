@@ -3,7 +3,7 @@ from subprocess import run, PIPE
 from json import load, dump
 from sys import platform
 from subprocess import CalledProcessError
-from shutil import copyfile, SameFileError, copy
+from shutil import copyfile, SameFileError, copy, copytree
 from utdate.src.utility_functions import *
 from utdate.src.utility_functions import split_page
 from utdate.src.conv.json2hdl import json2hdl
@@ -26,7 +26,7 @@ import utdate.bin as bin
 
 class utdate_beckend:
    def __init__(self) -> None:
-      # create directory (synthesis, lib, log, bench)
+      #---------- Initializing Directories
       self.working_dir = getcwd()
       self.synthesis_dir = mkdir("synthesis", self.working_dir, False)
       self.log_dir = mkdir("log", self.working_dir)
@@ -37,6 +37,19 @@ class utdate_beckend:
       self.bin_dir = bin.__path__[0]
       self.config_dir = ""
 
+      #---------- List of Global Variables
+      #  This is just the list, the actual initialization happens it time 
+      # self.hdl_base : json2hdl()
+      # self.technology_parameter : Technology_file()
+      self.serial_input_name  = list()
+      self.serial_output_name = list()
+
+      #---------- List of Flags
+      self.synthesized_passed = False
+      self.DRC_passed = False
+      self.ScanInsertion_passed = False 
+
+      #---------- Setup Directories
       # check wether the "tech" directory exist in working directory
       if (path.isdir(path.join(self.working_dir, "tech"))):
          self.config_dir = path.join(self.working_dir, "tech")
@@ -90,15 +103,8 @@ class utdate_beckend:
             else:
                print("file/directory does not exist: ", source)
       
-
+      #---------- Setup technology parameters
       self.technology_parameter = Technology_file(path.join(self.lib_dir, self.config_json["liberty_file"]))
-
-      # a map to output directories
-      # working_directory | synthesis_dir | lib_dir | log_dir | test_dir | fltSim_dir| config_dir
-      # ------------------|---------------|---------|---------|----------|-----------|------------
-      #        0          |       1       |    2    |    3    |     4    |    5      |      6
-      # return {"directories": [working_directory, synthesis_dir, lib_dir, log_dir, test_dir, fltSim_dir, config_dir], 
-      #          "config": config, "tech": tech}
 
    # @def: synthesize using yosys
    #  @args: 
@@ -108,6 +114,8 @@ class utdate_beckend:
    #        user must provide valid yosys script at valid location (under lib_dir)
    def netlist(self, input_file_name, module_name, vhdl=False, use_existing_script=False):
       yosys_script_dir = path.join(self.config_dir, "yosys_script.ys")
+
+      # if yosys_script 
       # set a default path for yosys executable file
       yosys_exec_dir = path.join(self.bin_dir, "yosys")
       # check OS to see and set path to executable accordingly
@@ -118,19 +126,34 @@ class utdate_beckend:
       elif platform == "win32" or platform == "cygwin": # Windows
          yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "win"), "bin"), "yosys")
 
-         
-      if not (use_existing_script):
+      ###### TODO: change this
+      # check whether the "tech" directory exist in working directory
+      if (path.isdir(path.join(self.working_dir, "tech"))):
+         #  if it does, check for file yosys_script
+         if path.isfile(yosys_script_dir):
+         #     if it also exists, check user input whether to use tech file or not
+            if not (use_existing_script):
+               with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
+                  f.write(self.yosys_synthesis_script_mk(input_file=input_file_name, module_name=module_name, vhdl=vhdl))
+         else:
+            with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
+               f.write(self.yosys_synthesis_script_mk(input_file=input_file_name, module_name=module_name, vhdl=vhdl))
+      else:
          with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
-            f.write(self.yosys_script_mk(input_file=input_file_name, module_name=module_name, vhdl=vhdl))
+            f.write(self.yosys_synthesis_script_mk(input_file=input_file_name, module_name=module_name, vhdl=vhdl))
+
       
       ###################### yosys ######################
       # get parent directory
 
       try:
          # run yosys script with input file name, throw exception if failed
-         yosys_log = run([yosys_exec_dir, yosys_script_dir], stdout=PIPE, text=True, check=True)
+         yosys_log = run([yosys_exec_dir, "-m", "ghdl", yosys_script_dir], stdout=PIPE, text=True, check=True)
          # an alternative would be to use input arg
          # yosys_log = run([config["yosys_bin"], yosys_script_dir], stdout=PIPE, text=True, input=f'script {yosys_script_dir}', check=True)
+         
+         # set synthesize phase flage True
+         self.synthesized_passed = True
       except CalledProcessError:
          yosys_log = "CalledProcessError: \n" 
          yosys_log += "    yosys returned non-zero exit status 1"
@@ -139,107 +162,144 @@ class utdate_beckend:
             f.write(yosys_log)
       
       else:
-         ###################### convert to vhdl, verilog, systemC ######################
-         if (self.config_json["yosys_script_postmap_json_outputName"] != ""):
-            json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_json_outputName"])
+         ###################### getting ready to convert to HDL ######################
+         if (self.config_json["yosys_script_premap_json_outputName"] != ""):
+            json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
          else:
             json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
 
-         self.hdl_base = json2hdl(json_input, self.config_json, self.technology_parameter)
+         self.hdl_base = json2hdl(json_input, self.technology_parameter)
 
 
          yosys_log_dir = path.join(self.log_dir, "yosys.log")
          with open(yosys_log_dir,'w', encoding = 'utf-8') as f:
             f.write(yosys_log.stdout)
 
-         # gate_signal_file = path.join(self.synthesis_dir, self.config_json["gate_signal_json_file"])
-         
-         # j2vhd = json2vhdl(json_input, self.config_json, self.technology_parameter)
-         # with open(path.join(self.synthesis_dir, self.config_json["vhdl_netlist_fileName"]), "w") as f:
-         #    f.write(j2vhd.generate_vhdl())
-         
-         # j2v = json2verilog(json_input, self.config_json, self.technology_parameter)
-         # with open(path.join(self.synthesis_dir, self.config_json["verilog_netlist_fileName"]), "w") as f:
-         #    f.write(j2v.generate_verilog())
-         
-         # j2sc = json2systemc(json_input, self.config_json, self.technology_parameter, gate_signal_file)
-         # with open(path.join(self.synthesis_dir, self.config_json["systemC_netlist_fileName"]), "w") as f:
-         #    f.write(j2sc.generate_systemc())
-         # j2sc_pwr = json2systemc_pwr(json_input, self.config_json, self.technology_parameter, gate_signal_file)
-         # with open(path.join(self.synthesis_dir, "power_netlist.h"), "w") as f:
-         #    f.write(j2sc_pwr.generate_systemc())
-         # j2sc_tb_pwr = json2sc_testbench_pwr(json_input, self.config_json, self.technology_parameter, "testbench", "cut")
-         # with open(path.join(self.synthesis_dir, "power_testbench.h"), "w") as f:
-         #    f.write(j2sc_tb_pwr.generate_systemc())
-         
-         # j2sc_tb_atpg = json2sc_testbench_atpg(json_input, self.config_json, self.technology_parameter, "testbench", "cut")
-         # with open(path.join(self.synthesis_dir, "atpg_testbench.h"), "w") as f:
-         #    f.write(j2sc_tb_atpg.generate_systemc())
-         
-         # j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, self.config_json, self.technology_parameter, "testbench", "dut")
-         # with open(path.join(self.synthesis_dir, "testbench_flt.h"), "w") as f:
-         #    f.write(j2sc_tb_flt_uvm.generate_systemc())
-   
+   ###################### convert to vhdl, verilog, systemC ######################
    # @def: convert synthesized output to vhdl format
    def to_vhdl(self):
-      if (self.config_json["yosys_script_postmap_json_outputName"] != ""):
-         json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_json_outputName"])
+      if (self.config_json["yosys_script_premap_json_outputName"] != ""):
+         json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
       else:
          json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
 
-      j2vhd = json2vhdl(json_input, self.config_json, self.technology_parameter)
+      j2vhd = json2vhdl(json_input, self.technology_parameter)
       with open(path.join(self.synthesis_dir, self.config_json["vhdl_netlist_fileName"]), "w") as f:
          f.write(j2vhd.generate_vhdl())
       
    # @def: convert synthesized output to verilog format
    def to_verilog(self):
-      if (self.config_json["yosys_script_postmap_json_outputName"] != ""):
-         json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_json_outputName"])
+      if (self.config_json["yosys_script_premap_json_outputName"] != ""):
+         json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
       else:
          json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
 
-      j2v = json2verilog(json_input, self.config_json, self.technology_parameter)
+      j2v = json2verilog(json_input, self.technology_parameter)
       with open(path.join(self.synthesis_dir, self.config_json["verilog_netlist_fileName"]), "w") as f:
          f.write(j2v.generate_verilog())
 
-      self.insert_bist("RTS")
-         
    # @def: convert synthesized output to systemc format
    def to_systemc(self):
-      if (self.config_json["yosys_script_postmap_json_outputName"] != ""):
-         json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_json_outputName"])
+      if (self.config_json["yosys_script_premap_json_outputName"] != ""):
+         json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
       else:
          json_input = path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])
 
-      gate_signal_file = path.join(self.synthesis_dir, self.config_json["gate_signal_json_file"])
+      gate_signal_file_path = path.join(self.synthesis_dir, self.config_json["gate_signal_json_file"])
 
-      j2sc = json2systemc(json_input, self.config_json, self.technology_parameter, gate_signal_file)
-      with open(path.join(self.synthesis_dir, self.config_json["systemC_netlist_fileName"]), "w") as f:
-         f.write(j2sc.generate_systemc())
-      j2sc_pwr = json2systemc_pwr(json_input, self.config_json, self.technology_parameter, gate_signal_file)
-      with open(path.join(self.synthesis_dir, "power_netlist.h"), "w") as f:
-         f.write(j2sc_pwr.generate_systemc())
-      j2sc_tb_pwr = json2sc_testbench_pwr(json_input, self.config_json, self.technology_parameter, "testbench", "cut")
-      with open(path.join(self.synthesis_dir, "power_testbench.h"), "w") as f:
-         f.write(j2sc_tb_pwr.generate_systemc())
-      j2sc_tb_atpg = json2sc_testbench_atpg(json_input, self.config_json, self.technology_parameter, "testbench", "cut")
-      with open(path.join(self.synthesis_dir, "atpg_testbench.h"), "w") as f:
-         f.write(j2sc_tb_atpg.generate_systemc()) 
-      j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, self.config_json, self.technology_parameter, "testbench", "dut")
-      with open(path.join(self.synthesis_dir, "testbench_flt.h"), "w") as f:
-         f.write(j2sc_tb_flt_uvm.generate_systemc())
+      j2sc = json2systemc(json_input, self.technology_parameter, self.config_json, self.synthesis_dir, gate_signal_file_path)
+      # with open(path.join(self.synthesis_dir, self.config_json["systemC_netlist_fileName"]), "w") as f:
+      #    f.write(j2sc.generate_systemc())
+      # j2sc_pwr = json2systemc_pwr(json_input, self.technology_parameter, self.config_json, gate_signal_file_path)
+      # with open(path.join(self.synthesis_dir, "power_netlist.h"), "w") as f:
+      #    f.write(j2sc_pwr.generate_systemc())
+      # j2sc_tb_pwr = json2sc_testbench_pwr(json_input, self.technology_parameter, self.config_json, "testbench", "cut")
+      # with open(path.join(self.synthesis_dir, "power_testbench.h"), "w") as f:
+      #    f.write(j2sc_tb_pwr.generate_systemc())
+      # j2sc_tb_atpg = json2sc_testbench_atpg(json_input, self.technology_parameter, self.config_json, "testbench", "cut")
+      # with open(path.join(self.synthesis_dir, "atpg_testbench.h"), "w") as f:
+      #    f.write(j2sc_tb_atpg.generate_systemc()) 
+      # j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, self.technology_parameter, self.config_json, "testbench", "dut")
+      # with open(path.join(self.synthesis_dir, "testbench_flt.h"), "w") as f:
+      #    f.write(j2sc_tb_flt_uvm.generate_systemc())
 
-   def insert_bist(self, bist_type : str):
-      
-      Primary_input_size, Primary_output_size = self.hdl_base.size_Of_Ports()
-      bist_config = dict()
-      bist_config.update({"type": bist_type})
-      bist_config.update({"shiftSize": Primary_input_size})
-      
-      bist = bist_insertion(bist_config)
-      
-      if (bist_type == "RTS"):
-         bist.rts()
+   def insert_bist(self, input_bist_configuration : dict):
+      # if (self.ScanInsertion_passed):
+         # get ports
+         ports_lists = self.hdl_base.top_module["ports"]
+
+         # get port size
+         Primary_input_size, Primary_output_size = self.hdl_base.size_Of_Ports()
+         
+         # create and fill BIST configuration
+         bist_config = dict()
+         bist_config.update({"type": input_bist_configuration["bist_type"]})
+         bist_config.update({"Primary_IO": ports_lists})
+         bist_config.update({"number_of_dffs": self.hdl_base.number_of_dffs})
+         bist_config.update({"clock_name": self.hdl_base.clk_name})
+         bist_config.update({"Primary_input_size": Primary_input_size})
+         bist_config.update({"Primary_output_size": Primary_output_size})
+         # User defined attributes
+         if (input_bist_configuration["prpg_seed"] != ""):
+            bist_config.update({"prpg_seed": input_bist_configuration["prpg_seed"]})
+         else:
+            bist_config.update({"prpg_seed": '"00000000"'})
+            
+         if (input_bist_configuration["prpg_poly"] != ""):
+            bist_config.update({"prpg_poly": input_bist_configuration["prpg_poly"]})
+         else:
+            bist_config.update({"prpg_poly": '"00000000"'})
+            
+         if (input_bist_configuration["misr_seed"] != ""):
+            bist_config.update({"misr_seed": input_bist_configuration["misr_seed"]})
+         else:
+            bist_config.update({"misr_seed": '"00000000"'})
+            
+         if (input_bist_configuration["misr_poly"] != ""):
+            bist_config.update({"misr_poly": input_bist_configuration["misr_poly"]})
+         else:
+            bist_config.update({"misr_poly": '"00000000"'})
+            
+         if (input_bist_configuration["srsg_seed"] != ""):
+            bist_config.update({"srsg_seed": input_bist_configuration["srsg_seed"]})
+         else:
+            bist_config.update({"srsg_seed": '"00000000"'})
+            
+         if (input_bist_configuration["srsg_poly"] != ""):
+            bist_config.update({"srsg_poly": input_bist_configuration["srsg_poly"]})
+         else:
+            bist_config.update({"srsg_poly": '"00000000"'})
+            
+         if (input_bist_configuration["sisa_seed"] != ""):
+            bist_config.update({"sisa_seed": input_bist_configuration["sisa_seed"]})
+         else:
+            bist_config.update({"sisa_seed": '"00000000"'})
+            
+         if (input_bist_configuration["sisa_poly"] != ""):
+            bist_config.update({"sisa_poly": input_bist_configuration["sisa_poly"]})
+         else:
+            bist_config.update({"sisa_poly": '"00000000"'})
+            
+         
+         # Set default value for So & Si
+         if len(self.serial_input_name) > 0:
+            bist_config.update({"serial_input_name": self.serial_input_name})
+         else:
+            bist_config.update({"serial_input_name": ["Si"]})
+         if len(self.serial_output_name) > 0:
+            bist_config.update({"serial_output_name": self.serial_output_name})
+         else:
+            bist_config.update({"serial_output_name": ["So"]})
+
+
+         
+         bist = bist_insertion(bist_config)
+         
+         if (input_bist_configuration["bist_type"] == "RTS"):
+            bist.rts()
+      # else:
+         # print("ERR: Scan chain is not ready")
+         # print("  - Scan Insertion must be done prior to this stage")
          
    def abc_script_mk(self):
       abc_script = f'read {path.join(self.config_dir, self.config_json["mycells_abc_lib_fileName"])} \n'
@@ -249,7 +309,7 @@ class utdate_beckend:
       return abc_script
       
    # def func with input file name as argument
-   def yosys_script_mk(self, input_file, module_name, vhdl=False):
+   def yosys_synthesis_script_mk(self, input_file, module_name, vhdl=False, flatten=False):
       # read yosys script template
       with open(path.join(self.lib_dir, self.config_json['yosys_script_fileName']), "r") as yosys_template_script:
          yosys_script = yosys_template_script.read()
@@ -265,17 +325,30 @@ class utdate_beckend:
          yosys_script = f'read_verilog {list_of_files} \n' + yosys_script
 
 
+      yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for reading liberty file "])
+      # split_page won't start from new line so we add it add new line 
+      yosys_script_1st += '\n'
+      yosys_script_1st += f'read_liberty -lib -ignore_miss_dir -setattr blackbox {path.join(self.config_dir, self.config_json["liberty_file"])} \n'
+      yosys_script = yosys_script_1st + yosys_script_2nd
+      
       yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for dfflibmap"])
       # split_page won't start from new line so we add it add new line 
       yosys_script_1st += '\n'
-      yosys_script_1st += f'dfflibmap -liberty {path.join(self.config_dir, self.config_json["mycells_yosys_lib_fileName"])} \n'
+      yosys_script_1st += f'dfflibmap -liberty {path.join(self.config_dir, self.config_json["liberty_file"])} \n'
       yosys_script = yosys_script_1st + yosys_script_2nd
 
       yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for abc"])
       # split_page won't start from new line so we add it add new line 
       yosys_script_1st += '\n'
-      yosys_script_1st += f'abc -liberty {path.join(self.config_dir, self.config_json["mycells_yosys_lib_fileName"])} \n'
+      yosys_script_1st += f'abc -liberty {path.join(self.config_dir, self.config_json["liberty_file"])} -script +strash;scorr;ifraig;retime,' + "{D};strash;dch,-f;map,-M,1,{D} \n"
       yosys_script = yosys_script_1st + yosys_script_2nd
+      
+      if (flatten):
+         yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for flatten option"])
+         # split_page won't start from new line so we add it add new line 
+         yosys_script_1st += '\n'
+         yosys_script_1st += f'flatten'
+         yosys_script = yosys_script_1st + yosys_script_2nd
       
       if ((self.technology_parameter.high_cell != []) and (self.technology_parameter.low_cell != [])):
          yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for constant mapping"])
@@ -298,7 +371,7 @@ class utdate_beckend:
       yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for abc after splitnets"])
       # split_page won't start from new line so we add it add new line 
       yosys_script_1st += '\n'
-      yosys_script_1st += f'abc -liberty {path.join(self.config_dir, self.config_json["mycells_yosys_lib_fileName"])} \n'
+      yosys_script_1st += f'abc -liberty {path.join(self.config_dir, self.config_json["liberty_file"])} -script +strash;scorr;ifraig;retime,' + "{D};strash;dch,-f;map,-M,1,{D} \n"
       yosys_script = yosys_script_1st + yosys_script_2nd
 
       yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for premap_synthesis file"])
@@ -309,30 +382,30 @@ class utdate_beckend:
       yosys_script_1st += f'write_json {path.join(self.synthesis_dir, self.config_json["yosys_script_premap_json_outputName"])} \n'
       yosys_script = yosys_script_1st + yosys_script_2nd
 
-      if ((self.config_json["Logic_map_fileName"] != "") or (self.config_json["DFF_map_fileName"] != "")):
-         yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder techmap"])
-         # split_page won't start from new line so we add it add new line 
-         yosys_script_1st += '\n'
-         if (self.config_json["DFF_map_fileName"] != ""):
-            yosys_script_1st += f'techmap -map {path.join(self.config_dir, self.config_json["DFF_map_fileName"])} \n'
-            yosys_script_1st += f'abc -liberty {path.join(self.config_dir, self.config_json["mycells_yosys_lib_fileName"])} \n'
-            yosys_script_1st += "opt; clean -purge\n"
+      # if ((self.config_json["Logic_map_fileName"] != "") or (self.config_json["DFF_map_fileName"] != "")):
+      #    yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder techmap"])
+      #    # split_page won't start from new line so we add it add new line 
+      #    yosys_script_1st += '\n'
+      #    if (self.config_json["DFF_map_fileName"] != ""):
+      #       yosys_script_1st += f'techmap -map {path.join(self.config_dir, self.config_json["DFF_map_fileName"])} \n'
+      #       yosys_script_1st += f'abc -liberty {path.join(self.config_dir, self.config_json["mycells_yosys_lib_fileName"])} \n'
+      #       yosys_script_1st += "opt; clean -purge\n"
          
-         if (self.config_json["Logic_map_fileName"] != ""):
-            yosys_script_1st += f'techmap -map {path.join(self.config_dir, self.config_json["Logic_map_fileName"])} \n'
-         yosys_script = yosys_script_1st + yosys_script_2nd
+      #    if (self.config_json["Logic_map_fileName"] != ""):
+      #       yosys_script_1st += f'techmap -map {path.join(self.config_dir, self.config_json["Logic_map_fileName"])} \n'
+      #    yosys_script = yosys_script_1st + yosys_script_2nd
 
-         yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for postmap_synthesis file"])
-         # split_page won't start from new line so we add it add new line 
-         yosys_script_1st += '\n'
-         yosys_script_1st += f'write_verilog -noattr {path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_v_outputName"])} \n'
-         # write json output for future use
-         yosys_script_1st += f'write_json {path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_json_outputName"])} \n'
-         yosys_script = yosys_script_1st + yosys_script_2nd
+      #    yosys_script_1st, yosys_script_2nd = split_page(yosys_script, ["# placeholder for postmap_synthesis file"])
+      #    # split_page won't start from new line so we add it add new line 
+      #    yosys_script_1st += '\n'
+      #    yosys_script_1st += f'write_verilog -noattr {path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_v_outputName"])} \n'
+      #    # write json output for future use
+      #    yosys_script_1st += f'write_json {path.join(self.synthesis_dir, self.config_json["yosys_script_postmap_json_outputName"])} \n'
+         # yosys_script = yosys_script_1st + yosys_script_2nd
 
       return yosys_script
 
-   #########################################vesal added start ###########################################
+   ######################################### vesal added start ###########################################
    def scan_yosys_script(self, lib_dir, techver, scan_dir, file_dir, filename, rename_flag, flatten_flag):
 
       script =""
@@ -382,8 +455,6 @@ class utdate_beckend:
 
       script = script + "stat\n"
 
-      #print(script)
-
       return script
 
    def Scan_script(self, file_dir, file_name, rename_flag, flatten_flag):
@@ -422,34 +493,41 @@ class utdate_beckend:
       self.Scan_script(file_dir, file_name, 1,1)
       #scan_json_file = self.scan_dir + file_name[:file_name.find(".v")]+"_synth_premap.json"
       scan_json_file = path.join(self.scan_dir, (file_name[:file_name.find(".v")]+"_synth_premap.json"))
-      self.DRC = DRC(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")])
+      self.DRC = DRC(scan_json_file, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")])
       drc_log = self.DRC.Design_Rule_Check(self.config_json['NbarT_signal'], self.config_json['Global_reset_signal']) ### yadet bashe vorudi ha bayad az config khunde beshe
       if self.DRC.Success :
          drc_log.append("Type = Report  \n--------------------------------- \n")
          drc_log.append("Type = Report  \n  DESIGN RULE CHECK SUCCESSFUL\n")
          drc_log.append("Type = Report  \n--------------------------------- \n")
+         
+         # set DRC phase flage True
+         self.DRC_passed = True
 
       new_dir =  path.join(self.scan_dir, ("test_ready.v"))
-      print(new_dir)
 
       self.Scan_script([new_dir], "test_ready.v", 0,1)
-
       return drc_log , self.DRC.Success
 
    def get_scan_info(self, file_name):
       scan_json_file = path.join(self.scan_dir, ( file_name[:file_name.find(".v")] +"_synth_premap.json"))
-      self.scansynth = ScanSynth(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")], self.DRC.PI_clock)
+      self.scansynth = ScanSynth(scan_json_file, self.technology_parameter, self.scan_dir, file_name[:file_name.find(".v")], self.DRC.PI_clock)
       return self.scansynth.scan_info
 
-   def scan_synth(self, si, so, chain_size):
-     
+   def scan_synth(self, serial_input_name, serial_output_name, chain_size):
+      # set global variable for serial input/output name
+      self.serial_input_name = serial_input_name
+      self.serial_output_name = serial_output_name
+
       scan_json_file = path.join(self.scan_dir, ("test_ready_synth_premap.json"))
-      self.scansynth = ScanSynth(scan_json_file, self.config_json, self.technology_parameter, self.scan_dir, "test_ready", self.DRC.PI_clock)
-      self.scansynth.full_scan(self.config_json['NbarT_signal'], self.config_json['Global_reset_signal'],si,so,chain_size)
+      self.scansynth = ScanSynth(scan_json_file, self.technology_parameter, self.scan_dir, "test_ready", self.DRC.PI_clock)
+      self.scansynth.full_scan(self.config_json['NbarT_signal'], self.config_json['Global_reset_signal'],serial_input_name,serial_output_name,chain_size)
       if self.scansynth.Success : 
          self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
          self.scansynth.log.append("Type = Report  \n  SCAN INSERTION SUCCESSFUL\n")
          self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
+         # set Scan phase flage True
+         self.ScanInsertion_passed = True
+
       else : 
          self.scansynth.log.append("Type = Report  \n--------------------------------- \n")
          self.scansynth.log.append("Type = Report  \n  SCAN INSERTION FAILED\n")
@@ -460,7 +538,7 @@ class utdate_beckend:
       
       
 
-      #__init__(self, json_file, config_json, technology_parameters, scan_dir, filename) -> None:
+      #__init__(self, json_file, technology_parameters, scan_dir, filename) -> None:
 
 
       #self.config_json, self.technology_parameter

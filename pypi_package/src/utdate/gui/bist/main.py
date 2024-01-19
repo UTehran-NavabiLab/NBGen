@@ -8,11 +8,11 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def Scan(backend):
-    Scan(backend)
+def Bist(backend):
+    Bist(backend)
 
 
-class Scan(Frame):
+class Bist(Frame):
     def __init__(self, parent, backend, controller=None, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
@@ -73,181 +73,109 @@ class Scan(Frame):
             11.0,
             22.0,
             anchor="nw",
-            text="Scan Synth.",
+            text="BIST",
             fill="#FFFFFF",
             font=("Inter", 21 * -1)
         )
-        # Buttons: design rule check --------------------
-        self.design_rule_check_img = PhotoImage(
-            file=relative_to_assets("design_rule_check.png"))
-        # TODO:
-        #   add success of fail
-        # self.design_rule_check_success_img = PhotoImage(
-        #     file=relative_to_assets("design_rule_check_success.png"))
-        # self.design_rule_check_fail_img = PhotoImage(
-        #     file=relative_to_assets("design_rule_check_fail.png"))
-        self.design_rule_check_btn = Button(
+        # Buttons: insert_bist --------------------
+        self.insert_bist_img = PhotoImage(
+            file=relative_to_assets("insert_bist.png"))
+        self.insert_bist_btn = Button(
             self,
-            image=self.design_rule_check_img,
+            image=self.insert_bist_img,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.check_design_rules(),
+            command=lambda: self.insert_bist(),
             relief="flat"
         )
-        self.design_rule_check_btn.place(
-            x=16,
-            y=515.0,
-            width=240.0,
+        self.insert_bist_btn.place(
+            x=105.0,
+            y=487.0,
+            width=340.0,
             height=37.0
         )
-
-        # Buttons: scan synthesis --------------------
-        self.scan_synthesis_img = PhotoImage(
-            file=relative_to_assets("scan_synthesis.png"))
-        # TODO:
-        #   add success and fail if possible
-        # self.test_img = PhotoImage(
-        #     file=relative_to_assets("test.png"))
-        # self.test_success_img = PhotoImage(
-        #     file=relative_to_assets("test_success.png"))
-        # self.test_fail_img = PhotoImage(
-        #     file=relative_to_assets("test_fail.png"))
-        self.scan_synthesis_btn = Button(
-            self,
-            image=self.scan_synthesis_img,
-            borderwidth=0,
-            highlightthickness=0,
-            command=lambda: self.synthesize_scan(),
-            relief="flat"
-        )
-        self.scan_synthesis_btn.place(
-            x=278.0,
-            y=515.0,
-            width=240.0,
-            height=37.0
-        )
-        # TODO:
-        #   should it be disable at first??
-        # self.scan_synthesis_btn.config(state="disabled")
-
-        # Buttons: single chain check-box --------------------
-        self.checkbox_yellow_img = PhotoImage(
-            file=relative_to_assets("checkbox_yellow.png"))
-        self.checkbox_green_img = PhotoImage(
-            file=relative_to_assets("checkbox_green.png"))
-
-        self.single_scan_var = BooleanVar(value=False)
-        self.single_scan_btn = Checkbutton(
-            self, 
-            command=lambda: self.single_scan_select(),
-            variable=self.single_scan_var,
-            onvalue=True,
-            offvalue=False)
-
-        # self.single_scan_btn = Button(
-        #     self,
-        #     image=self.checkbox_yellow_img,
-        #     borderwidth=0,
-        #     highlightthickness=0,
-        #     command=lambda: self.single_scan_select(),
-        #     relief="flat"
-        # )
-        self.single_scan_btn.place(
-            x=275.0,
-            y=155.0,
-            width=20.0,
-            height=20.0
-        )
-
+        #-----------
+        # Entry PRGP properties --------------------
         canvas.create_text(
-            306.0,
-            152.0,
+            13.0,
+            134.0,
             anchor="nw",
-            text="Single Chain Full Scan",
+            text="PRPG",
             fill="#000000",
             font=("Inter", 20 * -1)
         )
-
-        # Buttons: multiple scan checkbox --------------------
-        self.multiple_scan_var = BooleanVar(value=False)
-        self.multiple_scan_btn = Checkbutton(
-            self, 
-            # text='Multiple Chain Full Scan', 
-            command=lambda: self.multiple_scan_select(),
-            variable=self.multiple_scan_var,
-            onvalue=True,
-            offvalue=False)
-
-        # self.multiple_scan_btn = Button(
-        #     self,
-        #     image=self.checkbox_yellow_img,
-        #     borderwidth=0,
-        #     highlightthickness=0,
-        #     command=lambda: self.multiple_scan_select(),
-        #     relief="flat"
-        # )
-        self.multiple_scan_btn.place(
-            x=275.0,
-            y=308.0,
-            width=20.0,
-            height=20.0
+        # ---- PRPG: SEED
+        canvas.create_text(
+            13.0,
+            179.0,
+            anchor="nw",
+            text="Seed",
+            fill="#000000",
+            font=("Inter", 16 * -1)
         )
+
+        self.prpg_seed_entry = Entry(
+            self,
+            bd=0,
+            bg="#D9D9D9",
+            highlightthickness=0,
+            border=1,
+            font=('Helvetica 12'),
+            foreground="black"
+            )
+        self.prpg_seed_entry.place(
+                x=112.0,
+                y=169.0,
+                width=140.0,
+                height=40.0
+            )
+
+        # ---- PRPG: POLY
+        canvas.create_text(
+            13.0,
+            236.0,
+            anchor="nw",
+            text="Polynomial",
+            fill="#000000",
+            font=("Inter", 16 * -1)
+        )
+
+        self.prpg_poly_entry = Entry(
+            self,
+            bd=0,
+            bg="#D9D9D9",
+            highlightthickness=0,
+            border=1,
+            font=('Helvetica 12'),
+            foreground="black"
+            )
+        self.prpg_poly_entry.place(
+                x=112.0,
+                y=226.0,
+                width=140.0,
+                height=40.0
+            )
         
+        # Entry MISR properties --------------------
         canvas.create_text(
-            306.0,
-            306.0,
+            290.0,
+            134.0,
             anchor="nw",
-            text="Multiple Chain Full Scan",
+            text="MISR",
             fill="#000000",
             font=("Inter", 20 * -1)
         )
-
-        # Text box to show results --------------------
-        self.rule_check_result = Text(
-            self,
-            bd=0,
-            bg="#D9D9D9",
-            font=("Courier", 10),
-            highlightthickness=0,
-            width=39,
-            height=34
+        # ---- MISR: SEED
+        canvas.create_text(
+            290.0,
+            179.0,
+            anchor="nw",
+            text="Seed",
+            fill="#000000",
+            font=("Inter", 16 * -1)
         )
-        self.rule_check_result.place(
-                x=16.0,
-                y=154.0
-            )
-        self.rule_check_result.config(state="disabled")
 
-        # entry_image_1 = PhotoImage(
-        #     file=relative_to_assets("entry_1.png"))
-        # entry_bg_1 = canvas.create_image(
-        #     136.0,
-        #     325.5,
-        #     image=entry_image_1
-        # )
-        # entry_1 = Text(
-        #     bd=0,
-        #     bg="#EBEBEB",
-        #     fg="#EBEBEB",
-        #     highlightthickness=0
-        # )
-        # entry_1.place(
-        #     x=16.0,
-        #     y=154.0,
-        #     width=240.0,
-        #     height=341.0
-        # )
-        # Shape: centered gray rectangle ------------------
-        # canvas.create_rectangle(
-        #     16.0,
-        #     154.0,
-        #     (16.0 + 240),
-        #     (154.0 + 343),
-        #     fill="#EBEBEB",
-        #     outline="")
-
-        # Entry Si port name --------------------
-        self.si_port_name_single_entry = Entry(
+        self.misr_seed_entry = Entry(
             self,
             bd=0,
             bg="#D9D9D9",
@@ -256,29 +184,24 @@ class Scan(Frame):
             font=('Helvetica 12'),
             foreground="black"
             )
-        self.si_port_name_single_entry.place(
-                x=398.0,
-                y=182.0,
-                width=120.0,
+        self.misr_seed_entry.place(
+                x=389.0,
+                y=169.0,
+                width=140.0,
                 height=40.0
             )
-        # Add text in Entry box for placeholder
-        self.si_port_name_single_entry.insert(0, 'Enter Si Port Name')
-        # Use bind method for deleting placeholder on click and rewrite it on leaving (if it's empty)
-        self.si_port_name_single_entry.bind("<Button-1>", self.click_si_port_single_ent)
-        self.si_port_name_single_entry.bind("<Leave>", self.leave_si_port_single_ent)
-        self.si_port_name_single_entry.config(state="disabled")
+
+        # ---- MISR: POLY
         canvas.create_text(
-            278.0,
-            192.0,
+            290.0,
+            236.0,
             anchor="nw",
-            text="Si port name:",
+            text="Polynomial",
             fill="#000000",
             font=("Inter", 16 * -1)
         )
 
-        # Entry So port name --------------------
-        self.so_port_name_single_entry = Entry(
+        self.misr_poly_entry = Entry(
             self,
             bd=0,
             bg="#D9D9D9",
@@ -287,29 +210,33 @@ class Scan(Frame):
             font=('Helvetica 12'),
             foreground="black"
             )
-        self.so_port_name_single_entry.place(
-                x=398.0,
-                y=239.0,
-                width=120.0,
+        self.misr_poly_entry.place(
+                x=389.0,
+                y=226.0,
+                width=140.0,
                 height=40.0
             )
-        # Add text in Entry box for placeholder
-        self.so_port_name_single_entry.insert(0, 'Enter So Port Name')
-        # Use bind method for deleting placeholder on click and rewrite it on leaving (if it's empty)
-        self.so_port_name_single_entry.bind("<Button-1>", self.click_so_port_single_ent)
-        self.so_port_name_single_entry.bind("<Leave>", self.leave_so_port_single_ent)
-        self.so_port_name_single_entry.config(state="disabled")
+        
+        # Entry SRSG properties --------------------
         canvas.create_text(
-            278.0,
-            249.0,
+            13.0,
+            293.0,
             anchor="nw",
-            text="So port name:",
+            text="SRSG",
+            fill="#000000",
+            font=("Inter", 20 * -1)
+        )
+        # ---- SRSG: SEED
+        canvas.create_text(
+            13.0,
+            338.0,
+            anchor="nw",
+            text="Seed",
             fill="#000000",
             font=("Inter", 16 * -1)
         )
 
-        # Entry number of chains --------------------
-        self.chain_number_entry = Entry(
+        self.srsg_seed_entry = Entry(
             self,
             bd=0,
             bg="#D9D9D9",
@@ -318,29 +245,24 @@ class Scan(Frame):
             font=('Helvetica 12'),
             foreground="black"
             )
-        self.chain_number_entry.place(
-                x=398.0,
-                y=344.0,
-                width=120.0,
+        self.srsg_seed_entry.place(
+                x=112.0,
+                y=328.0,
+                width=140.0,
                 height=40.0
             )
-        # Add text in Entry box for placeholder
-        self.chain_number_entry.insert(0, 'Enter no. of chain')
-        # Use bind method for deleting placeholder on click and rewrite it on leaving (if it's empty)
-        self.chain_number_entry.bind("<Button-1>", self.click_chain_num_ent)
-        self.chain_number_entry.bind("<Leave>", self.leave_chain_num_ent)
-        self.chain_number_entry.config(state="disabled")
+
+        # ---- SRSG: POLY
         canvas.create_text(
-            278.0,
-            354.0,
+            13.0,
+            395.0,
             anchor="nw",
-            text="No. of Chains:",
+            text="Polynomial",
             fill="#000000",
             font=("Inter", 16 * -1)
         )
 
-        # Entry Si port name for multiple scan --------------------
-        self.si_port_name_multi_entry = Entry(
+        self.srsg_poly_entry = Entry(
             self,
             bd=0,
             bg="#D9D9D9",
@@ -349,29 +271,33 @@ class Scan(Frame):
             font=('Helvetica 12'),
             foreground="black"
             )
-        self.si_port_name_multi_entry.place(
-                x=398.0,
-                y=400.0,
-                width=120.0,
+        self.srsg_poly_entry.place(
+                x=112.0,
+                y=385.0,
+                width=140.0,
                 height=40.0
             )
-        # Add text in Entry box for placeholder
-        self.si_port_name_multi_entry.insert(0, 'Enter Si Port Name')
-        # Use bind method for deleting placeholder on click and rewrite it on leaving (if it's empty)
-        self.si_port_name_multi_entry.bind("<Button-1>", self.click_si_port_multi_ent)
-        self.si_port_name_multi_entry.bind("<Leave>", self.leave_si_port_multi_ent)
-        self.si_port_name_multi_entry.config(state="disabled")
+        
+        # Entry SISA properties --------------------
         canvas.create_text(
-            278.0,
-            410.0,
+            290.0,
+            293.0,
             anchor="nw",
-            text="Si port name:",
+            text="SISA",
+            fill="#000000",
+            font=("Inter", 20 * -1)
+        )
+        # ---- SISA: SEED
+        canvas.create_text(
+            290.0,
+            338.0,
+            anchor="nw",
+            text="Seed",
             fill="#000000",
             font=("Inter", 16 * -1)
         )
 
-        # Entry Si port name for multiple scan --------------------
-        self.so_port_name_multi_entry = Entry(
+        self.sisa_seed_entry = Entry(
             self,
             bd=0,
             bg="#D9D9D9",
@@ -380,108 +306,62 @@ class Scan(Frame):
             font=('Helvetica 12'),
             foreground="black"
             )
-        self.so_port_name_multi_entry.place(
-                x=398.0,
-                y=457.0,
-                width=120.0,
+        self.sisa_seed_entry.place(
+                x=389.0,
+                y=328.0,
+                width=140.0,
                 height=40.0
             )
-        # Add text in Entry box for placeholder
-        self.so_port_name_multi_entry.insert(0, 'Enter So Port Name')
-        # Use bind method for deleting placeholder on click and rewrite it on leaving (if it's empty)
-        self.so_port_name_multi_entry.bind("<Button-1>", self.click_so_port_multi_ent)
-        self.so_port_name_multi_entry.bind("<Leave>", self.leave_so_port_multi_ent)
-        self.so_port_name_multi_entry.config(state="disabled")
+
+        # ---- SISA: POLY
         canvas.create_text(
-            278.0,
-            467.0,
+            290.0,
+            395.0,
             anchor="nw",
-            text="So port name:",
+            text="Polynomial",
             fill="#000000",
             font=("Inter", 16 * -1)
         )
 
-        # window.resizable(False, False)
-        # window.mainloop()
+        self.sisa_poly_entry = Entry(
+            self,
+            bd=0,
+            bg="#D9D9D9",
+            highlightthickness=0,
+            border=1,
+            font=('Helvetica 12'),
+            foreground="black"
+            )
+        self.sisa_poly_entry.place(
+                x=389.0,
+                y=385.0,
+                width=140.0,
+                height=40.0
+            )
 
 
         # Function Definition --------------------
-    def check_design_rules(self):
-        pass
-        # self.testbench_name = self.testbench_name_entry.get()
-        # self.instance_name = self.instance_name_entry.get()
-
-        # self.backend.faultCollapsing(self.testbench_name,  self.instance_name)
-
-    def single_scan_select(self):
-        if (self.single_scan_var.get()):
-            if (self.multiple_scan_var.get()):
-                self.multiple_scan_btn.invoke()
-            self.si_port_name_single_entry.config(state="normal")
-            self.so_port_name_single_entry.config(state="normal")
-        else:
-            self.si_port_name_single_entry.config(state="disabled")
-            self.so_port_name_single_entry.config(state="disabled")
-
-    def multiple_scan_select(self):
-        if (self.multiple_scan_var.get()):
-            if (self.single_scan_var.get()):
-                self.single_scan_btn.invoke()
-            self.chain_number_entry.config(state="normal")
-            self.si_port_name_multi_entry.config(state="normal")
-            self.so_port_name_multi_entry.config(state="normal")
-        else:
-            self.chain_number_entry.config(state="disabled")
-            self.si_port_name_multi_entry.config(state="disabled")
-            self.so_port_name_multi_entry.config(state="disabled")
+    def insert_bist(self):
+        input_bist_configuration = dict()
         
-    def synthesize_scan(self):
-        pass
-        # self.backend.test_set_gen()
-        # self.testset_btn.config(image=self.test_success_img)
-        # self.openlog_testset_btn.config(image=self.openlog_img)
-
-
-    # call function when we click on entry box
-    def click_si_port_single_ent(*args):
-        if (args[0].si_port_name_single_entry.get() == "Enter Si Port Name"):
-            args[0].si_port_name_single_entry.delete(0, 'end')
-    def click_si_port_multi_ent(*args):
-        if (args[0].si_port_name_multi_entry.get() == "Enter Si Port Name"):
-            args[0].si_port_name_multi_entry.delete(0, 'end')
-    def click_so_port_single_ent(*args):
-        if (args[0].so_port_name_single_entry.get() == "Enter So Port Name"):
-            args[0].so_port_name_single_entry.delete(0, 'end')
-    def click_so_port_multi_ent(*args):
-        if (args[0].so_port_name_multi_entry.get() == "Enter So Port Name"):
-            args[0].so_port_name_multi_entry.delete(0, 'end')
-    def click_chain_num_ent(*args):
-        if (args[0].chain_number_entry.get() == "Enter no. of chain"):
-            args[0].chain_number_entry.delete(0, 'end')
-    
-    # call function when we leave entry box
-    def leave_si_port_single_ent(*args):
-        if (args[0].si_port_name_single_entry.get() == ""):
-            args[0].si_port_name_single_entry.delete(0, 'end')
-            args[0].si_port_name_single_entry.insert(0, 'Enter Si Port Name')
-        args[0].focus()
-    def leave_si_port_multi_ent(*args):
-        if (args[0].si_port_name_multi_entry.get() == ""):
-            args[0].si_port_name_multi_entry.delete(0, 'end')
-            args[0].si_port_name_multi_entry.insert(0, 'Enter Si Port Name')
-        args[0].focus()
-    def leave_so_port_single_ent(*args):
-        if (args[0].so_port_name_single_entry.get() == ""):
-            args[0].so_port_name_single_entry.delete(0, 'end')
-            args[0].so_port_name_single_entry.insert(0, 'Enter So Port Name')
-        args[0].focus()
-    def leave_so_port_multi_ent(*args):
-        if (args[0].so_port_name_multi_entry.get() == ""):
-            args[0].so_port_name_multi_entry.delete(0, 'end')
-            args[0].so_port_name_multi_entry.insert(0, 'Enter So Port Name')
-        args[0].focus()
-    def leave_chain_num_ent(*args):
-        if (args[0].chain_number_entry.get() == ""):
-            args[0].chain_number_entry.delete(0, 'end')
-            args[0].chain_number_entry.insert(0, 'Enter no. of chain')
-        args[0].focus()
+        #   TODO:
+        #   Check each parameter not be empty, otherwise raise exception
+        # if ((self.prpg_seed_entry.get() != "") and (self.prpg_poly_entry.get() != "") 
+            # and (self.misr_seed_entry.get() != "") and (self.misr_poly_entry.get() != "")
+            # and (self.srsg_seed_entry.get() != "") and (self.srsg_poly_entry.get() != "")
+            # and (self.sisa_seed_entry.get() != "") and (self.sisa_poly_entry.get() != "")):
+            # create bist configuration
+        input_bist_configuration.update({"bist_type": "RTS"})
+        input_bist_configuration.update({"prpg_seed": self.prpg_seed_entry.get()})
+        input_bist_configuration.update({"prpg_poly": self.prpg_poly_entry.get()})
+        input_bist_configuration.update({"misr_seed": self.misr_seed_entry.get()})
+        input_bist_configuration.update({"misr_poly": self.misr_poly_entry.get()})
+        input_bist_configuration.update({"srsg_seed": self.srsg_seed_entry.get()})
+        input_bist_configuration.update({"srsg_poly": self.srsg_poly_entry.get()})
+        input_bist_configuration.update({"sisa_seed": self.sisa_seed_entry.get()})
+        input_bist_configuration.update({"sisa_poly": self.sisa_poly_entry.get()})
+        
+        self.backend.insert_bist(input_bist_configuration)
+        # else:
+        #     print("Error: At least one the parameters are empty")
+            

@@ -1,0 +1,123 @@
+$date
+     Jul 16, 2023       10:23:22
+$end
+
+$version
+ SystemC 2.3.3-Accellera --- May 19 2023 14:44:00
+$end
+
+$timescale
+     1 ns
+$end
+
+$scope module SystemC $end
+$var wire    1  aaaaa  subsel       $end
+$var wire    1  aaaab  pass       $end
+$var wire    1  aaaac  result(0)       $end
+$var wire    1  aaaad  result(1)       $end
+$var wire    1  aaaae  result(2)       $end
+$var wire    1  aaaaf  result(3)       $end
+$var wire    1  aaaag  result(4)       $end
+$var wire    1  aaaah  result(5)       $end
+$var wire    1  aaaai  result(6)       $end
+$var wire    1  aaaaj  result(7)       $end
+$var wire    1  aaaak  result(8)       $end
+$var wire    1  aaaal  result(9)       $end
+$var wire    1  aaaam  result(10)       $end
+$var wire    1  aaaan  result(11)       $end
+$var wire    1  aaaao  result(12)       $end
+$var wire    1  aaaap  result(13)       $end
+$var wire    1  aaaaq  result(14)       $end
+$var wire    1  aaaar  result(15)       $end
+$var wire    1  aaaas  result(16)       $end
+$var wire    1  aaaat  result(17)       $end
+$var wire    1  aaaau  result(18)       $end
+$var wire    1  aaaav  result(19)       $end
+$var wire    1  aaaaw  result(20)       $end
+$var wire    1  aaaax  result(21)       $end
+$var wire    1  aaaay  result(22)       $end
+$var wire    1  aaaaz  result(23)       $end
+$var wire    1  aaaba  result(24)       $end
+$var wire    1  aaabb  result(25)       $end
+$var wire    1  aaabc  result(26)       $end
+$var wire    1  aaabd  result(27)       $end
+$var wire    1  aaabe  result(28)       $end
+$var wire    1  aaabf  result(29)       $end
+$var wire    1  aaabg  result(30)       $end
+$var wire    1  aaabh  result(31)       $end
+$var wire    1  aaabi  a(0)       $end
+$var wire    1  aaabj  b(1)       $end
+$upscope $end
+$enddefinitions  $end
+
+$comment
+All initial values are dumped below at time 0 sec = 0 timescale units.
+$end
+
+$dumpvars
+0aaaaa
+0aaaab
+0aaaac
+0aaaad
+0aaaae
+0aaaaf
+0aaaag
+0aaaah
+0aaaai
+0aaaaj
+0aaaak
+0aaaal
+0aaaam
+0aaaan
+0aaaao
+0aaaap
+0aaaaq
+0aaaar
+0aaaas
+0aaaat
+0aaaau
+0aaaav
+0aaaaw
+0aaaax
+0aaaay
+0aaaaz
+0aaaba
+0aaabb
+0aaabc
+0aaabd
+0aaabe
+0aaabf
+0aaabg
+0aaabh
+0aaabi
+0aaabj
+$end
+
+#20
+1aaaad
+1aaaaf
+1aaaah
+1aaabj
+
+#40
+0aaaad
+1aaaae
+0aaaaf
+1aaaag
+
+#60
+1aaaaa
+0aaaae
+1aaaaf
+0aaaag
+0aaaah
+
+#80
+1aaaad
+0aaaaf
+1aaaag
+
+#100
+1aaaab
+0aaaag
+

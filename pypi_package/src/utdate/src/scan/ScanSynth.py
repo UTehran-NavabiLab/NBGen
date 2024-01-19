@@ -3,8 +3,8 @@ from utdate.src.technology_reader import Technology_file
 from os import path
 
 class ScanSynth(json2hdl, Technology_file):
-    def __init__(self, json_file, config_json, technology_parameters, scan_dir, filename, PI_clock) -> None:
-        json2hdl.__init__(self, json_file, config_json, technology_parameters)
+    def __init__(self, json_file, technology_parameters, scan_dir, filename, PI_clock) -> None:
+        json2hdl.__init__(self, json_file, technology_parameters)
         self.DIR = scan_dir
         self.filename = filename
         self.log = list()

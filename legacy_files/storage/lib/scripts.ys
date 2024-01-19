@@ -1,0 +1,50 @@
+# High-level synthesis
+hierarchy -check -auto-top
+synth; opt -full
+
+# Map register flops
+# placeholder for dfflibmap
+# dfflibmap -liberty mycells.lib
+
+opt
+
+# Map combinatorial cells, standard script
+# placeholder for abc
+# abc -liberty mycells.lib 
+
+flatten
+opt
+
+splitnets
+techmap 
+# placeholder for abc after splitnets
+# abc -liberty mycells.lib 
+opt
+clean -purge
+opt_clean
+
+# technology mapping of constant hi- and/or lo- drivers
+# placeholder for constant mapping
+# hilomap -hicell TIEHIM Y -locell TIELOM Y
+# technology mapping of i/o pads (or buffers)
+# placeholder for i/o pads mapping
+# iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
+
+
+# placeholder for premap_synthesis file
+# write_verilog -noattr synth_premap.v
+# write_blif synth_premap.blif
+# write_json synth_premap.v
+
+# placeholder techmap
+# techmap -map DFF_map.v
+# techmap -map Logic_map.v
+
+opt
+clean -purge
+opt_clean
+stat
+
+# placeholder for postmap_synthesis file
+# write_verilog -noattr synth_postmap.v
+# write_json -noattr synth_postmap.v
