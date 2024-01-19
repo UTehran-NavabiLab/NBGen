@@ -1,0 +1,37 @@
+
+#Bench file of module Counter_4bit
+INPUT (clk)
+INPUT (rst)
+INPUT (en)
+
+OUTPUT (co)
+OUTPUT (counter_0)
+OUTPUT (counter_1)
+OUTPUT (counter_2)
+OUTPUT (counter_3)
+
+Counter_4bit_wire_8 = DFF(Counter_4bit_wire_13)
+
+Counter_4bit_wire_9 = DFF(Counter_4bit_wire_7)
+
+Counter_4bit_wire_6 = DFF(Counter_4bit_wire_4)
+
+Counter_4bit_wire_3 = DFF(Counter_4bit_wire_1)
+
+Counter_4bit_wire_1 = XOR(Counter_4bit_wire_2, Counter_4bit_wire_3)
+Counter_4bit_wire_4 = XOR(Counter_4bit_wire_5, Counter_4bit_wire_6)
+Counter_4bit_wire_7 = XOR(Counter_4bit_wire_8, Counter_4bit_wire_9)
+Counter_4bit_wire_10 = BUF(clk)
+co = BUF(Counter_4bit_wire_14)
+Counter_4bit_wire_14 = AND(Counter_4bit_wire_8, Counter_4bit_wire_9, Counter_4bit_wire_6, Counter_4bit_wire_3)
+counter_3 = BUF(Counter_4bit_wire_8)
+counter_2 = BUF(Counter_4bit_wire_9)
+counter_1 = BUF(Counter_4bit_wire_6)
+counter_0 = BUF(Counter_4bit_wire_3)
+Counter_4bit_wire_5 = AND(Counter_4bit_wire_8, Counter_4bit_wire_9)
+Counter_4bit_wire_13 = NOT(Counter_4bit_wire_8)
+Counter_4bit_wire_2 = AND(Counter_4bit_wire_6, Counter_4bit_wire_5)
+Counter_4bit_wire_11 = BUF(en)
+Counter_4bit_wire_12 = BUF(rst)
+
+END

@@ -43,6 +43,7 @@ class json2hdl:
         self.ports_list = list(self.top_module["ports"])
         self.net_dict = self.net_declartion()
         self.is_sequential = self.is_sequential_check()
+        self.number_of_dffs = self.find_number_of_dffs()
         if self.is_sequential:
             clk_list, rst_list = find_clk_rst_netNumber(self.top_module["cells"], self.technology_parameter)
             self.clk_name, self.rst_name = find_clk_rst_name(self.top_module["ports"], clk_list, rst_list)
@@ -153,3 +154,12 @@ class json2hdl:
                         return key
         else:
             return net_number 
+    
+    def find_number_of_dffs(self):
+        num_of_dff = 0
+
+        for cell in self.top_module["cells"].values():
+            if cell["type"] in self.technology_parameter.list_of_dff:
+                num_of_dff += 1
+        
+        return num_of_dff
