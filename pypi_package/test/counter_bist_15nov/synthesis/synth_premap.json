@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)",
+  "creator": "Yosys 0.36 (git sha1 8f07a0d8404, clang 15.0.0 -fPIC -Os)",
   "modules": {
     "AND2_X1": {
       "attributes": {
@@ -7472,121 +7472,121 @@
         }
       },
       "netnames": {
-        "$abc$197$auto$rtlil.cc:2607:MuxGate$179": {
+        "$abc$197$auto$rtlil.cc:2669:MuxGate$179": {
           "hide_name": 1,
           "bits": [ 25 ],
           "attributes": {
           }
         },
-        "$abc$197$auto$rtlil.cc:2607:MuxGate$183": {
+        "$abc$197$auto$rtlil.cc:2669:MuxGate$183": {
           "hide_name": 1,
           "bits": [ 30 ],
           "attributes": {
           }
         },
-        "$abc$197$auto$rtlil.cc:2607:MuxGate$187": {
+        "$abc$197$auto$rtlil.cc:2669:MuxGate$187": {
           "hide_name": 1,
           "bits": [ 33 ],
           "attributes": {
           }
         },
-        "$abc$197$auto$rtlil.cc:2607:MuxGate$191": {
+        "$abc$197$auto$rtlil.cc:2669:MuxGate$191": {
           "hide_name": 1,
           "bits": [ 39 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n14_": {
+        "$abc$197$new_n14": {
           "hide_name": 1,
           "bits": [ 12 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n16_": {
+        "$abc$197$new_n16": {
           "hide_name": 1,
           "bits": [ 18 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n17_": {
+        "$abc$197$new_n17": {
           "hide_name": 1,
           "bits": [ 21 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n18_": {
+        "$abc$197$new_n18": {
           "hide_name": 1,
           "bits": [ 23 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n19_": {
+        "$abc$197$new_n19": {
           "hide_name": 1,
           "bits": [ 24 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n21_": {
+        "$abc$197$new_n21": {
           "hide_name": 1,
           "bits": [ 26 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n22_": {
+        "$abc$197$new_n22": {
           "hide_name": 1,
           "bits": [ 27 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n23_": {
+        "$abc$197$new_n23": {
           "hide_name": 1,
           "bits": [ 28 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n24_": {
+        "$abc$197$new_n24": {
           "hide_name": 1,
           "bits": [ 29 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n26_": {
+        "$abc$197$new_n26": {
           "hide_name": 1,
           "bits": [ 31 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n27_": {
+        "$abc$197$new_n27": {
           "hide_name": 1,
           "bits": [ 32 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n29_": {
+        "$abc$197$new_n29": {
           "hide_name": 1,
           "bits": [ 34 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n30_": {
+        "$abc$197$new_n30": {
           "hide_name": 1,
           "bits": [ 35 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n31_": {
+        "$abc$197$new_n31": {
           "hide_name": 1,
           "bits": [ 36 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n32_": {
+        "$abc$197$new_n32": {
           "hide_name": 1,
           "bits": [ 37 ],
           "attributes": {
           }
         },
-        "$abc$197$new_n33_": {
+        "$abc$197$new_n33": {
           "hide_name": 1,
           "bits": [ 38 ],
           "attributes": {
@@ -7596,7 +7596,7 @@
           "hide_name": 1,
           "bits": [ 15 ],
           "attributes": {
-            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/counter.v:12.22-12.34|/usr/local/Cellar/yosys/0.30/share/yosys/techmap.v:270.23-270.24"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/counter.v:12.22-12.34|/usr/local/Cellar/yosys/0.36/share/yosys/techmap.v:270.23-270.24"
           }
         },
         "$auto$dfflibmap.cc:381:dfflibmap$192": {

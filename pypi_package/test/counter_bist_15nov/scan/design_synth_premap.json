@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)",
+  "creator": "Yosys 0.36 (git sha1 8f07a0d8404, clang 15.0.0 -fPIC -Os)",
   "modules": {
     "AND2X1": {
       "attributes": {
@@ -8500,7 +8500,7 @@
           "bits": [ 12, 7, 8, 9 ],
           "attributes": {
             "force_downto": "00000000000000000000000000000001",
-            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/counter.v:12.22-12.34|/usr/local/Cellar/yosys/0.30/share/yosys/techmap.v:270.23-270.24"
+            "src": "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/counter.v:12.22-12.34|/usr/local/Cellar/yosys/0.36/share/yosys/techmap.v:270.23-270.24"
           }
         },
         "_21_": {

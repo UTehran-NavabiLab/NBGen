@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: ut-date
-Version: 1.6.0
+Version: 1.6.1
 Summary: Design And Test Environment
 Home-page: https://github.com/UTehran-NavabiLab/NBGen
 Author: Navabi Lab Group
@@ -18,7 +18,7 @@ Requires-Dist: liberty-parser
 
 **utdate** is a tool provided by Navabi Lab Group (University of Tehran) to facilitate design and test flow of digital circuits.
 
-In fact, *utdate* is a toolchain to generate some of files required for testing a design. It takes takes a high-level description of the circuit under test (CUT) in an HDL format, i.e., Verilog or VHDL, and in addition to synthesizing, it automatically generates the files needed for testing and executes simulations. Some stages might dependent on others, meaning that one phase might use outputs of the other. Hence, it is recommended to run all steps in specified order one after the other. However, it is possible to individually execute each stage. After running the toolchain, two main categories of files will be generated, synthesis and test-related files. The synthesis directory contains pre- and post-mapped synthesis outputs. The former is netlists of the default library of Yosys and the latter is netlists mapped to our custom library. The test directory gathers all files needed for test purposes including the “.bench” format of the CUT, fault list, and test set.
+In fact, *utdate* is a toolchain to generate some files required for testing a design. It takes a high-level description of the circuit under test (CUT) in an HDL format, i.e., Verilog or VHDL. In addition to synthesizing, it automatically generates the files needed for testing and executes simulations. Some stages might be dependent on others, meaning that one phase might use the outputs of the other. Hence, it is recommended to run all steps in the specified order one after the other. However, it is possible to execute each stage individually. After running the toolchain, two main categories of files will be generated, synthesis and test-related files. The synthesis directory contains pre- and post-mapped synthesis outputs. The former is netlists of the default library of Yosys and the latter is netlists mapped to our custom library. The test directory gathers all files needed for test purposes including the “.bench” format of the CUT, fault list, and test set.
 
 ## How to install
 
@@ -60,7 +60,7 @@ As was already mentioned, **utdate** can be easily installed using `pip`:
  
 -  Next, download the package from PyPi:
     ```
-    pip install -i https://test.pypi.org/simple/ 
+    pip install ut-date
     ```
 
 ## How to Run

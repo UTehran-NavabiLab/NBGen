@@ -1,5 +1,5 @@
 {
-  "creator": "Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)",
+  "creator": "Yosys 0.36 (git sha1 8f07a0d8404, clang 15.0.0 -fPIC -Os)",
   "modules": {
     "AND2X1": {
       "attributes": {
