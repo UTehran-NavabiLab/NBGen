@@ -1,0 +1,47 @@
+----------------- Creating local package using setuptool 
+    https://stackoverflow.com/questions/6323860/sibling-package-imports
+
+----------------- Creating online Pypi package 
+https://www.youtube.com/watch?v=v4bkJef4W94
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+Uploading the distribution archives
+To securely upload your project, you’ll need a PyPI API token. 
+Create one at https://test.pypi.org/manage/account/#api-tokens, setting the “Scope” to “Entire account”. 
+
+[testpypi]
+    username = __token__
+    password: pypi-AgENdGVzdC5weXBpLm9yZwIkNWM0MWE2NjYtNjFiYy00YzdkLTkxZTAtY2QzYjY5YmVkODEzAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiBalV4e0AW3J68SKZpne_6k-gz9MfwzNKVgIuxLhAmj-A
+
+[pypi]
+    username = __token__
+    password = 
+    pypi-AgEIcHlwaS5vcmcCJDg2ZjRkODMxLWU5YjUtNGMzOC04OTFlLTA4OWFhYThkOTAzMgACD1sxLFsidXQtZGF0ZSJdXQACLFsyLFsiN2NhMTA5ZTctMTZjNC00MThlLWJjNDYtYzJiNjVmOTZmODc2Il1dAAAGIHk1NVARkjbLElcjWzHCAlkr0uG9Vj_rikXFrbtf6NH8
+
+to add assets(images) to package use 
+    > include_package_data = True
+    inside setup.cfg
+
+----------------- process of updating package on Pypi 
+*[read manual above to refresh]
+** for backend tool, always use latest version of setuptool in file [pyproject.toml]
+
+create dist folder:
+    > python3 -m build
+upload using twine:
+    > Testrepo:    python3 -m twine upload --repository testpypi dist/*
+    > Actual repo: python3 -m twine upload dist/*
+enter user and password:
+    username = __token__
+    password: pypi-AgEIcHlwaS5vcmcCJGZjNTBiNmRlLWZkYWQtNGJkZi05NTBjLTljNGNjODQ4MmJhMgACD1sxLFsidXQtZGF0ZSJdXQACLFsyLFsiN2NhMTA5ZTctMTZjNC00MThlLWJjNDYtYzJiNjVmOTZmODc2Il1dAAAGIK8jut7MOsy8UFCboZCzuNhvfQyUIr18d9NfonVvqYUb
+
+to install:
+    > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 install -i https://test.pypi.org/simple/ utdate==0.0.10
+to uninstall:
+    > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 uninstall utdate
+to list all packages in site-package:
+    > /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3 list
+
+to Run module:
+    > python3 -m udate
+    doing that, (__main__.py) gets called and starts program

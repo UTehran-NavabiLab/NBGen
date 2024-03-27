@@ -112,7 +112,7 @@ class utdate_beckend:
    #     vhdl: determine the design to be vhdl
    #     use_existing_script: if set to false bypasses script making process
    #        user must provide valid yosys script at valid location (under lib_dir)
-   def netlist(self, input_file_name, module_name, vhdl=False, use_existing_script=False):
+   def netlist(self, input_file_name, module_name, vhdl=False, use_existing_script=True):
       yosys_script_dir = path.join(self.config_dir, "yosys_script.ys")
 
       # if yosys_script 

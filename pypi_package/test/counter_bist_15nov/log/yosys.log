@@ -19,7 +19,7 @@
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)
+ Yosys 0.36 (git sha1 8f07a0d8404, clang 15.0.0 -fPIC -Os)
 
 
 -- Executing script file `/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/tech/yosys_script.ys' --
@@ -358,8 +358,8 @@ Optimizing module counter.
 
 3.20. Executing TECHMAP pass (map to technology primitives).
 
-3.20.1. Executing Verilog-2005 frontend: /usr/local/Cellar/yosys/0.30/share/yosys/techmap.v
-Parsing Verilog input from `/usr/local/Cellar/yosys/0.30/share/yosys/techmap.v' to AST representation.
+3.20.1. Executing Verilog-2005 frontend: /usr/local/Cellar/yosys/0.36/share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/Cellar/yosys/0.36/share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -709,7 +709,7 @@ ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
 ABC: + read_lib -w /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/tech/NangateOpenCellLibrary_typical.lib 
-ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Parsing finished successfully.  Parsing time =     0.09 sec
 ABC: Scl_LibertyReadGenlib() skipped cell "ANTENNA_X1" due to dont_use attribute.
 ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X1" without logic function.
 ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X2" without logic function.
@@ -754,8 +754,8 @@ ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X8".
 ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X16".
 ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV_X1".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "TLAT_X1".
-ABC: Library "NangateOpenCellLibrary" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/tech/NangateOpenCellLibrary_typical.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 9 dont_use).  Time =     0.10 sec
-ABC: Memory =   11.38 MB. Time =     0.10 sec
+ABC: Library "NangateOpenCellLibrary" from "/Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/counter_bist_15nov/tech/NangateOpenCellLibrary_typical.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 9 dont_use).  Time =     0.12 sec
+ABC: Memory =   11.38 MB. Time =     0.12 sec
 ABC: Warning: Detected 2 multi-output gates (for example, "FA_X1").
 ABC: + strash 
 ABC: + scorr 
@@ -845,8 +845,8 @@ Optimizing module counter.
 
 11. Executing TECHMAP pass (map to technology primitives).
 
-11.1. Executing Verilog-2005 frontend: /usr/local/Cellar/yosys/0.30/share/yosys/techmap.v
-Parsing Verilog input from `/usr/local/Cellar/yosys/0.30/share/yosys/techmap.v' to AST representation.
+11.1. Executing Verilog-2005 frontend: /usr/local/Cellar/yosys/0.36/share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/Cellar/yosys/0.36/share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -1035,6 +1035,6 @@ Finding unused cells or wires in module \counter..
      OAI21_X1                        3
 
 Warnings: 8 unique messages, 72 total
-End of script. Logfile hash: 5c0bce424b, CPU: user 0.36s system 0.05s
-Yosys 0.30 (git sha1 f7a8284c7b0, clang 14.0.3 -fPIC -Os)
-Time spent: 42% 3x abc (0 sec), 18% 2x read_liberty (0 sec), ...
+End of script. Logfile hash: 8bb985dec4, CPU: user 0.53s system 0.08s
+Yosys 0.36 (git sha1 8f07a0d8404, clang 15.0.0 -fPIC -Os)
+Time spent: 39% 3x abc (0 sec), 20% 2x read_liberty (0 sec), ...
