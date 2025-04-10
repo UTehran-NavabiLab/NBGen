@@ -112,7 +112,7 @@ class utdate_beckend:
    #     vhdl: determine the design to be vhdl
    #     use_existing_script: if set to false bypasses script making process
    #        user must provide valid yosys script at valid location (under lib_dir)
-   def netlist(self, input_file_name, module_name, vhdl=False, use_existing_script=True):
+   def netlist(self, input_file_name, module_name, vhdl=True, use_existing_script=True):
       yosys_script_dir = path.join(self.config_dir, "yosys_script.ys")
 
       # if yosys_script 
@@ -127,11 +127,11 @@ class utdate_beckend:
          yosys_exec_dir = path.join(path.join(path.join(self.bin_dir, "win"), "bin"), "yosys")
 
       ###### TODO: change this
-      # check whether the "tech" directory exist in working directory
+      # check wether the "tech" directory exist in working directory
+      #  if it does, check for file yosys_script
+      #     check user input whether to use tech file or not
       if (path.isdir(path.join(self.working_dir, "tech"))):
-         #  if it does, check for file yosys_script
          if path.isfile(yosys_script_dir):
-         #     if it also exists, check user input whether to use tech file or not
             if not (use_existing_script):
                with open(yosys_script_dir,'w',encoding = 'utf-8') as f:
                   f.write(self.yosys_synthesis_script_mk(input_file=input_file_name, module_name=module_name, vhdl=vhdl))
@@ -216,9 +216,10 @@ class utdate_beckend:
       # j2sc_tb_pwr = json2sc_testbench_pwr(json_input, self.technology_parameter, self.config_json, "testbench", "cut")
       # with open(path.join(self.synthesis_dir, "power_testbench.h"), "w") as f:
       #    f.write(j2sc_tb_pwr.generate_systemc())
-      # j2sc_tb_atpg = json2sc_testbench_atpg(json_input, self.technology_parameter, self.config_json, "testbench", "cut")
-      # with open(path.join(self.synthesis_dir, "atpg_testbench.h"), "w") as f:
-      #    f.write(j2sc_tb_atpg.generate_systemc()) 
+      j2sc_tb_atpg = json2sc_testbench_atpg(json_input, self.technology_parameter, self.config_json, self.synthesis_dir, "testbench", "cut")
+      with open(path.join(self.synthesis_dir, "atpg_testbench.h"), "w") as f:
+         # print(j2sc_tb_atpg.module_declaration())
+         f.write(j2sc_tb_atpg.module_declaration()) 
       # j2sc_tb_flt_uvm = json2sc_testbench_flt_uvm(json_input, self.technology_parameter, self.config_json, "testbench", "dut")
       # with open(path.join(self.synthesis_dir, "testbench_flt.h"), "w") as f:
       #    f.write(j2sc_tb_flt_uvm.generate_systemc())

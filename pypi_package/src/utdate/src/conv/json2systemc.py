@@ -18,9 +18,13 @@ class json2systemc():
         self.synthesis_dir = synthesis_dir
         self.technology_parameter = technology_parameters
         self.config_js = config_json
+        self.top_module = None
+        self.sc_top_module = None
+        self.top_module_name = ""
         self.gate_signal_dict = dict()
         self.gate_signal_file = gate_signal_file
         self.generate_systemc()
+
         # self.is_sequential = self.is_sequential_check()
 
             
@@ -49,6 +53,21 @@ class json2systemc():
 
         return include_lib
 
+    # @def: 
+    #   size_Of_Ports; helper function to find size of input/output ports
+    def size_Of_Ports(self):
+        sizePI = 0
+        sizePO = 0
+
+        for port in self.top_module["ports"].values():
+            if port["direction"] == "input":
+                # considering ports can be multi-bit, add length of bits
+                sizePI = sizePI + len(port["bits"])
+            if port["direction"] == "output":
+                sizePO = sizePO + len(port["bits"])
+
+        return sizePI, sizePO
+    
 
     # @def: concatinate pieces and output final systemc module
     def generate_systemc(self):
@@ -67,6 +86,9 @@ class json2systemc():
             # TODO: is it necessary to something different for top module
             if ("top" in module_prop["attributes"].keys()): 
                 if (module_prop["attributes"]["top"].find("1") > -1):
+                    self.top_module = module_prop
+                    self.top_module_name = module_name
+                    self.sc_top_module = sc_module
                     with open(path.join(self.synthesis_dir, f'{module_name_stript}.h'), "w") as f:
                         f.write(systemc)
                 else:
@@ -256,7 +278,7 @@ class sc_module_gen():
     def signal_declartion(self):
         """
         @def: declare signals
-            input: net integer value
+            input: 
             output: net name
         """
 

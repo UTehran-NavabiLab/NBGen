@@ -21,6 +21,9 @@ class json2sc_testbench_atpg(json2sc_testbench):
         include_lib += '#include "systemC_netlist.h"' + "\n"
         include_lib += '#include "idd_testing.h"' + "\n"
         include_lib += '#include "utilities.h"' + "\n"
+        include_lib += "\n"
+        include_lib += "\n"
+        include_lib += 'using namespace sc_core;' + "\n"
 
         return include_lib
 
@@ -63,14 +66,14 @@ class json2sc_testbench_atpg(json2sc_testbench):
         instatnce_name = self.instance_name
         
         # pointer to faulty module under test
-        instance_pointer = WHITE_SPACE + self.module_name + "* " + instatnce_name + ";\n"
+        instance_pointer = WHITE_SPACE + self.top_module_name + "* " + instatnce_name + ";\n"
         instance_pointer += WHITE_SPACE + f'itest idd_test = itest("gate_signal_json_file.json", "gate_properties.json");' + "\n"
 
-        instance_pointer += WHITE_SPACE + f'std::array<sc_core::sc_signal<sc_dt::sc_logic>*, {len(self.net_dict)}> signal_arr;' + '\n'
+        instance_pointer += WHITE_SPACE + f'std::array<sc_core::sc_signal<sc_dt::sc_logic>*, {len(self.sc_top_module.net_dict)}> signal_arr;' + '\n'
 
         input_buffer = ""
 
-        cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.module_name}("{instatnce_name}");\n'
+        cell_instantiation += WHITE_SPACE + WHITE_SPACE + f'{instatnce_name} = new {self.top_module_name}("{instatnce_name}");\n'
 
         # port mapping 
         # loop through each connection, get corresponding net-name            
@@ -108,8 +111,8 @@ class json2sc_testbench_atpg(json2sc_testbench):
                         access_signals_function += WHITE_SPACE + WHITE_SPACE + f'idd_test.add_to_port_list("{port_name}");' + '\n'
                     i += 1
 
-        for net in self.net_dict:
-            if not (net in self.ports_list):
+        for net in self.sc_top_module.net_dict:
+            if not (net in self.sc_top_module.ports_list):
                 access_signals_function += WHITE_SPACE + WHITE_SPACE + f'signal_arr[{i}] = &({self.instance_name}->{net});' + '\n'
                 i += 1
 
@@ -126,7 +129,7 @@ class json2sc_testbench_atpg(json2sc_testbench):
         SC_THREAD_definition += WHITE_SPACE + WHITE_SPACE + WHITE_SPACE + f'dont_initialize();\n'
 
         run_idd_testing += WHITE_SPACE + f'void run_idd_testing(void)' + '{\n'
-        run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.update_signal<sc_dt::sc_logic, {len(self.net_dict)}>(signal_arr);' + '\n'
+        run_idd_testing += WHITE_SPACE + WHITE_SPACE + f'idd_test.update_signal<sc_dt::sc_logic, {len(self.sc_top_module.net_dict)}>(signal_arr);' + '\n'
         
         for port_name, port_prop in self.top_module["ports"].items():
             if port_prop["direction"] == "output":
@@ -211,6 +214,8 @@ class json2sc_testbench_atpg(json2sc_testbench):
         # cell instantiation must get called only one time
         cell_pointer_instantiation, cell_in_constructor_declaration = self.cells_declaration()
 
+        entity_declaration += self.includes + "\n"
+        entity_declaration += "\n"
         entity_declaration += f'SC_MODULE( {self.testbench_name} ) ' + '{\n'
         entity_declaration += "\n"
         entity_declaration += self.signal_declartion()
