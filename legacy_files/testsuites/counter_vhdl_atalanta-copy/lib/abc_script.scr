@@ -1,0 +1,3 @@
+read /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/counter_vhdl_atalanta-copy/lib/mycells_abc.lib 
+read -m /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/counter_vhdl_atalanta-copy/test/synth_dffport_rm.v 
+write_bench /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/counter_vhdl_atalanta-copy/test/abc_bench.bench 

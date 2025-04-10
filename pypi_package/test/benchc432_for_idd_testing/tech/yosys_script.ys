@@ -1,0 +1,72 @@
+# placeholder for reading liberty file 
+read_liberty -lib -ignore_miss_dir -setattr blackbox /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/tech/NangateOpenCellLibrary_typical.lib 
+
+read_verilog /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/c432rtl.v
+
+
+# High-level synthesis
+hierarchy -check -auto-top
+synth; opt -full
+
+
+
+# Map register flops
+# placeholder for dfflibmap
+dfflibmap -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/tech/NangateOpenCellLibrary_typical.lib 
+
+# dfflibmap -liberty mycells.lib
+
+opt
+
+# Map combinatorial cells, standard script
+# placeholder for abc
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/tech/NangateOpenCellLibrary_typical.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D} 
+
+# abc -liberty mycells.lib 
+
+# placeholder for flatten option
+opt
+flatten
+setundef -zero
+
+# abc -liberty mycells.lib 
+opt
+clean -purge
+opt_clean
+
+# technology mapping of constant hi- and/or lo- drivers
+# placeholder for constant mapping
+# hilomap -hicell TIEHIM Y -locell TIELOM Y
+# technology mapping of i/o pads (or buffers)
+hilomap -hicell LOGIC1_X1 Z
+hilomap -locell LOGIC0_X1 Z
+# placeholder for i/o pads mapping
+# iopadmap -inpad BUF_X1 Z:A -bits 
+iopadmap -outpad BUF_X1 A:Z -bits 
+
+# iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
+
+rename -enumerate
+
+# placeholder for premap_synthesis file
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/synthesis/synth_premap.v 
+write_blif /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/synthesis/synth_premap.json 
+write_spice /Users/ebinouri/Documents/UNi/NBGen/pypi_package/test/benchc432_for_idd_testing/synthesis/synth_premap.sp
+
+# write_verilog -noattr synth_premap.v
+# write_blif synth_premap.blif
+# write_json synth_premap.v
+
+# placeholder techmap
+# techmap -map DFF_map.v
+# techmap -map Logic_map.v
+
+opt
+clean -purge
+opt_clean
+stat
+
+# placeholder for postmap_synthesis file
+# write_verilog -noattr synth_postmap.v
+# write_json -noattr synth_postmap.v

@@ -1,0 +1,83 @@
+read_verilog SAYAC_adder.v
+read_verilog SAYAC_adder_subtractor.v
+read_verilog SAYAC_counter.v
+read_verilog SAYAC_MUX2to1.v
+read_verilog SAYAC_REG.v
+read_verilog SAYAC_shift_register.v
+read_verilog SAYAC_shiftReg_17b.v
+read_verilog SAYAC_MDU.v
+read_verilog SAYAC_MUX3to1.v
+read_verilog SAYAC_MUX8to1.v
+read_verilog SAYAC_ASU.v
+read_verilog SAYAC_CMP.v
+read_verilog SAYAC_IMM.v
+read_verilog SAYAC_LLU.v
+read_verilog SAYAC_SHU.v
+read_verilog SAYAC_TRF.v
+read_verilog SAYAC_datapath.v
+read_verilog SAYAC_controller.v
+read_verilog SAYAC.v
+
+hierarchy -check -auto-top
+synth; opt -full
+flatten
+
+# placeholder for dfflibmap
+dfflibmap -liberty /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/lib/mycells_yosys.lib 
+
+# dfflibmap -liberty mycells.lib
+
+opt
+
+# placeholder for abc
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/lib/mycells_yosys.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D} 
+
+# abc -liberty mycells.lib 
+
+opt
+
+splitnets
+techmap 
+# placeholder for abc after splitnets
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/lib/mycells_yosys.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D} 
+
+opt
+clean -purge
+opt_clean
+
+opt
+hilomap -hicell TIEHIM Y -locell TIELOM Y
+iopadmap -bits -inpad IBUF O:I -outpad OBUF I:O
+splitnets
+opt
+clean -purge
+
+# placeholder for premap_synthesis file
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/synthesis/synth_premap.v 
+write_blif /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/synthesis/synth_premap.blif 
+write_json /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/synthesis/synth_premap.json 
+
+# write_verilog -noattr synth_premap.v
+# write_blif synth_premap.blif
+# write_json synth_premap.v
+
+# placeholder techmap
+techmap -map /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/lib/DFF_map.v 
+abc -liberty /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/lib/mycells_yosys.lib 
+opt; clean -purge
+techmap -map /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/lib/Logic_map.v 
+
+# techmap -map DFF_map.v
+# techmap -map Logic_map.v
+
+opt
+clean -purge
+opt_clean
+stat
+
+# placeholder for postmap_synthesis file
+write_verilog -noattr /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/synthesis/synth_postmap.v 
+write_json /Users/ebinouri/Documents/UNi/NBGen/legacy_files/testsuites/Omid-sayac-bench/synthesis/synth_postmap.json 
+
+# write_verilog -noattr synth_postmap.v
+# write_json -noattr synth_postmap.v

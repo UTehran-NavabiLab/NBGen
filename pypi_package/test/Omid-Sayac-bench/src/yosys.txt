@@ -1,0 +1,63 @@
+
+read_verilog SAYAC_adder.v
+read_verilog SAYAC_adder_subtractor.v
+
+
+read_verilog SAYAC_adder.v
+read_verilog SAYAC_adder_subtractor.v
+read_verilog SAYAC_counter.v
+read_verilog SAYAC_MUX2to1.v
+read_verilog SAYAC_REG.v
+read_verilog SAYAC_shift_register.v
+read_verilog SAYAC_shiftReg_17b.v
+read_verilog SAYAC_MDU.v
+
+
+read_verilog SAYAC_adder.v
+read_verilog SAYAC_adder_subtractor.v
+read_verilog SAYAC_counter.v
+read_verilog SAYAC_MUX2to1.v
+read_verilog SAYAC_REG.v
+read_verilog SAYAC_shift_register.v
+read_verilog SAYAC_shiftReg_17b.v
+read_verilog SAYAC_MDU.v
+read_verilog SAYAC_MUX3to1.v
+read_verilog SAYAC_MUX8to1.v
+read_verilog SAYAC_ASU.v
+read_verilog SAYAC_CMP.v
+read_verilog SAYAC_IMM.v
+read_verilog SAYAC_LLU.v
+read_verilog SAYAC_SHU.v
+read_verilog SAYAC_TRF.v
+read_verilog SAYAC_datapath.v
+
+
+read_verilog SAYAC_adder.v
+read_verilog SAYAC_adder_subtractor.v
+read_verilog SAYAC_counter.v
+read_verilog SAYAC_MUX2to1.v
+read_verilog SAYAC_REG.v
+read_verilog SAYAC_shift_register.v
+read_verilog SAYAC_shiftReg_17b.v
+read_verilog SAYAC_MDU.v
+read_verilog SAYAC_MUX3to1.v
+read_verilog SAYAC_MUX8to1.v
+read_verilog SAYAC_ASU.v
+read_verilog SAYAC_CMP.v
+read_verilog SAYAC_IMM.v
+read_verilog SAYAC_LLU.v
+read_verilog SAYAC_SHU.v
+read_verilog SAYAC_TRF.v
+read_verilog SAYAC_datapath.v
+read_verilog SAYAC_controller.v
+read_verilog SAYAC.v
+
+synth -auto-top
+dfflibmap -liberty mycells.lib
+abc -liberty mycells.lib
+write_verilog -noattr SAYAC_synth.v
+
+write_blif -gates SAYAC_synth.blif
+
+read_blif SAYAC_synth.blif
+
